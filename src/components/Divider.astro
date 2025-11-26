@@ -12,8 +12,8 @@ const { withLink = false, linkText, linkHref, first = false } = Astro.props;
 <section class={`section divider ${first ? 'divider--first' : ''}`}>
   <div class="section-gutter"></div>
   <div class="section-wrapper divider-wrapper">
-    {!first && <div class="section-dot section-dot--left section-dot--top"></div>}
-    {!first && <div class="section-dot section-dot--right section-dot--top"></div>}
+    <div class="section-dot section-dot--left section-dot--top"></div>
+    <div class="section-dot section-dot--right section-dot--top"></div>
     <div class="section-dot section-dot--left"></div>
     <div class="section-dot section-dot--right"></div>
     <div class="divider-content">
@@ -43,17 +43,18 @@ const { withLink = false, linkText, linkHref, first = false } = Astro.props;
     padding: 0;
     border-top: 1px solid var(--section-wrapper--border);
     border-bottom: 1px solid var(--section-wrapper--border);
-    border-left: 1px solid var(--section-gutter--border);
-    border-right: 1px solid var(--section-gutter--border);
+    border-left: 1px dashed var(--section-gutter--border);
+    border-right: 1px dashed var(--section-gutter--border);
   }
 
-  /* First divider variant - only bottom borders */
-  .divider--first .section-gutter {
-    border-top: none;
-  }
-
+  /* First divider variant - no top border on wrapper to avoid conflict with navbar */
   .divider--first .divider-wrapper {
     border-top: none;
+  }
+
+  /* Adjust top dots for first divider to align with gutter border instead of wrapper border */
+  .divider--first .section-dot--top {
+    top: -5px;
   }
 
   .divider-content {
@@ -78,7 +79,6 @@ const { withLink = false, linkText, linkHref, first = false } = Astro.props;
 
   .divider-link:hover {
     cursor: pointer;
-    transition: background-color 200ms ease-in-out;
     background-color: var(--divider-link-bg-hover);
   }
 
@@ -103,7 +103,7 @@ const { withLink = false, linkText, linkHref, first = false } = Astro.props;
   .divider-link-text {
     color: var(--body-text--emphasis);
     opacity: 0.9;
-    font-family: "Fira Code", monospace;
+    font-family: "JetBrains Mono", monospace;
     font-size: 14px;
     font-weight: 400;
     line-height: 30px;

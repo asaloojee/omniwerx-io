@@ -1,3 +1,52 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/Switzer_Complete/Fonts/WEB/fonts/Switzer-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('/Switzer_Complete/Fonts/WEB/fonts/Switzer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Switzer';
+  src: url('/Switzer_Complete/Fonts/WEB/fonts/Switzer-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/JetBrainsMono_Complete/Fonts/WEB/fonts/JetBrainsMono-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/JetBrainsMono_Complete/Fonts/WEB/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/JetBrainsMono_Complete/Fonts/WEB/fonts/JetBrainsMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -7,13 +56,14 @@
   --body-text: #dbd5d6;
   --body-text--emphasis: #fef7f8;
   --primary-black: #0b0a0a;
-  --secondary-black: #100f0f;
+  --secondary-black: #151414;
   --grey-button: #e1cfcf;
   --card-background: #1f1e1e;
-  --input-background: rgba(52, 50, 50, 0.8);
-  --input-background-focus: rgba(62, 60, 60, 0.9);
-  --section-border: #7d7879;
   --card-border: #5e5a5a;
+  --input-background: #2a2828;
+  --input-background--focus: #343232;
+  --input-border: #686464;
+  --section-border: #7d7879;
   --navbar-border: #312b2b;
 
   /* Grid system variables */
@@ -28,7 +78,12 @@ body {
   width: 100%;
   height: 100%;
   background-color: var(--primary-black);
-  font-family: 'Fira Sans', sans-serif;
+  background-image:
+    linear-gradient(rgba(125, 120, 121, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 120, 121, 0.1) 1px, transparent 1px);
+  background-size: 16px 16px;
+  background-position: center top;
+  font-family: 'Switzer', sans-serif;
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
@@ -121,16 +176,14 @@ main {
   z-index: 2000;
   transition: all 0.3s ease;
   margin: 0 auto;
-  backdrop-filter: blur(4px);
 }
 
 .navbar .section-wrapper {
-  background-color: var(--secondary-black);
-  border-bottom: 1px solid var(--section-wrapper--border);
-}
-
-.navbar .section-gutter {
-  border-bottom: 1px dashed var(--section-gutter--border);
+  background-color: rgba(21, 20, 20, 0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px dashed var(--section-wrapper--border);
+  border-left: 1px dashed var(--section-wrapper--border);
+  border-right: 1px dashed var(--section-wrapper--border);
 }
 
 .nav-wrapper {
@@ -169,16 +222,23 @@ main {
 }
 
 .nav-link.nav-link--contact {
-  background-color: var(--body-text--emphasis);
-  color: var(--primary-black);
+  background-color: var(--primary-red);
+  color: var(--body-text--emphasis);
   padding: 4px 12px;
   border-radius: 8px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
+  box-shadow:
+    0 0 16px rgba(204, 0, 24, 0.5),
+    0 0 20px rgba(204, 0, 24, 0.3);
 }
 
 .nav-link:hover {
   color: var(--primary-red);
+}
+
+.nav-link.nav-link--contact:hover {
+  color: var(--body-text--emphasis);
 }
 
 .nav-mobile-toggle {
@@ -186,7 +246,7 @@ main {
 }
 
 .hero .section-wrapper {
-  padding: 192px 32px 192px 32px;
+  padding: 160px 32px 192px 32px;
 }
 
 .hero__content-wrapper {
@@ -220,7 +280,7 @@ main {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .hero__content__feature__text {
@@ -261,7 +321,7 @@ main {
   text-transform: uppercase;
   border-bottom: 1px solid var(--body-text--emphasis);
   padding-bottom: 4px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   margin-top: 5px;
 }
 
@@ -275,7 +335,7 @@ main {
   text-transform: uppercase;
   padding: 12px 24px;
   border-radius: 8px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   position: relative;
   overflow: hidden;
   box-shadow:
@@ -299,17 +359,30 @@ main {
 
 .badge {
   font-size: 14px;
+  line-height: 1.2;
   font-weight: 500;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   color: var(--secondary-red);
   text-transform: uppercase;
   background: rgba(224, 31, 55, 0.2);
-  padding: 2px 12px;
+  padding: 2px 12px 2px 8px;
   border-radius: 16px;
   border: 1px solid var(--secondary-red);
   width: fit-content;
   margin-bottom: 12px;
   letter-spacing: 0.01em;
+  position: relative;
+  display: inline-flex;
+  gap: 6px;
+}
+
+.badge::before {
+  content: '+';
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--secondary-red);
+  opacity: 0.8;
+  line-height: 1;
 }
 
 .h2 {
@@ -372,7 +445,6 @@ main {
   gap: 16px;
   background-color: var(--card-background);
   padding: 24px;
-  border-radius: 4px;
   position: relative;
   border: 1px solid var(--card-border);
 }
@@ -386,8 +458,45 @@ main {
   height: 100%;
   background-color: #0b0a0a;
   border: 1px solid #494646;
-  border-radius: 4px;
   z-index: -1;
+}
+
+.services__content__card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(to right, var(--section-wrapper--border) 16px, transparent 16px),
+    linear-gradient(to bottom, var(--section-wrapper--border) 16px, transparent 16px),
+    linear-gradient(to right, var(--section-wrapper--border) 16px, transparent 16px),
+    linear-gradient(to bottom, var(--section-wrapper--border) 16px, transparent 16px),
+    linear-gradient(to left, var(--section-wrapper--border) 16px, transparent 16px),
+    linear-gradient(to top, var(--section-wrapper--border) 16px, transparent 16px),
+    linear-gradient(to left, var(--section-wrapper--border) 16px, transparent 16px),
+    linear-gradient(to top, var(--section-wrapper--border) 16px, transparent 16px);
+  background-size:
+    1px 16px,
+    16px 1px,
+    1px 16px,
+    16px 1px,
+    1px 16px,
+    16px 1px,
+    1px 16px,
+    16px 1px;
+  background-position:
+    0 0,
+    0 0,
+    0 100%,
+    0 100%,
+    100% 0,
+    100% 0,
+    100% 100%,
+    100% 100%;
+  background-repeat: no-repeat;
 }
 
 .services__content__card__header {
@@ -404,7 +513,7 @@ main {
 
 .services__content__card__header__text {
   font-size: 20px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 400;
   letter-spacing: 0.01em;
   color: var(--body-text--emphasis);
@@ -462,10 +571,10 @@ main {
 .contact__content__cta textarea {
   background-color: var(--input-background);
   border: 1px solid var(--card-border);
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 8px;
   color: var(--body-text);
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.02em;
@@ -481,7 +590,7 @@ main {
 .contact__content__cta input:focus,
 .contact__content__cta textarea:focus {
   outline: none;
-  background-color: var(--input-background-focus);
+  background-color: var(--input-background--focus);
   transition: background-color 0.2s ease;
 }
 
@@ -489,7 +598,7 @@ main {
   resize: none;
   height: 128px;
   grid-column: span 2;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
 }
 
 .contact__content__cta button {
@@ -505,7 +614,7 @@ main {
   border: none;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   grid-column: span 2;
   margin-top: 16px;
   box-shadow:
@@ -523,7 +632,7 @@ main {
   margin-top: 16px;
   padding: 12px;
   border-radius: 8px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
   text-align: center;
   display: none;
@@ -569,7 +678,7 @@ main {
   text-decoration: none;
   border-bottom: 1px solid var(--body-text--emphasis);
   padding-bottom: 1px;
-  font-family: 'Fira Code', monospace;
+  font-family: 'JetBrains Mono', monospace;
   transition:
     color 0.2s ease,
     border-bottom 0.2s ease;
