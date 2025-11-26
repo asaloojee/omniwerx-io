@@ -2,11 +2,10 @@
   box-sizing: border-box;
 }
 :root {
-  --primary-red: #cc0018;
-  --secondary-red: #e1001c;
+  --primary-red: #d70923;
+  --secondary-red: #c8041c;
   --body-text: #dbd5d6;
   --body-text--emphasis: #fef7f8;
-  --body-text--emphasis--red: #e01f37;
   --primary-black: #0b0a0a;
   --secondary-black: #100f0f;
   --grey-button: #e1cfcf;
@@ -16,7 +15,6 @@
   --section-border: #7d7879;
   --card-border: #5e5a5a;
   --navbar-border: #312b2b;
-  --navbar-background: rgba(12, 9, 9, 0.95);
 
   /* Grid system variables */
   --section-wrapper--border: #535050;
@@ -107,12 +105,12 @@ main {
 }
 
 .h1 {
-  font-size: 96px;
+  font-size: 72px;
   line-height: 1;
   font-weight: 500;
   font-style: normal;
   color: var(--body-text--emphasis);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.01em;
 }
 
 .navbar {
@@ -123,7 +121,7 @@ main {
   z-index: 2000;
   transition: all 0.3s ease;
   margin: 0 auto;
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(4px);
 }
 
 .navbar .section-wrapper {
@@ -180,7 +178,7 @@ main {
 }
 
 .nav-link:hover {
-  color: var(--body-text--emphasis--red);
+  color: var(--primary-red);
 }
 
 .nav-mobile-toggle {
@@ -188,7 +186,7 @@ main {
 }
 
 .hero .section-wrapper {
-  padding: 256px 32px 192px 32px;
+  padding: 192px 32px 192px 32px;
 }
 
 .hero__content-wrapper {
@@ -236,7 +234,7 @@ main {
 .hero__content__feature i {
   font-size: 20px;
   margin-top: 1px;
-  color: var(--body-text--emphasis--red);
+  color: var(--secondary-red);
 }
 
 .hero__content__body-text {
@@ -303,24 +301,24 @@ main {
   font-size: 14px;
   font-weight: 500;
   font-family: 'Fira Code', monospace;
-  color: var(--body-text--emphasis--red);
+  color: var(--secondary-red);
   text-transform: uppercase;
   background: rgba(224, 31, 55, 0.2);
   padding: 2px 12px;
   border-radius: 16px;
-  border: 1px solid var(--body-text--emphasis--red);
+  border: 1px solid var(--secondary-red);
   width: fit-content;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   letter-spacing: 0.01em;
 }
 
 .h2 {
-  font-size: 64px;
-  line-height: 1.2;
+  font-size: 48px;
+  line-height: 1;
   font-weight: 500;
   font-style: normal;
   color: var(--body-text--emphasis);
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
   margin: 0;
 }
 
@@ -328,7 +326,7 @@ main {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  margin-top: 32px;
+  margin-top: 40px;
   padding-right: 64px;
   padding-left: 16px;
 }
@@ -342,6 +340,10 @@ main {
 .about__image-wrapper img {
   max-width: 350px;
   height: auto;
+}
+
+#about .about__content-wrapper img {
+  border: 1px solid var(--card-border);
 }
 
 .services__content-wrapper {
@@ -367,9 +369,9 @@ main {
 .services__content__card {
   display: flex;
   flex-direction: column;
-  gap: 12x;
+  gap: 16px;
   background-color: var(--card-background);
-  padding: 16px;
+  padding: 24px;
   border-radius: 4px;
   position: relative;
   border: 1px solid var(--card-border);
@@ -396,7 +398,8 @@ main {
 
 .services__content__card__header__icon {
   font-size: 24px;
-  color: var(--body-text--emphasis--red);
+  color: var(--secondary-red);
+  line-height: 1;
 }
 
 .services__content__card__header__text {
@@ -407,6 +410,7 @@ main {
   color: var(--body-text--emphasis);
   text-transform: uppercase;
   margin-top: 4px;
+  line-height: 1;
 }
 
 .services__content__card__body {
@@ -423,7 +427,7 @@ main {
 .services__content__body .body-text {
   padding-right: 64px;
   padding-left: 16px;
-  margin-top: 32px;
+  margin-top: 40px;
 }
 
 .contact__content {
@@ -435,7 +439,7 @@ main {
 }
 
 .contact__content .h2 {
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   text-align: center;
 }
 
@@ -557,7 +561,7 @@ main {
 }
 
 .emphasis--red {
-  color: var(--body-text--emphasis--red);
+  color: var(--primary-red);
 }
 
 .inline-link {
@@ -573,16 +577,20 @@ main {
 }
 
 .inline-link:hover {
-  color: var(--body-text--emphasis--red);
-  border-bottom: 1px solid var(--body-text--emphasis--red);
+  color: var(--primary-red);
+  border-bottom: 1px solid var(--secondary-red);
   transition:
     color 0.2s ease,
     border-bottom 0.2s ease;
 }
 
 @media screen and (max-width: 768px) {
+  .section {
+    grid-template-columns: minmax(16px, 1fr) minmax(0, 1200px) minmax(16px, 1fr);
+  }
+
   .h1 {
-    font-size: 54px;
+    font-size: 64px;
   }
 
   .h2 {
@@ -678,7 +686,7 @@ main {
   }
 
   .services__content__cards {
-    padding: 0;
+    padding: 0 16px 0 0;
   }
 
   .contact__content {

@@ -39,10 +39,12 @@ const { withLink = false, linkText, linkHref, first = false } = Astro.props;
     border-bottom: 1px dashed var(--section-gutter--border);
   }
 
-  .divider-wrapper {
+  .divider .divider-wrapper {
     padding: 0;
     border-top: 1px solid var(--section-wrapper--border);
     border-bottom: 1px solid var(--section-wrapper--border);
+    border-left: 1px solid var(--section-gutter--border);
+    border-right: 1px solid var(--section-gutter--border);
   }
 
   /* First divider variant - only bottom borders */
