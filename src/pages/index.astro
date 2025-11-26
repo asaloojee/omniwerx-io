@@ -1,5 +1,6 @@
 ---
 import Divider from '../components/Divider.astro';
+import TerminalDivider from '../components/TerminalDivider.astro';
 ---
 
 <!doctype html>
@@ -254,7 +255,7 @@ import Divider from '../components/Divider.astro';
       </div>
       <div class="section-gutter"></div>
     </section>
-    <Divider />
+    <TerminalDivider />
   </main>
   <footer class="section" role="contentinfo">
     <div class="section-gutter"></div>
@@ -278,6 +279,63 @@ import Divider from '../components/Divider.astro';
     link.addEventListener("click", () => {
       navRight?.classList.remove("active");
     });
+  });
+
+  // Contact form submission
+  const contactForm = document.getElementById("contactForm");
+  const submitBtn = document.getElementById("submitBtn");
+  const formMessage = document.getElementById("formMessage");
+
+  contactForm?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    if (!submitBtn || !formMessage) return;
+
+    // Get form data
+    const formData = new FormData(contactForm as HTMLFormElement);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      message: formData.get("message"),
+    };
+
+    // Disable submit button and show loading state
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Sending...";
+    formMessage.textContent = "";
+    formMessage.className = "form-message";
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Success - clear form and show success message
+        (contactForm as HTMLFormElement).reset();
+        formMessage.textContent = result.message;
+        formMessage.className = "form-message success";
+      } else {
+        // Error from server
+        formMessage.textContent = result.error;
+        formMessage.className = "form-message error";
+      }
+    } catch (error) {
+      // Network or other error
+      formMessage.textContent =
+        "An error occurred. Please try again or email us directly at info@omniwerx.io.";
+      formMessage.className = "form-message error";
+    } finally {
+      // Re-enable submit button
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Send Message";
+    }
   });
 </script>
 

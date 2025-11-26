@@ -542,7 +542,7 @@ main {
 .contact__content {
   display: flex;
   flex-direction: column;
-  padding: 192px 32px;
+  padding: 192px 32px 160px;
   justify-content: center;
   align-items: center;
 }
@@ -634,21 +634,26 @@ main {
   border-radius: 8px;
   font-family: 'JetBrains Mono', monospace;
   font-size: 14px;
+  line-height: 1.5;
   text-align: center;
-  display: none;
+  height: 47px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
 }
 
 .form-message.success {
-  display: block;
+  opacity: 1;
   background-color: rgba(0, 128, 0, 0.2);
-  border: 1px solid #00ff00;
+  border-color: #00ff00;
   color: #00ff00;
 }
 
 .form-message.error {
-  display: block;
+  opacity: 1;
   background-color: rgba(204, 0, 24, 0.2);
-  border: 1px solid var(--primary-red);
+  border-color: var(--primary-red);
   color: var(--primary-red);
 }
 
@@ -713,7 +718,7 @@ main {
   }
 
   .hero .section-wrapper {
-    padding: 192px 16px 128px 16px;
+    padding: 128px 16px;
   }
 
   .hero__h1-wrapper {
@@ -799,7 +804,7 @@ main {
   }
 
   .contact__content {
-    padding: 128px 16px;
+    padding: 128px 16px 96px;
     align-items: flex-start;
   }
 
