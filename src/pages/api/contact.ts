@@ -10,12 +10,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return new Response(
       JSON.stringify({
         success: false,
-        error: 'Server configuration error. Runtime not available.'
+        error: 'Server configuration error. Runtime not available.',
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      }
+        headers: { 'Content-Type': 'application/json' },
+      },
     );
   }
 
@@ -27,12 +27,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return new Response(
       JSON.stringify({
         success: false,
-        error: 'Server configuration error. Please contact the administrator.'
+        error: 'Server configuration error. Please contact the administrator.',
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      }
+        headers: { 'Content-Type': 'application/json' },
+      },
     );
   }
 
@@ -46,12 +46,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'All fields are required.'
+          error: 'All fields are required.',
         }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' }
-        }
+          headers: { 'Content-Type': 'application/json' },
+        },
       );
     }
 
@@ -61,12 +61,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Please provide a valid email address.'
+          error: 'Please provide a valid email address.',
         }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' }
-        }
+          headers: { 'Content-Type': 'application/json' },
+        },
       );
     }
 
@@ -94,12 +94,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return new Response(
         JSON.stringify({
           success: false,
-          error: 'Failed to send message. Please try again or email us directly.'
+          error: 'Failed to send message. Please try again or email us directly.',
         }),
         {
           status: 500,
-          headers: { 'Content-Type': 'application/json' }
-        }
+          headers: { 'Content-Type': 'application/json' },
+        },
       );
     }
 
@@ -107,25 +107,25 @@ export const POST: APIRoute = async ({ request, locals }) => {
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Thank you for your message! We\'ll get back to you soon.'
+        message: "Thanks for reaching out! We'll be in touch soon.",
       }),
       {
         status: 200,
-        headers: { 'Content-Type': 'application/json' }
-      }
+        headers: { 'Content-Type': 'application/json' },
+      },
     );
-
   } catch (error) {
     console.error('Contact form error:', error);
     return new Response(
       JSON.stringify({
         success: false,
-        error: 'An unexpected error occurred. Please try again or email us directly at info@omniwerx.io.'
+        error:
+          'An unexpected error occurred. Please try again or email us directly at info@omniwerx.io.',
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' }
-      }
+        headers: { 'Content-Type': 'application/json' },
+      },
     );
   }
 };
