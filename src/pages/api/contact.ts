@@ -1,10 +1,11 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
-export const POST: APIRoute = async ({ request }) => {
-  // Validate environment variables exist
-  const apiKey = import.meta.env.RESEND_API_KEY;
-  const fromEmail = import.meta.env.RESEND_FROM_EMAIL;
+export const POST: APIRoute = async ({ request, locals }) => {
+  // Access Cloudflare runtime environment variables
+  const runtime = locals.runtime as { env: { RESEND_API_KEY: string; RESEND_FROM_EMAIL: string } };
+  const apiKey = runtime.env.RESEND_API_KEY;
+  const fromEmail = runtime.env.RESEND_FROM_EMAIL;
 
   if (!apiKey || !fromEmail) {
     console.error('Required environment variables are not configured');
