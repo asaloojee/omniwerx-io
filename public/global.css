@@ -152,7 +152,7 @@ body {
 }
 
 .navbar-framework {
-  position: sticky;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -717,6 +717,10 @@ body {
 
 @media screen and (max-width: 768px) {
   .section {
+    grid-template-columns: minmax(16px, 1fr) minmax(0, 1200px) minmax(16px, 1fr);
+  }
+
+  .navbar-framework {
     grid-template-columns: minmax(16px, 1fr) minmax(0, 1200px) minmax(16px, 1fr);
   }
 
