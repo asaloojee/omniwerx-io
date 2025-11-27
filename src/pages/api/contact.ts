@@ -3,7 +3,22 @@ import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   // Access Cloudflare runtime environment variables
-  const runtime = locals.runtime as { env: { RESEND_API_KEY: string; RESEND_FROM_EMAIL: string } };
+  const runtime = locals.runtime;
+
+  if (!runtime || !runtime.env) {
+    console.error('Cloudflare runtime not available');
+    return new Response(
+      JSON.stringify({
+        success: false,
+        error: 'Server configuration error. Runtime not available.'
+      }),
+      {
+        status: 500,
+        headers: { 'Content-Type': 'application/json' }
+      }
+    );
+  }
+
   const apiKey = runtime.env.RESEND_API_KEY;
   const fromEmail = runtime.env.RESEND_FROM_EMAIL;
 
