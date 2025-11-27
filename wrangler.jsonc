@@ -1,15 +1,23 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "omniwerx-io",
-  "pages_build_output_dir": "dist",
   "compatibility_date": "2025-11-26",
-  "compatibility_flags": ["nodejs_compat"]
-
-  // Environment-specific configuration
-  // Note: Secrets (RESEND_API_KEY, RESEND_FROM_EMAIL) must be set via CLI:
-  // wrangler pages secret put RESEND_API_KEY
-  // wrangler pages secret put RESEND_FROM_EMAIL
-
-  // Custom domains for Pages must be configured via Dashboard or API
-  // To use declarative domain config, switch to Workers mode (see README)
+  "main": "./dist/_worker.js/index.js",
+  "assets": {
+    "directory": "./dist"
+  },
+  "routes": [
+    {
+      "pattern": "omniwerx.io/*",
+      "zone_name": "omniwerx.io"
+    },
+    {
+      "pattern": "www.omniwerx.io/*",
+      "zone_name": "omniwerx.io"
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 0.1
+  }
 }
