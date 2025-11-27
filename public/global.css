@@ -355,7 +355,7 @@ main {
 .about__content {
   display: flex;
   flex-direction: column;
-  max-width: 632px;
+  max-width: 640px;
 }
 
 .badge {
@@ -531,7 +531,7 @@ main {
 }
 
 .services__content__body {
-  max-width: 632px;
+  max-width: 640px;
 }
 
 .services__content__body .body-text {
@@ -553,8 +553,15 @@ main {
   text-align: center;
 }
 
+.contact__content__form-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .contact__content__body {
-  max-width: 632px;
+  max-width: 640px;
   text-align: center;
 }
 
@@ -563,9 +570,8 @@ main {
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   margin-top: 64px;
-  max-width: 864px;
+  max-width: 576px;
   width: 100%;
-  max-width: none;
 }
 
 .contact__content__cta input,
@@ -637,15 +643,17 @@ main {
   font-size: 14px;
   line-height: 1.5;
   text-align: center;
-  height: 47px;
+  min-height: 47px;
   box-sizing: border-box;
   border: 1px solid transparent;
   opacity: 0;
   transition: opacity 200ms ease-in-out;
+  visibility: hidden;
 }
 
 .form-message.success {
   opacity: 1;
+  visibility: visible;
   background-color: rgba(0, 128, 0, 0.2);
   border-color: #00ff00;
   color: #00ff00;
@@ -653,6 +661,7 @@ main {
 
 .form-message.error {
   opacity: 1;
+  visibility: visible;
   background-color: rgba(204, 0, 24, 0.2);
   border-color: var(--primary-red);
   color: var(--primary-red);
@@ -705,7 +714,7 @@ main {
   }
 
   .h1 {
-    font-size: 64px;
+    font-size: 48px;
   }
 
   .h2 {
@@ -826,10 +835,6 @@ main {
   .contact__content__cta textarea,
   .contact__content__cta button {
     grid-column: span 1;
-  }
-
-  .contact__content__form-wrapper {
-    width: 100%;
   }
 
   .form-message {
