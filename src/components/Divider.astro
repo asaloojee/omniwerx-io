@@ -45,21 +45,18 @@ const { withLink = false, linkText, linkHref, first = false } = Astro.props;
     border-bottom: 1px solid var(--section-wrapper--border);
     border-left: 1px dashed var(--section-gutter--border);
     border-right: 1px dashed var(--section-gutter--border);
+    height: 32px;
   }
 
-  /* First divider variant - no top border on wrapper to avoid conflict with navbar */
-  .divider--first .divider-wrapper {
-    border-top: none;
-  }
-
-  /* Adjust top dots for first divider to align with gutter border instead of wrapper border */
-  .divider--first .section-dot--top {
-    top: -5px;
+  /* First divider variant - overlap borders to prevent double-thickness */
+  .divider--first {
+    margin-top: -1px;
   }
 
   .divider-content {
-    height: 32px;
+    height: 100%;
     background-color: var(--primary-black);
+    line-height: 1;
   }
 
   /* Link variant styles */

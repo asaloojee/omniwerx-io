@@ -25,10 +25,17 @@ import TerminalDivider from '../components/TerminalDivider.astro';
 </head>
 
 <body>
-  <header>
+  <main>
+    <div class="navbar-framework">
+      <div class="navbar-framework-gutter"></div>
+      <div class="navbar-framework-wrapper"></div>
+      <div class="navbar-framework-gutter"></div>
+    </div>
     <nav class="section navbar" id="navbar" role="navigation" aria-label="Main navigation">
       <div class="section-gutter"></div>
       <div class="section-wrapper">
+        <div class="section-dot section-dot--left section-dot--top"></div>
+        <div class="section-dot section-dot--right section-dot--top"></div>
         <div class="section-dot section-dot--left"></div>
         <div class="section-dot section-dot--right"></div>
         <div class="nav-wrapper">
@@ -50,9 +57,6 @@ import TerminalDivider from '../components/TerminalDivider.astro';
       </div>
       <div class="section-gutter"></div>
     </nav>
-  </header>
-
-  <main>
     <Divider first={true} />
     <section class="section hero" role="banner">
       <div class="section-gutter"></div>
