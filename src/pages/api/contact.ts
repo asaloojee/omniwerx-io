@@ -2,11 +2,12 @@ import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
 
 export const POST: APIRoute = async ({ request }) => {
-  // Validate environment variable exists
+  // Validate environment variables exist
   const apiKey = import.meta.env.RESEND_API_KEY;
+  const fromEmail = import.meta.env.RESEND_FROM_EMAIL;
 
-  if (!apiKey) {
-    console.error('RESEND_API_KEY is not configured');
+  if (!apiKey || !fromEmail) {
+    console.error('Required environment variables are not configured');
     return new Response(
       JSON.stringify({
         success: false,
@@ -58,7 +59,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     // Send email via Resend
     const result = await resend.emails.send({
-      from: 'OMNIWERX Contact Form <noreply@notifications.omniwerx.io>',
+      from: fromEmail,
       to: 'info@omniwerx.io',
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,

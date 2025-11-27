@@ -5,12 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "start": "node ./dist/server/entry.mjs",
     "preview": "astro preview",
+    "deploy": "astro build && wrangler pages deploy dist",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.1",
+    "@astrojs/cloudflare": "^12.6.12",
     "astro": "^5.16.0",
     "resend": "^6.5.2"
   },
