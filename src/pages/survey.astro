@@ -1,0 +1,421 @@
+---
+import SurveyNav from '../components/SurveyNav.astro';
+import Divider from '../components/Divider.astro';
+import Footer from '../components/Footer.astro';
+
+// Check if survey is enabled at build time
+const SURVEY_ENABLED = import.meta.env.SURVEY_ENABLED === true;
+
+// Return 404 if survey disabled
+if (!SURVEY_ENABLED) {
+  return Astro.redirect('/404', 404);
+}
+
+// Check for auth cookie
+const authCookie = Astro.cookies.get('survey_auth');
+const isAuthenticated = authCookie && authCookie.value === 'authenticated';
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Survey - OMNIWERX</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/global.css" />
+</head>
+<body>
+  <main>
+    <SurveyNav />
+    <Divider first={true} />
+    <section class="section survey-section">
+      <div class="section-gutter"></div>
+      <div class="section-wrapper">
+        <div class="section-dot section-dot--left section-dot--top"></div>
+        <div class="section-dot section-dot--right section-dot--top"></div>
+        <div class="section-dot section-dot--left"></div>
+        <div class="section-dot section-dot--right"></div>
+        <div class="survey-content">
+          {!isAuthenticated ? (
+            <div id="passwordForm" class="survey-form">
+              <h1 class="h2">Survey Access</h1>
+              <p class="body-text">Please enter the password to access the survey.</p>
+              <form id="authForm">
+                <input type="password" name="password" placeholder="Password" required />
+                <button type="submit">Access Survey</button>
+              </form>
+              <div id="authMessage" class="form-message"></div>
+            </div>
+          ) : (
+            <div id="surveyForm" class="survey-form">
+              <div id="userInfoStep">
+                <h1 class="h2">Personal Trainer Survey</h1>
+                <p class="body-text">Thank you for participating. Please provide your information to begin.</p>
+                <form id="userInfoForm">
+                  <input type="text" name="name" placeholder="Name" required />
+                  <input type="email" name="email" placeholder="Email" required />
+                  <button type="submit">Start Survey</button>
+                </form>
+              </div>
+
+              <div id="questionsStep" style="display: none;">
+                <div id="progressBar" class="progress-bar">
+                  <div id="progressFill" class="progress-fill"></div>
+                </div>
+                <div id="questionContainer"></div>
+                <div class="survey-navigation">
+                  <button id="prevBtn" style="display: none;">Previous</button>
+                  <button id="nextBtn">Next</button>
+                  <button id="submitBtn" style="display: none;">Submit</button>
+                </div>
+              </div>
+
+              <div id="successStep" style="display: none;">
+                <h2 class="h2">Thank you!</h2>
+                <p class="body-text">Your responses have been submitted successfully.</p>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      <div class="section-gutter"></div>
+    </section>
+    <Divider />
+  </main>
+  <Footer />
+</body>
+</html>
+
+<style>
+  .survey-section .section-wrapper {
+    padding: 160px 32px;
+  }
+
+  .survey-content {
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .survey-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .survey-form h1,
+  .survey-form h2 {
+    text-align: center;
+  }
+
+  .survey-form .body-text {
+    text-align: center;
+  }
+
+  .survey-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .survey-form input,
+  .survey-form textarea {
+    background-color: var(--input-background);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    padding: 12px;
+    color: var(--body-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .survey-form input:focus,
+  .survey-form textarea:focus {
+    outline: none;
+    background-color: var(--input-background--focus);
+  }
+
+  .survey-form textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .survey-form button {
+    background-color: var(--primary-red);
+    color: var(--body-text--emphasis);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+    box-shadow:
+      0 0 16px rgba(204, 0, 24, 0.5),
+      0 0 20px rgba(204, 0, 24, 0.3);
+  }
+
+  .survey-form button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: var(--input-background);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background-color: var(--primary-red);
+    transition: width 0.3s ease;
+  }
+
+  .question-card {
+    margin-bottom: 32px;
+  }
+
+  .question-text {
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--body-text--emphasis);
+    margin-bottom: 16px;
+  }
+
+  .survey-navigation {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+  }
+
+  .survey-navigation button {
+    flex: 1;
+  }
+
+  .form-message {
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+  }
+
+  .form-message.error {
+    background-color: rgba(204, 0, 24, 0.2);
+    border: 1px solid var(--primary-red);
+    color: var(--primary-red);
+  }
+
+  .form-message.success {
+    background-color: rgba(0, 128, 0, 0.2);
+    border: 1px solid #00ff00;
+    color: #00ff00;
+  }
+
+  @media screen and (max-width: 768px) {
+    .survey-section .section-wrapper {
+      padding: 128px 16px;
+    }
+  }
+</style>
+
+<script>
+  // Password authentication (only runs if not authenticated server-side)
+  const authForm = document.getElementById('authForm');
+  const authMessage = document.getElementById('authMessage');
+
+  authForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(authForm as HTMLFormElement);
+    const password = formData.get('password');
+
+    try {
+      const response = await fetch('/api/survey-auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Reload page to show authenticated view
+        window.location.reload();
+      } else {
+        if (authMessage) {
+          authMessage.textContent = result.error || 'Invalid password';
+          authMessage.className = 'form-message error';
+        }
+      }
+    } catch (error) {
+      if (authMessage) {
+        authMessage.textContent = 'Authentication failed';
+        authMessage.className = 'form-message error';
+      }
+    }
+  });
+
+  // Survey logic (only runs if authenticated)
+  const userInfoForm = document.getElementById('userInfoForm');
+  const userInfoStep = document.getElementById('userInfoStep');
+  const questionsStep = document.getElementById('questionsStep');
+  const successStep = document.getElementById('successStep');
+  const questionContainer = document.getElementById('questionContainer');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+  const submitBtn = document.getElementById('submitBtn');
+  const progressFill = document.getElementById('progressFill');
+
+  let questions: any[] = [];
+  let currentQuestionIndex = 0;
+  let userName = '';
+  let userEmail = '';
+  let responses: Record<string, string> = {};
+
+  // Load questions from API
+  async function loadQuestions() {
+    try {
+      const response = await fetch('/api/survey-questions');
+      const result = await response.json();
+
+      if (result.success) {
+        questions = result.questions;
+        showQuestion(0);
+      } else {
+        alert('Failed to load questions');
+      }
+    } catch (error) {
+      alert('Failed to load questions');
+    }
+  }
+
+  // Show specific question
+  function showQuestion(index: number) {
+    if (!questionContainer || !questions.length) return;
+
+    currentQuestionIndex = index;
+    const question = questions[index];
+
+    // Update progress bar
+    const progress = ((index + 1) / questions.length) * 100;
+    if (progressFill) {
+      progressFill.style.width = `${progress}%`;
+    }
+
+    // Create question HTML
+    const questionHTML = `
+      <div class="question-card">
+        <div class="question-text">
+          Question ${index + 1} of ${questions.length}: ${question.question}
+        </div>
+        ${question.type === 'textarea'
+          ? `<textarea id="answer-${question.id}" placeholder="Your answer...">${responses[question.id] || ''}</textarea>`
+          : `<input type="text" id="answer-${question.id}" placeholder="Your answer..." value="${responses[question.id] || ''}" />`
+        }
+      </div>
+    `;
+
+    questionContainer.innerHTML = questionHTML;
+
+    // Update navigation buttons
+    if (prevBtn) prevBtn.style.display = index === 0 ? 'none' : 'block';
+    if (nextBtn) nextBtn.style.display = index === questions.length - 1 ? 'none' : 'block';
+    if (submitBtn) submitBtn.style.display = index === questions.length - 1 ? 'block' : 'none';
+  }
+
+  // Save current answer
+  function saveCurrentAnswer() {
+    const question = questions[currentQuestionIndex];
+    const answerElement = document.getElementById(`answer-${question.id}`) as HTMLInputElement | HTMLTextAreaElement;
+
+    if (answerElement) {
+      responses[question.id] = answerElement.value;
+    }
+  }
+
+  // User info form submission
+  userInfoForm?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(userInfoForm as HTMLFormElement);
+    userName = formData.get('name') as string;
+    userEmail = formData.get('email') as string;
+
+    // Hide user info, show questions
+    if (userInfoStep) userInfoStep.style.display = 'none';
+    if (questionsStep) questionsStep.style.display = 'block';
+
+    loadQuestions();
+  });
+
+  // Navigation
+  prevBtn?.addEventListener('click', () => {
+    saveCurrentAnswer();
+    showQuestion(currentQuestionIndex - 1);
+  });
+
+  nextBtn?.addEventListener('click', () => {
+    saveCurrentAnswer();
+    showQuestion(currentQuestionIndex + 1);
+  });
+
+  // Submit survey
+  submitBtn?.addEventListener('click', async () => {
+    saveCurrentAnswer();
+
+    // Validate all questions answered
+    const unanswered = questions.filter(q => !responses[q.id] || responses[q.id].trim() === '');
+    if (unanswered.length > 0) {
+      alert('Please answer all questions before submitting.');
+      return;
+    }
+
+    // Disable submit button
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Submitting...';
+    }
+
+    try {
+      const response = await fetch('/api/survey-submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: userName,
+          email: userEmail,
+          responses,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        // Show success message
+        if (questionsStep) questionsStep.style.display = 'none';
+        if (successStep) successStep.style.display = 'block';
+      } else {
+        alert(result.error || 'Submission failed');
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = 'Submit';
+        }
+      }
+    } catch (error) {
+      alert('Submission failed');
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit';
+      }
+    }
+  });
+</script>
+
+</html>

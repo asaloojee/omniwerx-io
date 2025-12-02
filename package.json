@@ -5,8 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:survey": "SURVEY_ENABLED=true astro build",
+    "build:no-survey": "SURVEY_ENABLED=false astro build",
     "preview": "astro preview",
     "deploy": "astro build && wrangler deploy",
+    "deploy:survey": "SURVEY_ENABLED=true astro build && wrangler deploy",
+    "deploy:no-survey": "SURVEY_ENABLED=false astro build && wrangler deploy",
     "astro": "astro"
   },
   "dependencies": {
