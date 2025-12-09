@@ -81,11 +81,12 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
                   <input type="email" name="email" placeholder="Email" required />
                   <button type="submit">Start Survey</button>
                 </form>
+                <div id="userInfoMessage" class="form-message"></div>
               </div>
 
               <div id="questionsStep" style="display: none;">
-                <div id="progressBar" class="progress-bar">
-                  <div id="progressFill" class="progress-fill"></div>
+                <div class="question-header">
+                  <div id="questionCounter" class="question-counter"></div>
                 </div>
                 <div id="questionContainer"></div>
                 <div class="survey-navigation">
@@ -111,7 +112,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 </body>
 </html>
 
-<style>
+<style is:global>
   /* Sticky footer layout */
   .survey-page {
     display: flex;
@@ -173,19 +174,32 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
       border-color 900ms ease-in-out;
   }
 
-  .lock-container:hover {
+  .lock-container.unlocking {
     background-color: rgba(0, 128, 0, 0.2);
     border-color: #00ff00;
   }
 
-  .lock-container:hover .lock-icon {
+  .lock-container.unlocking .lock-icon {
     color: #00ff00;
   }
 
-  .lock-container:hover .lock-shackle {
+  .lock-container.unlocking .lock-shackle {
     animation:
       shackle-raise 400ms ease-in-out forwards,
       shackle-swing 400ms ease-in-out 500ms forwards;
+  }
+
+  .survey-form.fade-out {
+    animation: fadeOut 400ms ease-in-out forwards;
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
   }
 
   @keyframes shackle-raise {
@@ -237,6 +251,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
     font-weight: 300;
+    width: 100%;
   }
 
   .survey-form input:focus,
@@ -245,10 +260,10 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     background-color: var(--input-background--focus);
   }
 
-  .survey-form textarea {
-    min-height: 120px;
-    resize: vertical;
-  }
+  /* .survey-form textarea { */
+  /*   min-height: 120px; */
+  /*   resize: vertical; */
+  /* } */
 
   .survey-form button {
     background-color: var(--primary-red);
@@ -271,19 +286,22 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     cursor: not-allowed;
   }
 
-  .progress-bar {
-    width: 100%;
-    height: 8px;
-    background-color: var(--input-background);
-    border-radius: 4px;
-    overflow: hidden;
+  .question-header {
+    display: flex;
+    justify-content: flex-end;
     margin-bottom: 32px;
   }
 
-  .progress-fill {
-    height: 100%;
-    background-color: var(--primary-red);
-    transition: width 0.3s ease;
+  .question-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--secondary-red);
+    background: rgba(224, 31, 55, 0.2);
+    padding: 4px 12px;
+    border-radius: 16px;
+    border: 1px solid var(--secondary-red);
+    letter-spacing: 0.05em;
   }
 
   .question-card {
@@ -305,6 +323,27 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 
   .survey-navigation button {
     flex: 1;
+  }
+
+  /* Secondary navigation buttons (Previous/Next) */
+  #prevBtn,
+  #nextBtn {
+    background-color: transparent;
+    border: 1px solid var(--primary-red);
+    color: var(--primary-red);
+    box-shadow: none;
+    transition: all 0.2s ease;
+  }
+
+  #prevBtn:hover,
+  #nextBtn:hover {
+    background-color: rgba(204, 0, 24, 0.1);
+    border-color: var(--secondary-red);
+  }
+
+  /* Primary submit button keeps the filled style */
+  #submitBtn {
+    /* Inherits default .survey-form button styles */
   }
 
   .form-message {
@@ -338,6 +377,8 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   // Password authentication (only runs if not authenticated server-side)
   const authForm = document.getElementById('authForm');
   const authMessage = document.getElementById('authMessage');
+  const lockContainer = document.querySelector('.lock-container');
+  const passwordForm = document.getElementById('passwordForm');
 
   authForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -355,8 +396,22 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
       const result = await response.json();
 
       if (result.success) {
-        // Reload page to show authenticated view
-        window.location.reload();
+        // Trigger unlock animation
+        if (lockContainer) {
+          lockContainer.classList.add('unlocking');
+        }
+
+        // Wait for unlock animation (900ms) + pause (100ms), then fade out
+        setTimeout(() => {
+          if (passwordForm) {
+            passwordForm.classList.add('fade-out');
+          }
+        }, 1000);
+
+        // Wait for unlock (900ms) + pause (100ms) + fade out (400ms), then reload
+        setTimeout(() => {
+          window.location.reload();
+        }, 1400);
       } else {
         if (authMessage) {
           authMessage.textContent = result.error || 'Invalid password';
@@ -380,7 +435,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   const submitBtn = document.getElementById('submitBtn');
-  const progressFill = document.getElementById('progressFill');
+  const questionCounter = document.getElementById('questionCounter');
 
   let questions: any[] = [];
   let currentQuestionIndex = 0;
@@ -398,10 +453,29 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
         questions = result.questions;
         showQuestion(0);
       } else {
-        alert('Failed to load questions');
+        alert('Failed to load questions.');
       }
     } catch (error) {
-      alert('Failed to load questions');
+      alert('Failed to load questions.');
+    }
+  }
+
+  // Validate current answer and update button state
+  function validateCurrentAnswer() {
+    const question = questions[currentQuestionIndex];
+    const answerElement = document.getElementById(`answer-${question.id}`) as HTMLInputElement | HTMLTextAreaElement;
+
+    if (!answerElement) return;
+
+    const value = answerElement.value.trim();
+    const isValid = value.length > 0;
+
+    // Enable/disable the appropriate button
+    const isLastQuestion = currentQuestionIndex === questions.length - 1;
+    if (isLastQuestion && submitBtn) {
+      submitBtn.disabled = !isValid;
+    } else if (nextBtn) {
+      nextBtn.disabled = !isValid;
     }
   }
 
@@ -412,20 +486,19 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     currentQuestionIndex = index;
     const question = questions[index];
 
-    // Update progress bar
-    const progress = ((index + 1) / questions.length) * 100;
-    if (progressFill) {
-      progressFill.style.width = `${progress}%`;
+    // Update question counter
+    if (questionCounter) {
+      questionCounter.textContent = `${index + 1}/${questions.length}`;
     }
 
     // Create question HTML
     const questionHTML = `
       <div class="question-card">
         <div class="question-text">
-          Question ${index + 1} of ${questions.length}: ${question.question}
+          ${question.question}
         </div>
         ${question.type === 'textarea'
-          ? `<textarea id="answer-${question.id}" placeholder="Your answer...">${responses[question.id] || ''}</textarea>`
+          ? `<textarea rows="4" id="answer-${question.id}" placeholder="Your answer...">${responses[question.id] || ''}</textarea>`
           : `<input type="text" id="answer-${question.id}" placeholder="Your answer..." value="${responses[question.id] || ''}" />`
         }
       </div>
@@ -437,6 +510,16 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     if (prevBtn) prevBtn.style.display = index === 0 ? 'none' : 'block';
     if (nextBtn) nextBtn.style.display = index === questions.length - 1 ? 'none' : 'block';
     if (submitBtn) submitBtn.style.display = index === questions.length - 1 ? 'block' : 'none';
+
+    // Add real-time validation
+    const answerElement = document.getElementById(`answer-${question.id}`) as HTMLInputElement | HTMLTextAreaElement;
+    if (answerElement) {
+      // Validate on input
+      answerElement.addEventListener('input', validateCurrentAnswer);
+
+      // Initial validation check
+      validateCurrentAnswer();
+    }
   }
 
   // Save current answer
@@ -450,12 +533,43 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   }
 
   // User info form submission
+  const userInfoMessage = document.getElementById('userInfoMessage');
+
   userInfoForm?.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const formData = new FormData(userInfoForm as HTMLFormElement);
-    userName = formData.get('name') as string;
-    userEmail = formData.get('email') as string;
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+
+    // Clear previous error messages
+    if (userInfoMessage) {
+      userInfoMessage.textContent = '';
+      userInfoMessage.className = 'form-message';
+    }
+
+    // Validate name (only letters and spaces)
+    const nameRegex = /^[A-Za-z\s]+$/;
+    if (!nameRegex.test(name)) {
+      if (userInfoMessage) {
+        userInfoMessage.textContent = 'Name must contain only letters and spaces.';
+        userInfoMessage.className = 'form-message error';
+      }
+      return;
+    }
+
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      if (userInfoMessage) {
+        userInfoMessage.textContent = 'Please enter a valid email address.';
+        userInfoMessage.className = 'form-message error';
+      }
+      return;
+    }
+
+    userName = name;
+    userEmail = email;
 
     // Hide user info, show questions
     if (userInfoStep) userInfoStep.style.display = 'none';
