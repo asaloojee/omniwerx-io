@@ -25,8 +25,8 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="stylesheet" href="/global.css" />
 </head>
-<body>
-  <main>
+<body class="survey-page">
+  <main class="survey-main">
     <SurveyNav />
     <Divider first={true} />
     <section class="section survey-section">
@@ -39,8 +39,32 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
         <div class="survey-content">
           {!isAuthenticated ? (
             <div id="passwordForm" class="survey-form">
-              <h1 class="h2">Survey Access</h1>
-              <p class="body-text">Please enter the password to access the survey.</p>
+              <div class="lock-container">
+                <svg class="lock-icon" viewBox="-60 -35 220 155" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Lock shackle (upside-down U) -->
+                  <path
+                    class="lock-shackle"
+                    d="M 14 46 L 14 22 C 14 10, 28 -9, 50 -9 C 72 -9, 86 10, 86 22 L 86 46"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                  />
+                  <!-- Lock body (flattened rectangle) -->
+                  <rect
+                    class="lock-body"
+                    x="2"
+                    y="46"
+                    width="96"
+                    height="72"
+                    rx="8"
+                    ry="8"
+                    fill="transparent"
+                    stroke="currentColor"
+                    stroke-width="3"
+                  />
+                </svg>
+              </div>
               <form id="authForm">
                 <input type="password" name="password" placeholder="Password" required />
                 <button type="submit">Access Survey</button>
@@ -88,14 +112,98 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 </html>
 
 <style>
+  /* Sticky footer layout */
+  .survey-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  .survey-main {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .survey-section {
+    flex: 1;
+  }
+
   .survey-section .section-wrapper {
-    padding: 160px 32px;
+    padding: 96px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100%;
   }
 
   .survey-content {
-    max-width: 640px;
+    max-width: 544px;
     margin: 0 auto;
     width: 100%;
+  }
+
+  .lock-container {
+    background-color: rgba(204, 0, 24, 0.2);
+    border: 2px solid var(--primary-red);
+    border-radius: 12px;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 32px;
+    width: 240px;
+    height: 240px;
+  }
+
+  .lock-icon {
+    width: 200px;
+    height: 141px;
+    color: var(--primary-red);
+    transition: color 900ms ease-in-out;
+  }
+
+  .lock-shackle {
+    transform-origin: 14px 46px;
+  }
+
+  .lock-container {
+    transition:
+      background-color 900ms ease-in-out,
+      border-color 900ms ease-in-out;
+  }
+
+  .lock-container:hover {
+    background-color: rgba(0, 128, 0, 0.2);
+    border-color: #00ff00;
+  }
+
+  .lock-container:hover .lock-icon {
+    color: #00ff00;
+  }
+
+  .lock-container:hover .lock-shackle {
+    animation:
+      shackle-raise 400ms ease-in-out forwards,
+      shackle-swing 400ms ease-in-out 500ms forwards;
+  }
+
+  @keyframes shackle-raise {
+    from {
+      d: path("M 14 46 L 14 22 C 14 10, 28 -9, 50 -9 C 72 -9, 86 10, 86 22 L 86 46");
+    }
+    to {
+      d: path("M 14 46 L 14 2 C 14 -10, 28 -29, 50 -29 C 72 -29, 86 -10, 86 2 L 86 26");
+    }
+  }
+
+  @keyframes shackle-swing {
+    from {
+      d: path("M 14 46 L 14 2 C 14 -10, 28 -29, 50 -29 C 72 -29, 86 -10, 86 2 L 86 26");
+    }
+    to {
+      d: path("M 14 46 L 14 2 C 14 -10, 0 -29, -22 -29 C -44 -29, -58 -10, -58 2 L -58 26");
+    }
   }
 
   .survey-form {
@@ -221,7 +329,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 
   @media screen and (max-width: 768px) {
     .survey-section .section-wrapper {
-      padding: 128px 16px;
+      padding: 64px 16px;
     }
   }
 </style>
