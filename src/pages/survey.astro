@@ -260,11 +260,6 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     background-color: var(--input-background--focus);
   }
 
-  /* .survey-form textarea { */
-  /*   min-height: 120px; */
-  /*   resize: vertical; */
-  /* } */
-
   .survey-form button {
     background-color: var(--primary-red);
     color: var(--body-text--emphasis);
@@ -374,6 +369,8 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 </style>
 
 <script>
+  import type { SurveyQuestion } from '../data/survey-questions';
+
   // Password authentication (only runs if not authenticated server-side)
   const authForm = document.getElementById('authForm');
   const authMessage = document.getElementById('authMessage');
@@ -414,13 +411,13 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
         }, 1400);
       } else {
         if (authMessage) {
-          authMessage.textContent = result.error || 'Invalid password';
+          authMessage.textContent = result.error || 'Invalid password.';
           authMessage.className = 'form-message error';
         }
       }
     } catch (error) {
       if (authMessage) {
-        authMessage.textContent = 'Authentication failed';
+        authMessage.textContent = 'Authentication failed.';
         authMessage.className = 'form-message error';
       }
     }
@@ -437,7 +434,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   const submitBtn = document.getElementById('submitBtn');
   const questionCounter = document.getElementById('questionCounter');
 
-  let questions: any[] = [];
+  let questions: SurveyQuestion[] = [];
   let currentQuestionIndex = 0;
   let userName = '';
   let userEmail = '';
@@ -624,14 +621,14 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
         if (questionsStep) questionsStep.style.display = 'none';
         if (successStep) successStep.style.display = 'block';
       } else {
-        alert(result.error || 'Submission failed');
+        alert(result.error || 'Submission failed.');
         if (submitBtn) {
           submitBtn.disabled = false;
           submitBtn.textContent = 'Submit';
         }
       }
     } catch (error) {
-      alert('Submission failed');
+      alert('Submission failed.');
       if (submitBtn) {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit';

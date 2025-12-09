@@ -6,7 +6,7 @@ const SURVEY_ENABLED = import.meta.env.SURVEY_ENABLED === true;
 export const GET: APIRoute = async ({ cookies }) => {
   // Return 404 if survey is disabled
   if (!SURVEY_ENABLED) {
-    return new Response(JSON.stringify({ success: false, error: 'Not found' }), {
+    return new Response(JSON.stringify({ success: false, error: 'Not found.' }), {
       status: 404,
       headers: { 'Content-Type': 'application/json' },
     });
@@ -17,7 +17,7 @@ export const GET: APIRoute = async ({ cookies }) => {
 
   if (!authCookie || authCookie.value !== 'authenticated') {
     return new Response(
-      JSON.stringify({ success: false, error: 'Unauthorized' }),
+      JSON.stringify({ success: false, error: 'Unauthorized.' }),
       {
         status: 401,
         headers: { 'Content-Type': 'application/json' },

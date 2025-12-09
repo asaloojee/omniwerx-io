@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { Resend } from 'resend';
+import he from 'he';
 
 export const POST: APIRoute = async ({ request, locals }) => {
   // Access Cloudflare runtime environment variables
@@ -78,13 +79,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
       from: fromEmail,
       to: 'info@omniwerx.io',
       replyTo: email,
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `New Contact Form Submission from ${he.escape(name)}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Name:</strong> ${he.escape(name)}</p>
+        <p><strong>Email:</strong> ${he.escape(email)}</p>
         <p><strong>Message:</strong></p>
-        <p>${message.replace(/\n/g, '<br>')}</p>
+        <p>${he.escape(message).replace(/\n/g, '<br>')}</p>
       `,
     });
 

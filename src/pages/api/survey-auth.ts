@@ -52,12 +52,12 @@ export const POST: APIRoute = async ({ request, locals, cookies }) => {
       });
     }
 
-    // Set HTTP-only cookie (valid for 24 hours)
+    // Set HTTP-only cookie (valid for 4 hours)
     cookies.set('survey_auth', 'authenticated', {
       httpOnly: true,
       secure: import.meta.env.PROD, // true in production (HTTPS), false in dev (HTTP)
       sameSite: 'strict',
-      maxAge: 60 * 60 * 24, // 24 hours
+      maxAge: 60 * 60 * 4, // 4 hours
       path: '/',
     });
 
