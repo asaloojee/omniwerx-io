@@ -74,8 +74,8 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
           ) : (
             <div id="surveyForm" class="survey-form">
               <div id="userInfoStep">
-                <h1 class="h2">Personal Trainer Survey</h1>
-                <p class="body-text">Thank you for participating. Please provide your information to begin.</p>
+                <h1 class="h2">Coaching Workflow Survey</h1>
+                <p class="body-text">Thank you for taking the time to participate. Please enter your information below to begin.</p>
                 <form id="userInfoForm" class="user-info-form">
                   <input type="text" name="name" placeholder="Name" required />
                   <input type="email" name="email" placeholder="Email" required />
@@ -133,7 +133,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   }
 
   .survey-section .section-wrapper {
-    padding: 96px 32px;
+    padding: 64px 32px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -239,8 +239,17 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 
   .survey-form form {
     display: grid;
-    grid-template-rows: 48px 48px 48px;
     gap: 16px;
+  }
+
+  /* Password form - 2 rows */
+  #authForm {
+    grid-template-rows: 48px 48px;
+  }
+
+  /* User info form - 3 rows */
+  #userInfoForm {
+    grid-template-rows: 48px 48px 48px;
   }
 
   .survey-form input,
@@ -510,7 +519,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 
   @media screen and (max-width: 768px) {
     .survey-section .section-wrapper {
-      padding: 64px 16px;
+      padding: 48px 16px;
     }
 
     .survey-navigation {
