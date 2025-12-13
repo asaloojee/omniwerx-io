@@ -219,22 +219,22 @@ body {
   color: var(--body-text--emphasis);
   text-decoration: none;
   font-size: 18px;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: 0.02em;
   transition: color 0.2s ease;
-  text-transform: uppercase;
 }
 
 .nav-link.nav-link--contact {
   background-color: var(--primary-red);
   color: var(--body-text--emphasis);
-  padding: 4px 12px;
+  padding: 8px 12px;
   border-radius: 8px;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
   box-shadow:
     0 0 16px rgba(204, 0, 24, 0.5),
     0 0 20px rgba(204, 0, 24, 0.3);
+  text-transform: uppercase;
 }
 
 .nav-link:hover {
