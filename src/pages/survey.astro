@@ -271,6 +271,15 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     height: 100%;
   }
 
+  .survey-form input[type="password"] {
+    letter-spacing: 0.5em;
+    text-align: center;
+  }
+
+  .survey-form input[type="password"]::placeholder {
+    letter-spacing: normal;
+  }
+
   .survey-form input:focus,
   .survey-form textarea:focus {
     outline: none;
@@ -514,7 +523,11 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     font-size: 32px;
     font-weight: 500;
     color: #00ff00;
-    margin: 16px 0 12px 0;
+    margin: 0 0 12px 0;
+  }
+
+  .form-message.success .body-text {
+    margin: 0;
   }
 
   @media screen and (max-width: 768px) {
