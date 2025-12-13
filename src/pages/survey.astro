@@ -76,7 +76,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
               <div id="userInfoStep">
                 <h1 class="h2">Personal Trainer Survey</h1>
                 <p class="body-text">Thank you for participating. Please provide your information to begin.</p>
-                <form id="userInfoForm">
+                <form id="userInfoForm" class="user-info-form">
                   <input type="text" name="name" placeholder="Name" required />
                   <input type="email" name="email" placeholder="Email" required />
                   <button type="submit">Start Survey</button>
@@ -97,8 +97,10 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
               </div>
 
               <div id="successStep" style="display: none;">
-                <h2 class="h2">Thank you!</h2>
-                <p class="body-text">Your responses have been submitted successfully.</p>
+                <div class="form-message success">
+                  <h3 class="success-header">Thank you!</h3>
+                  <p class="body-text">Your responses have been submitted.</p>
+                </div>
               </div>
             </div>
           )}
@@ -236,8 +238,8 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   }
 
   .survey-form form {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 48px 48px 48px;
     gap: 16px;
   }
 
@@ -252,6 +254,12 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     font-size: 16px;
     font-weight: 300;
     width: 100%;
+  }
+
+  .survey-form input[type="text"],
+  .survey-form input[type="email"],
+  .survey-form input[type="password"] {
+    height: 100%;
   }
 
   .survey-form input:focus,
@@ -269,11 +277,15 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
     font-weight: 500;
+    line-height: normal;
     cursor: pointer;
     text-transform: uppercase;
     box-shadow:
       0 0 16px rgba(204, 0, 24, 0.5),
       0 0 20px rgba(204, 0, 24, 0.3);
+    max-height: 48px;
+    box-sizing: border-box;
+    max-height: 48px;
   }
 
   .survey-form button:disabled {
@@ -307,13 +319,139 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     font-size: 20px;
     font-weight: 400;
     color: var(--body-text--emphasis);
-    margin-bottom: 16px;
+    margin-bottom: 24px;
+  }
+
+  .options-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+    gap: 12px;
+  }
+
+  .option-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background-color: var(--input-background);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--body-text);
+    height: 100%;
+  }
+
+  .option-label:hover {
+    background-color: var(--input-background--focus);
+    border-color: var(--primary-red);
+  }
+
+  .option-label input[type="radio"],
+  .option-label input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    flex-shrink: 0;
+    border: 2px solid var(--card-border);
+    background-color: transparent;
+    position: relative;
+    transition: all 0.2s ease;
+  }
+
+  .option-label input[type="radio"] {
+    border-radius: 50%;
+  }
+
+  .option-label input[type="checkbox"] {
+    border-radius: 4px;
+  }
+
+  /* Checked state - inner fill */
+  .option-label input[type="radio"]:checked {
+    border-color: var(--secondary-red);
+  }
+
+  .option-label input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--secondary-red);
+  }
+
+  .option-label input[type="checkbox"]:checked {
+    border-color: var(--secondary-red);
+    background-color: var(--secondary-red);
+  }
+
+  .option-label input[type="checkbox"]:checked::before {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--body-text--emphasis);
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1;
+  }
+
+  /* Hover states - only border changes, no fill color change */
+  .option-label:hover input[type="radio"]:not(:disabled),
+  .option-label:hover input[type="checkbox"]:not(:disabled) {
+    border-color: var(--secondary-red);
+  }
+
+  /* Ensure checked state doesn't darken on hover */
+  .option-label:hover input[type="radio"]:checked::before,
+  .option-label:hover input[type="checkbox"]:checked {
+    background-color: var(--secondary-red);
+  }
+
+  .option-text {
+    flex: 1;
+    user-select: none;
+  }
+
+  textarea.other-input {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    margin-left: 32px;
+    background-color: var(--input-background);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    padding: 12px;
+    color: var(--body-text);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 16px;
+    font-weight: 300;
+    width: calc(100% - 32px);
+    box-sizing: border-box;
+    resize: vertical;
+  }
+
+  textarea.other-input:focus {
+    outline: none;
+    background-color: var(--input-background--focus);
+    border-color: var(--primary-red);
   }
 
   .survey-navigation {
     display: flex;
-    gap: 16px;
     justify-content: space-between;
+    gap: 16px;
   }
 
   .survey-navigation button {
@@ -359,6 +497,15 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     background-color: rgba(0, 128, 0, 0.2);
     border: 1px solid #00ff00;
     color: #00ff00;
+    padding: 32px;
+  }
+
+  .success-header {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    font-weight: 500;
+    color: #00ff00;
+    margin: 16px 0 12px 0;
   }
 
   @media screen and (max-width: 768px) {
@@ -446,7 +593,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   let currentQuestionIndex = 0;
   let userName = '';
   let userEmail = '';
-  let responses: Record<string, string> = {};
+  let responses: Record<string, string | string[]> = {};
 
   // Load questions from API
   async function loadQuestions() {
@@ -468,12 +615,34 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   // Validate current answer and update button state
   function validateCurrentAnswer() {
     const question = questions[currentQuestionIndex];
-    const answerElement = document.getElementById(`answer-${question.id}`) as HTMLInputElement | HTMLTextAreaElement;
+    let isValid = false;
 
-    if (!answerElement) return;
+    if (question.type === 'radio') {
+      const selectedRadio = document.querySelector(`input[name="answer-${question.id}"]:checked`) as HTMLInputElement;
 
-    const value = answerElement.value.trim();
-    const isValid = value.length > 0;
+      if (selectedRadio) {
+        // Check if "Other" is selected and requires text input
+        if (question.hasOther && selectedRadio.value === 'Other') {
+          const otherInput = document.getElementById(`other-${question.id}`) as HTMLTextAreaElement;
+          isValid = otherInput && otherInput.value.trim().length > 0;
+        } else {
+          isValid = true;
+        }
+      }
+    } else if (question.type === 'checkbox') {
+      const checkedBoxes = document.querySelectorAll(`input[name="answer-${question.id}"]:checked`);
+
+      if (checkedBoxes.length > 0) {
+        // Check if "Other" is checked and requires text input
+        const otherCheckbox = Array.from(checkedBoxes).find((cb: any) => cb.value === 'Other');
+        if (question.hasOther && otherCheckbox) {
+          const otherInput = document.getElementById(`other-${question.id}`) as HTMLTextAreaElement;
+          isValid = otherInput && otherInput.value.trim().length > 0;
+        } else {
+          isValid = true;
+        }
+      }
+    }
 
     // Enable/disable the appropriate button
     const isLastQuestion = currentQuestionIndex === questions.length - 1;
@@ -496,16 +665,75 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
       questionCounter.textContent = `${index + 1}/${questions.length}`;
     }
 
+    // Get previous responses
+    const previousResponse = responses[question.id];
+    const previousResponses = Array.isArray(previousResponse) ? previousResponse : [];
+    const previousSingleResponse = typeof previousResponse === 'string' ? previousResponse : '';
+
+    // Build options HTML
+    let optionsHTML = '';
+
+    if (question.type === 'radio') {
+      optionsHTML = question.options.map((option) => {
+        const isChecked = previousSingleResponse === option ? 'checked' : '';
+        const isOther = option === 'Other';
+        return `
+          <label class="option-label">
+            <input
+              type="radio"
+              name="answer-${question.id}"
+              value="${option}"
+              ${isChecked}
+            />
+            <span class="option-text">${option}</span>
+          </label>
+          ${isOther && question.hasOther ? `
+            <textarea
+              id="other-${question.id}"
+              class="other-input"
+              placeholder="Please specify..."
+              rows="3"
+              style="display: ${isChecked ? 'block' : 'none'};"
+            ></textarea>
+          ` : ''}
+        `;
+      }).join('');
+    } else if (question.type === 'checkbox') {
+      optionsHTML = question.options.map((option) => {
+        const isChecked = previousResponses.includes(option) ? 'checked' : '';
+        const isOther = option === 'Other';
+        return `
+          <label class="option-label">
+            <input
+              type="checkbox"
+              name="answer-${question.id}"
+              value="${option}"
+              ${isChecked}
+            />
+            <span class="option-text">${option}</span>
+          </label>
+          ${isOther && question.hasOther ? `
+            <textarea
+              id="other-${question.id}"
+              class="other-input"
+              placeholder="Please specify..."
+              rows="3"
+              style="display: ${isChecked ? 'block' : 'none'};"
+            ></textarea>
+          ` : ''}
+        `;
+      }).join('');
+    }
+
     // Create question HTML
     const questionHTML = `
       <div class="question-card">
         <div class="question-text">
           ${question.question}
         </div>
-        ${question.type === 'textarea'
-          ? `<textarea rows="4" id="answer-${question.id}" placeholder="Your answer...">${responses[question.id] || ''}</textarea>`
-          : `<input type="text" id="answer-${question.id}" placeholder="Your answer..." value="${responses[question.id] || ''}" />`
-        }
+        <div class="options-container">
+          ${optionsHTML}
+        </div>
       </div>
     `;
 
@@ -516,24 +744,95 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     if (nextBtn) nextBtn.style.display = index === questions.length - 1 ? 'none' : 'block';
     if (submitBtn) submitBtn.style.display = index === questions.length - 1 ? 'block' : 'none';
 
-    // Add real-time validation
-    const answerElement = document.getElementById(`answer-${question.id}`) as HTMLInputElement | HTMLTextAreaElement;
-    if (answerElement) {
-      // Validate on input
-      answerElement.addEventListener('input', validateCurrentAnswer);
+    // Add event listeners for showing/hiding "Other" field
+    if (question.hasOther) {
+      const otherInput = document.getElementById(`other-${question.id}`) as HTMLTextAreaElement;
 
-      // Initial validation check
-      validateCurrentAnswer();
+      if (question.type === 'radio') {
+        const radioInputs = document.querySelectorAll(`input[name="answer-${question.id}"]`);
+        radioInputs.forEach((radio) => {
+          radio.addEventListener('change', (e) => {
+            const target = e.target as HTMLInputElement;
+            if (otherInput) {
+              otherInput.style.display = target.value === 'Other' && target.checked ? 'block' : 'none';
+              if (target.value !== 'Other') {
+                otherInput.value = '';
+              }
+            }
+            validateCurrentAnswer();
+          });
+        });
+      } else if (question.type === 'checkbox') {
+        const checkboxInputs = document.querySelectorAll(`input[name="answer-${question.id}"]`);
+        checkboxInputs.forEach((checkbox) => {
+          checkbox.addEventListener('change', (e) => {
+            const target = e.target as HTMLInputElement;
+            if (target.value === 'Other' && otherInput) {
+              otherInput.style.display = target.checked ? 'block' : 'none';
+              if (!target.checked) {
+                otherInput.value = '';
+              }
+            }
+            validateCurrentAnswer();
+          });
+        });
+      }
+
+      // Add input listener to "Other" field for validation
+      if (otherInput) {
+        otherInput.addEventListener('input', validateCurrentAnswer);
+      }
+    } else {
+      // Add change listeners for validation
+      const inputs = document.querySelectorAll(`input[name="answer-${question.id}"]`);
+      inputs.forEach((input) => {
+        input.addEventListener('change', validateCurrentAnswer);
+      });
     }
+
+    // Initial validation check
+    validateCurrentAnswer();
   }
 
   // Save current answer
   function saveCurrentAnswer() {
     const question = questions[currentQuestionIndex];
-    const answerElement = document.getElementById(`answer-${question.id}`) as HTMLInputElement | HTMLTextAreaElement;
 
-    if (answerElement) {
-      responses[question.id] = answerElement.value;
+    if (question.type === 'radio') {
+      const selectedRadio = document.querySelector(`input[name="answer-${question.id}"]:checked`) as HTMLInputElement;
+
+      if (selectedRadio) {
+        let answer = selectedRadio.value;
+
+        // If "Other" is selected, append the text input value
+        if (question.hasOther && selectedRadio.value === 'Other') {
+          const otherInput = document.getElementById(`other-${question.id}`) as HTMLTextAreaElement;
+          if (otherInput && otherInput.value.trim()) {
+            answer = `Other: ${otherInput.value.trim()}`;
+          }
+        }
+
+        responses[question.id] = answer;
+      }
+    } else if (question.type === 'checkbox') {
+      const checkedBoxes = document.querySelectorAll(`input[name="answer-${question.id}"]:checked`) as NodeListOf<HTMLInputElement>;
+      const selectedValues: string[] = [];
+
+      checkedBoxes.forEach((checkbox) => {
+        let value = checkbox.value;
+
+        // If "Other" is checked, append the text input value
+        if (question.hasOther && checkbox.value === 'Other') {
+          const otherInput = document.getElementById(`other-${question.id}`) as HTMLTextAreaElement;
+          if (otherInput && otherInput.value.trim()) {
+            value = `Other: ${otherInput.value.trim()}`;
+          }
+        }
+
+        selectedValues.push(value);
+      });
+
+      responses[question.id] = selectedValues;
     }
   }
 
@@ -599,7 +898,14 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     saveCurrentAnswer();
 
     // Validate all questions answered
-    const unanswered = questions.filter(q => !responses[q.id] || responses[q.id].trim() === '');
+    const unanswered = questions.filter(q => {
+      const answer = responses[q.id];
+      if (!answer) return true;
+      if (Array.isArray(answer)) {
+        return answer.length === 0;
+      }
+      return answer.trim() === '';
+    });
     if (unanswered.length > 0) {
       alert('Please answer all questions before submitting.');
       return;

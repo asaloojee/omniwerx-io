@@ -57,7 +57,7 @@ export const POST: APIRoute = async ({ request, locals, cookies }) => {
     const { name, email, responses }: {
       name: string;
       email: string;
-      responses: Record<string, string>;
+      responses: Record<string, string | string[]>;
     } = data;
 
     // Validate required fields
@@ -94,11 +94,112 @@ export const POST: APIRoute = async ({ request, locals, cookies }) => {
       );
     }
 
+    // Validate that all questions are answered
+    for (const question of surveyQuestions) {
+      const answer = responses[question.id];
+
+      if (!answer) {
+        console.error(`[Survey Submit] Missing answer for question: ${question.id}`);
+        return new Response(
+          JSON.stringify({ success: false, error: 'All questions must be answered.' }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+
+      // Validate answer type matches question type
+      if (question.type === 'radio' && typeof answer !== 'string') {
+        console.error(`[Survey Submit] Invalid answer type for radio question: ${question.id}`);
+        return new Response(
+          JSON.stringify({ success: false, error: 'Invalid answer format.' }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+
+      if (question.type === 'checkbox' && !Array.isArray(answer)) {
+        console.error(`[Survey Submit] Invalid answer type for checkbox question: ${question.id}`);
+        return new Response(
+          JSON.stringify({ success: false, error: 'Invalid answer format.' }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+
+      // Validate string responses are not empty
+      if (typeof answer === 'string' && answer.trim() === '') {
+        console.error(`[Survey Submit] Empty answer for question: ${question.id}`);
+        return new Response(
+          JSON.stringify({ success: false, error: 'All questions must be answered.' }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+
+      // Validate array responses are not empty
+      if (Array.isArray(answer) && answer.length === 0) {
+        console.error(`[Survey Submit] Empty answer array for question: ${question.id}`);
+        return new Response(
+          JSON.stringify({ success: false, error: 'All questions must be answered.' }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+    }
+
+    // Validate no extra question IDs (prevents injection of arbitrary data)
+    const validQuestionIds = new Set(surveyQuestions.map(q => q.id));
+    for (const questionId of Object.keys(responses)) {
+      if (!validQuestionIds.has(questionId)) {
+        console.error(`[Survey Submit] Invalid question ID: ${questionId}`);
+        return new Response(
+          JSON.stringify({ success: false, error: 'Invalid question data.' }),
+          {
+            status: 400,
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
+      }
+    }
+
     // Validate response lengths
     for (const answer of Object.values(responses)) {
-      if (typeof answer !== 'string' || answer.length > 5000) {
+      if (typeof answer === 'string') {
+        if (answer.length > 5000) {
+          return new Response(
+            JSON.stringify({ success: false, error: 'Response too long.' }),
+            {
+              status: 400,
+              headers: { 'Content-Type': 'application/json' },
+            }
+          );
+        }
+      } else if (Array.isArray(answer)) {
+        // For arrays (checkbox responses), validate each item
+        for (const item of answer) {
+          if (typeof item !== 'string' || item.length > 5000) {
+            return new Response(
+              JSON.stringify({ success: false, error: 'Response too long.' }),
+              {
+                status: 400,
+                headers: { 'Content-Type': 'application/json' },
+              }
+            );
+          }
+        }
+      } else {
         return new Response(
-          JSON.stringify({ success: false, error: 'Response too long.' }),
+          JSON.stringify({ success: false, error: 'Invalid response format.' }),
           {
             status: 400,
             headers: { 'Content-Type': 'application/json' },
@@ -116,6 +217,16 @@ export const POST: APIRoute = async ({ request, locals, cookies }) => {
     const responsesList = Object.entries(responses)
       .map(([questionId, answer]) => {
         const questionText = questionMap[questionId] || questionId;
+
+        // Handle array responses (checkboxes)
+        if (Array.isArray(answer)) {
+          const formattedAnswers = answer
+            .map(item => `<li>${he.escape(item)}</li>`)
+            .join('');
+          return `<li><strong>${he.escape(questionText)}</strong><ul>${formattedAnswers}</ul></li>`;
+        }
+
+        // Handle string responses (radio buttons)
         return `<li><strong>${he.escape(questionText)}</strong><br/>${he.escape(answer)}</li>`;
       })
       .join('');
