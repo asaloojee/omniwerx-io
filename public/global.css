@@ -152,12 +152,8 @@ body {
 }
 
 .navbar-framework {
-  position: relative;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2000;
-  height: 16px;
+  position: static;
+  height: 80px;
   display: grid;
   grid-template-columns: minmax(32px, 1fr) minmax(0, 1200px) minmax(32px, 1fr);
   margin: 0 auto;
@@ -174,7 +170,7 @@ body {
 }
 
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 16px;
   left: 0;
   right: 0;
@@ -722,6 +718,8 @@ body {
 
   .navbar-framework {
     grid-template-columns: minmax(16px, 1fr) minmax(0, 1200px) minmax(16px, 1fr);
+    position: static;
+    height: 80px;
   }
 
   .h1 {
