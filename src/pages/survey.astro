@@ -2,6 +2,7 @@
 import SurveyNav from '../components/SurveyNav.astro';
 import Divider from '../components/Divider.astro';
 import Footer from '../components/Footer.astro';
+import Toast from '../components/Toast.astro';
 
 // Check if survey is enabled at build time
 const SURVEY_ENABLED = import.meta.env.SURVEY_ENABLED === true;
@@ -69,7 +70,6 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
                 <input type="password" name="password" placeholder="Password" required />
                 <button type="submit">Access Survey</button>
               </form>
-              <div id="authMessage" class="form-message"></div>
             </div>
           ) : (
             <div id="surveyForm" class="survey-form">
@@ -81,7 +81,6 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
                   <input type="email" name="email" placeholder="Email" required />
                   <button type="submit">Start Survey</button>
                 </form>
-                <div id="userInfoMessage" class="form-message"></div>
               </div>
 
               <div id="questionsStep" style="display: none;">
@@ -111,6 +110,7 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     <Divider />
   </main>
   <Footer />
+  <Toast />
 </body>
 </html>
 
@@ -550,7 +550,6 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
 
   // Password authentication (only runs if not authenticated server-side)
   const authForm = document.getElementById('authForm');
-  const authMessage = document.getElementById('authMessage');
   const lockContainer = document.querySelector('.lock-container');
   const passwordForm = document.getElementById('passwordForm');
 
@@ -587,16 +586,16 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
           window.location.reload();
         }, 1400);
       } else {
-        if (authMessage) {
-          authMessage.textContent = result.error || 'Invalid password.';
-          authMessage.className = 'form-message error';
-        }
+        window.showToast({
+          type: 'error',
+          message: result.error || 'Invalid password.',
+        });
       }
     } catch (error) {
-      if (authMessage) {
-        authMessage.textContent = 'Authentication failed.';
-        authMessage.className = 'form-message error';
-      }
+      window.showToast({
+        type: 'error',
+        message: 'Authentication failed.',
+      });
     }
   });
 
@@ -859,8 +858,6 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
   }
 
   // User info form submission
-  const userInfoMessage = document.getElementById('userInfoMessage');
-
   userInfoForm?.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -868,29 +865,23 @@ const isAuthenticated = authCookie && authCookie.value === 'authenticated';
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
 
-    // Clear previous error messages
-    if (userInfoMessage) {
-      userInfoMessage.textContent = '';
-      userInfoMessage.className = 'form-message';
-    }
-
     // Validate name (only letters and spaces)
     const nameRegex = /^[A-Za-z\s]+$/;
     if (!nameRegex.test(name)) {
-      if (userInfoMessage) {
-        userInfoMessage.textContent = 'Name must contain only letters and spaces.';
-        userInfoMessage.className = 'form-message error';
-      }
+      window.showToast({
+        type: 'error',
+        message: 'Name must contain only letters and spaces.',
+      });
       return;
     }
 
     // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      if (userInfoMessage) {
-        userInfoMessage.textContent = 'Please enter a valid email address.';
-        userInfoMessage.className = 'form-message error';
-      }
+      window.showToast({
+        type: 'error',
+        message: 'Please enter a valid email address.',
+      });
       return;
     }
 

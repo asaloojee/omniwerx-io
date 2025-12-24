@@ -2,6 +2,7 @@
 import Divider from '../components/Divider.astro';
 import TerminalDivider from '../components/TerminalDivider.astro';
 import Footer from '../components/Footer.astro';
+import Toast from '../components/Toast.astro';
 ---
 
 <!doctype html>
@@ -254,7 +255,6 @@ import Footer from '../components/Footer.astro';
               <textarea name="message" placeholder="Message" required></textarea>
               <button type="submit" id="submitBtn">Send Message</button>
             </form>
-            <div id="formMessage" class="form-message"></div>
           </div>
         </div>
       </div>
@@ -263,6 +263,7 @@ import Footer from '../components/Footer.astro';
     <TerminalDivider />
   </main>
   <Footer />
+  <Toast />
 </body>
 
 <script>
@@ -283,12 +284,11 @@ import Footer from '../components/Footer.astro';
   // Contact form submission
   const contactForm = document.getElementById("contactForm");
   const submitBtn = document.getElementById("submitBtn");
-  const formMessage = document.getElementById("formMessage");
 
   contactForm?.addEventListener("submit", async (e) => {
     e.preventDefault();
 
-    if (!submitBtn || !formMessage) return;
+    if (!submitBtn) return;
 
     // Get form data
     const formData = new FormData(contactForm as HTMLFormElement);
@@ -301,8 +301,6 @@ import Footer from '../components/Footer.astro';
     // Disable submit button and show loading state
     submitBtn.disabled = true;
     submitBtn.textContent = "Sending...";
-    formMessage.textContent = "";
-    formMessage.className = "form-message";
 
     try {
       const response = await fetch("/api/contact", {
@@ -316,20 +314,26 @@ import Footer from '../components/Footer.astro';
       const result = await response.json();
 
       if (result.success) {
-        // Success - clear form and show success message
+        // Success - clear form and show success toast
         (contactForm as HTMLFormElement).reset();
-        formMessage.textContent = result.message;
-        formMessage.className = "form-message success";
+        window.showToast({
+          type: 'success',
+          message: result.message,
+          duration: 5000, // Auto-dismiss after 5 seconds
+        });
       } else {
         // Error from server
-        formMessage.textContent = result.error;
-        formMessage.className = "form-message error";
+        window.showToast({
+          type: 'error',
+          message: result.error,
+        });
       }
     } catch (error) {
       // Network or other error
-      formMessage.textContent =
-        "An error occurred. Please try again or email us directly at info@omniwerx.io.";
-      formMessage.className = "form-message error";
+      window.showToast({
+        type: 'error',
+        message: 'An error occurred. Please try again or email us directly at info@omniwerx.io.',
+      });
     } finally {
       // Re-enable submit button
       submitBtn.disabled = false;
