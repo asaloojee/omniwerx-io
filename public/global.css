@@ -173,7 +173,7 @@ body {
   position: fixed;
   top: 16px;
   left: 0;
-  right: 0;
+  right: 16px;
   z-index: 2000;
   transition: all 0.3s ease;
   margin: 0 auto;
