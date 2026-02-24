@@ -10,8 +10,8 @@
     "build:no-survey": "SURVEY_ENABLED=false astro build",
     "preview": "doppler secrets download --no-file --format env-no-quotes > .dev.vars && astro preview",
     "preview:local": "astro preview",
-    "secrets:sync:production": "doppler secrets download --no-file --format json | jq -c 'with_entries(.value = .value)' | wrangler secret bulk --env production",
-    "secrets:sync:preview": "doppler secrets download --no-file --format json | jq -c 'with_entries(.value = .value)' | wrangler secret bulk --env preview",
+    "secrets:sync:production": "doppler secrets download --no-file --format json --config prod | jq -c 'with_entries(.value = .value)' | wrangler secret bulk --env production",
+    "secrets:sync:preview": "doppler secrets download --no-file --format json --config dev | jq -c 'with_entries(.value = .value)' | wrangler secret bulk --env preview",
     "deploy": "bun run secrets:sync:production && astro build && wrangler deploy --env production",
     "deploy:survey": "bun run secrets:sync:production && SURVEY_ENABLED=true astro build && wrangler deploy --env production",
     "deploy:no-survey": "bun run secrets:sync:production && SURVEY_ENABLED=false astro build && wrangler deploy --env production",
@@ -21,13 +21,13 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^12.6.12",
-    "astro": "^5.16.6",
+    "astro": "^5.17.3",
     "he": "^1.2.0",
-    "resend": "^6.6.0"
+    "resend": "^6.9.2"
   },
   "devDependencies": {
-    "@types/bun": "^1.3.5",
+    "@types/bun": "^1.3.9",
     "@types/he": "^1.2.3",
-    "wrangler": "^4.56.0"
+    "wrangler": "^4.68.0"
   }
 }
