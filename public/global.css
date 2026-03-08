@@ -53,13 +53,14 @@
 
 html {
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 :root {
   --primary-red: #d70923;
   --secondary-red: #c8041c;
-  --body-text: #dbd5d6;
-  --body-text--emphasis: #fef7f8;
+  --body-text: #a8a4a4;
+  --body-text--emphasis: #f0eded;
   --primary-black: #0b0a0a;
   --secondary-black: #151414;
   --card-background: #1f1e1e;
@@ -80,15 +81,15 @@ body {
   height: 100%;
   background-color: var(--primary-black);
   background-image:
-    linear-gradient(rgba(125, 120, 121, 0.1) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(125, 120, 121, 0.1) 1px, transparent 1px);
+    linear-gradient(rgba(125, 120, 121, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 120, 121, 0.04) 1px, transparent 1px);
   background-size: 16px 16px;
   background-position: center top;
   font-family: 'Switzer', sans-serif;
   font-weight: 300;
   font-style: normal;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--body-text);
   overflow-x: hidden;
 }
@@ -117,30 +118,30 @@ body {
   display: block;
   z-index: 1000;
   position: absolute;
-  width: 11px;
-  height: 11px;
-  border-radius: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 2px;
   border: 1px solid var(--section-wrapper--border);
   background-color: var(--primary-black);
-  bottom: -6px;
+  bottom: -4px;
 }
 
 .section-dot.section-dot--left {
-  left: -6px;
+  left: -4px;
 }
 
 .section-dot.section-dot--right {
-  right: -6px;
+  right: -4px;
 }
 
 .section-dot.section-dot--top {
-  top: -6px;
+  top: -4px;
   bottom: unset;
 }
 
 .body-text {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 300;
   font-style: normal;
   color: var(--body-text);
@@ -153,7 +154,7 @@ body {
   font-weight: 500;
   font-style: normal;
   color: var(--body-text--emphasis);
-  letter-spacing: 0.01em;
+  letter-spacing: -0.02em;
 }
 
 .navbar-framework {
@@ -227,7 +228,7 @@ body {
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0.02em;
-  transition: color 0.2s ease;
+  transition: color 150ms ease;
 }
 
 .nav-link.nav-link--contact {
@@ -237,9 +238,6 @@ body {
   border-radius: 8px;
   font-family: 'JetBrains Mono', monospace;
   font-weight: 500;
-  box-shadow:
-    0 0 16px rgba(204, 0, 24, 0.5),
-    0 0 20px rgba(204, 0, 24, 0.3);
   text-transform: uppercase;
 }
 
@@ -349,9 +347,6 @@ body {
   font-family: 'JetBrains Mono', monospace;
   position: relative;
   overflow: hidden;
-  box-shadow:
-    0 0 16px rgba(204, 0, 24, 0.5),
-    0 0 20px rgba(204, 0, 24, 0.3);
 }
 
 .about__content-wrapper {
@@ -375,25 +370,16 @@ body {
   font-family: 'JetBrains Mono', monospace;
   color: var(--secondary-red);
   text-transform: uppercase;
-  background: rgba(224, 31, 55, 0.2);
-  padding: 2px 12px 2px 8px;
-  border-radius: 16px;
-  border: 1px solid var(--secondary-red);
+  background: transparent;
+  padding: 0 0 0 8px;
+  border-radius: 0;
+  border: none;
+  border-left: 2px solid var(--secondary-red);
   width: fit-content;
   margin-bottom: 12px;
   letter-spacing: 0.01em;
   position: relative;
   display: inline-flex;
-  gap: 6px;
-}
-
-.badge::before {
-  content: '+';
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--secondary-red);
-  opacity: 0.8;
-  line-height: 1;
 }
 
 .h2 {
@@ -442,7 +428,7 @@ body {
 .services__content__cards {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 64px;
+  gap: 32px;
   margin-top: 64px;
   padding: 0 16px;
   position: relative;
@@ -459,16 +445,13 @@ body {
   border: 1px solid var(--card-border);
 }
 
-.services__content__card::before {
-  content: '';
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 100%;
-  height: 100%;
-  background-color: #0b0a0a;
-  border: 1px solid #494646;
-  z-index: -1;
+.services__content__card {
+  transition: transform 250ms ease, border-color 250ms ease;
+}
+
+.services__content__card:hover {
+  transform: translateY(-2px);
+  border-color: var(--section-wrapper--border);
 }
 
 .services__content__card::after {
@@ -480,23 +463,23 @@ body {
   bottom: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(to right, var(--section-wrapper--border) 16px, transparent 16px),
-    linear-gradient(to bottom, var(--section-wrapper--border) 16px, transparent 16px),
-    linear-gradient(to right, var(--section-wrapper--border) 16px, transparent 16px),
-    linear-gradient(to bottom, var(--section-wrapper--border) 16px, transparent 16px),
-    linear-gradient(to left, var(--section-wrapper--border) 16px, transparent 16px),
-    linear-gradient(to top, var(--section-wrapper--border) 16px, transparent 16px),
-    linear-gradient(to left, var(--section-wrapper--border) 16px, transparent 16px),
-    linear-gradient(to top, var(--section-wrapper--border) 16px, transparent 16px);
+    linear-gradient(to right, var(--section-wrapper--border) 8px, transparent 8px),
+    linear-gradient(to bottom, var(--section-wrapper--border) 8px, transparent 8px),
+    linear-gradient(to right, var(--section-wrapper--border) 8px, transparent 8px),
+    linear-gradient(to bottom, var(--section-wrapper--border) 8px, transparent 8px),
+    linear-gradient(to left, var(--section-wrapper--border) 8px, transparent 8px),
+    linear-gradient(to top, var(--section-wrapper--border) 8px, transparent 8px),
+    linear-gradient(to left, var(--section-wrapper--border) 8px, transparent 8px),
+    linear-gradient(to top, var(--section-wrapper--border) 8px, transparent 8px);
   background-size:
-    1px 16px,
-    16px 1px,
-    1px 16px,
-    16px 1px,
-    1px 16px,
-    16px 1px,
-    1px 16px,
-    16px 1px;
+    1px 8px,
+    8px 1px,
+    1px 8px,
+    8px 1px,
+    1px 8px,
+    8px 1px,
+    1px 8px,
+    8px 1px;
   background-position:
     0 0,
     0 0,
@@ -594,7 +577,7 @@ body {
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0.02em;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .contact__content__cta input::placeholder,
@@ -607,7 +590,8 @@ body {
 .contact__content__cta textarea:focus {
   outline: none;
   background-color: var(--input-background--focus);
-  transition: background-color 0.2s ease;
+  border-color: var(--secondary-red);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .contact__content__cta textarea {
@@ -633,9 +617,6 @@ body {
   font-family: 'JetBrains Mono', monospace;
   grid-column: span 2;
   margin-top: 16px;
-  box-shadow:
-    0 0 16px rgba(204, 0, 24, 0.5),
-    0 0 20px rgba(204, 0, 24, 0.3);
 }
 
 .contact__content__cta button:disabled {
@@ -704,17 +685,14 @@ body {
   padding-bottom: 1px;
   font-family: 'JetBrains Mono', monospace;
   transition:
-    color 0.2s ease,
-    border-bottom 0.2s ease;
+    color 150ms ease,
+    border-bottom 150ms ease;
   letter-spacing: -0.02em;
 }
 
 .inline-link:hover {
   color: var(--primary-red);
   border-bottom: 1px solid var(--secondary-red);
-  transition:
-    color 0.2s ease,
-    border-bottom 0.2s ease;
 }
 
 @media screen and (max-width: 768px) {
