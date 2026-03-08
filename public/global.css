@@ -50,6 +50,11 @@
 * {
   box-sizing: border-box;
 }
+
+html {
+  scrollbar-gutter: stable;
+}
+
 :root {
   --primary-red: #d70923;
   --secondary-red: #c8041c;
@@ -68,7 +73,7 @@
   --divider-link-bg: rgba(204, 0, 24, 0.2);
   --divider-link-bg-hover: rgba(204, 0, 24, 0.35);
 }
-html,
+
 body {
   margin: 0;
   width: 100%;
@@ -172,8 +177,8 @@ body {
 .navbar {
   position: fixed;
   top: 16px;
-  left: 0;
-  right: 16px;
+  right: 0;
+  width: 100%;
   z-index: 2000;
   transition: all 0.3s ease;
   margin: 0 auto;
