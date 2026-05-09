@@ -5,41 +5,55 @@
 <div class="badge-stage">
   <model-viewer
     src="/logo-v2.glb"
-    alt="Omniwerx logo"
+    alt="OMNIWERX logo"
     camera-controls
     disable-zoom
     disable-pan
     touch-action="pan-y"
     interaction-prompt="none"
-    camera-orbit="110deg 15deg 1.2m"
-    min-camera-orbit="auto auto 1.2m"
-    max-camera-orbit="auto auto 1.2m"
-    exposure="1.0"
+    camera-orbit="14.7deg 77deg 0.85m"
+    min-camera-orbit="auto 0deg 0.85m"
+    max-camera-orbit="auto 180deg 0.85m"
+    field-of-view="30deg"
+    min-field-of-view="20deg"
+    max-field-of-view="80deg"
+    environment-image="studio_kontrast_02_4k.hdr"
+    exposure="1.2"
     shadow-intensity="0.6"
-    environment-image="neutral"
+    shadow-softness="0.8"
     loading="eager"
-    orientation="0deg 90deg 0deg"
-  ></model-viewer>
+    orientation="0deg 90deg 0deg"></model-viewer>
 </div>
 
 <style>
   .badge-stage {
     width: 100%;
-    height: 560px;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+    overscroll-behavior: contain;
   }
-  
+
   model-viewer {
     width: 100%;
     height: 100%;
     background-color: transparent;
     --poster-color: transparent;
-    transform: rotate(-90deg);
+    cursor: grab;
+    touch-action: none;
+    overflow: hidden;
+    scrollbar-width: none;
+    transform: rotate(2deg);
+    margin-top: -24px;
+  }
+
+  model-viewer:active {
+    cursor: grabbing;
   }
 </style>
 
 <script>
-  import '@google/model-viewer';
+  import "@google/model-viewer";
 </script>
