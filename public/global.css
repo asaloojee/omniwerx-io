@@ -179,6 +179,12 @@ a {
 	overflow: hidden;
 }
 
+.hero__visual .badge-stage {
+	transform: scale(0.9);
+	transform-origin: center;
+	opacity: 0.92;
+}
+
 .section-label {
 	display: inline-flex;
 	align-items: center;
@@ -225,34 +231,25 @@ a {
 
 .about__body {
 	display: grid;
-	grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
-	gap: 128px;
+	grid-template-columns: minmax(0, 7fr) minmax(300px, 3fr);
+	gap: 96px;
 	width: 100%;
-	margin-top: 72px;
+	margin-top: 56px;
+}
+
+.about__text {
+	display: grid;
+	gap: 28px;
+	max-width: 760px;
 }
 
 .about__body p {
 	color: rgba(184, 184, 184, 0.9);
+	font-size: 22px;
 	font-weight: 400;
+	line-height: 1.48;
 	letter-spacing: -0.02em;
 	text-wrap: pretty;
-}
-
-.about__lead {
-	color: var(--body-text--emphasis);
-	font-size: 32px;
-	line-height: 1.24;
-}
-
-.about__supporting {
-	display: grid;
-	gap: 24px;
-	padding-top: 8px;
-}
-
-.about__supporting p {
-	font-size: 20px;
-	line-height: 1.55;
 }
 
 .about__client {
@@ -260,4 +257,59 @@ a {
 	font-family: var(--font-mono);
 	font-size: 0.88em;
 	letter-spacing: 0;
+}
+
+.about__aside {
+	align-self: start;
+	padding-top: 8px;
+}
+
+.about__portrait {
+	position: relative;
+	min-height: 500px;
+	margin: 0;
+	overflow: hidden;
+	border: 1px solid var(--border-color);
+	background-color: var(--primary-black);
+}
+
+.about__portrait-placeholder {
+	position: absolute;
+	inset: 0;
+	background:
+		linear-gradient(180deg, rgba(245, 245, 245, 0.04), transparent 44%),
+		var(--primary-black);
+}
+
+.about__portrait-meta {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: grid;
+	gap: 8px;
+	padding: 20px 24px 24px;
+	border-top: 1px dashed rgba(184, 184, 184, 0.34);
+	background:
+		linear-gradient(135deg, rgba(215, 9, 35, 0.1), rgba(16, 15, 15, 0.62) 48%),
+		rgba(16, 15, 15, 0.66);
+	-webkit-backdrop-filter: blur(14px);
+	backdrop-filter: blur(14px);
+}
+
+.about__portrait-name {
+	color: var(--body-text--emphasis);
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 20px;
+	letter-spacing: -0.02em;
+}
+
+.about__portrait-detail {
+	color: rgba(184, 184, 184, 0.8);
+	font-family: var(--font-mono);
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 16px;
+	letter-spacing: 0.02em;
 }

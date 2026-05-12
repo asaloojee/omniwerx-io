@@ -4,16 +4,18 @@ import BadgeHero from "../components/BadgeHero.astro";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<title>Omniwerx</title>
-		<link rel="stylesheet" href="/global.css" />
-	</head>
-	<body>
-		<header class="site-nav" aria-label="Primary navigation">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Omniwerx</title>
+    <link rel="stylesheet" href="/global.css" />
+  </head>
+  <body>
+    <header class="site-nav" aria-label="Primary navigation">
       <div class="site-nav__wrapper">
-        <a class="site-nav__wordmark" href="/" aria-label="Omniwerx home">omniwerx</a>
+        <a class="site-nav__wordmark" href="/" aria-label="Omniwerx home"
+          >omniwerx</a
+        >
         <nav class="site-nav__links" aria-label="Site sections">
           <a href="#about">About</a>
           <a href="#services">Services</a>
@@ -21,40 +23,70 @@ import BadgeHero from "../components/BadgeHero.astro";
           <a href="#contact">Contact</a>
         </nav>
       </div>
-		</header>
-		<main>
-			<section class="hero">
-				<div class="hero__wrapper">
-					<div class="hero__content">
-            <p class="hero__label">[design / development]</p>
-						<h1 class="hero__heading">Technical web solutions for fitness and small business operators.</h1>
-						<a class="hero__cta" href="#contact"><span>Start a conversation</span></a>
-					</div>
-					<div class="hero__visual" aria-hidden="true">
-						<BadgeHero />
-					</div>
-				</div>
-			</section>
+    </header>
+    <main>
+      <section class="hero">
+        <div class="hero__wrapper">
+          <div class="hero__content">
+            <p class="hero__label">frontend implementation / interface design</p>
+            <h1 class="hero__heading">
+              Technical web solutions for fitness and small business operators.
+            </h1>
+            <a class="hero__cta" href="#contact"
+              ><span>Start a conversation</span></a
+            >
+          </div>
+          <div class="hero__visual" aria-hidden="true">
+            <BadgeHero />
+          </div>
+        </div>
+      </section>
       <section class="about" id="about" aria-labelledby="about-heading">
         <div class="about__wrapper">
           <div class="about__content">
             <p class="section-label" aria-label="Section 01 about">
               <span>01</span>
-              <img class="section-label__separator" src="/label-separator.svg" alt="" />
+              <img
+                class="section-label__separator"
+                src="/label-separator.svg"
+                alt=""
+              />
               <span>about</span>
             </p>
-            <h2 class="about__heading" id="about-heading">Direct technical ownership for websites, CMS builds, and email systems.</h2>
+            <h2 class="about__heading" id="about-heading">
+              A focused development practice for precise web interfaces.
+            </h2>
             <div class="about__body">
-              <p class="about__lead">Omniwerx is the practice of Abdurahmaan Saloojee, an independent software developer based in Ottawa, Canada. The work focuses on frontend development, WordPress, Bricks, Webflow, Klaviyo, and Emailify for fitness, health, and small business operators.</p>
-              <div class="about__supporting">
-                <p>Current work includes ongoing technical support for <span class="about__client">Pre-Script</span>, a US-based fitness education company, across web production, content workflows, and email infrastructure.</p>
-                <p>Projects are scoped tightly, built directly, and carried through implementation. The emphasis is on clear ownership, durable systems, and technical work that stays out of the operator’s way.</p>
+              <div class="about__text">
+                <p>
+                  Omniwerx is the practice of Abdurahmaan Saloojee, an
+                  independent software developer based in Ottawa, Canada. The
+                  work centers on frontend implementation and interface design,
+                  supported by CMS and email infrastructure where required.
+                </p>
+                <p>
+                  Current work includes web production, content workflows, and
+                  email systems for <span class="about__client">Pre-Script</span
+                  >, a US-based fitness education company. Engagements are
+                  scoped for direct ownership, clear implementation, and
+                  maintainable handoff.
+                </p>
               </div>
+              <aside class="about__aside" aria-label="Founder profile">
+                <figure class="about__portrait">
+                  <div class="about__portrait-placeholder" aria-hidden="true"></div>
+                  <figcaption class="about__portrait-meta">
+                    <span class="about__portrait-name">Abdurahmaan Saloojee</span>
+                    <span class="about__portrait-detail"
+                      >frontend implementation / Ottawa, Canada</span
+                    >
+                  </figcaption>
+                </figure>
+              </aside>
             </div>
           </div>
         </div>
       </section>
-		</main>
-	</body>
+    </main>
+  </body>
 </html>
-

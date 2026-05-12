@@ -33,7 +33,6 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    overscroll-behavior: contain;
   }
 
   model-viewer {
@@ -41,19 +40,35 @@
     height: 100%;
     background-color: transparent;
     --poster-color: transparent;
-    cursor: grab;
-    touch-action: none;
+    cursor: default;
+    touch-action: pan-y;
     overflow: hidden;
     scrollbar-width: none;
     transform: rotate(2deg);
     margin-top: -24px;
   }
 
-  model-viewer:active {
-    cursor: grabbing;
-  }
 </style>
 
 <script>
   import "@google/model-viewer";
+
+  const badgeViewers = document.querySelectorAll(".badge-stage model-viewer");
+
+  badgeViewers.forEach((viewer) => {
+    viewer.addEventListener(
+      "wheel",
+      (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+
+        window.scrollBy({
+          top: event.deltaY,
+          left: event.deltaX,
+          behavior: "auto",
+        });
+      },
+      { passive: false, capture: true },
+    );
+  });
 </script>
