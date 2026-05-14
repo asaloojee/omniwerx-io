@@ -1,4 +1,5 @@
 ---
+import BadgeHero from "../components/BadgeHero.astro";
 ---
 
 <!doctype html>
@@ -9,5 +10,37 @@
     <title>Omniwerx</title>
     <link rel="stylesheet" href="/global.css" />
   </head>
-  <body></body>
+  <body>
+    <div class="wrapper">
+      <nav class="nav">
+        <div class="nav__wordmark">omniwerx</div>
+        <a class="nav__link">start a conversation</a>
+      </nav>
+      <section class="hero">
+        <div class="hero__label">[00 / overview]</div>
+        <h1 class="hero__h1">
+          Web solutions for fitness and small businesses.
+        </h1>
+        <button class="button hero__button" type="button">
+          <span>solutions</span>
+        </button>
+        <div class="hero__badge">
+          <BadgeHero />
+        </div>
+      </section>
+    </div>
+  </body>
+
+  <script is:inline>
+    const nav = document.querySelector(".nav");
+
+    if (nav) {
+      const setScrolled = () => {
+        nav.dataset.scrolled = window.scrollY > 8 ? "true" : "false";
+      };
+
+      setScrolled();
+      window.addEventListener("scroll", setScrolled, { passive: true });
+    }
+  </script>
 </html>

@@ -17,7 +17,7 @@
     field-of-view="30deg"
     min-field-of-view="20deg"
     max-field-of-view="80deg"
-    environment-image="studio_kontrast_02_4k.hdr"
+    environment-image="/studio_kontrast_02_4k.hdr"
     exposure="1.2"
     shadow-intensity="0.6"
     shadow-softness="0.8"
@@ -27,15 +27,17 @@
 
 <style>
   .badge-stage {
-    width: 100%;
-    height: 100%;
+    width: min(100%, 520px);
+    aspect-ratio: 1 / 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin: clamp(40px, 7vw, 72px) auto 0;
     overflow: hidden;
   }
 
   model-viewer {
+    display: block;
     width: 100%;
     height: 100%;
     background-color: transparent;
@@ -44,8 +46,7 @@
     touch-action: pan-y;
     overflow: hidden;
     scrollbar-width: none;
-    transform: rotate(2deg);
-    margin-top: -24px;
+    transform: translateY(-2%) rotate(2deg);
   }
 
 </style>
