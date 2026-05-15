@@ -1,0 +1,30 @@
+---
+interface Props {
+  class?: string;
+  count?: number;
+}
+
+const { class: className = "", count = 3 } = Astro.props;
+const marks = Array.from({ length: count });
+---
+
+<div class:list={["section-marker", className]} aria-hidden="true">
+  {marks.map(() => <span class="section-marker__mark"></span>)}
+</div>
+
+<style>
+  .section-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--section-marker-gap);
+  }
+
+  .section-marker__mark {
+    inline-size: var(--section-marker-size);
+    block-size: var(--section-marker-size);
+    background-color: var(--section-marker-color);
+    -webkit-mask: url("/label-separator.svg") center / contain no-repeat;
+    mask: url("/label-separator.svg") center / contain no-repeat;
+  }
+</style>

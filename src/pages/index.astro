@@ -1,5 +1,6 @@
 ---
 import BadgeHero from "../components/BadgeHero.astro";
+import SectionMarker from "../components/SectionMarker.astro";
 ---
 
 <!doctype html>
@@ -11,12 +12,14 @@ import BadgeHero from "../components/BadgeHero.astro";
     <link rel="stylesheet" href="/global.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <nav class="nav">
+    <nav class="nav">
+      <div class="wrapper">
         <div class="nav__wordmark">omniwerx</div>
         <a class="nav__link">start a conversation</a>
-      </nav>
-      <section class="hero">
+      </div>
+    </nav>
+    <section class="hero">
+      <div class="wrapper">
         <div class="hero__label">[00 / overview]</div>
         <h1 class="hero__h1">
           Web solutions for fitness and small businesses.
@@ -27,8 +30,24 @@ import BadgeHero from "../components/BadgeHero.astro";
         <div class="hero__badge">
           <BadgeHero />
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
+
+    <!-- <SectionMarker /> -->
+
+    <section class="section about" aria-labelledby="about-heading">
+      <div class="section__inner section__inner--narrow">
+        <div class="about__label">[01 / about]</div>
+        <h2 class="about__heading" id="about-heading">
+          A focused web practice.
+        </h2>
+        <p class="about__copy">
+          Omniwerx is an independent web development practice focused on
+          frontend implementation and interface design for fitness, health, and
+          small business operators.
+        </p>
+      </div>
+    </section>
   </body>
 
   <script is:inline>
