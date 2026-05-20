@@ -73,10 +73,10 @@
         </div>
         <svg
           class="services__card__number"
-          viewBox="0 0 140 100"
+          viewBox="0 0 140 84"
           aria-hidden="true"
         >
-          <text x="132" y="86" text-anchor="end">01</text>
+          <text x="132" y="80" text-anchor="end">01</text>
         </svg>
       </div>
       <div class="services__card">
@@ -89,10 +89,10 @@
         </div>
         <svg
           class="services__card__number"
-          viewBox="0 0 140 100"
+          viewBox="0 0 140 84"
           aria-hidden="true"
         >
-          <text x="132" y="86" text-anchor="end">02</text>
+          <text x="132" y="80" text-anchor="end">02</text>
         </svg>
       </div>
       <div class="services__card">
@@ -105,10 +105,10 @@
         </div>
         <svg
           class="services__card__number"
-          viewBox="0 0 140 100"
+          viewBox="0 0 140 84"
           aria-hidden="true"
         >
-          <text x="132" y="86" text-anchor="end">03</text>
+          <text x="132" y="80" text-anchor="end">03</text>
         </svg>
       </div>
 
@@ -122,10 +122,10 @@
         </div>
         <svg
           class="services__card__number"
-          viewBox="0 0 140 100"
+          viewBox="0 0 140 84"
           aria-hidden="true"
         >
-          <text x="132" y="86" text-anchor="end">04</text>
+          <text x="132" y="80" text-anchor="end">04</text>
         </svg>
       </div>
     </div>
