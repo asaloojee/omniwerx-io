@@ -358,13 +358,17 @@ button {
 
 .services__card {
   background-color: var(--card-bg);
-  padding: 32px 24px 24px;
   width: 100%;
+  display: grid;
+  grid-template-columns: minmax(auto, 60%) 1fr;
   position: relative;
+  overflow: clip;
 }
 
 .services__card__content {
-  max-width: 60%;
+  position: relative;
+  z-index: 1;
+  padding: 32px 0 24px 24px;
 }
 
 .services__card__header {
@@ -374,12 +378,20 @@ button {
 
 .services__card__number {
   position: absolute;
-  top: 2px;
-  right: 0;
+  inset-block: 0;
+  inset-inline-end: -8px;
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  overflow: hidden;
   color: var(--body-text);
-  opacity: 0.2;
-  font-size: clamp(4rem, 90cqh, 12rem);
-  line-height: 0.96;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.services__card__number text {
+  fill: currentColor;
+  font-family: var(--font-mono);
+  font-size: 108px;
   letter-spacing: -0.08em;
-  margin-right: -8px;
 }

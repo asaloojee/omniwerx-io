@@ -71,7 +71,13 @@
             precisely from a defined scope.
           </div>
         </div>
-        <div class="services__card__number">01</div>
+        <svg
+          class="services__card__number"
+          viewBox="0 0 140 100"
+          aria-hidden="true"
+        >
+          <text x="132" y="86" text-anchor="end">01</text>
+        </svg>
       </div>
       <div class="services__card">
         <div class="services__card__content">
@@ -81,7 +87,13 @@
             precisely from a defined scope.
           </div>
         </div>
-        <div class="services__card__number">02</div>
+        <svg
+          class="services__card__number"
+          viewBox="0 0 140 100"
+          aria-hidden="true"
+        >
+          <text x="132" y="86" text-anchor="end">02</text>
+        </svg>
       </div>
       <div class="services__card">
         <div class="services__card__content">
@@ -91,7 +103,13 @@
             precisely from a defined scope.
           </div>
         </div>
-        <div class="services__card__number">03</div>
+        <svg
+          class="services__card__number"
+          viewBox="0 0 140 100"
+          aria-hidden="true"
+        >
+          <text x="132" y="86" text-anchor="end">03</text>
+        </svg>
       </div>
 
       <div class="services__card">
@@ -102,7 +120,13 @@
             precisely from a defined scope.
           </div>
         </div>
-        <div class="services__card__number">04</div>
+        <svg
+          class="services__card__number"
+          viewBox="0 0 140 100"
+          aria-hidden="true"
+        >
+          <text x="132" y="86" text-anchor="end">04</text>
+        </svg>
       </div>
     </div>
   </div>
