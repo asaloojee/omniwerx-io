@@ -66,72 +66,65 @@
       Placeholder body text for the services section. Use this space to frame the
       work, the outcomes, and the kinds of business needs these services cover.
     </p>
-    <div class="services__grid">
-      <div class="services__card">
-        <div class="services__card__content">
-          <div class="services__card__header">Interface implementation</div>
-          <div class="services__card__text">
-            Pages, forms, onboarding flows, and front-end features implemented
-            precisely from a defined scope.
-          </div>
-        </div>
-        <svg
-          class="services__card__number"
-          viewBox="0 0 140 84"
-          aria-hidden="true"
-        >
-          <text x="132" y="80" text-anchor="end">01</text>
-        </svg>
-      </div>
-      <div class="services__card">
-        <div class="services__card__content">
-          <div class="services__card__header">Interface implementation</div>
-          <div class="services__card__text">
-            Pages, forms, onboarding flows, and front-end features implemented
-            precisely from a defined scope.
-          </div>
-        </div>
-        <svg
-          class="services__card__number"
-          viewBox="0 0 140 84"
-          aria-hidden="true"
-        >
-          <text x="132" y="80" text-anchor="end">02</text>
-        </svg>
-      </div>
-      <div class="services__card">
-        <div class="services__card__content">
-          <div class="services__card__header">Interface implementation</div>
-          <div class="services__card__text">
-            Pages, forms, onboarding flows, and front-end features implemented
-            precisely from a defined scope.
-          </div>
-        </div>
-        <svg
-          class="services__card__number"
-          viewBox="0 0 140 84"
-          aria-hidden="true"
-        >
-          <text x="132" y="80" text-anchor="end">03</text>
-        </svg>
+    <div class="services__register">
+      <div class="services__header" aria-hidden="true">
+        <div>no.</div>
+        <div>capability</div>
+        <div>application</div>
+        <div>tags</div>
       </div>
 
-      <div class="services__card">
-        <div class="services__card__content">
-          <div class="services__card__header">Interface implementation</div>
-          <div class="services__card__text">
-            Pages, forms, onboarding flows, and front-end features implemented
-            precisely from a defined scope.
-          </div>
+      <article class="services__row">
+        <div class="services__index">01</div>
+        <h3 class="services__title">Interface implementation</h3>
+        <p class="services__description">
+          Responsive pages, forms, onboarding flows, and front-end features built
+          from a defined scope.
+        </p>
+        <div class="services__tags">
+          <span>frontend</span>
+          <span>build</span>
         </div>
-        <svg
-          class="services__card__number"
-          viewBox="0 0 140 84"
-          aria-hidden="true"
-        >
-          <text x="132" y="80" text-anchor="end">04</text>
-        </svg>
-      </div>
+      </article>
+
+      <article class="services__row">
+        <div class="services__index">02</div>
+        <h3 class="services__title">Site systems</h3>
+        <p class="services__description">
+          Component structure, CMS wiring, content models, and reusable patterns
+          that keep the site maintainable.
+        </p>
+        <div class="services__tags">
+          <span>systems</span>
+          <span>structure</span>
+        </div>
+      </article>
+
+      <article class="services__row">
+        <div class="services__index">03</div>
+        <h3 class="services__title">Conversion surfaces</h3>
+        <p class="services__description">
+          Landing pages, signup paths, booking flows, and offer pages shaped
+          around a clear user decision.
+        </p>
+        <div class="services__tags">
+          <span>growth</span>
+          <span>ux</span>
+        </div>
+      </article>
+
+      <article class="services__row">
+        <div class="services__index">04</div>
+        <h3 class="services__title">Maintenance and iteration</h3>
+        <p class="services__description">
+          Focused improvements, QA passes, performance cleanup, and steady
+          changes after launch.
+        </p>
+        <div class="services__tags">
+          <span>support</span>
+          <span>polish</span>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -148,38 +141,61 @@
       scope.
     </p>
 
-    <div class="process__card" aria-label="Project process">
-      <article class="process__row">
-        <div class="process__row-label">01 / discovery</div>
-        <h3 class="process__row-heading">Map the essentials.</h3>
-        <p class="process__row-copy">
-          Clarify goals, audiences, required pages, and operational constraints
-          before any interface work begins.
-        </p>
+    <div class="process__procedure">
+      <article class="process__step">
+        <div class="process__step-marker">
+          <span class="process__step-number">01</span>
+          <span class="process__step-phase">discovery</span>
+        </div>
+        <div class="process__step-body">
+          <h3 class="process__step-heading">Map the essentials.</h3>
+          <p class="process__step-copy">
+            Clarify goals, audiences, required pages, and operational constraints
+            before any interface work begins.
+          </p>
+        </div>
       </article>
-      <article class="process__row">
-        <div class="process__row-label">02 / structure</div>
-        <h3 class="process__row-heading">Shape the system.</h3>
-        <p class="process__row-copy">
-          Define the content hierarchy, component needs, and interaction details
-          that will guide the build.
-        </p>
+
+      <article class="process__step">
+        <div class="process__step-marker">
+          <span class="process__step-number">02</span>
+          <span class="process__step-phase">structure</span>
+        </div>
+        <div class="process__step-body">
+          <h3 class="process__step-heading">Shape the system.</h3>
+          <p class="process__step-copy">
+            Define the content hierarchy, component needs, and interaction
+            details that will guide the build.
+          </p>
+        </div>
       </article>
-      <article class="process__row">
-        <div class="process__row-label">03 / implementation</div>
-        <h3 class="process__row-heading">Build the interface.</h3>
-        <p class="process__row-copy">
-          Translate the plan into responsive pages and focused front-end features
-          with review points along the way.
-        </p>
+
+      <article class="process__step">
+        <div class="process__step-marker">
+          <span class="process__step-number">03</span>
+          <span class="process__step-phase">implementation</span>
+        </div>
+        <div class="process__step-body">
+          <h3 class="process__step-heading">Build the interface.</h3>
+          <p class="process__step-copy">
+            Translate the plan into responsive pages and focused front-end
+            features with review points along the way.
+          </p>
+        </div>
       </article>
-      <article class="process__row">
-        <div class="process__row-label">04 / handoff</div>
-        <h3 class="process__row-heading">Prepare for launch.</h3>
-        <p class="process__row-copy">
-          Finalize details, verify behavior, and hand over a clean foundation
-          for the next round of growth.
-        </p>
+
+      <article class="process__step">
+        <div class="process__step-marker">
+          <span class="process__step-number">04</span>
+          <span class="process__step-phase">handoff</span>
+        </div>
+        <div class="process__step-body">
+          <h3 class="process__step-heading">Prepare for launch.</h3>
+          <p class="process__step-copy">
+            Finalize details, verify behavior, and hand over a clean foundation
+            for the next round of growth.
+          </p>
+        </div>
       </article>
     </div>
   </div>
@@ -198,54 +214,90 @@
 
     <div class="engagements__grid" aria-label="Engagement options">
       <article class="engagements__card">
+        <div class="engagements__order">work 01</div>
         <div class="engagements__card-top">
           <h3 class="engagements__card-heading">Sprint build</h3>
           <p class="engagements__card-line">Defined scope, fast delivery.</p>
         </div>
-        <div class="engagements__card-meta">
-          <div class="engagements__meta-group">
-            <div class="engagements__meta-label">best for</div>
-            <div class="engagements__meta-value">Landing pages and flows</div>
+        <dl class="engagements__card-meta">
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">best for</dt>
+            <dd class="engagements__meta-value">Landing pages and flows</dd>
           </div>
-          <div class="engagements__meta-group">
-            <div class="engagements__meta-label">timeline</div>
-            <div class="engagements__meta-value">Two to four weeks</div>
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">timeline</dt>
+            <dd class="engagements__meta-value">Two to four weeks</dd>
           </div>
-        </div>
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">working mode</dt>
+            <dd class="engagements__meta-value">Fixed sprint</dd>
+          </div>
+        </dl>
+        <footer class="engagements__signature">
+          <div class="engagements__signature-label">issued by</div>
+          <div class="engagements__signature-value">
+            <span class="engagements__signature-mark" aria-hidden="true"></span>
+            <span>omniwerx</span>
+          </div>
+        </footer>
       </article>
 
       <article class="engagements__card">
+        <div class="engagements__order">work 02</div>
         <div class="engagements__card-top">
           <h3 class="engagements__card-heading">Interface refresh</h3>
           <p class="engagements__card-line">Sharper product surfaces.</p>
         </div>
-        <div class="engagements__card-meta">
-          <div class="engagements__meta-group">
-            <div class="engagements__meta-label">best for</div>
-            <div class="engagements__meta-value">Existing sites and apps</div>
+        <dl class="engagements__card-meta">
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">best for</dt>
+            <dd class="engagements__meta-value">Existing sites and apps</dd>
           </div>
-          <div class="engagements__meta-group">
-            <div class="engagements__meta-label">timeline</div>
-            <div class="engagements__meta-value">Three to six weeks</div>
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">timeline</dt>
+            <dd class="engagements__meta-value">Three to six weeks</dd>
           </div>
-        </div>
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">working mode</dt>
+            <dd class="engagements__meta-value">Design-led refresh</dd>
+          </div>
+        </dl>
+        <footer class="engagements__signature">
+          <div class="engagements__signature-label">issued by</div>
+          <div class="engagements__signature-value">
+            <span class="engagements__signature-mark" aria-hidden="true"></span>
+            <span>omniwerx</span>
+          </div>
+        </footer>
       </article>
 
       <article class="engagements__card">
+        <div class="engagements__order">work 03</div>
         <div class="engagements__card-top">
           <h3 class="engagements__card-heading">Ongoing support</h3>
           <p class="engagements__card-line">Steady implementation capacity.</p>
         </div>
-        <div class="engagements__card-meta">
-          <div class="engagements__meta-group">
-            <div class="engagements__meta-label">best for</div>
-            <div class="engagements__meta-value">Operators with momentum</div>
+        <dl class="engagements__card-meta">
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">best for</dt>
+            <dd class="engagements__meta-value">Operators with momentum</dd>
           </div>
-          <div class="engagements__meta-group">
-            <div class="engagements__meta-label">cadence</div>
-            <div class="engagements__meta-value">Monthly or weekly</div>
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">timeline</dt>
+            <dd class="engagements__meta-value">Monthly or weekly</dd>
           </div>
-        </div>
+          <div class="engagements__meta-row">
+            <dt class="engagements__meta-label">working mode</dt>
+            <dd class="engagements__meta-value">Rolling support</dd>
+          </div>
+        </dl>
+        <footer class="engagements__signature">
+          <div class="engagements__signature-label">issued by</div>
+          <div class="engagements__signature-value">
+            <span class="engagements__signature-mark" aria-hidden="true"></span>
+            <span>omniwerx</span>
+          </div>
+        </footer>
       </article>
     </div>
   </div>
