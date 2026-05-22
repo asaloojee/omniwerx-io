@@ -1,33 +1,28 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import BadgeHero from "$lib/components/BadgeHero.svelte";
-
-  let nav: HTMLElement | undefined;
-
-  onMount(() => {
-    const setScrolled = () => {
-      if (!nav) return;
-
-      nav.dataset.scrolled = window.scrollY > 8 ? "true" : "false";
-    };
-
-    setScrolled();
-    window.addEventListener("scroll", setScrolled, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", setScrolled);
-    };
-  });
 </script>
 
 <svelte:head>
   <title>omniwerx</title>
 </svelte:head>
 
-<nav class="nav" bind:this={nav}>
+<nav class="nav">
   <div class="wrapper">
     <div class="nav__wordmark">omniwerx</div>
-    <a class="nav__link" href="mailto:info@omniwerx.io">start a conversation</a>
+    <a
+      class="nav__link"
+      href="https://cal.com/omniwerx"
+      target="_blank"
+      rel="noreferrer"
+    >
+      <span>book call</span>
+      <img
+        class="nav__link-icon"
+        src="/arrow-right.svg"
+        alt=""
+        aria-hidden="true"
+      />
+    </a>
   </div>
 </nav>
 
@@ -44,7 +39,7 @@
   </div>
 </section>
 
-<section class="section about" aria-labelledby="about-heading">
+<section class="section about" id="about" aria-labelledby="about-heading">
   <div class="section__inner section__inner--narrow">
     <div class="about__label">[01 / about]</div>
     <h2 class="about__heading" id="about-heading">A focused web practice.</h2>
@@ -56,15 +51,20 @@
   </div>
 </section>
 
-<section class="section services" aria-labelledby="services-heading">
+<section
+  class="section services"
+  id="services"
+  aria-labelledby="services-heading"
+>
   <div class="wrapper services__inner">
     <div class="services__label">[02 / services]</div>
     <h2 class="services__heading" id="services-heading">
       Services built for growth.
     </h2>
     <p class="services__copy">
-      Placeholder body text for the services section. Use this space to frame the
-      work, the outcomes, and the kinds of business needs these services cover.
+      Placeholder body text for the services section. Use this space to frame
+      the work, the outcomes, and the kinds of business needs these services
+      cover.
     </p>
     <div class="services__register">
       <div class="services__header" aria-hidden="true">
@@ -78,8 +78,8 @@
         <div class="services__index">01</div>
         <h3 class="services__title">Interface implementation</h3>
         <p class="services__description">
-          Responsive pages, forms, onboarding flows, and front-end features built
-          from a defined scope.
+          Responsive pages, forms, onboarding flows, and front-end features
+          built from a defined scope.
         </p>
         <div class="services__tags">
           <span>frontend</span>
@@ -129,7 +129,7 @@
   </div>
 </section>
 
-<section class="section process" aria-labelledby="process-heading">
+<section class="section process" id="process" aria-labelledby="process-heading">
   <div class="section__inner section__inner--narrow">
     <div class="process__label">[03 / process]</div>
     <h2 class="process__heading" id="process-heading">
@@ -150,8 +150,8 @@
         <div class="process__step-body">
           <h3 class="process__step-heading">Map the essentials.</h3>
           <p class="process__step-copy">
-            Clarify goals, audiences, required pages, and operational constraints
-            before any interface work begins.
+            Clarify goals, audiences, required pages, and operational
+            constraints before any interface work begins.
           </p>
         </div>
       </article>
@@ -201,7 +201,11 @@
   </div>
 </section>
 
-<section class="section engagements" aria-labelledby="engagements-heading">
+<section
+  class="section engagements"
+  id="engagements"
+  aria-labelledby="engagements-heading"
+>
   <div class="wrapper engagements__inner">
     <div class="engagements__label">[04 / engagements]</div>
     <h2 class="engagements__heading" id="engagements-heading">
@@ -233,13 +237,15 @@
             <dd class="engagements__meta-value">Fixed sprint</dd>
           </div>
         </dl>
-        <footer class="engagements__signature">
-          <div class="engagements__signature-label">issued by</div>
-          <div class="engagements__signature-value">
-            <span class="engagements__signature-mark" aria-hidden="true"></span>
-            <span>omniwerx</span>
-          </div>
-        </footer>
+        <a class="button engagements__cta" href="#contact">
+          <span>Discuss sprint build</span>
+          <img
+            class="engagements__cta-icon"
+            src="/arrow-right.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
       </article>
 
       <article class="engagements__card">
@@ -262,13 +268,15 @@
             <dd class="engagements__meta-value">Design-led refresh</dd>
           </div>
         </dl>
-        <footer class="engagements__signature">
-          <div class="engagements__signature-label">issued by</div>
-          <div class="engagements__signature-value">
-            <span class="engagements__signature-mark" aria-hidden="true"></span>
-            <span>omniwerx</span>
-          </div>
-        </footer>
+        <a class="button engagements__cta" href="#contact">
+          <span>Discuss interface refresh</span>
+          <img
+            class="engagements__cta-icon"
+            src="/arrow-right.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
       </article>
 
       <article class="engagements__card">
@@ -291,14 +299,143 @@
             <dd class="engagements__meta-value">Rolling support</dd>
           </div>
         </dl>
-        <footer class="engagements__signature">
-          <div class="engagements__signature-label">issued by</div>
-          <div class="engagements__signature-value">
-            <span class="engagements__signature-mark" aria-hidden="true"></span>
-            <span>omniwerx</span>
-          </div>
-        </footer>
+        <a class="button engagements__cta" href="#contact">
+          <span>Plan ongoing support</span>
+          <img
+            class="engagements__cta-icon"
+            src="/arrow-right.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </a>
       </article>
     </div>
   </div>
 </section>
+
+<section class="section contact" id="contact" aria-labelledby="contact-heading">
+  <div class="section__inner section__inner--narrow">
+    <div class="contact__label">[05 / contact]</div>
+    <h2 class="contact__heading" id="contact-heading">
+      Start with a few details.
+    </h2>
+    <p class="contact__copy">
+      Placeholder contact copy for now. Share the rough shape of the project and
+      the next step you have in mind.
+    </p>
+
+    <form class="contact__form">
+      <fieldset class="contact__fieldset">
+        <legend class="visually-hidden">Contact details</legend>
+
+        <label class="contact__field">
+          <span class="contact__field-label">Name</span>
+          <span class="contact__control-frame">
+            <input
+              class="contact__control"
+              type="text"
+              name="name"
+              autocomplete="name"
+              placeholder="Your name"
+              required
+            />
+          </span>
+        </label>
+
+        <label class="contact__field">
+          <span class="contact__field-label">Email</span>
+          <span class="contact__control-frame">
+            <input
+              class="contact__control"
+              type="email"
+              name="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              required
+            />
+          </span>
+        </label>
+
+        <label class="contact__field contact__field--wide">
+          <span class="contact__field-label">Message</span>
+          <span class="contact__control-frame">
+            <textarea
+              class="contact__control contact__message"
+              name="message"
+              rows="4"
+              placeholder="What's on your mind?"
+              aria-describedby="contact-message-help"
+              required
+            ></textarea>
+          </span>
+        </label>
+      </fieldset>
+
+      <button class="button contact__submit" type="submit">
+        <span>Submit inquiry</span>
+        <img
+          class="contact__submit-icon"
+          src="/arrow-right.svg"
+          alt=""
+          aria-hidden="true"
+        />
+      </button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <a class="footer__brand" href="/" aria-label="omniwerx home">
+      <span>omniwerx</span>
+    </a>
+
+    <div class="footer__utility">
+      <section class="footer__column" aria-labelledby="footer-contact-heading">
+        <h2 class="footer__column-heading" id="footer-contact-heading">
+          contact
+        </h2>
+        <div class="footer__links">
+          <a class="footer__link" href="mailto:info@omniwerx.io">
+            info@omniwerx.io
+          </a>
+          <a class="footer__link" href="#contact">Contact section</a>
+          <a
+            class="footer__link"
+            href="https://cal.com/omniwerx"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Book a call
+          </a>
+        </div>
+      </section>
+
+      <nav class="footer__column" aria-labelledby="footer-navigation-heading">
+        <h2 class="footer__column-heading" id="footer-navigation-heading">
+          navigation
+        </h2>
+        <div class="footer__links">
+          <a class="footer__link" href="#about">About</a>
+          <a class="footer__link" href="#services">Services</a>
+          <a class="footer__link" href="#process">Process</a>
+          <a class="footer__link" href="#engagements">Engagements</a>
+          <a class="footer__link" href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <nav class="footer__column" aria-labelledby="footer-legal-heading">
+        <h2 class="footer__column-heading" id="footer-legal-heading">legal</h2>
+        <div class="footer__links">
+          <a class="footer__link" href="/privacy">Privacy policy</a>
+          <a class="footer__link" href="/legal">Legal</a>
+        </div>
+      </nav>
+    </div>
+
+    <div class="footer__bottom">
+      <p>© 2026 omniwerx.</p>
+      <p>Independent web practice.</p>
+    </div>
+  </div>
+</footer>
