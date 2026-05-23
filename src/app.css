@@ -3,7 +3,7 @@
   --body-text: #b8b8b8;
   --body-text--emphasis: #f5f5f5;
   --primary-black: #0b0a0a;
-  --secondary-black: #100f0f;
+  --surface-muted: #100e0e;
   --border-color: #2a2828;
   --card-bg: #151414;
   --site-wrapper-max: 1440px;
@@ -428,10 +428,19 @@ button {
   text-transform: lowercase;
 }
 
+.services__header > :first-child,
+.services__index {
+  padding-left: 8px;
+}
+
 .services__row {
   position: relative;
   align-items: start;
   padding: 28px 0;
+}
+
+.services__row:nth-of-type(even) {
+  background-color: var(--surface-muted);
 }
 
 .services__row + .services__row {
@@ -509,20 +518,34 @@ button {
 
 .process__procedure {
   position: relative;
+  isolation: isolate;
   margin-top: var(--section-content-gap);
   text-align: left;
 }
 
-.process__procedure::before {
+.process__procedure::before,
+.process__procedure::after {
   content: "";
   position: absolute;
   inset-block: 0;
+}
+
+.process__procedure::before {
+  z-index: 2;
   inset-inline-start: 136px;
   border-left: 1px dashed var(--border-color);
 }
 
+.process__procedure::after {
+  z-index: 0;
+  inset-inline-start: -16px;
+  width: 152px;
+  background-color: var(--surface-muted);
+}
+
 .process__step {
   position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 112px 1fr;
   column-gap: 48px;
@@ -629,6 +652,7 @@ button {
 .engagements__card-top {
   padding: 30px 24px 32px;
   border-bottom: 1px dashed var(--border-color);
+  background-color: var(--surface-muted);
 }
 
 .engagements__card-heading {
@@ -730,6 +754,8 @@ button {
 
 .contact__form {
   margin-top: var(--section-content-gap);
+  margin-left: 32px;
+  margin-right: 32px;
   text-align: left;
 }
 
@@ -877,7 +903,7 @@ button {
 
 .footer__column-heading {
   margin-bottom: 0;
-  padding-bottom: 16px;
+  padding: 0 8px 16px;
   border-bottom: 1px solid var(--border-color);
   color: var(--body-text);
   font-family: var(--font-mono);
@@ -896,7 +922,7 @@ button {
   display: flex;
   align-items: center;
   min-height: 44px;
-  padding-block: 10px;
+  padding: 10px 8px;
   color: var(--body-text--emphasis);
   font-size: 16px;
   line-height: 1.1;
