@@ -29,7 +29,9 @@
 <section class="hero">
   <div class="wrapper">
     <div class="hero__label">[00 / overview]</div>
-    <h1 class="hero__h1">Web solutions for fitness and small businesses.</h1>
+    <h1 class="hero__h1">
+      Web solutions designed with precision for small businesses.
+    </h1>
     <button class="button hero__button" type="button">
       <span>solutions</span>
     </button>
@@ -42,11 +44,14 @@
 <section class="section about" id="about" aria-labelledby="about-heading">
   <div class="section__inner section__inner--narrow">
     <div class="about__label">[01 / about]</div>
-    <h2 class="about__heading" id="about-heading">A focused web practice.</h2>
+    <h2 class="about__heading" id="about-heading">
+      A focused development studio.
+    </h2>
     <p class="about__copy">
-      Omniwerx is an independent web development practice focused on frontend
-      implementation and interface design for fitness, health, and small
-      business operators.
+      OMNIWERX<sup>&trade;</sup> is the project of Abdurahmaan Saloojee. Born in
+      Ottawa, he started OMNIWERX<sup>&trade;</sup> as an independent development
+      practice focusing on refined user interfaces and smooth, cohesive backend services.
+      The company's focus is on small and fitness businesses.
     </p>
   </div>
 </section>

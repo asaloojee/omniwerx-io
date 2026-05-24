@@ -53,7 +53,7 @@
 
   /* Layout */
   --site-gutter: clamp(var(--space-20), 4vw, var(--space-48));
-  --container-wide: 1200px;
+  --container-wide: 1264px;
   --container-narrow: 680px;
   --nav-height: 64px;
 
@@ -335,7 +335,6 @@ button {
   display: grid;
   grid-template-columns: 1fr minmax(400px, 440px);
   grid-template-rows: min-content min-content min-content;
-  column-gap: var(--space-48);
   align-items: start;
 }
 
@@ -365,7 +364,7 @@ button {
 
 .hero__h1 {
   grid-row: 2;
-  font-size: clamp(72px, 8vw, 96px);
+  font-size: clamp(72px, 8vw, 80px);
   line-height: 0.92;
   letter-spacing: var(--tracking-display);
   text-wrap: balance;
@@ -415,7 +414,6 @@ button {
   font-size: var(--text-lead);
   line-height: var(--leading-lead);
   letter-spacing: var(--tracking-lead);
-  text-wrap: pretty;
 }
 
 .services .wrapper {
