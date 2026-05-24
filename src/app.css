@@ -14,27 +14,27 @@
   --text-ui: 14px;
   --text-body: 16px;
   --text-lead: clamp(24px, 2vw, 28px);
-  --text-title: clamp(28px, 4vw, 40px);
+  --text-title: clamp(36px, 2vw, 40px);
   --text-heading: clamp(48px, 4vw, 52px);
 
   /* Type rhythm */
   --leading-meta: 1.2;
   --leading-ui: 1.2;
-  --leading-body: 1.4;
-  --leading-lead: 1.25;
-  --leading-title: 1.05;
-  --leading-heading: 0.96;
+  --leading-body: 1.6;
+  --leading-lead: 1.4;
+  --leading-title: 1.2;
+  --leading-heading: 1;
 
   /* Tracking */
   --tracking-meta: 0.02em;
-  --tracking-ui: -0.015em;
-  --tracking-body: -0.01em;
-  --tracking-lead: -0.025em;
-  --tracking-title: -0.035em;
-  --tracking-heading: -0.055em;
+  --tracking-ui: -0.02em;
+  --tracking-body: 0.01em;
+  --tracking-lead: 0.02em;
+  --tracking-title: -0.01em;
+  --tracking-heading: -0.06em;
   --tracking-display: -0.06em;
   --tracking-number: -0.08em;
-  --tracking-brand: -0.09em;
+  --tracking-brand: -0.1em;
 
   /* Spacing */
   --space-8: 8px;
@@ -65,11 +65,11 @@
   --control-height-xl: 64px;
 
   /* Section rhythm */
-  --section-padding-y: 160px;
-  --section-padding-y-tight: 128px;
+  --section-padding-y: 128px;
+  --section-padding-y-tight: 108px;
   --section-label-gap: var(--space-12);
   --section-heading-gap: var(--space-32);
-  --section-content-gap: clamp(--space-64);
+  --section-content-gap: var(--space-64);
 
   /* Motion */
   --bezier: cubic-bezier(0.1, 0.93, 0, 1);
@@ -365,7 +365,7 @@ button {
 .hero__h1 {
   grid-row: 2;
   font-size: clamp(72px, 8vw, 80px);
-  line-height: 0.92;
+  line-height: var(--leading-heading);
   letter-spacing: var(--tracking-display);
   text-wrap: balance;
   padding-bottom: var(--space-64);
@@ -393,8 +393,8 @@ button {
 }
 
 .about {
-  padding-block-start: 0;
   text-align: center;
+  padding-block-start: 0;
 }
 
 .about__label {
@@ -414,6 +414,7 @@ button {
   font-size: var(--text-lead);
   line-height: var(--leading-lead);
   letter-spacing: var(--tracking-lead);
+  text-wrap-style: pretty;
 }
 
 .services .wrapper {
@@ -454,10 +455,8 @@ button {
 .services__header,
 .services__row {
   display: grid;
-  grid-template-columns:
-    64px minmax(180px, 0.8fr) minmax(280px, 1fr)
-    minmax(152px, 0.36fr);
-  gap: clamp(var(--space-20), 3vw, var(--space-40));
+  grid-template-columns: 48px minmax(274px, 0.8fr) 1fr minmax(128px, 0.36fr);
+  gap: clamp(var(--space-40), 3vw, var(--space-48));
 }
 
 .services__header {
@@ -511,6 +510,7 @@ button {
   line-height: var(--leading-title);
   letter-spacing: var(--tracking-title);
   text-wrap: balance;
+  max-width: 274px;
 }
 
 .services__description {

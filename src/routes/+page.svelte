@@ -45,13 +45,15 @@
   <div class="section__inner section__inner--narrow">
     <div class="about__label">[01 / about]</div>
     <h2 class="about__heading" id="about-heading">
-      A focused development studio.
+      A refined website shows pride in your business.
     </h2>
     <p class="about__copy">
-      OMNIWERX<sup>&trade;</sup> is the project of Abdurahmaan Saloojee. Born in
-      Ottawa, he started OMNIWERX<sup>&trade;</sup> as an independent development
-      practice focusing on refined user interfaces and smooth, cohesive backend services.
-      The company's focus is on small and fitness businesses.
+      OMNIWERX<sup>&trade;</sup> is an independent development studio founded by
+      Abdurahmaan Saloojee. With roots in fitness and business, the studio
+      brings a practical understanding of how customers act, buy, and engage
+      online. OMNIWERX<sup>&trade;</sup> builds polished user interfaces, resilient
+      backend systems, and cutting-edge tools for small businesses ready to grow
+      with greater precision.
     </p>
   </div>
 </section>
@@ -64,12 +66,13 @@
   <div class="wrapper services__inner">
     <div class="services__label">[02 / services]</div>
     <h2 class="services__heading" id="services-heading">
-      Services built for growth.
+      Dependable implementation that reinforces your digital presence.
     </h2>
     <p class="services__copy">
-      Placeholder body text for the services section. Use this space to frame
-      the work, the outcomes, and the kinds of business needs these services
-      cover.
+      We build performant, polished customer-facing products and ensuring the
+      corresponding infrastructure is set up to ensure they run smoothly. Our
+      work can look like specializing in one of the below items, or folding
+      multiple into a single project.
     </p>
     <div class="services__register">
       <div class="services__header" aria-hidden="true">
@@ -83,21 +86,21 @@
         <div class="services__index">01</div>
         <h3 class="services__title">Interface implementation</h3>
         <p class="services__description">
-          Responsive pages, forms, onboarding flows, and front-end features
-          built from a defined scope.
+          Responsive pages, integrated forms, onboarding flows, and front-end
+          features built from a defined scope.
         </p>
         <div class="services__tags">
           <span>frontend</span>
-          <span>build</span>
+          <span>design</span>
         </div>
       </article>
 
       <article class="services__row">
         <div class="services__index">02</div>
-        <h3 class="services__title">Site systems</h3>
+        <h3 class="services__title">Content and integrations</h3>
         <p class="services__description">
-          Component structure, CMS wiring, content models, and reusable patterns
-          that keep the site maintainable.
+          CMS wiring, blog implementation, mailing list integration, and
+          anything that keeps your site organized and clean.
         </p>
         <div class="services__tags">
           <span>systems</span>
@@ -109,8 +112,8 @@
         <div class="services__index">03</div>
         <h3 class="services__title">Conversion surfaces</h3>
         <p class="services__description">
-          Landing pages, signup paths, booking flows, and offer pages shaped
-          around a clear user decision.
+          Event landing pages, signup paths, booking flows, and offer pages
+          shaped around a clear user decision.
         </p>
         <div class="services__tags">
           <span>growth</span>
@@ -122,8 +125,8 @@
         <div class="services__index">04</div>
         <h3 class="services__title">Maintenance and iteration</h3>
         <p class="services__description">
-          Focused improvements, QA passes, performance cleanup, and steady
-          changes after launch.
+          Focused improvements, QA passes, performance cleanup, feature
+          integration, and steady changes after launch.
         </p>
         <div class="services__tags">
           <span>support</span>
