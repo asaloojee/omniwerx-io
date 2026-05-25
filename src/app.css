@@ -319,7 +319,7 @@ button {
 
 .hero {
   min-block-size: calc(100svh - var(--nav-height));
-  padding-block: var(--section-padding-y-tight);
+  padding-block: 160px;
   display: grid;
   align-items: center;
 }
@@ -670,19 +670,25 @@ button {
 
 .engagements__grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-24);
   width: 100%;
 }
 
 .engagements__card {
+  position: relative;
   display: flex;
   flex-direction: column;
+  min-width: 0;
   border: 1px solid rgba(245, 245, 245, 0.12);
   background-color: transparent;
 }
 
 .engagements__order {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-16);
   padding: var(--space-20);
   border-bottom: 1px dashed var(--border-color);
   color: var(--body-text);
@@ -691,6 +697,10 @@ button {
   line-height: var(--leading-meta);
   letter-spacing: var(--tracking-meta);
   text-transform: lowercase;
+}
+
+.engagements__order span:last-child {
+  color: rgba(184, 184, 184, 0.48);
 }
 
 .engagements__card-top {
@@ -713,6 +723,50 @@ button {
   text-wrap: balance;
 }
 
+.engagements__price {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 132px;
+  padding: var(--space-32) var(--space-24);
+  border-bottom: 1px dashed var(--border-color);
+  background-color: transparent;
+}
+
+.engagements__price-label,
+.engagements__price-currency {
+  position: absolute;
+  color: var(--body-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  line-height: var(--leading-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: lowercase;
+}
+
+.engagements__price-label {
+  top: var(--space-16);
+  left: var(--space-16);
+}
+
+.engagements__price-currency {
+  bottom: var(--space-16);
+  right: var(--space-16);
+}
+
+.engagements__price-value {
+  max-width: 100%;
+  color: rgba(215, 9, 35, 1);
+  font-family: var(--font-mono);
+  font-size: clamp(56px, 3vw, 64px);
+  font-variant-numeric: tabular-nums;
+  line-height: 0.94;
+  letter-spacing: var(--tracking-number);
+  text-align: center;
+  text-transform: lowercase;
+  text-wrap: balance;
+}
+
 .engagements__card-meta {
   display: grid;
   flex: 1;
@@ -724,6 +778,10 @@ button {
 .engagements__meta-row {
   display: grid;
   grid-template-columns: minmax(92px, 0.42fr) 1fr;
+}
+
+.engagements__meta-row + .engagements__meta-row {
+  border-top: 1px dashed var(--border-color);
 }
 
 .engagements__meta-label,
@@ -745,12 +803,59 @@ button {
 }
 
 .engagements__meta-value {
+  min-width: 0;
   margin: 0;
   border-left: 1px dashed var(--border-color);
   color: var(--body-text--emphasis);
   font-size: var(--text-body);
   line-height: var(--leading-body);
-  text-wrap: balance;
+  text-wrap: pretty;
+}
+
+.engagements__meta-row--scope .engagements__meta-label,
+.engagements__meta-row--scope .engagements__meta-value {
+  align-items: flex-start;
+}
+
+.engagements__scope-list {
+  display: grid;
+  gap: var(--space-8);
+  min-width: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.engagements__scope-list li {
+  position: relative;
+  padding-left: 1.25ch;
+}
+
+.engagements__scope-list li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: rgba(215, 9, 35, 0.72);
+}
+
+.engagements__fit-note {
+  display: grid;
+  gap: var(--space-8);
+  margin: 0;
+  padding: var(--space-20);
+  border-top: 1px dashed var(--border-color);
+  color: rgba(184, 184, 184, 0.72);
+  font-size: var(--text-ui);
+  line-height: var(--leading-body);
+  text-wrap: pretty;
+}
+
+.engagements__fit-note span {
+  color: var(--body-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  line-height: var(--leading-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: lowercase;
 }
 
 .engagements__cta {

@@ -141,12 +141,11 @@
   <div class="section__inner section__inner--narrow">
     <div class="process__label">[03 / process]</div>
     <h2 class="process__heading" id="process-heading">
-      A clear path from idea to launch.
+      Legible planning, clean execution.
     </h2>
     <p class="process__copy">
-      Each project moves through a simple, visible workflow so the work stays
-      focused, decisions stay easy, and the final build matches the agreed
-      scope.
+      Each project moves through a clear workflow so the work stays focused,
+      decisions remain clear, and the final product matches the defined scope.
     </p>
 
     <div class="process__procedure">
@@ -156,10 +155,10 @@
           <span class="process__step-phase">discovery</span>
         </div>
         <div class="process__step-body">
-          <h3 class="process__step-heading">Map the essentials.</h3>
+          <h3 class="process__step-heading">Clarify what matters.</h3>
           <p class="process__step-copy">
-            Clarify goals, audiences, required pages, and operational
-            constraints before any interface work begins.
+            Determine objectives, required pages, and operational constraints
+            before any implementation begins.
           </p>
         </div>
       </article>
@@ -170,10 +169,10 @@
           <span class="process__step-phase">structure</span>
         </div>
         <div class="process__step-body">
-          <h3 class="process__step-heading">Shape the system.</h3>
+          <h3 class="process__step-heading">Shape the project scope.</h3>
           <p class="process__step-copy">
-            Define the content hierarchy, component needs, and interaction
-            details that will guide the build.
+            Define the required pages, structure content models, and agree on
+            what the end result looks like.
           </p>
         </div>
       </article>
@@ -184,10 +183,10 @@
           <span class="process__step-phase">implementation</span>
         </div>
         <div class="process__step-body">
-          <h3 class="process__step-heading">Build the interface.</h3>
+          <h3 class="process__step-heading">Execute cleanly.</h3>
           <p class="process__step-copy">
-            Translate the plan into responsive pages and focused front-end
-            features with review points along the way.
+            Prototype the interface, implement the features, and test user
+            journeys with review touchpoints along the way.
           </p>
         </div>
       </article>
@@ -200,8 +199,8 @@
         <div class="process__step-body">
           <h3 class="process__step-heading">Prepare for launch.</h3>
           <p class="process__step-copy">
-            Finalize details, verify behavior, and hand over a clean foundation
-            for the next round of growth.
+            Finalize details, verify outcomes, and hand over a polished final
+            build that's ready to support your digital presence.
           </p>
         </div>
       </article>
@@ -226,27 +225,54 @@
 
     <div class="engagements__grid" aria-label="Engagement options">
       <article class="engagements__card">
-        <div class="engagements__order">work 01</div>
+        <div class="engagements__order">
+          <span>work 01</span>
+          <span>diagnostic</span>
+        </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Sprint build</h3>
-          <p class="engagements__card-line">Defined scope, fast delivery.</p>
+          <h3 class="engagements__card-heading">Site diagnostic</h3>
+          <p class="engagements__card-line">
+            Expert review before committing to a build.
+          </p>
+        </div>
+        <div class="engagements__price">
+          <span class="engagements__price-label">starts at</span>
+          <span class="engagements__price-value">$1,000</span>
+          <span class="engagements__price-currency">usd</span>
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">best for</dt>
-            <dd class="engagements__meta-value">Landing pages and flows</dd>
+            <dd class="engagements__meta-value">
+              Businesses that know something is off and need a clear next step.
+            </dd>
+          </div>
+          <div class="engagements__meta-row engagements__meta-row--scope">
+            <dt class="engagements__meta-label">scope</dt>
+            <dd class="engagements__meta-value">
+              <ul class="engagements__scope-list">
+                <li>Interface and user journey review</li>
+                <li>Forms, flows, content, and technical notes</li>
+                <li>Written report with a review call</li>
+              </ul>
+            </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">Two to four weeks</dd>
+            <dd class="engagements__meta-value">One week</dd>
           </div>
           <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">working mode</dt>
-            <dd class="engagements__meta-value">Fixed sprint</dd>
+            <dt class="engagements__meta-label">mode</dt>
+            <dd class="engagements__meta-value">Audit and advisory call</dd>
           </div>
         </dl>
+        <p class="engagements__fit-note">
+          <span>fit note</span>
+          Best when you want direction before implementation; not a casual Q&A
+          or open-ended consulting slot.
+        </p>
         <a class="button engagements__cta" href="#contact">
-          <span>Discuss sprint build</span>
+          <span>Request diagnostic</span>
           <img
             class="engagements__cta-icon"
             src="/arrow-right.svg"
@@ -257,27 +283,57 @@
       </article>
 
       <article class="engagements__card">
-        <div class="engagements__order">work 02</div>
+        <div class="engagements__order">
+          <span>work 02</span>
+          <span>project</span>
+        </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Interface refresh</h3>
-          <p class="engagements__card-line">Sharper product surfaces.</p>
+          <h3 class="engagements__card-heading">Scoped build</h3>
+          <p class="engagements__card-line">
+            A defined frontend build or refresh with supporting integrations.
+          </p>
+        </div>
+        <div class="engagements__price">
+          <span class="engagements__price-label">starts at</span>
+          <span class="engagements__price-value">$5,000</span>
+          <span class="engagements__price-currency">usd</span>
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">best for</dt>
-            <dd class="engagements__meta-value">Existing sites and apps</dd>
+            <dd class="engagements__meta-value">
+              Small businesses with a clear site, landing page, flow, or refresh
+              need.
+            </dd>
+          </div>
+          <div class="engagements__meta-row engagements__meta-row--scope">
+            <dt class="engagements__meta-label">scope</dt>
+            <dd class="engagements__meta-value">
+              <ul class="engagements__scope-list">
+                <li>Responsive interface implementation</li>
+                <li>Forms, CMS, and tool integrations</li>
+                <li>QA, performance, and launch polish</li>
+              </ul>
+            </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">Three to six weeks</dd>
+            <dd class="engagements__meta-value">Two to six weeks</dd>
           </div>
           <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">working mode</dt>
-            <dd class="engagements__meta-value">Design-led refresh</dd>
+            <dt class="engagements__meta-label">mode</dt>
+            <dd class="engagements__meta-value">
+              Defined scope with review points
+            </dd>
           </div>
         </dl>
+        <p class="engagements__fit-note">
+          <span>fit note</span>
+          Best when budget and direction already exist; scope is agreed before
+          production begins.
+        </p>
         <a class="button engagements__cta" href="#contact">
-          <span>Discuss interface refresh</span>
+          <span>Request project fit</span>
           <img
             class="engagements__cta-icon"
             src="/arrow-right.svg"
@@ -288,27 +344,53 @@
       </article>
 
       <article class="engagements__card">
-        <div class="engagements__order">work 03</div>
+        <div class="engagements__order">
+          <span>work 03</span>
+          <span>reserved</span>
+        </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Ongoing support</h3>
-          <p class="engagements__card-line">Steady implementation capacity.</p>
+          <h3 class="engagements__card-heading">Reserved capacity</h3>
+          <p class="engagements__card-line">
+            Long-term implementation support within a defined monthly lane.
+          </p>
+        </div>
+        <div class="engagements__price">
+          <span class="engagements__price-label">monthly from</span>
+          <span class="engagements__price-value">$3,000</span>
+          <span class="engagements__price-currency">usd</span>
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">best for</dt>
-            <dd class="engagements__meta-value">Operators with momentum</dd>
+            <dd class="engagements__meta-value">
+              Operators with an existing site and steady improvement needs.
+            </dd>
+          </div>
+          <div class="engagements__meta-row engagements__meta-row--scope">
+            <dt class="engagements__meta-label">scope</dt>
+            <dd class="engagements__meta-value">
+              <ul class="engagements__scope-list">
+                <li>Scheduled frontend updates</li>
+                <li>Maintenance, QA, and performance cleanup</li>
+                <li>Forms, content, and tool integrations</li>
+              </ul>
+            </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">Monthly or weekly</dd>
+            <dd class="engagements__meta-value">Monthly cadence</dd>
           </div>
           <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">working mode</dt>
-            <dd class="engagements__meta-value">Rolling support</dd>
+            <dt class="engagements__meta-label">mode</dt>
+            <dd class="engagements__meta-value">Reserved monthly capacity</dd>
           </div>
         </dl>
+        <p class="engagements__fit-note">
+          <span>fit note</span>
+          Provides continuity without unlimited access or full-time availability.
+        </p>
         <a class="button engagements__cta" href="#contact">
-          <span>Plan ongoing support</span>
+          <span>Request reserved capacity</span>
           <img
             class="engagements__cta-icon"
             src="/arrow-right.svg"
