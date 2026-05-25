@@ -216,29 +216,28 @@
   <div class="wrapper engagements__inner">
     <div class="engagements__label">[04 / engagements]</div>
     <h2 class="engagements__heading" id="engagements-heading">
-      Engagements shaped around the work.
+      What a work agreement looks like.
     </h2>
     <p class="engagements__copy">
-      Choose a focused format based on what needs to move: a scoped build, a
-      design-forward refresh, or an ongoing implementation partner.
+      The following options frame how work is organized. Each format presents a
+      different level of scope, involvement, and continuity.
     </p>
 
     <div class="engagements__grid" aria-label="Engagement options">
       <article class="engagements__card">
         <div class="engagements__order">
           <span>work 01</span>
-          <span>diagnostic</span>
         </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Site diagnostic</h3>
+          <h3 class="engagements__card-heading">Site audit</h3>
           <p class="engagements__card-line">
-            Expert review before committing to a build.
+            Diagnostic review before committing to a build.
           </p>
         </div>
         <div class="engagements__price">
           <span class="engagements__price-label">starts at</span>
           <span class="engagements__price-value">$1,000</span>
-          <span class="engagements__price-currency">usd</span>
+          <span class="engagements__price-currency">USD</span>
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
@@ -253,13 +252,13 @@
               <ul class="engagements__scope-list">
                 <li>Interface and user journey review</li>
                 <li>Forms, flows, content, and technical notes</li>
-                <li>Written report with a review call</li>
+                <li>Stylistic review and recommendations</li>
               </ul>
             </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">One week</dd>
+            <dd class="engagements__meta-value">1 week</dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">mode</dt>
@@ -268,8 +267,7 @@
         </dl>
         <p class="engagements__fit-note">
           <span>fit note</span>
-          Best when you want direction before implementation; not a casual Q&A
-          or open-ended consulting slot.
+          Best when you want to make a change, but you're not sure where to start.
         </p>
         <a class="button engagements__cta" href="#contact">
           <span>Request diagnostic</span>
@@ -285,25 +283,24 @@
       <article class="engagements__card">
         <div class="engagements__order">
           <span>work 02</span>
-          <span>project</span>
         </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Scoped build</h3>
+          <h3 class="engagements__card-heading">Scoped project</h3>
           <p class="engagements__card-line">
-            A defined frontend build or refresh with supporting integrations.
+            A defined build or feature implementation with supporting
+            integrations.
           </p>
         </div>
         <div class="engagements__price">
           <span class="engagements__price-label">starts at</span>
           <span class="engagements__price-value">$5,000</span>
-          <span class="engagements__price-currency">usd</span>
+          <span class="engagements__price-currency">USD</span>
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">best for</dt>
             <dd class="engagements__meta-value">
-              Small businesses with a clear site, landing page, flow, or refresh
-              need.
+              Businesses with a clear site, landing page, flow, or feature need.
             </dd>
           </div>
           <div class="engagements__meta-row engagements__meta-row--scope">
@@ -312,13 +309,13 @@
               <ul class="engagements__scope-list">
                 <li>Responsive interface implementation</li>
                 <li>Forms, CMS, and tool integrations</li>
-                <li>QA, performance, and launch polish</li>
+                <li>Email campaign direction</li>
               </ul>
             </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">Two to six weeks</dd>
+            <dd class="engagements__meta-value">2-6 weeks</dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">mode</dt>
@@ -329,8 +326,8 @@
         </dl>
         <p class="engagements__fit-note">
           <span>fit note</span>
-          Best when budget and direction already exist; scope is agreed before
-          production begins.
+          Best when budget and direction already exist; scope is agreed before production
+          begins.
         </p>
         <a class="button engagements__cta" href="#contact">
           <span>Request project fit</span>
@@ -346,7 +343,6 @@
       <article class="engagements__card">
         <div class="engagements__order">
           <span>work 03</span>
-          <span>reserved</span>
         </div>
         <div class="engagements__card-top">
           <h3 class="engagements__card-heading">Reserved capacity</h3>
@@ -357,7 +353,7 @@
         <div class="engagements__price">
           <span class="engagements__price-label">monthly from</span>
           <span class="engagements__price-value">$3,000</span>
-          <span class="engagements__price-currency">usd</span>
+          <span class="engagements__price-currency">USD</span>
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
