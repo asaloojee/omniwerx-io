@@ -705,7 +705,6 @@ button {
 .engagements__card-top {
   padding: var(--space-32) var(--space-24);
   border-bottom: 1px dashed var(--border-color);
-  background-color: var(--surface-muted);
 }
 
 .engagements__card-heading {
@@ -726,10 +725,10 @@ button {
   position: relative;
   display: grid;
   place-items: center;
-  min-height: 132px;
+  min-height: 156px;
   padding: var(--space-32) var(--space-24);
   border-bottom: 1px dashed var(--border-color);
-  background-color: transparent;
+  background-color: var(--surface-muted);
 }
 
 .engagements__price-label,
@@ -757,7 +756,7 @@ button {
   max-width: 100%;
   color: var(--body-text--emphasis);
   font-family: var(--font-mono);
-  font-size: clamp(56px, 3vw, 64px);
+  font-size: clamp(64px, 4vw, 76px);
   font-variant-numeric: tabular-nums;
   letter-spacing: var(--tracking-number);
   text-align: center;
@@ -796,7 +795,7 @@ button {
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(92px, 0.42fr) 1fr;
+  grid-template-columns: minmax(92px, 0.36fr) 1fr;
   background-color: var(--primary-black);
 }
 
@@ -823,7 +822,7 @@ button {
   line-height: var(--leading-meta);
   letter-spacing: var(--tracking-meta);
   text-transform: lowercase;
-  padding: 18px var(--space-20) var(--space-16);
+  padding: 18px var(--space-16) var(--space-16);
   align-items: flex-start;
 }
 
@@ -835,7 +834,7 @@ button {
   font-size: var(--text-body);
   line-height: var(--leading-ui);
   text-wrap: pretty;
-  padding: var(--space-16) var(--space-20);
+  padding: var(--space-16);
 }
 
 .engagements__meta-row--scope .engagements__meta-label,
@@ -843,33 +842,21 @@ button {
   align-items: flex-start;
 }
 
+.engagements__meta-value.engagements__meta-value--list {
+  padding: var(--space-16);
+}
+
 .engagements__scope-list {
   display: grid;
-  gap: var(--space-8);
+  gap: var(--space-12);
   min-width: 0;
   padding: 0;
   list-style: none;
 }
 
-.engagements__fit-note {
-  display: grid;
-  gap: var(--space-8);
-  margin: 0;
-  padding: var(--space-20);
-  border-top: 1px dashed var(--border-color);
-  color: var(--body-text--muted);
-  font-size: var(--text-ui);
-  line-height: var(--leading-body);
-  text-wrap: pretty;
-}
-
-.engagements__fit-note span {
-  color: var(--body-text--muted);
-  font-family: var(--font-mono);
-  font-size: var(--text-meta);
-  line-height: var(--leading-meta);
-  letter-spacing: var(--tracking-meta);
-  text-transform: lowercase;
+.engagements__scope-list li {
+  padding: 0;
+  border-bottom: 0;
 }
 
 .engagements__cta {
@@ -917,18 +904,32 @@ button {
 
 .contact__form {
   margin-top: var(--section-content-gap);
-  margin-left: var(--space-32);
-  margin-right: var(--space-32);
   text-align: left;
+}
+
+.contact__form-grid {
+  display: grid;
+  gap: var(--space-20);
+}
+
+.contact__details-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  gap: var(--space-20);
+  align-items: stretch;
+}
+
+.contact__fieldset,
+.contact__engagement {
+  min-inline-size: 0;
+  padding: 0;
+  border: 0;
 }
 
 .contact__fieldset {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-20);
-  min-inline-size: 0;
-  padding: 0;
-  border: 0;
 }
 
 .contact__field {
@@ -937,8 +938,9 @@ button {
   min-width: 0;
 }
 
-.contact__field--wide {
-  grid-column: 1 / -1;
+.contact__field--message {
+  grid-template-rows: auto 1fr;
+  height: 100%;
 }
 
 .contact__field-label,
@@ -958,9 +960,107 @@ button {
   color: var(--body-text--subtle);
 }
 
+.contact__engagement .contact__field-help {
+  margin-top: var(--space-8);
+}
+
+.contact__engagement-options {
+  display: grid;
+  margin-top: var(--space-12);
+}
+
+.contact__engagement-option {
+  position: relative;
+  display: block;
+  min-width: 0;
+  cursor: pointer;
+}
+
+.contact__engagement-option + .contact__engagement-option {
+  margin-top: -1px;
+}
+
+.contact__engagement-input {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.contact__engagement-row {
+  position: relative;
+  display: grid;
+  align-items: center;
+  min-height: var(--control-height-input);
+  padding: var(--space-12) var(--space-16) var(--space-12) var(--space-40);
+  border: 1px dashed var(--border-color);
+  color: var(--body-text);
+  background-color: transparent;
+  transition-property: background-color, border-color, color;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--bezier);
+}
+
+.contact__engagement-row::before {
+  content: "";
+  position: absolute;
+  left: var(--space-16);
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  border: 1px solid rgba(245, 245, 245, 0.42);
+  border-radius: 999px;
+  transform: translateY(-50%);
+  transition-property: background-color, border-color, box-shadow;
+  transition-duration: var(--duration-fast);
+  transition-timing-function: var(--bezier);
+}
+
+.contact__engagement-name {
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  line-height: var(--leading-meta);
+  letter-spacing: var(--tracking-meta);
+  text-transform: lowercase;
+}
+
+.contact__engagement-option:hover .contact__engagement-row,
+.contact__engagement-input:focus-visible + .contact__engagement-row {
+  color: var(--body-text--emphasis);
+  background-color: rgba(245, 245, 245, 0.04);
+}
+
+.contact__engagement-input:focus-visible + .contact__engagement-row {
+  outline: 1px solid var(--primary-red);
+  outline-offset: -1px;
+}
+
+.contact__engagement-input:checked + .contact__engagement-row {
+  z-index: 1;
+  border-style: solid;
+  border-color: rgba(245, 245, 245, 0.46);
+  color: var(--body-text--emphasis);
+  background-color: rgba(245, 245, 245, 0.04);
+}
+
+.contact__engagement-input:checked + .contact__engagement-row::before {
+  border-color: rgba(215, 9, 35, 0.9);
+  background-color: var(--primary-red);
+  box-shadow: inset 0 0 0 2px var(--primary-black);
+}
+
 .contact__control-frame {
   position: relative;
   display: block;
+}
+
+.contact__control-frame--message {
+  height: 100%;
 }
 
 .contact__control-frame::before,
@@ -975,7 +1075,7 @@ button {
 }
 
 .contact__control-frame::before {
-  border: 1px dashed rgba(245, 245, 245, 0.18);
+  border: 1px dashed var(--border-color);
   opacity: 1;
 }
 
@@ -1017,8 +1117,9 @@ button {
 }
 
 .contact__message {
-  min-height: 132px;
-  max-height: 260px;
+  height: 100%;
+  min-height: 100%;
+  max-height: none;
   resize: vertical;
 }
 

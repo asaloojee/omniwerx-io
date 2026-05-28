@@ -46,7 +46,7 @@
     field-of-view="30deg"
     min-field-of-view="20deg"
     max-field-of-view="80deg"
-    environment-image="/studio_kontrast_02_4k.hdr"
+    environment-image="/studio_kontrast_02_2k.hdr"
     exposure="1.2"
     shadow-intensity="0.6"
     shadow-softness="0.8"

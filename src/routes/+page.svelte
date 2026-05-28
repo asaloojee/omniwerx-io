@@ -69,10 +69,10 @@
       Dependable implementation that reinforces your digital presence.
     </h2>
     <p class="services__copy">
-      We build performant, polished customer-facing products and ensuring the
-      corresponding infrastructure is set up to ensure they run smoothly. Our
-      work can look like specializing in one of the below items, or folding
-      multiple into a single project.
+      We build performant, polished customer-facing products and ensure the
+      corresponding infrastructure is set up to run smoothly. Our work can look
+      like specializing in one of the below items, or folding multiple into a
+      single project.
     </p>
     <div class="services__register">
       <div class="services__header" aria-hidden="true">
@@ -229,9 +229,9 @@
           <span>work 01</span>
         </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Site audit</h3>
+          <h3 class="engagements__card-heading">Diagnostic Audit</h3>
           <p class="engagements__card-line">
-            Diagnostic review before committing to a build.
+            A focused review before committing to a build.
           </p>
         </div>
         <div class="engagements__price">
@@ -241,36 +241,29 @@
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">best for</dt>
+            <dt class="engagements__meta-label">fit</dt>
             <dd class="engagements__meta-value">
-              Businesses that know something is off and need a clear next step.
+              You know something is off, but want a clear diagnosis, priorities,
+              and next steps before committing to implementation.
             </dd>
           </div>
           <div class="engagements__meta-row engagements__meta-row--scope">
             <dt class="engagements__meta-label">scope</dt>
-            <dd class="engagements__meta-value">
+            <dd class="engagements__meta-value engagements__meta-value--list">
               <ul class="engagements__scope-list">
                 <li>Interface and user journey review</li>
-                <li>Forms, flows, content, and technical notes</li>
-                <li>Stylistic review and recommendations</li>
+                <li>Forms, flows, content, and technical risks</li>
+                <li>Prioritized recommendations and next steps</li>
               </ul>
             </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">1 week</dd>
-          </div>
-          <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">mode</dt>
-            <dd class="engagements__meta-value">Audit and advisory call</dd>
+            <dd class="engagements__meta-value">~1 week</dd>
           </div>
         </dl>
-        <p class="engagements__fit-note">
-          <span>fit note</span>
-          Best when you want to make a change, but you're not sure where to start.
-        </p>
         <a class="button engagements__cta" href="#contact">
-          <span>Request diagnostic</span>
+          <span>Request audit</span>
           <img
             class="engagements__cta-icon"
             src="/arrow-right.svg"
@@ -285,10 +278,9 @@
           <span>work 02</span>
         </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Scoped project</h3>
+          <h3 class="engagements__card-heading">Scoped Project</h3>
           <p class="engagements__card-line">
-            A defined build or feature implementation with supporting
-            integrations.
+            A defined build with clear scope, timeline, and handoff.
           </p>
         </div>
         <div class="engagements__price">
@@ -298,39 +290,29 @@
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">best for</dt>
+            <dt class="engagements__meta-label">fit</dt>
             <dd class="engagements__meta-value">
-              Businesses with a clear site, landing page, flow, or feature need.
+              You have a specific site, landing page, workflow, or feature to
+              ship, with budget, owner, and direction already in place.
             </dd>
           </div>
           <div class="engagements__meta-row engagements__meta-row--scope">
             <dt class="engagements__meta-label">scope</dt>
-            <dd class="engagements__meta-value">
+            <dd class="engagements__meta-value engagements__meta-value--list">
               <ul class="engagements__scope-list">
                 <li>Responsive interface implementation</li>
-                <li>Forms, CMS, and tool integrations</li>
-                <li>Email campaign direction</li>
+                <li>Forms, CMS, automation, and tool integrations</li>
+                <li>Launch support, documentation, and handoff</li>
               </ul>
             </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">2-6 weeks</dd>
-          </div>
-          <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">mode</dt>
-            <dd class="engagements__meta-value">
-              Defined scope with review points
-            </dd>
+            <dd class="engagements__meta-value">~2-6 weeks</dd>
           </div>
         </dl>
-        <p class="engagements__fit-note">
-          <span>fit note</span>
-          Best when budget and direction already exist; scope is agreed before production
-          begins.
-        </p>
         <a class="button engagements__cta" href="#contact">
-          <span>Request project fit</span>
+          <span>Request project</span>
           <img
             class="engagements__cta-icon"
             src="/arrow-right.svg"
@@ -345,9 +327,9 @@
           <span>work 03</span>
         </div>
         <div class="engagements__card-top">
-          <h3 class="engagements__card-heading">Reserved capacity</h3>
+          <h3 class="engagements__card-heading">Support Retainer</h3>
           <p class="engagements__card-line">
-            Long-term implementation support within a defined monthly lane.
+            Ongoing technical support for evolving needs.
           </p>
         </div>
         <div class="engagements__price">
@@ -357,36 +339,29 @@
         </div>
         <dl class="engagements__card-meta">
           <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">best for</dt>
+            <dt class="engagements__meta-label">fit</dt>
             <dd class="engagements__meta-value">
-              Operators with an existing site and steady improvement needs.
+              You have an active product or site that needs recurring senior
+              attention, but not a full-time hire or open-ended project.
             </dd>
           </div>
           <div class="engagements__meta-row engagements__meta-row--scope">
             <dt class="engagements__meta-label">scope</dt>
-            <dd class="engagements__meta-value">
+            <dd class="engagements__meta-value engagements__meta-value--list">
               <ul class="engagements__scope-list">
-                <li>Scheduled frontend updates</li>
-                <li>Maintenance, QA, and performance cleanup</li>
-                <li>Forms, content, and tool integrations</li>
+                <li>Recurring technical guidance and prioritization</li>
+                <li>Implementation support within agreed capacity</li>
+                <li>Async reviews and scheduled check-ins</li>
               </ul>
             </dd>
           </div>
           <div class="engagements__meta-row">
             <dt class="engagements__meta-label">timeline</dt>
-            <dd class="engagements__meta-value">Monthly cadence</dd>
-          </div>
-          <div class="engagements__meta-row">
-            <dt class="engagements__meta-label">mode</dt>
-            <dd class="engagements__meta-value">Reserved monthly capacity</dd>
+            <dd class="engagements__meta-value">Monthly</dd>
           </div>
         </dl>
-        <p class="engagements__fit-note">
-          <span>fit note</span>
-          Provides continuity without unlimited access or full-time availability.
-        </p>
         <a class="button engagements__cta" href="#contact">
-          <span>Request reserved capacity</span>
+          <span>Request retainer</span>
           <img
             class="engagements__cta-icon"
             src="/arrow-right.svg"
@@ -403,59 +378,123 @@
   <div class="section__inner section__inner--narrow">
     <div class="contact__label">[05 / contact]</div>
     <h2 class="contact__heading" id="contact-heading">
-      Start with a few details.
+      The next step of your business is a conversation away.
     </h2>
     <p class="contact__copy">
-      Placeholder contact copy for now. Share the rough shape of the project and
-      the next step you have in mind.
+      Let's start with a few details. Fill out the form below, or reach out to <a
+        href="mailto:info@omniwerx.io">info@omniwerx.io</a
+      >, and we'll reach out to you shortly.
     </p>
 
     <form class="contact__form">
-      <fieldset class="contact__fieldset">
-        <legend class="visually-hidden">Contact details</legend>
+      <div class="contact__form-grid">
+        <fieldset class="contact__fieldset">
+          <legend class="visually-hidden">Contact details</legend>
 
-        <label class="contact__field">
-          <span class="contact__field-label">Name</span>
-          <span class="contact__control-frame">
-            <input
-              class="contact__control"
-              type="text"
-              name="name"
-              autocomplete="name"
-              placeholder="Your name"
-              required
-            />
-          </span>
-        </label>
+          <label class="contact__field">
+            <span class="contact__field-label">Name</span>
+            <span class="contact__control-frame">
+              <input
+                class="contact__control"
+                type="text"
+                name="name"
+                autocomplete="name"
+                placeholder="Your name"
+                required
+              />
+            </span>
+          </label>
 
-        <label class="contact__field">
-          <span class="contact__field-label">Email</span>
-          <span class="contact__control-frame">
-            <input
-              class="contact__control"
-              type="email"
-              name="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              required
-            />
-          </span>
-        </label>
+          <label class="contact__field">
+            <span class="contact__field-label">Email</span>
+            <span class="contact__control-frame">
+              <input
+                class="contact__control"
+                type="email"
+                name="email"
+                autocomplete="email"
+                placeholder="you@example.com"
+                required
+              />
+            </span>
+          </label>
+        </fieldset>
 
-        <label class="contact__field contact__field--wide">
-          <span class="contact__field-label">Message</span>
-          <span class="contact__control-frame">
-            <textarea
-              class="contact__control contact__message"
-              name="message"
-              rows="4"
-              placeholder="What's on your mind?"
-              aria-describedby="contact-message-help"
-              required
-            ></textarea>
-          </span>
-        </label>
-      </fieldset>
+        <div class="contact__details-grid">
+          <fieldset
+            class="contact__engagement"
+            aria-describedby="contact-engagement-help"
+          >
+            <legend class="contact__field-label">Engagement</legend>
+            <div class="contact__engagement-options">
+              <label class="contact__engagement-option">
+                <input
+                  class="contact__engagement-input"
+                  type="radio"
+                  name="engagement"
+                  value="not-sure"
+                  checked
+                />
+                <span class="contact__engagement-row">
+                  <span class="contact__engagement-name">Not sure yet</span>
+                </span>
+              </label>
+
+              <label class="contact__engagement-option">
+                <input
+                  class="contact__engagement-input"
+                  type="radio"
+                  name="engagement"
+                  value="audit"
+                />
+                <span class="contact__engagement-row">
+                  <span class="contact__engagement-name">Audit</span>
+                </span>
+              </label>
+
+              <label class="contact__engagement-option">
+                <input
+                  class="contact__engagement-input"
+                  type="radio"
+                  name="engagement"
+                  value="project"
+                />
+                <span class="contact__engagement-row">
+                  <span class="contact__engagement-name">Project</span>
+                </span>
+              </label>
+
+              <label class="contact__engagement-option">
+                <input
+                  class="contact__engagement-input"
+                  type="radio"
+                  name="engagement"
+                  value="retainer"
+                />
+                <span class="contact__engagement-row">
+                  <span class="contact__engagement-name">Retainer</span>
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <label class="contact__field contact__field--message">
+            <span class="contact__field-label">Message</span>
+            <span
+              class="contact__control-frame contact__control-frame--message"
+            >
+              <textarea
+                class="contact__control contact__message"
+                name="message"
+                rows="4"
+                placeholder="What's on your mind?"
+                aria-describedby="contact-message-help"
+                required
+              ></textarea>
+            </span>
+          </label>
+        </div>
+      </div>
 
       <button class="button contact__submit" type="submit">
         <span>Submit inquiry</span>
