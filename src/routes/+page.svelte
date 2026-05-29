@@ -1,36 +1,20 @@
 <script lang="ts">
   import BadgeHero from "$lib/components/BadgeHero.svelte";
+  import SiteFooter from "$lib/components/SiteFooter.svelte";
+  import SiteNav from "$lib/components/SiteNav.svelte";
 </script>
 
 <svelte:head>
   <title>omniwerx</title>
 </svelte:head>
 
-<nav class="nav">
-  <div class="wrapper">
-    <div class="nav__wordmark">omniwerx</div>
-    <a
-      class="nav__link"
-      href="https://cal.com/omniwerx"
-      target="_blank"
-      rel="noreferrer"
-    >
-      <span>book call</span>
-      <img
-        class="nav__link-icon"
-        src="/arrow-right.svg"
-        alt=""
-        aria-hidden="true"
-      />
-    </a>
-  </div>
-</nav>
+<SiteNav />
 
 <section class="hero">
   <div class="wrapper">
     <div class="hero__label">[00 / overview]</div>
     <h1 class="hero__h1">
-      Web solutions designed with precision for small businesses.
+      Precision-engineered digital platforms for fitness and small businesses.
     </h1>
     <button class="button hero__button" type="button">
       <span>solutions</span>
@@ -509,58 +493,4 @@
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer__inner">
-    <a class="footer__brand" href="/" aria-label="omniwerx home">
-      <span>omniwerx</span>
-    </a>
-
-    <div class="footer__utility">
-      <section class="footer__column" aria-labelledby="footer-contact-heading">
-        <h2 class="footer__column-heading" id="footer-contact-heading">
-          contact
-        </h2>
-        <div class="footer__links">
-          <a class="footer__link" href="mailto:info@omniwerx.io">
-            info@omniwerx.io
-          </a>
-          <a class="footer__link" href="#contact">Contact section</a>
-          <a
-            class="footer__link"
-            href="https://cal.com/omniwerx"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Book a call
-          </a>
-        </div>
-      </section>
-
-      <nav class="footer__column" aria-labelledby="footer-navigation-heading">
-        <h2 class="footer__column-heading" id="footer-navigation-heading">
-          navigation
-        </h2>
-        <div class="footer__links">
-          <a class="footer__link" href="#about">About</a>
-          <a class="footer__link" href="#services">Services</a>
-          <a class="footer__link" href="#process">Process</a>
-          <a class="footer__link" href="#engagements">Engagements</a>
-          <a class="footer__link" href="#contact">Contact</a>
-        </div>
-      </nav>
-
-      <nav class="footer__column" aria-labelledby="footer-legal-heading">
-        <h2 class="footer__column-heading" id="footer-legal-heading">legal</h2>
-        <div class="footer__links">
-          <a class="footer__link" href="/privacy">Privacy policy</a>
-          <a class="footer__link" href="/legal">Legal</a>
-        </div>
-      </nav>
-    </div>
-
-    <div class="footer__bottom">
-      <p>© 2026 omniwerx.</p>
-      <p>Independent web practice.</p>
-    </div>
-  </div>
-</footer>
+<SiteFooter />
