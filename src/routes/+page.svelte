@@ -25,10 +25,10 @@
   </div>
 </section>
 
-<section class="section about" id="about" aria-labelledby="about-heading">
+<section class="section about" id="studio" aria-labelledby="studio-heading">
   <div class="section__inner section__inner--narrow">
-    <div class="about__label">[01 / about]</div>
-    <h2 class="about__heading" id="about-heading">
+    <div class="about__label">[01 / studio]</div>
+    <h2 class="about__heading" id="studio-heading">
       A refined website shows pride in your business.
     </h2>
     <p class="about__copy">
@@ -44,12 +44,12 @@
 
 <section
   class="section services"
-  id="services"
-  aria-labelledby="services-heading"
+  id="work"
+  aria-labelledby="work-heading"
 >
   <div class="wrapper services__inner">
-    <div class="services__label">[02 / services]</div>
-    <h2 class="services__heading" id="services-heading">
+    <div class="services__label">[02 / work]</div>
+    <h2 class="services__heading" id="work-heading">
       Dependable implementation that reinforces your digital presence.
     </h2>
     <p class="services__copy">
@@ -121,10 +121,10 @@
   </div>
 </section>
 
-<section class="section process" id="process" aria-labelledby="process-heading">
+<section class="section process" id="system" aria-labelledby="system-heading">
   <div class="section__inner section__inner--narrow">
-    <div class="process__label">[03 / process]</div>
-    <h2 class="process__heading" id="process-heading">
+    <div class="process__label">[03 / system]</div>
+    <h2 class="process__heading" id="system-heading">
       Legible planning, clean execution.
     </h2>
     <p class="process__copy">
@@ -194,12 +194,12 @@
 
 <section
   class="section engagements"
-  id="engagements"
-  aria-labelledby="engagements-heading"
+  id="options"
+  aria-labelledby="options-heading"
 >
   <div class="wrapper engagements__inner">
-    <div class="engagements__label">[04 / engagements]</div>
-    <h2 class="engagements__heading" id="engagements-heading">
+    <div class="engagements__label">[04 / options]</div>
+    <h2 class="engagements__heading" id="options-heading">
       What a work agreement looks like.
     </h2>
     <p class="engagements__copy">

@@ -36,10 +36,10 @@
           navigation
         </h2>
         <div class="footer__links">
-          <a class="footer__link" href="/#about">About</a>
-          <a class="footer__link" href="/#services">Services</a>
-          <a class="footer__link" href="/#process">Process</a>
-          <a class="footer__link" href="/#engagements">Engagements</a>
+          <a class="footer__link" href="/#studio">Studio</a>
+          <a class="footer__link" href="/#work">Work</a>
+          <a class="footer__link" href="/#system">System</a>
+          <a class="footer__link" href="/#options">Options</a>
           <a class="footer__link" href="/#contact">Contact</a>
         </div>
       </nav>

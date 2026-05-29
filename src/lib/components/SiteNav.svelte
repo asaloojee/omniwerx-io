@@ -51,10 +51,11 @@
     </a>
     <div class="nav__right">
       <nav class="nav__menu" aria-label="Primary navigation">
-        <a class="nav__menu-link" href="/#about">about</a>
-        <a class="nav__menu-link" href="/#services">services</a>
-        <a class="nav__menu-link" href="/#process">process</a>
-        <a class="nav__menu-link" href="/#engagements">engagements</a>
+        <a class="nav__menu-link" href="/#studio">studio</a>
+        <a class="nav__menu-link" href="/#work">work</a>
+        <a class="nav__menu-link" href="/#system">system</a>
+        <a class="nav__menu-link" href="/#options">options</a>
+        <a class="nav__menu-link" href="/#contact">contact</a>
       </nav>
       <a
         class="button nav__cta"
