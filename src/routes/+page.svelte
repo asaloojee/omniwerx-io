@@ -262,7 +262,7 @@
             <dd class="engagements__meta-value">~1 week</dd>
           </div>
         </dl>
-        <a class="button engagements__cta" href="#contact">
+        <a class="button button--wide engagements__cta" href="#contact">
           <span>Request audit</span>
           <img
             class="engagements__cta-icon"
@@ -311,7 +311,7 @@
             <dd class="engagements__meta-value">~2-6 weeks</dd>
           </div>
         </dl>
-        <a class="button engagements__cta" href="#contact">
+        <a class="button button--wide engagements__cta" href="#contact">
           <span>Request project</span>
           <img
             class="engagements__cta-icon"
@@ -360,7 +360,7 @@
             <dd class="engagements__meta-value">Monthly</dd>
           </div>
         </dl>
-        <a class="button engagements__cta" href="#contact">
+        <a class="button button--wide engagements__cta" href="#contact">
           <span>Request retainer</span>
           <img
             class="engagements__cta-icon"
@@ -496,7 +496,7 @@
         </div>
       </div>
 
-      <button class="button contact__submit" type="submit">
+      <button class="button button--wide contact__submit" type="submit">
         <span>Submit inquiry</span>
         <img
           class="contact__submit-icon"
