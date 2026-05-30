@@ -1023,6 +1023,56 @@ button {
   text-align: left;
 }
 
+.contact__feedback {
+  min-height: calc(var(--space-16) * 2 + var(--leading-ui) * 2em);
+  padding-top: var(--space-16);
+}
+
+.contact__status {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-16);
+  padding-top: var(--space-12);
+  border-top: 1px dashed rgba(245, 245, 245, 0.28);
+  color: var(--body-text--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-meta);
+  text-transform: lowercase;
+}
+
+.contact__status::after {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.contact__status--success {
+  border-top-color: rgba(245, 245, 245, 0.46);
+}
+
+.contact__status--success::after {
+  content: "status: sent";
+  color: var(--body-text--emphasis);
+}
+
+.contact__status--error {
+  border-top-color: rgba(215, 9, 35, 0.72);
+}
+
+.contact__status--error::after {
+  content: "status: failed";
+  color: var(--primary-red);
+}
+
+.contact__honeypot {
+  position: absolute;
+  left: -100vw;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .contact__form-grid {
   display: grid;
   gap: var(--space-20);
@@ -1246,6 +1296,15 @@ button {
   min-height: var(--control-height-lg);
   padding: 0 var(--space-20);
   text-align: left;
+}
+
+.contact__submit:disabled {
+  opacity: 0.62;
+  cursor: wait;
+}
+
+.contact__submit:disabled::before {
+  transform: scaleX(0);
 }
 
 .legal {
