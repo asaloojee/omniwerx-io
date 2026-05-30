@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  let viewer: HTMLElement | undefined;
+  let viewer = $state<HTMLElement>();
 
   onMount(() => {
     void import("@google/model-viewer");

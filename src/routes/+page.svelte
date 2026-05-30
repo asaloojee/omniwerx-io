@@ -5,20 +5,53 @@
 </script>
 
 <svelte:head>
-  <title>omniwerx</title>
+  <title>omniwerx | Precision-engineered Digital Experiences</title>
+  <meta
+    name="description"
+    content="OMNIWERX™ builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
+  />
+  <link rel="canonical" href="https://omniwerx.io/" />
+  <meta
+    property="og:title"
+    content="omniwerx | Precision-engineered Digital Experiences"
+  />
+  <meta
+    property="og:description"
+    content="OMNIWERX™ builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://omniwerx.io/" />
+  <meta property="og:image" content="https://omniwerx.io/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta
+    property="og:image:alt"
+    content="omniwerx | Precision-engineered Digital Experiences"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta
+    name="twitter:title"
+    content="omniwerx | Precision-engineered Digital Experiences"
+  />
+  <meta
+    name="twitter:description"
+    content="OMNIWERX™ builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
+  />
+  <meta name="twitter:image" content="https://omniwerx.io/og-image.png" />
 </svelte:head>
 
 <SiteNav />
 
+<main>
 <section class="hero">
   <div class="wrapper">
     <div class="hero__label">[00 / overview]</div>
     <h1 class="hero__h1">
-      Precision-engineered digital platforms for fitness and small businesses.
+      Precision-engineered digital experiences for small businesses.
     </h1>
-    <button class="button hero__button" type="button">
-      <span>solutions</span>
-    </button>
+    <a class="button hero__button" href="#work">
+      <span>View capabilities</span>
+    </a>
     <div class="hero__badge">
       <BadgeHero />
     </div>
@@ -405,10 +438,7 @@
         </fieldset>
 
         <div class="contact__details-grid">
-          <fieldset
-            class="contact__engagement"
-            aria-describedby="contact-engagement-help"
-          >
+          <fieldset class="contact__engagement">
             <legend class="contact__field-label">Engagement</legend>
             <div class="contact__engagement-options">
               <label class="contact__engagement-option">
@@ -472,7 +502,6 @@
                 name="message"
                 rows="4"
                 placeholder="What's on your mind?"
-                aria-describedby="contact-message-help"
                 required
               ></textarea>
             </span>
@@ -492,5 +521,6 @@
     </form>
   </div>
 </section>
+</main>
 
 <SiteFooter />
