@@ -15,7 +15,7 @@
 
 <main>
   <section class="error-page" aria-labelledby="error-heading">
-    <div class="section__inner section__inner--narrow error-page__inner">
+    <div class="container container--narrow error-page__inner">
       <p class="error-page__label">
         {isNotFound ? "[route not found]" : "[request failed]"}
       </p>

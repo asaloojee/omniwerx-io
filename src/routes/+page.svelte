@@ -72,7 +72,7 @@
 
 <main>
   <section class="hero">
-    <div class="wrapper">
+    <div class="hero__inner">
       <div class="hero__label">[00 / overview]</div>
       <h1 class="hero__h1">
         Precision-engineered digital experiences for small businesses.
@@ -87,7 +87,7 @@
   </section>
 
   <section class="section about" id="studio" aria-labelledby="studio-heading">
-    <div class="section__inner section__inner--narrow">
+    <div class="container container--narrow">
       <div class="about__label">[01 / studio]</div>
       <h2 class="about__heading" id="studio-heading">
         A refined website shows pride in your business.
@@ -104,7 +104,7 @@
   </section>
 
   <section class="section services" id="work" aria-labelledby="work-heading">
-    <div class="wrapper services__inner">
+    <div class="services__inner">
       <div class="services__label">[02 / work]</div>
       <h2 class="services__heading" id="work-heading">
         Dependable implementation that reinforces your digital presence.
@@ -179,7 +179,7 @@
   </section>
 
   <section class="section process" id="system" aria-labelledby="system-heading">
-    <div class="section__inner section__inner--narrow">
+    <div class="container container--narrow">
       <div class="process__label">[03 / system]</div>
       <h2 class="process__heading" id="system-heading">
         Legible planning, clean execution.
@@ -254,7 +254,7 @@
     id="options"
     aria-labelledby="options-heading"
   >
-    <div class="wrapper engagements__inner">
+    <div class="engagements__inner">
       <div class="engagements__label">[04 / options]</div>
       <h2 class="engagements__heading" id="options-heading">
         What a work agreement looks like.
@@ -420,7 +420,7 @@
     id="contact"
     aria-labelledby="contact-heading"
   >
-    <div class="section__inner section__inner--narrow">
+    <div class="container container--narrow">
       <div class="contact__label">[05 / contact]</div>
       <h2 class="contact__heading" id="contact-heading">
         The next step of your business is a conversation away.

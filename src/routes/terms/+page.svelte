@@ -15,7 +15,7 @@
 
 <main>
   <section class="section legal" aria-labelledby="terms-heading">
-    <div class="section__inner section__inner--narrow">
+    <div class="container container--narrow">
       <h1 class="legal__heading" id="terms-heading">Terms of Use</h1>
       <p class="legal__updated">Last updated: May 29, 2026</p>
 

@@ -1,5 +1,5 @@
 <footer class="footer">
-  <div class="footer__inner">
+  <div class="container footer__inner">
     <a class="footer__brand" href="/" aria-label="omniwerx home">
       <img
         class="footer__brand-image"
@@ -59,3 +59,85 @@
     </div>
   </div>
 </footer>
+
+<style>
+  .footer {
+    padding-block: clamp(var(--space-56), 8vw, var(--space-96)) var(--space-32);
+    border-top: 1px solid var(--border-color);
+  }
+
+  .footer__brand {
+    display: flex;
+    align-items: flex-end;
+    width: 100%;
+    padding-bottom: clamp(var(--space-20), 3vw, var(--space-40));
+  }
+
+  .footer__brand-image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .footer__utility {
+    --footer-utility-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 0.8fr);
+
+    display: grid;
+    grid-template-columns: var(--footer-utility-columns);
+  }
+
+  .footer__column {
+    min-width: 0;
+    padding: clamp(var(--space-20), 3vw, var(--space-32))
+      clamp(var(--space-20), 3vw, var(--space-28));
+  }
+
+  .footer__column-heading {
+    margin-bottom: 0;
+    padding: 0 var(--space-12) var(--space-16);
+    border-bottom: 1px solid var(--border-color);
+    color: var(--body-text--muted);
+    font-family: var(--font-mono);
+    font-size: var(--text-ui);
+    font-weight: 400;
+    line-height: var(--leading-ui);
+    letter-spacing: var(--tracking-meta);
+    text-transform: lowercase;
+  }
+
+  .footer__links {
+    display: grid;
+  }
+
+  .footer__link {
+    display: flex;
+    align-items: center;
+    min-height: var(--control-height-md);
+    padding: var(--space-12);
+    color: var(--body-text--emphasis);
+    font-size: var(--text-body);
+    line-height: var(--leading-ui);
+    letter-spacing: var(--tracking-title);
+  }
+
+  .footer__link + .footer__link {
+    border-top: 1px dashed var(--border-color);
+  }
+
+  .footer__column:first-child .footer__link {
+    font-size: 18px;
+  }
+
+  .footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-24);
+    padding-top: var(--space-20);
+    color: var(--body-text--subtle);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    line-height: var(--leading-ui);
+    letter-spacing: var(--tracking-meta);
+    text-transform: lowercase;
+  }
+</style>
