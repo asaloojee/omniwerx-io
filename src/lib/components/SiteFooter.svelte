@@ -19,7 +19,7 @@
           <a class="footer__link" href="mailto:info@omniwerx.io">
             info@omniwerx.io
           </a>
-          <a class="footer__link" href="/#contact">Contact section</a>
+          <a class="footer__link" href="/#contact">Send a message</a>
           <a
             class="footer__link"
             href="https://calendar.proton.me/bookings#Bn1P9_OS9N8HFh93m7mEObSeGWPtb8qSjkYlB3Xp_GA="
