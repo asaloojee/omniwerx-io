@@ -22,7 +22,7 @@
           <a class="footer__link" href="/#contact">Contact section</a>
           <a
             class="footer__link"
-            href="https://cal.com/omniwerx"
+            href="https://calendar.proton.me/bookings#Bn1P9_OS9N8HFh93m7mEObSeGWPtb8qSjkYlB3Xp_GA="
             target="_blank"
             rel="noreferrer"
           >
@@ -139,5 +139,20 @@
     line-height: var(--leading-ui);
     letter-spacing: var(--tracking-meta);
     text-transform: lowercase;
+  }
+
+  @media (max-width: 991px) {
+    .footer__utility {
+      --footer-utility-columns: 1fr;
+    }
+
+    .footer__column {
+      padding-inline: 0;
+    }
+
+    .footer__bottom {
+      flex-direction: column;
+      gap: var(--space-8);
+    }
   }
 </style>
