@@ -1471,6 +1471,20 @@ button {
     linear-gradient(var(--button-accent-rest), var(--button-accent-rest)), var(--primary-black);
 }
 
+@media (max-width: 991px) {
+  .button {
+    min-height: 0;
+    padding: var(--space-16) var(--space-20);
+    background-color: var(--button-accent-rest);
+    font-size: var(--text-ui);
+    line-height: var(--leading-ui);
+  }
+
+  .error-page__button {
+    background: var(--button-accent-rest);
+  }
+}
+
 .error-page__code {
   position: absolute;
   z-index: -1;

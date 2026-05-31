@@ -399,13 +399,15 @@
       justify-content: space-between;
       gap: var(--space-16);
       width: 100%;
-      padding: var(--space-12) var(--space-24);
+      min-height: 0;
+      padding: var(--space-16) var(--space-20);
       margin-top: var(--space-20);
-      background-color: var(--button-accent-rest-subtle);
+      background-color: var(--button-accent-rest);
       color: var(--body-text--emphasis);
       font-family: var(--font-sans);
       font-size: var(--text-ui);
       font-weight: 700;
+      line-height: var(--leading-ui);
       letter-spacing: var(--tracking-ui);
       text-align: left;
       text-transform: uppercase;
