@@ -363,6 +363,14 @@ button {
   text-wrap: pretty;
 }
 
+.inline-email {
+  color: var(--body-text--emphasis);
+}
+
+.inline-email:hover {
+  cursor: pointer;
+}
+
 .hero__label {
   grid-row: 1;
   align-self: end;
@@ -1388,18 +1396,6 @@ button {
 
 .legal__content p + p {
   margin-top: var(--space-16);
-}
-
-.legal__content a {
-  color: var(--body-text--emphasis);
-  text-decoration: underline;
-  text-decoration-color: rgba(215, 9, 35, 0.7);
-  text-underline-offset: 0.24em;
-}
-
-.legal__content a:hover,
-.legal__content a:focus-visible {
-  text-decoration-color: var(--primary-red);
 }
 
 @media (max-width: 991px) {

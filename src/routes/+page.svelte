@@ -431,8 +431,8 @@
         The next step of your business is a conversation away.
       </h2>
       <p class="contact__copy">
-        Let's start with a few details. Fill out the form below, or reach out to <a
-          href="mailto:info@omniwerx.io">info@omniwerx.io</a
+        Let's start with a few details. Fill out the form below, or reach out to <span
+          class="inline-email">info@omniwerx.io</span
         >, and we'll reach out to you shortly.
       </p>
 

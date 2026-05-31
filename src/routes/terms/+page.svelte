@@ -195,8 +195,8 @@
               Contact
             </h2>
             <p>
-              Questions about these terms can be sent to <a
-                href="mailto:info@omniwerx.io">info@omniwerx.io</a
+              Questions about these terms can be sent to <span
+                class="inline-email">info@omniwerx.io</span
               >.
             </p>
           </div>

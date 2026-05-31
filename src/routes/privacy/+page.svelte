@@ -167,8 +167,8 @@
               Contact
             </h2>
             <p>
-              For privacy questions or requests, email <a
-                href="mailto:info@omniwerx.io">info@omniwerx.io</a
+              For privacy questions or requests, email <span
+                class="inline-email">info@omniwerx.io</span
               >.
             </p>
           </div>
