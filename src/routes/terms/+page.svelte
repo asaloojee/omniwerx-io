@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-  <title>Terms of use | omniwerx</title>
+  <title>Terms of Use | omniwerx</title>
   <meta
     name="description"
     content="Terms of use for the OMNIWERX Inc. website."
@@ -71,10 +71,10 @@
               or invoices.
             </p>
             <p>
-              We do not currently process payments directly through this website.
-              Payments may be handled through Stripe or another payment provider.
-              If website checkout is added later, applicable transaction terms
-              will be provided at that time.
+              We do not currently process payments directly through this
+              website. Payments may be handled through Stripe or another payment
+              provider. If website checkout is added later, applicable
+              transaction terms will be provided at that time.
             </p>
           </div>
         </article>
@@ -114,7 +114,10 @@
           </div>
         </article>
 
-        <article class="legal__item" aria-labelledby="terms-third-party-heading">
+        <article
+          class="legal__item"
+          aria-labelledby="terms-third-party-heading"
+        >
           <div class="legal__rail" aria-hidden="true">
             <span class="legal__index">06</span>
             <span class="legal__slug">[external]</span>
@@ -125,8 +128,8 @@
             </h2>
             <p>
               The website may link to or rely on third-party services, including
-              hosting, booking, email delivery, and payment providers. We are not
-              responsible for third-party websites, services, policies, or
+              hosting, booking, email delivery, and payment providers. We are
+              not responsible for third-party websites, services, policies, or
               practices.
             </p>
           </div>
@@ -160,8 +163,8 @@
             </h2>
             <p>
               To the extent permitted by law, OMNIWERX Inc. will not be liable
-              for indirect, incidental, consequential, or special damages arising
-              from your use of the website.
+              for indirect, incidental, consequential, or special damages
+              arising from your use of the website.
             </p>
           </div>
         </article>

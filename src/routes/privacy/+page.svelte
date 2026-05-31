@@ -4,7 +4,7 @@
 </script>
 
 <svelte:head>
-  <title>Privacy policy | omniwerx</title>
+  <title>Privacy Policy | omniwerx</title>
   <meta
     name="description"
     content="Privacy policy for OMNIWERX Inc., doing business as omniwerx."
@@ -48,16 +48,16 @@
             </h2>
             <p>
               If you contact us through the website, we may collect your name,
-              email address, engagement type, message, and any details you choose
-              to include. If you book a meeting through an external booking
-              provider, that provider may process your booking details under its
-              own privacy terms.
+              email address, engagement type, message, and any details you
+              choose to include. If you book a meeting through an external
+              booking provider, that provider may process your booking details
+              under its own privacy terms.
             </p>
             <p>
               The site is hosted through Cloudflare, including Cloudflare
-              Workers. Cloudflare may process basic visitor and request data such
-              as IP address, browser and device information, request metadata,
-              approximate location, and security or performance logs.
+              Workers. Cloudflare may process basic visitor and request data
+              such as IP address, browser and device information, request
+              metadata, approximate location, and security or performance logs.
             </p>
           </div>
         </article>
@@ -72,11 +72,12 @@
               How we use information
             </h2>
             <p>
-              We use information to respond to inquiries, schedule conversations,
-              provide requested services, maintain website security, troubleshoot
-              issues, and keep appropriate business records. If email delivery is
-              handled through Resend, email addresses and message metadata may be
-              processed to send and manage those messages.
+              We use information to respond to inquiries, schedule
+              conversations, provide requested services, maintain website
+              security, troubleshoot issues, and keep appropriate business
+              records. If email delivery is handled through Resend, email
+              addresses and message metadata may be processed to send and manage
+              those messages.
             </p>
           </div>
         </article>
@@ -116,7 +117,10 @@
           </div>
         </article>
 
-        <article class="legal__item" aria-labelledby="privacy-retention-heading">
+        <article
+          class="legal__item"
+          aria-labelledby="privacy-retention-heading"
+        >
           <div class="legal__rail" aria-hidden="true">
             <span class="legal__index">06</span>
             <span class="legal__slug">[retention]</span>
@@ -126,12 +130,12 @@
               Sharing and retention
             </h2>
             <p>
-              We do not sell personal information. Information may be shared with
-              service providers that help operate the website, deliver email,
-              host infrastructure, schedule meetings, or support client work. We
-              keep information only as long as reasonably needed for the purposes
-              above, unless a longer period is required for legal, tax, security,
-              or business record reasons.
+              We do not sell personal information. Information may be shared
+              with service providers that help operate the website, deliver
+              email, host infrastructure, schedule meetings, or support client
+              work. We keep information only as long as reasonably needed for
+              the purposes above, unless a longer period is required for legal,
+              tax, security, or business record reasons.
             </p>
           </div>
         </article>
