@@ -48,7 +48,7 @@
   <model-viewer
     bind:this={viewer}
     src="/logo-v2.glb"
-    alt="OMNIWERX logo"
+    alt="omniwerx logo"
     camera-controls
     disable-zoom
     disable-pan

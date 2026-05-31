@@ -33,10 +33,10 @@
 </script>
 
 <svelte:head>
-  <title>omniwerx | Precision-engineered Digital Experiences</title>
+  <title>omniwerx</title>
   <meta
     name="description"
-    content="OMNIWERX™ builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
+    content="omniwerx builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
   />
   <link rel="canonical" href="https://omniwerx.io/" />
   <meta
@@ -45,7 +45,7 @@
   />
   <meta
     property="og:description"
-    content="OMNIWERX™ builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
+    content="omniwerx builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
   />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://omniwerx.io/" />
@@ -63,7 +63,7 @@
   />
   <meta
     name="twitter:description"
-    content="OMNIWERX™ builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
+    content="omniwerx builds polished user interfaces, resilient backend systems, and cutting-edge tools for small businesses ready to grow with greater precision."
   />
   <meta name="twitter:image" content="https://omniwerx.io/og-image.png" />
 </svelte:head>
@@ -99,12 +99,11 @@
         A refined website shows pride in your business.
       </h2>
       <p class="about__copy">
-        OMNIWERX<sup>&trade;</sup> is an independent development studio founded
-        by Abdurahmaan Saloojee. With roots in fitness and business, the studio
-        brings a practical understanding of how customers act, buy, and engage
-        online. OMNIWERX<sup>&trade;</sup> builds polished user interfaces, resilient
-        backend systems, and cutting-edge tools for small businesses ready to grow
-        with greater precision.
+        omniwerx is an independent development studio founded by Abdurahmaan
+        Saloojee. With roots in fitness and business, the studio brings a practical
+        understanding of how customers act, buy, and engage online. omniwerx builds
+        polished user interfaces, resilient backend systems, and cutting-edge tools
+        for small businesses ready to grow with greater precision.
       </p>
     </div>
   </section>

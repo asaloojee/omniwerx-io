@@ -7,7 +7,7 @@
   <title>Privacy policy | omniwerx</title>
   <meta
     name="description"
-    content="Privacy policy for OMNIWERX Inc., an Ontario-based digital studio."
+    content="Privacy policy for OMNIWERX Inc., doing business as omniwerx."
   />
 </svelte:head>
 
@@ -30,7 +30,7 @@
               What this policy covers
             </h2>
             <p>
-              OMNIWERX Inc. operates this website under the trade name OMNIWERX.
+              OMNIWERX Inc. operates this website under the trade name omniwerx.
               We are based in Ontario, Canada. This policy explains what
               information we collect through this website and how we use it.
             </p>
@@ -92,9 +92,9 @@
             </h2>
             <p>
               By sending a message through the website, you agree that OMNIWERX
-              may email you about your inquiry and related services. We do not
-              currently operate a newsletter or marketing list. If that changes,
-              marketing emails will include a way to unsubscribe.
+              Inc. may email you about your inquiry and related services. We do
+              not currently operate a newsletter or marketing list. If that
+              changes, marketing emails will include a way to unsubscribe.
             </p>
           </div>
         </article>

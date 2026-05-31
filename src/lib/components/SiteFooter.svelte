@@ -55,7 +55,6 @@
 
     <div class="footer__bottom">
       <p>© 2026 omniwerx.</p>
-      <p>Independent web practice.</p>
     </div>
   </div>
 </footer>
