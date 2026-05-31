@@ -13,9 +13,9 @@
     "fmt": "vp fmt --write .",
     "fmt:check": "vp fmt --check .",
     "lint": "vp lint .",
-    "ci": "vp fmt --check . && vp lint . && pnpm run check && vp build",
-    "deploy": "vp build && wrangler deploy --env production",
-    "deploy:preview": "vp build && wrangler deploy --env preview"
+    "ci": "pnpm run fmt:check && pnpm run lint && pnpm run check && pnpm run build",
+    "deploy": "pnpm run build && wrangler deploy --env production",
+    "deploy:preview": "pnpm run build && wrangler deploy --env preview"
   },
   "dependencies": {
     "@google/model-viewer": "^4.2.0"

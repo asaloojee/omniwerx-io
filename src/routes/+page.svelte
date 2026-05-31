@@ -73,12 +73,18 @@
 <main>
   <section class="hero">
     <div class="hero__inner">
-      <div class="hero__label">[00 / overview]</div>
+      <div class="hero__label">[00 / digital studio]</div>
       <h1 class="hero__h1">
         Precision-engineered digital experiences for small businesses.
       </h1>
-      <a class="button hero__button" href="#work">
-        <span>View capabilities</span>
+      <a class="button hero__button" href="#contact">
+        <span>Start a project</span>
+        <img
+          class="hero__button-icon"
+          src="/arrow-right.svg"
+          alt=""
+          aria-hidden="true"
+        />
       </a>
       <div class="hero__badge">
         <BadgeHero />
@@ -86,10 +92,10 @@
     </div>
   </section>
 
-  <section class="section about" id="studio" aria-labelledby="studio-heading">
+  <section class="section about" id="about" aria-labelledby="about-heading">
     <div class="container container--narrow">
-      <div class="about__label">[01 / studio]</div>
-      <h2 class="about__heading" id="studio-heading">
+      <div class="about__label">[01 / about]</div>
+      <h2 class="about__heading" id="about-heading">
         A refined website shows pride in your business.
       </h2>
       <p class="about__copy">
@@ -326,7 +332,7 @@
           </div>
           <div class="engagements__price">
             <span class="engagements__price-label">starts at</span>
-            <span class="engagements__price-value">$5,000</span>
+            <span class="engagements__price-value">$3,000</span>
             <span class="engagements__price-currency">USD</span>
           </div>
           <dl class="engagements__card-meta">
@@ -375,7 +381,7 @@
           </div>
           <div class="engagements__price">
             <span class="engagements__price-label">monthly from</span>
-            <span class="engagements__price-value">$3,000</span>
+            <span class="engagements__price-value">$2,000</span>
             <span class="engagements__price-currency">USD</span>
           </div>
           <dl class="engagements__card-meta">

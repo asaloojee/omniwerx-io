@@ -1,10 +1,21 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
+  const desktopEnvironmentImage = "/studio_kontrast_02_2k.hdr";
+  const mobileEnvironmentImage = "/studio_kontrast_02_1k.hdr";
+
   let viewer = $state<HTMLElement>();
+  let environmentImage = $state(desktopEnvironmentImage);
 
   onMount(() => {
     void import("@google/model-viewer");
+
+    const mobileMedia = window.matchMedia("(max-width: 767px)");
+    const updateEnvironmentImage = () => {
+      environmentImage = mobileMedia.matches
+        ? mobileEnvironmentImage
+        : desktopEnvironmentImage;
+    };
 
     const handleWheel = (event: WheelEvent) => {
       event.preventDefault();
@@ -17,12 +28,15 @@
       });
     };
 
+    updateEnvironmentImage();
+    mobileMedia.addEventListener("change", updateEnvironmentImage);
     viewer?.addEventListener("wheel", handleWheel, {
       passive: false,
       capture: true,
     });
 
     return () => {
+      mobileMedia.removeEventListener("change", updateEnvironmentImage);
       viewer?.removeEventListener("wheel", handleWheel, {
         capture: true,
       });
@@ -46,7 +60,7 @@
     field-of-view="30deg"
     min-field-of-view="20deg"
     max-field-of-view="80deg"
-    environment-image="/studio_kontrast_02_2k.hdr"
+    environment-image={environmentImage}
     exposure="1.2"
     shadow-intensity="0.6"
     shadow-softness="0.8"

@@ -81,9 +81,9 @@
         id="primary-navigation"
         aria-label="Primary navigation"
       >
-        <a class="nav__menu-link" href="/#studio" onclick={closeNav}>
+        <a class="nav__menu-link" href="/#about" onclick={closeNav}>
           <span class="nav__menu-index" aria-hidden="true">[01]</span>
-          <span class="nav__menu-label">studio</span>
+          <span class="nav__menu-label">about</span>
         </a>
         <a class="nav__menu-link" href="/#work" onclick={closeNav}>
           <span class="nav__menu-index" aria-hidden="true">[02]</span>

@@ -51,6 +51,8 @@
   --primary-black: #0b0a0a;
   --surface-muted: #100e0e;
   --border-color: #2a2828;
+  --button-accent-rest: rgba(215, 9, 35, 0.2);
+  --button-accent-rest-subtle: rgba(215, 9, 35, 0.12);
 
   --font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
   --font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -126,6 +128,7 @@
 @media (max-width: 991px) {
   :root {
     --site-gutter: var(--space-16);
+    --surface-muted: #171313;
     --text-lead: clamp(20px, 4vw, 24px);
     --text-title: clamp(28px, 6vw, 34px);
     --text-heading: clamp(38px, 8vw, 48px);
@@ -133,6 +136,8 @@
     --section-padding-y: 112px;
     --section-padding-y-tight: 96px;
     --section-content-gap: clamp(var(--space-40), 8vw, var(--space-56));
+    --button-accent-rest: rgba(215, 9, 35, 0.3);
+    --button-accent-rest-subtle: rgba(215, 9, 35, 0.22);
   }
 }
 
@@ -203,7 +208,7 @@ button {
   justify-content: center;
   padding: var(--space-12) var(--space-24);
   overflow: hidden;
-  background-color: rgba(215, 9, 35, 0.2);
+  background-color: var(--button-accent-rest);
   color: var(--body-text--emphasis);
   font-size: var(--text-body);
   font-weight: 700;
@@ -373,6 +378,16 @@ button {
 .hero__button {
   grid-row: 3;
   justify-self: start;
+  justify-content: space-between;
+  min-width: 260px;
+}
+
+.hero__button-icon {
+  position: relative;
+  z-index: 1;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
 }
 
 .hero__badge {
@@ -392,8 +407,14 @@ button {
 
 @media (max-width: 991px) {
   .hero {
-    min-block-size: auto;
-    padding-block: var(--section-padding-y-tight);
+    min-block-size: calc(100svh - var(--nav-height));
+    padding-block: 160px var(--section-padding-y-tight);
+  }
+
+  @supports (height: 100dvh) {
+    .hero {
+      min-block-size: calc(100dvh - var(--nav-height));
+    }
   }
 
   .hero__inner {
@@ -416,14 +437,15 @@ button {
 
   .hero__h1 {
     grid-row: 2;
-    padding-bottom: 0;
+    padding-bottom: var(--space-32);
   }
 
   .hero__badge {
-    grid-row: 3;
+    grid-row: 4;
     justify-self: center;
     width: 100%;
     align-self: center;
+    margin-top: clamp(96px, 18svh, 180px);
   }
 
   .hero .hero__badge > .badge-stage {
@@ -432,9 +454,10 @@ button {
   }
 
   .hero__button {
-    grid-row: 4;
+    grid-row: 3;
     justify-self: stretch;
     min-height: var(--control-height-lg);
+    width: 100%;
   }
 }
 
@@ -948,7 +971,7 @@ button {
   min-height: var(--control-height-xl);
   padding: 0 var(--space-20);
   border-top: 1px dashed var(--border-color);
-  background-color: rgba(215, 9, 35, 0.12);
+  background-color: var(--button-accent-rest-subtle);
   text-align: left;
 }
 
@@ -1444,7 +1467,8 @@ button {
 
 .error-page__button {
   margin-top: var(--space-40);
-  background: linear-gradient(rgba(215, 9, 35, 0.2), rgba(215, 9, 35, 0.2)), var(--primary-black);
+  background:
+    linear-gradient(var(--button-accent-rest), var(--button-accent-rest)), var(--primary-black);
 }
 
 .error-page__code {
