@@ -401,7 +401,7 @@
       width: 100%;
       padding: var(--space-12) var(--space-24);
       margin-top: var(--space-20);
-      background-color: rgba(215, 9, 35, 0.12);
+      background-color: var(--button-accent-rest-subtle);
       color: var(--body-text--emphasis);
       font-family: var(--font-sans);
       font-size: var(--text-ui);

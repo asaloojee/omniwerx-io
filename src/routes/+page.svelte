@@ -100,10 +100,11 @@
       </h2>
       <p class="about__copy">
         omniwerx is an independent development studio founded by Abdurahmaan
-        Saloojee. With roots in fitness and business, the studio brings a practical
-        understanding of how customers act, buy, and engage online. omniwerx builds
-        polished user interfaces, resilient backend systems, and cutting-edge tools
-        for small businesses ready to grow with greater precision.
+        Saloojee. With roots in fitness and business, the studio brings a
+        practical understanding of how customers act, buy, and engage online.
+        omniwerx builds polished user interfaces, resilient backend systems, and
+        cutting-edge tools for small businesses ready to grow with greater
+        precision.
       </p>
     </div>
   </section>
@@ -226,7 +227,7 @@
         <article class="process__step">
           <div class="process__step-marker">
             <span class="process__step-number">03</span>
-            <span class="process__step-phase">implementation</span>
+            <span class="process__step-phase">fulfilment</span>
           </div>
           <div class="process__step-body">
             <h3 class="process__step-heading">Execute cleanly.</h3>

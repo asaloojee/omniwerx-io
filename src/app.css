@@ -128,7 +128,7 @@
 @media (max-width: 991px) {
   :root {
     --site-gutter: var(--space-16);
-    --surface-muted: #171313;
+    --surface-muted: #161414;
     --text-lead: clamp(20px, 4vw, 24px);
     --text-title: clamp(28px, 6vw, 34px);
     --text-heading: clamp(38px, 8vw, 48px);
@@ -721,7 +721,7 @@ button {
 
 @media (max-width: 991px) {
   .process__procedure {
-    --process-rail-width: 114px;
+    --process-rail-width: 96px;
     --process-grid-columns: minmax(var(--process-rail-width), max-content) minmax(0, 1fr);
     --process-grid-gap: var(--space-32);
   }
@@ -756,6 +756,10 @@ button {
   .process__step-phase {
     text-align: right;
     white-space: nowrap;
+  }
+
+  .process__step-body {
+    padding-right: 12px;
   }
 }
 
