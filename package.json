@@ -9,13 +9,19 @@
     "preview": "vp preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "prepare": "svelte-kit sync || echo ''",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "fmt": "vp fmt --write .",
+    "fmt:check": "vp fmt --check .",
+    "lint": "vp lint .",
+    "ci": "vp fmt --check . && vp lint . && pnpm run check && vp build",
+    "deploy": "vp build && wrangler deploy --env production",
+    "deploy:preview": "vp build && wrangler deploy --env preview"
   },
   "dependencies": {
     "@google/model-viewer": "^4.2.0"
   },
   "devDependencies": {
-    "@sveltejs/adapter-auto": "^7.0.1",
+    "@sveltejs/adapter-cloudflare": "^7.2.8",
     "@sveltejs/kit": "^2.57.0",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@types/node": "^25.9.1",
@@ -23,7 +29,8 @@
     "svelte-check": "^4.4.6",
     "typescript": "^6.0.2",
     "vite": "^8.0.7",
-    "vite-plus": "^0.1.21"
+    "vite-plus": "^0.1.21",
+    "wrangler": "^4.95.0"
   },
   "packageManager": "pnpm@11.1.2"
 }

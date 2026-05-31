@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "omniwerx-io-dev",
+  "compatibility_date": "2025-11-26",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./.svelte-kit/cloudflare/_worker.js",
+  "assets": {
+    "directory": "./.svelte-kit/cloudflare",
+    "binding": "ASSETS",
+  },
+  "observability": {
+    "enabled": true,
+    "head_sampling_rate": 0.1,
+  },
+  "env": {
+    "production": {
+      "name": "omniwerx-io",
+      "routes": [
+        {
+          "pattern": "omniwerx.io/*",
+          "zone_name": "omniwerx.io",
+        },
+        {
+          "pattern": "www.omniwerx.io/*",
+          "zone_name": "omniwerx.io",
+        },
+      ],
+    },
+    "preview": {
+      "name": "omniwerx-io-preview",
+      "workers_dev": true,
+    },
+  },
+}
