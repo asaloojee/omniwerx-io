@@ -99,13 +99,27 @@
         A refined website shows pride in your business.
       </h2>
       <p class="about__copy">
-        omniwerx is an independent development studio founded by Abdurahmaan
-        Saloojee. With roots in fitness and business, the studio brings a
-        practical understanding of how customers act, buy, and engage online.
-        omniwerx builds polished user interfaces, resilient backend systems, and
-        cutting-edge tools for small businesses ready to grow with greater
-        precision.
+        omniwerx is an independent development studio with roots in fitness and
+        business. Years across service, sales, and operations inform a practical
+        understanding of how customers engage, act, and buy online. omniwerx
+        builds polished user interfaces, resilient backend systems, and modern
+        tools for small businesses ready to grow with greater precision.
       </p>
+      <figure class="about__founder">
+        <img
+          class="about__headshot"
+          src="/headshot.jpg"
+          alt="Portrait of Abdurahmaan Saloojee"
+          width="2000"
+          height="2000"
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="about__founder-caption">
+          <span class="about__founder-name">Abdurahmaan Saloojee</span>
+          <span class="about__founder-role">founder / developer</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 

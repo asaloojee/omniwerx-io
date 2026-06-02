@@ -489,6 +489,46 @@ button {
   text-wrap: pretty;
 }
 
+.about__founder {
+  display: inline-grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--space-16);
+  margin-top: var(--space-40);
+  text-align: left;
+}
+
+.about__headshot {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border: 1px solid var(--border-color);
+  border-radius: 20%;
+  background-color: var(--surface-muted);
+  filter: grayscale(1) contrast(1.06);
+}
+
+.about__founder-caption {
+  display: grid;
+  gap: 2px;
+}
+
+.about__founder-name {
+  color: var(--body-text--emphasis);
+  font-size: var(--text-body);
+  font-weight: 700;
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-ui);
+}
+
+.about__founder-role {
+  color: var(--body-text--muted);
+  font-family: var(--font-mono);
+  font-size: var(--text-meta);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-meta);
+}
+
 .services__inner {
   display: flex;
   flex-direction: column;
