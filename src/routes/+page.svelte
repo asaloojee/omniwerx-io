@@ -390,7 +390,7 @@
           <div class="engagements__card-top">
             <h3 class="engagements__card-heading">Support Retainer</h3>
             <p class="engagements__card-line">
-              Ongoing technical support for evolving needs.
+              Ongoing technical support for evolving needs beyond launch.
             </p>
           </div>
           <div class="engagements__price">
