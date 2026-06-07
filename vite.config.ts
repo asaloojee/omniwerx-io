@@ -11,4 +11,8 @@ export default defineConfig({
   lint: {
     ignorePatterns: ignoredPaths,
   },
+  server: {
+    host: "0.0.0.0",
+    allowedHosts: ["omx-mac"],
+  },
 });
