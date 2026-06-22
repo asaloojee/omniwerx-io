@@ -84,7 +84,10 @@
 
 <main>
   {#if !surveyStarted}
-    <section class="survey-landing" aria-labelledby="survey-landing-heading">
+    <section
+      class="survey-landing layout-wide"
+      aria-labelledby="survey-landing-heading"
+    >
       <div class="survey-landing__inner">
         <div class="survey-landing__content">
           <p class="survey__label">[00 / coach workflow survey]</p>
@@ -135,7 +138,10 @@
       </div>
     </section>
   {:else}
-    <section class="section survey" aria-labelledby="survey-form-heading">
+    <section
+      class="section survey layout-wide"
+      aria-labelledby="survey-form-heading"
+    >
       <div class="survey__inner">
         <aside class="survey__aside" aria-label="Survey progress">
           <p class="survey__label">[01 / active survey]</p>
@@ -372,7 +378,7 @@
 
   .survey-landing__inner,
   .survey__inner {
-    width: min(calc(100% - var(--site-gutter) - var(--site-gutter)), var(--container-wide));
+    width: 100%;
     margin-inline: auto;
   }
 
@@ -814,7 +820,7 @@
 
     .survey-landing__inner,
     .survey__inner {
-      width: min(calc(100% - var(--site-gutter) - var(--site-gutter)), var(--container-wide));
+      width: 100%;
     }
 
     .survey-landing__inner {

@@ -178,7 +178,7 @@
     width: 100%;
     max-width: var(--container-nav);
     min-height: var(--nav-height);
-    padding: var(--space-16) var(--space-32);
+    padding: var(--space-16) var(--site-gutter);
     margin-inline: auto;
   }
 

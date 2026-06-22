@@ -71,7 +71,7 @@
 <SiteNav />
 
 <main>
-  <section class="hero">
+  <section class="hero layout-wide">
     <div class="hero__inner">
       <div class="hero__label">[00 / digital studio]</div>
       <h1 class="hero__h1">
@@ -123,7 +123,11 @@
     </div>
   </section>
 
-  <section class="section services" id="work" aria-labelledby="work-heading">
+  <section
+    class="section services layout-wide"
+    id="work"
+    aria-labelledby="work-heading"
+  >
     <div class="services__inner">
       <div class="services__label">[02 / work]</div>
       <h2 class="services__heading" id="work-heading">
@@ -270,7 +274,7 @@
   </section>
 
   <section
-    class="section engagements"
+    class="section engagements layout-wide"
     id="options"
     aria-labelledby="options-heading"
   >
