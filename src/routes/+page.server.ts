@@ -65,6 +65,16 @@ const hasTrustedOrigin = (request: Request, url: URL) => {
   }
 };
 
+const isCloudflareRateLimited = async (platform: App.Platform | undefined, key: string) => {
+  const rateLimiter = platform?.env?.CONTACT_FORM_RATE_LIMITER;
+
+  if (!rateLimiter) return false;
+
+  const { success } = await rateLimiter.limit({ key: `contact:${key}` });
+
+  return !success;
+};
+
 const isRateLimited = (key: string) => {
   const now = Date.now();
   const entry = attempts.get(key);
@@ -170,9 +180,17 @@ const sendContactEmail = async (values: ContactValues) => {
 };
 
 export const actions: Actions = {
-  default: async ({ getClientAddress, request, url }) => {
+  default: async ({ getClientAddress, platform, request, url }) => {
     if (!hasTrustedOrigin(request, url)) {
       return fail(403, { error: genericError });
+    }
+
+    const clientAddress = getClientAddress();
+
+    if (await isCloudflareRateLimited(platform, clientAddress)) {
+      return fail(429, {
+        error: "Too many submissions. Please wait a few minutes and try again.",
+      });
     }
 
     const data = await request.formData();
@@ -188,7 +206,7 @@ export const actions: Actions = {
       return fail(400, { error: validationError, values });
     }
 
-    if (isRateLimited(getClientAddress())) {
+    if (isRateLimited(clientAddress)) {
       return fail(429, {
         error: "Too many submissions. Please wait a few minutes and try again.",
         values,
