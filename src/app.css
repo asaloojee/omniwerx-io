@@ -51,8 +51,7 @@
   --primary-black: #0b0a0a;
   --surface-muted: #100e0e;
   --border-color: #2a2828;
-  --button-accent-rest: rgba(215, 9, 35, 0.2);
-  --button-accent-rest-subtle: rgba(215, 9, 35, 0.12);
+  --button-accent-rest: rgba(215, 9, 35, 0.36);
 
   --font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
   --font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -64,7 +63,7 @@
   --text-lead: clamp(24px, 2vw, 28px);
   --text-title: clamp(36px, 2vw, 40px);
   --text-heading: clamp(48px, 4vw, 52px);
-  --text-display: clamp(64px, 8vw, 72px);
+  --text-display: clamp(72px, 8vw, 80px);
 
   /* Type rhythm */
   --leading-heading: 1;
@@ -432,13 +431,14 @@ main .container {
 
 .hero .hero__badge > .badge-stage {
   width: 100%;
-  max-width: 430px;
+  max-width: 480px;
   margin: 0;
 }
 
 @media (max-width: 991px) {
   .hero {
     min-block-size: calc(100svh - var(--nav-height));
+    padding-block-start: clamp(var(--space-40), 8svh, var(--space-64));
   }
 
   @supports (height: 100dvh) {
@@ -1044,7 +1044,7 @@ main .container {
   min-height: var(--control-height-xl);
   padding: 0 var(--space-20);
   border-top: 1px dashed var(--border-color);
-  background-color: var(--button-accent-rest-subtle);
+  background-color: var(--button-accent-rest);
   text-align: left;
 }
 

@@ -54,7 +54,7 @@
     disable-pan
     touch-action="pan-y"
     interaction-prompt="none"
-    camera-orbit="14.7deg 77deg 0.72m"
+    camera-orbit="14.7deg 74deg 0.72m"
     min-camera-orbit="auto 0deg 0.72m"
     max-camera-orbit="auto 180deg 0.72m"
     field-of-view="30deg"
