@@ -3,7 +3,7 @@ import { fail, type Actions } from "@sveltejs/kit";
 
 export const prerender = false;
 
-const SURVEY_RECIPIENT = "info@omniwerx.io";
+const CONTACT_RECIPIENT = "info@omniwerx.io";
 const MAX_EMAIL_LENGTH = 254;
 const MAX_SHORT_ANSWER_LENGTH = 180;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
@@ -261,7 +261,7 @@ const buildSubject = (email: string) =>
 const sendSurveyEmail = async (values: SurveyValues) => {
   const apiKey = env.RESEND_API_KEY;
   const fromEmail = env.RESEND_FROM_EMAIL;
-  const toEmail = env.RESEND_TO_EMAIL || SURVEY_RECIPIENT;
+  const toEmail = env.RESEND_TO_EMAIL || CONTACT_RECIPIENT;
 
   if (!apiKey || !fromEmail) {
     console.error("Survey form environment variables are not configured");
