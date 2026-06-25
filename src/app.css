@@ -336,6 +336,19 @@ main .container {
   font-size: var(--text-meta);
   line-height: var(--leading-ui);
   letter-spacing: var(--tracking-meta);
+  font-variant-numeric: tabular-nums;
+}
+
+.hero__label,
+.about__label,
+.services__label,
+.process__label,
+.engagements__label,
+.contact__label {
+  display: inline-flex;
+  width: fit-content;
+  padding: 0.36rem 0.54rem;
+  background: color-mix(in srgb, var(--body-text--emphasis) 4%, transparent);
 }
 
 .hero__h1,
@@ -396,7 +409,7 @@ main .container {
 .hero__label {
   grid-row: 1;
   align-self: end;
-  padding-bottom: var(--section-label-gap);
+  margin-bottom: var(--section-label-gap);
 }
 
 .hero__h1 {
@@ -462,7 +475,7 @@ main .container {
 
   .hero__label {
     grid-row: 1;
-    padding-bottom: 0;
+    margin-bottom: 0;
   }
 
   .hero__h1 {
