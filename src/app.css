@@ -52,6 +52,7 @@
   --surface-muted: #100e0e;
   --border-color: #2a2828;
   --button-accent-rest: rgba(215, 9, 35, 0.36);
+  --nav-accent-wash: rgba(215, 9, 35, 0.24);
 
   --font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
   --font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -72,8 +73,8 @@
   --leading-body: 1.6;
 
   /* Tracking */
-  --tracking-meta: 0.02em;
-  --tracking-body: 0.01em;
+  --tracking-meta: 0.04em;
+  --tracking-body: 0.02em;
   --tracking-title: -0.01em;
   --tracking-ui: -0.02em;
   --tracking-heading: -0.04em;
@@ -323,20 +324,48 @@ main .container {
   grid-column: 1;
 }
 
-.hero__label,
-.about__label,
-.services__label,
-.process__label,
-.engagements__label,
-.contact__label,
-.legal__updated,
-.error-page__label {
-  color: var(--body-text--muted);
+.section-label,
+.legal__updated {
   font-family: var(--font-mono);
-  font-size: var(--text-meta);
   line-height: var(--leading-ui);
   letter-spacing: var(--tracking-meta);
   font-variant-numeric: tabular-nums;
+}
+
+.legal__updated {
+  color: var(--body-text--muted);
+  font-size: var(--text-meta);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-8);
+  color: var(--body-text--emphasis);
+  font-size: var(--text-meta);
+  text-transform: lowercase;
+}
+
+.section-label__number {
+  color: var(--body-text--muted);
+  font-size: 24px;
+  line-height: 1;
+}
+
+.section-label__slash,
+.section-label__text {
+  font-size: var(--text-meta);
+  font-weight: 400;
+  line-height: 1;
+  translate: 0 -2px;
+}
+
+.section-label__slash {
+  color: var(--body-text--subtle);
+}
+
+.section-label__text {
+  color: var(--body-text--emphasis);
 }
 
 .hero__label,
@@ -346,9 +375,6 @@ main .container {
 .engagements__label,
 .contact__label {
   display: inline-flex;
-  width: fit-content;
-  padding: 0.36rem 0.54rem;
-  background: color-mix(in srgb, var(--body-text--emphasis) 4%, transparent);
 }
 
 .hero__h1,
@@ -1419,7 +1445,7 @@ main .container {
 .legal__body {
   display: grid;
   gap: var(--space-44);
-  margin-top: var(--section-content-gap);
+  margin: var(--section-content-gap) 0;
   text-align: left;
 }
 

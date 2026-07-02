@@ -62,7 +62,7 @@
 <style>
   .footer {
     padding-block: clamp(var(--space-56), 8vw, var(--space-96)) var(--space-32);
-    border-top: 1px solid var(--border-color);
+    border-top: 1px solid color-mix(in srgb, var(--border-color) 72%, transparent);
   }
 
   .footer__brand {

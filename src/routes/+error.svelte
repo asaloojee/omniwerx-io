@@ -1,5 +1,6 @@
 <script lang="ts">
   import { page } from "$app/state";
+  import SectionLabel from "$lib/components/SectionLabel.svelte";
   import SiteFooter from "$lib/components/SiteFooter.svelte";
   import SiteNav from "$lib/components/SiteNav.svelte";
 
@@ -16,9 +17,10 @@
 <main>
   <section class="error-page" aria-labelledby="error-heading">
     <div class="container container--narrow error-page__inner">
-      <p class="error-page__label">
-        {isNotFound ? "[route not found]" : "[request failed]"}
-      </p>
+      <SectionLabel
+        class="error-page__label"
+        text={isNotFound ? "route not found" : "request failed"}
+      />
 
       {#if isNotFound}
         <h1 class="error-page__heading" id="error-heading">

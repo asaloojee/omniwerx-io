@@ -1,6 +1,7 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import BadgeHero from "$lib/components/BadgeHero.svelte";
+  import SectionLabel from "$lib/components/SectionLabel.svelte";
   import SiteFooter from "$lib/components/SiteFooter.svelte";
   import SiteNav from "$lib/components/SiteNav.svelte";
   import type { SubmitFunction } from "@sveltejs/kit";
@@ -73,7 +74,7 @@
 <main>
   <section class="hero layout-wide">
     <div class="hero__inner">
-      <div class="hero__label">[00 / digital studio]</div>
+      <SectionLabel class="hero__label" section="00" text="digital studio" />
       <h1 class="hero__h1">
         Precision-engineered digital experiences for small businesses.
       </h1>
@@ -94,7 +95,7 @@
 
   <section class="section about" id="about" aria-labelledby="about-heading">
     <div class="container container--narrow">
-      <div class="about__label">[01 / about]</div>
+      <SectionLabel class="about__label" section="01" text="about" />
       <h2 class="about__heading" id="about-heading">
         A refined website shows pride in your business.
       </h2>
@@ -129,7 +130,7 @@
     aria-labelledby="work-heading"
   >
     <div class="services__inner">
-      <div class="services__label">[02 / work]</div>
+      <SectionLabel class="services__label" section="02" text="work" />
       <h2 class="services__heading" id="work-heading">
         Dependable implementation that reinforces your digital presence.
       </h2>
@@ -204,7 +205,7 @@
 
   <section class="section process" id="system" aria-labelledby="system-heading">
     <div class="container container--narrow">
-      <div class="process__label">[03 / system]</div>
+      <SectionLabel class="process__label" section="03" text="system" />
       <h2 class="process__heading" id="system-heading">
         Legible planning, clean execution.
       </h2>
@@ -279,7 +280,7 @@
     aria-labelledby="options-heading"
   >
     <div class="engagements__inner">
-      <div class="engagements__label">[04 / options]</div>
+      <SectionLabel class="engagements__label" section="04" text="options" />
       <h2 class="engagements__heading" id="options-heading">
         What a work agreement looks like.
       </h2>
@@ -445,7 +446,7 @@
     aria-labelledby="contact-heading"
   >
     <div class="container container--narrow">
-      <div class="contact__label">[05 / contact]</div>
+      <SectionLabel class="contact__label" section="05" text="contact" />
       <h2 class="contact__heading" id="contact-heading">
         The next step of your business is a conversation away.
       </h2>

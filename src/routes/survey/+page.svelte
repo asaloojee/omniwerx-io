@@ -1,6 +1,8 @@
 <script lang="ts">
   import { enhance } from "$app/forms";
   import { tick } from "svelte";
+  import CompletionReceipt from "$lib/components/CompletionReceipt.svelte";
+  import SectionLabel from "$lib/components/SectionLabel.svelte";
   import SiteFooter from "$lib/components/SiteFooter.svelte";
   import SiteNav from "$lib/components/SiteNav.svelte";
   import type { SubmitFunction } from "@sveltejs/kit";
@@ -211,7 +213,11 @@
     >
       <div class="survey-landing__inner">
         <div class="survey-landing__content">
-          <p class="survey__label">[00 / workflow survey]</p>
+          <SectionLabel
+            class="survey__label"
+            section="00"
+            text="workflow survey"
+          />
           <h1 class="survey-landing__heading" id="survey-landing-heading">
             I want to know more about how you work.
           </h1>
@@ -266,7 +272,11 @@
     >
       <div class="survey__inner">
         <aside class="survey__aside" aria-label="Survey progress">
-          <p class="survey__label">[01 / active survey]</p>
+          <SectionLabel
+            class="survey__label"
+            section="01"
+            text="active survey"
+          />
           <h1 class="survey__heading" id="survey-form-heading" tabindex="-1">
             Coaching workflow research.
           </h1>
@@ -291,7 +301,7 @@
 
         {#if submitted}
           <div class="survey-complete" id="survey-complete" tabindex="-1">
-            <p class="survey__label">[complete]</p>
+            <CompletionReceipt text="submission received" />
             <h2 class="survey-complete__heading">
               Your responses have been processed.
             </h2>
@@ -641,14 +651,8 @@
     max-width: 760px;
   }
 
-  .survey__label {
+  :global(.survey__label) {
     margin-bottom: var(--section-label-gap);
-    color: var(--body-text--muted);
-    font-family: var(--font-mono);
-    font-size: var(--text-meta);
-    line-height: var(--leading-ui);
-    letter-spacing: var(--tracking-meta);
-    text-transform: lowercase;
   }
 
   .survey-landing__heading,

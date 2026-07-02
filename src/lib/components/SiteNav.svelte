@@ -83,23 +83,23 @@
       >
         <a class="nav__menu-link" href="/#about" onclick={closeNav}>
           <span class="nav__menu-index" aria-hidden="true">[01]</span>
-          <span class="nav__menu-label">about</span>
+          <span class="nav__menu-label">About</span>
         </a>
         <a class="nav__menu-link" href="/#work" onclick={closeNav}>
           <span class="nav__menu-index" aria-hidden="true">[02]</span>
-          <span class="nav__menu-label">work</span>
+          <span class="nav__menu-label">Work</span>
         </a>
         <a class="nav__menu-link" href="/#system" onclick={closeNav}>
           <span class="nav__menu-index" aria-hidden="true">[03]</span>
-          <span class="nav__menu-label">system</span>
+          <span class="nav__menu-label">System</span>
         </a>
         <a class="nav__menu-link" href="/#options" onclick={closeNav}>
           <span class="nav__menu-index" aria-hidden="true">[04]</span>
-          <span class="nav__menu-label">options</span>
+          <span class="nav__menu-label">Options</span>
         </a>
         <a class="nav__menu-link" href="/#contact" onclick={closeNav}>
           <span class="nav__menu-index" aria-hidden="true">[05]</span>
-          <span class="nav__menu-label">contact</span>
+          <span class="nav__menu-label">Contact</span>
         </a>
         <a
           class="button nav__menu-link nav__menu-link--mobile-cta"
@@ -108,7 +108,7 @@
           rel="noreferrer"
           onclick={closeNav}
         >
-          <span class="nav__menu-label">book call</span>
+          <span class="nav__menu-label">Book Call</span>
           <img
             class="nav__menu-cta-icon"
             src="/arrow-right.svg"
@@ -124,7 +124,7 @@
         rel="noreferrer"
         onclick={closeNav}
       >
-        <span>book call</span>
+        <span>Book Call</span>
         <img
           class="nav__cta-icon"
           src="/arrow-right.svg"
@@ -167,7 +167,6 @@
     top: 0;
     z-index: 50;
     isolation: isolate;
-    border-bottom: 1px solid var(--border-color);
     background-color: var(--primary-black);
   }
 
@@ -238,35 +237,50 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: var(--space-24);
+    gap: var(--space-32);
     min-width: 0;
   }
 
   .nav__menu {
     display: flex;
     align-items: center;
-    gap: var(--space-8);
+    gap: var(--space-32);
     min-width: 0;
   }
 
   .nav__menu-link {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 40px;
-    padding: var(--space-12) var(--space-8);
-    color: var(--body-text--muted);
-    font-family: var(--font-mono);
+    min-width: 40px;
+    padding: 4px;
+    overflow: hidden;
+    isolation: isolate;
+    color: var(--body-text--emphasis);
+    font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--leading-ui);
-    letter-spacing: var(--tracking-meta);
-    text-transform: lowercase;
-    transition-property: color, opacity;
-    transition-duration: var(--duration-fast);
+    letter-spacing: var(--tracking-ui);
+    text-transform: none;
+  }
+
+  .nav__menu-link:not(.nav__menu-link--mobile-cta)::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-color: var(--nav-accent-wash);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition-property: transform;
+    transition-duration: var(--duration-wash-compact);
     transition-timing-function: var(--bezier);
   }
 
   .nav__menu-index {
+    position: relative;
+    z-index: 1;
     display: none;
   }
 
@@ -275,9 +289,10 @@
     z-index: 1;
   }
 
-  .nav__menu-link:hover,
-  .nav__menu-link:focus-visible {
-    color: var(--body-text--emphasis);
+  .nav__menu-link:hover::before,
+  .nav__menu-link:focus-visible::before,
+  .nav__menu-link:active::before {
+    transform: scaleX(1);
   }
 
   .nav__menu-link--mobile-cta {
@@ -363,8 +378,8 @@
       inset-block-start: 100%;
       inset-inline: 0;
       display: none;
-      gap: var(--space-8);
-      padding: var(--space-20) var(--site-gutter) var(--space-24);
+      gap: 0;
+      padding: var(--space-12) var(--site-gutter) var(--space-20);
       border-bottom: 1px solid var(--border-color);
       background-color: var(--primary-black);
     }
@@ -374,14 +389,10 @@
     }
 
     .nav__menu-link {
-      position: relative;
       justify-content: flex-start;
-      gap: var(--space-16);
-      min-height: 52px;
-      padding: var(--space-12) 0;
-      overflow: hidden;
-      isolation: isolate;
-      color: var(--body-text--emphasis);
+      gap: var(--space-12);
+      min-height: 48px;
+      padding-block: 0;
       font-size: var(--text-ui);
     }
 
@@ -397,11 +408,10 @@
     .nav__menu-link--mobile-cta {
       display: inline-flex;
       justify-content: space-between;
-      gap: var(--space-16);
+      gap: var(--space-12);
       width: 100%;
-      min-height: 0;
       padding: var(--space-16) var(--space-20);
-      margin-top: var(--space-20);
+      margin-top: var(--space-12);
       background-color: var(--button-accent-rest);
       color: var(--body-text--emphasis);
       font-family: var(--font-sans);
@@ -444,6 +454,7 @@
     .nav__wordmark-image,
     .nav__mark-image,
     .nav__toggle-icon,
+    .nav__menu-link:not(.nav__menu-link--mobile-cta)::before,
     .nav__menu-link--mobile-cta::before,
     .nav__menu-cta-icon {
       transition-duration: 1ms;
