@@ -260,6 +260,7 @@
     color: var(--body-text--emphasis);
     font-family: var(--font-sans);
     font-size: var(--text-body);
+    font-weight: 500;
     line-height: var(--leading-ui);
     letter-spacing: var(--tracking-ui);
     text-transform: none;
@@ -302,6 +303,7 @@
   .nav__cta {
     gap: var(--space-8);
     min-width: 0;
+    font-weight: 700;
     white-space: nowrap;
   }
 
@@ -416,9 +418,9 @@
       color: var(--body-text--emphasis);
       font-family: var(--font-sans);
       font-size: var(--text-ui);
-      font-weight: 700;
+      font-weight: 500;
       line-height: var(--leading-ui);
-      letter-spacing: var(--tracking-ui);
+      letter-spacing: var(--tracking-caps);
       text-align: left;
       text-transform: uppercase;
     }
