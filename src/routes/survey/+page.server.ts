@@ -124,6 +124,20 @@ const hasTrustedOrigin = (request: Request, url: URL) => {
   }
 };
 
+const isCloudflareRateLimited = async (platform: App.Platform | undefined, key: string) => {
+  const rateLimiter = platform?.env?.CONTACT_FORM_RATE_LIMITER;
+
+  if (!rateLimiter) return null;
+
+  try {
+    const { success } = await rateLimiter.limit({ key: `survey:${key}` });
+
+    return !success;
+  } catch {
+    return null;
+  }
+};
+
 const isRateLimited = (key: string) => {
   const now = Date.now();
   const entry = attempts.get(key);
@@ -270,6 +284,7 @@ const sendSurveyEmail = async (values: SurveyValues) => {
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
+    signal: AbortSignal.timeout(10_000),
     headers: {
       Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
@@ -293,9 +308,18 @@ const sendSurveyEmail = async (values: SurveyValues) => {
 };
 
 export const actions: Actions = {
-  default: async ({ getClientAddress, request, url }) => {
+  default: async ({ getClientAddress, platform, request, url }) => {
     if (!hasTrustedOrigin(request, url)) {
       return fail(403, { error: genericError });
+    }
+
+    const clientAddress = getClientAddress();
+    const cloudflareRateLimited = await isCloudflareRateLimited(platform, clientAddress);
+
+    if (cloudflareRateLimited ?? isRateLimited(clientAddress)) {
+      return fail(429, {
+        error: "Too many submissions. Please wait a few minutes and try again.",
+      });
     }
 
     const data = await request.formData();
@@ -311,19 +335,17 @@ export const actions: Actions = {
       return fail(400, { error: validationError, values });
     }
 
-    if (isRateLimited(getClientAddress())) {
-      return fail(429, {
-        error: "Too many submissions. Please wait a few minutes and try again.",
-        values,
-      });
-    }
+    try {
+      const sent = await sendSurveyEmail(values);
 
-    const sent = await sendSurveyEmail(values);
+      if (!sent) {
+        return fail(500, { error: genericError, values });
+      }
 
-    if (!sent) {
+      return { message: successMessage };
+    } catch (error) {
+      console.error("Survey form error", error);
       return fail(500, { error: genericError, values });
     }
-
-    return { message: successMessage };
   },
 };

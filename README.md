@@ -12,10 +12,18 @@ pnpm dev
 ## Checks
 
 ```sh
-pnpm check
-pnpm exec vp lint
-pnpm exec vp fmt --check .
+pnpm run ci
 ```
+
+## Environment
+
+Copy `.env.example` to `.env` and configure the Resend credentials used by the contact and survey forms:
+
+```sh
+cp .env.example .env
+```
+
+`RESEND_TO_EMAIL` is optional and defaults to `info@omniwerx.io`.
 
 ## Build
 
@@ -24,11 +32,11 @@ pnpm build
 pnpm preview
 ```
 
-## Production setup
+## Deployment
 
-Before launch, finish the remaining integration work:
+The site uses the Cloudflare adapter and the environments defined in `wrangler.jsonc`.
 
-- update the book-call URL
-- wire the contact form with Resend
-- switch from `adapter-auto` to the Cloudflare adapter
-- complete mobile styles
+```sh
+pnpm deploy:preview
+pnpm deploy
+```

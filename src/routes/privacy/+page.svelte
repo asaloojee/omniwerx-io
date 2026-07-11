@@ -17,7 +17,7 @@
   <section class="section legal" aria-labelledby="privacy-heading">
     <div class="container container--narrow">
       <h1 class="legal__heading" id="privacy-heading">Privacy Policy</h1>
-      <p class="legal__updated">Last updated: May 29, 2026</p>
+      <p class="legal__updated">Last updated: July 11, 2026</p>
 
       <div class="legal__body">
         <article class="legal__item" aria-labelledby="privacy-overview-heading">
@@ -49,9 +49,11 @@
             <p>
               If you contact us through the website, we may collect your name,
               email address, engagement type, message, and any details you
-              choose to include. If you book a meeting through an external
-              booking provider, that provider may process your booking details
-              under its own privacy terms.
+              choose to include. If you complete a research survey, we may also
+              collect your email address and responses about your business,
+              workflows, tools, and software spending. If you book a meeting
+              through an external booking provider, that provider may process
+              your booking details under its own privacy terms.
             </p>
             <p>
               The site is hosted through Cloudflare, including Cloudflare
@@ -72,12 +74,13 @@
               How we use information
             </h2>
             <p>
-              We use information to respond to inquiries, schedule
-              conversations, provide requested services, maintain website
-              security, troubleshoot issues, and keep appropriate business
-              records. If email delivery is handled through Resend, email
-              addresses and message metadata may be processed to send and manage
-              those messages.
+              We use information to respond to inquiries, conduct product and
+              workflow research, follow up when useful, schedule conversations,
+              provide requested services, maintain website security,
+              troubleshoot issues, and keep appropriate business records. If
+              email delivery is handled through Resend, contact details, survey
+              responses, and message metadata may be processed to send and
+              manage those messages.
             </p>
           </div>
         </article>
@@ -92,9 +95,10 @@
               Email communication
             </h2>
             <p>
-              By sending a message through the website, you agree that OMNIWERX
-              Inc. may email you about your inquiry and related services. We do
-              not currently operate a newsletter or marketing list. If that
+              By sending a message or completing a survey through the website,
+              you agree that OMNIWERX Inc. may email you about your inquiry,
+              your responses, related research, or relevant product updates. We
+              do not currently operate a newsletter or marketing list. If that
               changes, marketing emails will include a way to unsubscribe.
             </p>
           </div>
