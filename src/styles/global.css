@@ -1,0 +1,89 @@
+@font-face {
+  font-family: "Söhne";
+  src: url("/fonts/soehne-buch.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-feature-settings:
+    "zero" 1,
+    "tnum" 1;
+}
+
+@font-face {
+  font-family: "Söhne";
+  src: url("/fonts/soehne-kraftig.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  font-feature-settings:
+    "zero" 1,
+    "tnum" 1;
+}
+
+@font-face {
+  font-family: "Söhne";
+  src: url("/fonts/soehne-dreiviertelfett.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-feature-settings:
+    "zero" 1,
+    "tnum" 1;
+}
+
+@font-face {
+  font-family: "Söhne Mono";
+  src: url("/fonts/soehne-mono-buch.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  font-feature-settings:
+    "zero" 1,
+    "tnum" 1;
+}
+
+@font-face {
+  font-family: "Söhne Mono";
+  src: url("/fonts/soehne-mono-halbfett.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  font-feature-settings:
+    "zero" 1,
+    "tnum" 1;
+}
+
+@font-face {
+  font-family: "Söhne Mono";
+  src: url("/fonts/soehne-mono-dreiviertelfett.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  font-feature-settings:
+    "zero" 1,
+    "tnum" 1;
+}
+
+:root {
+  --primary-red: #d70923;
+  --body-text: #b8b8b8;
+  --body-text--muted: rgba(184, 184, 184, 0.8);
+  --body-text--subtle: rgba(184, 184, 184, 0.6);
+  --body-text--emphasis: #f5f5f5;
+  --primary-black: #0b0a0a;
+  --surface-muted: #100e0e;
+  --border-color: #2a2828;
+  --button-accent-rest: rgba(215, 9, 35, 0.36);
+  --nav-accent-wash: rgba(215, 9, 35, 0.24);
+
+  --font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
+  --font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
+
+  /* Type scale */
+  --text-meta: 12px;
+  --text-ui: 14px;
+  --text-body: 16px;
+  --text-title: clamp(36px, 2vw, 40px);
+  --text-heading: clamp(48px, 4vw, 52px);
+  --text-display: clamp(72px, 8vw, 80px);
+}
