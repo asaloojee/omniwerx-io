@@ -1,17 +1,26 @@
 ---
-import '../styles/global.css';
+import BlenderLogo from "../components/BlenderLogo.astro";
+import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<title>Hello world</title>
-	</head>
-	<body>
-		<main class="page">
-			<h1 class="heading">Hello world</h1>
-		</main>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Hello world</title>
+  </head>
+  <body>
+    <main>
+      <section id="hero" class="layout-wide">
+        <h1 class="heading">
+          Digital interfaces and web products machined with surgical precision.
+        </h1>
+        <BlenderLogo />
+      </section>
+      <section>
+        <h2>H2 heading</h2>
+      </section>
+    </main>
+  </body>
 </html>

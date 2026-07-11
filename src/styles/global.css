@@ -1,89 +1,162 @@
 @font-face {
-  font-family: "Söhne";
-  src: url("/fonts/soehne-buch.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  font-feature-settings:
-    "zero" 1,
-    "tnum" 1;
+	font-family: "Söhne";
+	src: url("/fonts/soehne-buch.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	font-feature-settings:
+		"zero" 1,
+		"tnum" 1;
 }
 
 @font-face {
-  font-family: "Söhne";
-  src: url("/fonts/soehne-kraftig.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-  font-feature-settings:
-    "zero" 1,
-    "tnum" 1;
+	font-family: "Söhne";
+	src: url("/fonts/soehne-kraftig.woff2") format("woff2");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+	font-feature-settings:
+		"zero" 1,
+		"tnum" 1;
 }
 
 @font-face {
-  font-family: "Söhne";
-  src: url("/fonts/soehne-dreiviertelfett.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  font-feature-settings:
-    "zero" 1,
-    "tnum" 1;
+	font-family: "Söhne";
+	src: url("/fonts/soehne-dreiviertelfett.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	font-feature-settings:
+		"zero" 1,
+		"tnum" 1;
 }
 
 @font-face {
-  font-family: "Söhne Mono";
-  src: url("/fonts/soehne-mono-buch.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-  font-feature-settings:
-    "zero" 1,
-    "tnum" 1;
+	font-family: "Söhne Mono";
+	src: url("/fonts/soehne-mono-buch.woff2") format("woff2");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+	font-feature-settings:
+		"zero" 1,
+		"tnum" 1;
 }
 
 @font-face {
-  font-family: "Söhne Mono";
-  src: url("/fonts/soehne-mono-halbfett.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-  font-feature-settings:
-    "zero" 1,
-    "tnum" 1;
+	font-family: "Söhne Mono";
+	src: url("/fonts/soehne-mono-halbfett.woff2") format("woff2");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+	font-feature-settings:
+		"zero" 1,
+		"tnum" 1;
 }
 
 @font-face {
-  font-family: "Söhne Mono";
-  src: url("/fonts/soehne-mono-dreiviertelfett.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-  font-feature-settings:
-    "zero" 1,
-    "tnum" 1;
+	font-family: "Söhne Mono";
+	src: url("/fonts/soehne-mono-dreiviertelfett.woff2") format("woff2");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+	font-feature-settings:
+		"zero" 1,
+		"tnum" 1;
 }
 
 :root {
-  --primary-red: #d70923;
-  --body-text: #b8b8b8;
-  --body-text--muted: rgba(184, 184, 184, 0.8);
-  --body-text--subtle: rgba(184, 184, 184, 0.6);
-  --body-text--emphasis: #f5f5f5;
-  --primary-black: #0b0a0a;
-  --surface-muted: #100e0e;
-  --border-color: #2a2828;
-  --button-accent-rest: rgba(215, 9, 35, 0.36);
-  --nav-accent-wash: rgba(215, 9, 35, 0.24);
+	--primary-red: #d70923;
+	--body-text: #c8c8c8;
+	--body-text--emphasis: #f5f5f5;
+	--primary-black: #0b0a0a;
+	--surface-muted: #100e0e;
+	--border-color: #2a2828;
+	--button-accent-rest: rgba(215, 9, 35, 0.36);
+	--nav-accent-wash: rgba(215, 9, 35, 0.24);
 
-  --font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
-  --font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
+	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
+	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
 
-  /* Type scale */
-  --text-meta: 12px;
-  --text-ui: 14px;
-  --text-body: 16px;
-  --text-title: clamp(36px, 2vw, 40px);
-  --text-heading: clamp(48px, 4vw, 52px);
-  --text-display: clamp(72px, 8vw, 80px);
+	/* Type scale */
+	--text-meta: 12px;
+	--text-ui: 14px;
+	--text-body: 16px;
+	--text-title: clamp(36px, 2vw, 40px);
+	--text-heading: clamp(48px, 4vw, 52px);
+	--text-display: clamp(64px, 8vw, 72px);
+
+	/* Line height */
+	--leading-display: 1;
+	--leading-ui: 1.2;
+	--leading-title: 1.4;
+	--leading-body: 1.6;
+
+	/* Tracking */
+	--tracking-meta: 0.02em;
+	--tracking-ui: 0.01em;
+	--tracking-body: 0;
+	--tracking-title: -0.01em;
+	--tracking-heading: -0.02em;
+
+	/* Layout */
+	--container-wide: 80rem;
+	--container-nav: 90rem;
+	--container-narrow: 42rem;
+	--section-gap: 16rem;
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+* {
+	margin: 0;
+}
+
+html {
+	container-type: inline-size;
+	background-color: var(--primary-black);
+}
+
+body {
+	font-family: var(--font-sans);
+	color: var(--body-text);
+	font-size: var(--text-body);
+	line-height: var(--leading-body);
+	letter-spacing: var(--tracking-body);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+main {
+	display: grid;
+	grid-template-columns: min(100%, var(--container-narrow));
+	justify-content: center;
+	row-gap: var(--section-gap);
+}
+
+main .layout-wide {
+	justify-self: center;
+	width: min(100cqw, var(--container-wide));
+}
+
+section {
+	padding-inline: 2rem;
+}
+
+/* Hero Styles */
+#hero {
+	display: grid;
+	grid-template-columns: minmax(0, 38rem) minmax(0, 1fr);
+	align-items: center;
+	column-gap: 2rem;
+	min-height: 100dvh;
+}
+
+h1 {
+	font-size: var(--text-display);
+	line-height: var(--leading-display);
+	letter-spacing: var(--tracking-heading);
+	color: var(--body-text--emphasis);
 }
