@@ -149,6 +149,7 @@ section {
 #hero {
 	display: grid;
 	grid-template-columns: minmax(0, 38rem) minmax(0, 1fr);
+	grid-template-rows: 1fr auto auto 1fr;
 	align-items: center;
 	column-gap: 2rem;
 	min-height: 100dvh;
@@ -159,4 +160,11 @@ h1 {
 	line-height: var(--leading-display);
 	letter-spacing: var(--tracking-heading);
 	color: var(--body-text--emphasis);
+	grid-row: 2;
+	margin-bottom: 64px;
+}
+
+.hero__lead {
+	font-size: 20px;
+	max-width: 32rem;
 }
