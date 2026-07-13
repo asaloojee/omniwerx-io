@@ -102,7 +102,6 @@
 	--container-wide: 80rem;
 	--container-nav: 90rem;
 	--container-narrow: 42rem;
-	--section-gap: 16rem;
 }
 *,
 *::before,
@@ -116,6 +115,8 @@
 
 html {
 	container-type: inline-size;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 	background-color: var(--primary-black);
 }
 
@@ -133,7 +134,6 @@ main {
 	display: grid;
 	grid-template-columns: min(100%, var(--container-narrow));
 	justify-content: center;
-	row-gap: var(--section-gap);
 }
 
 main .layout-wide {
@@ -162,9 +162,80 @@ h1 {
 	color: var(--body-text--emphasis);
 	grid-row: 2;
 	margin-bottom: 64px;
+	font-weight: 700;
 }
 
-.hero__lead {
-	font-size: 20px;
-	max-width: 32rem;
+#services {
+	padding-block: 2rem 0 12rem;
+}
+
+h2 {
+	font-size: var(--text-heading);
+	line-height: var(--leading-display);
+	letter-spacing: var(--tracking-title);
+	color: var(--body-text--emphasis);
+	margin-bottom: 64px;
+	font-weight: 700;
+}
+
+.service-register__row {
+	display: grid;
+	grid-template-columns: clamp(10rem, 12rem, 14rem) clamp(20rem, 24rem, 28rem) minmax(0, 1fr);
+	align-items: start;
+}
+
+.service-register__header {
+	border-bottom: 1px solid var(--body-text--emphasis);
+	font-family: var(--font-mono);
+	font-size: var(--text-meta);
+	font-weight: 600;
+	line-height: var(--leading-ui);
+	letter-spacing: var(--tracking-meta);
+	text-transform: uppercase;
+}
+
+.service-register__item:not(:last-child) {
+	border-bottom: 1px dashed var(--border-color);
+}
+
+.service-register__row > * {
+	padding: 2rem 1rem 2rem 0;
+}
+
+.service-register__header > * {
+	padding-block: 0 1rem;
+}
+
+.service-register__number {
+	color: color-mix(in srgb, var(--body-text) 32%, transparent);
+	font-family: var(--font-mono);
+	font-size: clamp(40px, 4vw, 64px);
+	font-variant-numeric: tabular-nums;
+	line-height: 0.8;
+}
+
+.service-register__name {
+	color: var(--body-text--emphasis);
+	font-size: var(--text-title);
+	font-weight: 500;
+	letter-spacing: var(--tracking-title);
+	line-height: var(--leading-display);
+}
+
+.service-register__application {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.service-register__application > p:first-child {
+	text-wrap: pretty;
+}
+
+.service-register__meta {
+	font-family: var(--font-mono);
+	font-size: var(--text-meta);
+	line-height: var(--leading-ui);
+	letter-spacing: var(--tracking-meta);
+	text-transform: uppercase;
 }
