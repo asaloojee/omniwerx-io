@@ -65,14 +65,13 @@
 }
 
 :root {
-	--primary-red: #d70923;
+	--primary-red: #d61803;
 	--body-text: #c8c8c8;
 	--body-text--emphasis: #f5f5f5;
 	--primary-black: #0b0a0a;
 	--surface-muted: #100e0e;
 	--border-color: #2a2828;
-	--button-accent-rest: rgba(215, 9, 35, 0.36);
-	--nav-accent-wash: rgba(215, 9, 35, 0.24);
+	--button-hover: rgba(214, 24, 3, 0.8);
 
 	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
 	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -102,6 +101,9 @@
 	--container-wide: 80rem;
 	--container-nav: 90rem;
 	--container-narrow: 42rem;
+
+	/* Motion */
+	--bezier: cubic-bezier(0.1, 0.93, 0, 1);
 }
 *,
 *::before,
@@ -148,8 +150,14 @@ section {
 /* Hero Styles */
 #hero {
 	display: grid;
-	grid-template-columns: minmax(0, 38rem) minmax(0, 1fr);
-	grid-template-rows: 1fr auto auto 1fr;
+	grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
+	grid-template-rows: 1fr auto auto auto 1fr;
+	grid-template-areas:
+		". badge"
+		"header badge"
+		"lead badge"
+		"cta badge"
+		". badge";
 	align-items: center;
 	column-gap: 2rem;
 	min-height: 100dvh;
@@ -160,9 +168,58 @@ h1 {
 	line-height: var(--leading-display);
 	letter-spacing: var(--tracking-heading);
 	color: var(--body-text--emphasis);
-	grid-row: 2;
-	margin-bottom: 64px;
+	margin-bottom: 40px;
 	font-weight: 700;
+	grid-area: header;
+	margin-inline-end: -32px;
+}
+
+.hero__lead {
+	grid-area: lead;
+	font-size: 20px;
+	color: var(--body-text--emphasis);
+	font-weight: 400;
+	letter-spacing: var(--tracking-ui);
+	line-height: var(--leading-ui);
+	margin-bottom: 80px;
+}
+
+.hero__cta {
+	grid-area: cta;
+	justify-self: start;
+}
+
+.button--emphasis {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 220px;
+	min-height: 40px;
+	padding: 8px 16px;
+	background-color: var(--primary-red);
+	color: var(--primary-black);
+	font-family: var(--font-mono);
+	text-transform: uppercase;
+	font-size: var(--text-ui);
+	font-weight: 700;
+	line-height: var(--leading-ui);
+	text-decoration: none;
+	transition: background-color 400ms var(--bezier);
+}
+
+.button--emphasis:hover {
+	background-color: var(--button-hover);
+}
+
+.button--emphasis:focus-visible {
+	outline: 2px solid var(--body-text--emphasis);
+	outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.button--emphasis {
+		transition-duration: 0.01ms;
+	}
 }
 
 #services {
@@ -180,17 +237,17 @@ h2 {
 
 .service-register__row {
 	display: grid;
-	grid-template-columns: clamp(10rem, 12rem, 14rem) clamp(20rem, 24rem, 28rem) minmax(0, 1fr);
+	grid-template-columns: minmax(auto, 12rem) minmax(auto, 0.6fr) minmax(0, 1fr);
 	align-items: start;
 }
 
 .service-register__header {
 	border-bottom: 1px solid var(--body-text--emphasis);
 	font-family: var(--font-mono);
-	font-size: var(--text-meta);
+	font-size: var(--text-ui);
 	font-weight: 600;
 	line-height: var(--leading-ui);
-	letter-spacing: var(--tracking-meta);
+	letter-spacing: var(--tracking-ui);
 	text-transform: uppercase;
 }
 
@@ -209,9 +266,10 @@ h2 {
 .service-register__number {
 	color: color-mix(in srgb, var(--body-text) 32%, transparent);
 	font-family: var(--font-mono);
-	font-size: clamp(40px, 4vw, 64px);
+	font-size: 64px;
 	font-variant-numeric: tabular-nums;
 	line-height: 0.8;
+	font-weight: 400;
 }
 
 .service-register__name {
