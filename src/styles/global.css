@@ -135,6 +135,7 @@ body {
 main {
 	display: grid;
 	grid-template-columns: min(100%, var(--container-narrow));
+	gap: 16rem;
 	justify-content: center;
 }
 
@@ -151,6 +152,7 @@ section {
 #hero {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
+	grid-template-rows: repeat(3, auto) 1fr;
 	align-items: start;
 	min-height: 100dvh;
 	padding-block-start: 32px;
@@ -179,7 +181,7 @@ h1 {
 	font-weight: 500;
 	letter-spacing: var(--tracking-ui);
 	line-height: var(--leading-ui);
-	margin-top: 80px;
+	margin-block: 80px 20px;
 	text-align: center;
 	max-width: 24rem;
 	justify-self: center;
@@ -222,78 +224,18 @@ h1 {
 	}
 }
 
-#services {
+#bridge {
 	padding-block: 2rem 0 12rem;
 }
 
-h2 {
-	font-size: var(--text-heading);
-	line-height: var(--leading-display);
-	letter-spacing: var(--tracking-title);
-	color: var(--body-text--emphasis);
-	margin-bottom: 64px;
-	font-weight: 700;
-}
-
-.service-register__row {
-	display: grid;
-	grid-template-columns: minmax(auto, 12rem) minmax(auto, 0.6fr) minmax(0, 1fr);
-	align-items: start;
-}
-
-.service-register__header {
-	border-bottom: 1px solid var(--body-text--emphasis);
-	font-family: var(--font-mono);
-	font-size: var(--text-ui);
-	font-weight: 600;
-	line-height: var(--leading-ui);
-	letter-spacing: var(--tracking-ui);
-	text-transform: uppercase;
-}
-
-.service-register__item:not(:last-child) {
-	border-bottom: 1px dashed var(--border-color);
-}
-
-.service-register__row > * {
-	padding: 2rem 1rem 2rem 0;
-}
-
-.service-register__header > * {
-	padding-block: 0 1rem;
-}
-
-.service-register__number {
-	color: color-mix(in srgb, var(--body-text) 32%, transparent);
-	font-family: var(--font-mono);
-	font-size: 64px;
-	font-variant-numeric: tabular-nums;
-	line-height: 0.8;
-	font-weight: 400;
-}
-
-.service-register__name {
-	color: var(--body-text--emphasis);
-	font-size: var(--text-title);
-	font-weight: 500;
-	letter-spacing: var(--tracking-title);
-	line-height: var(--leading-display);
-}
-
-.service-register__application {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
-}
-
-.service-register__application > p:first-child {
+.bridge__lead {
+	font-size: 32px;
 	text-wrap: pretty;
+	text-align: center;
 }
 
-.service-register__meta {
+.bridge__lead strong {
 	font-family: var(--font-mono);
-	font-size: var(--text-meta);
-	line-height: var(--leading-ui);
-	letter-spacing: var(--tracking-meta);
-	text-transform: uppercase;
+	color: var(--body-text--emphasis);
+	font-weight: 600;
 }
