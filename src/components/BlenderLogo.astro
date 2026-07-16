@@ -43,12 +43,13 @@ import modelUrl from "../assets/logo-v2.glb";
 
       const scene = new THREE.Scene();
       scene.environmentIntensity = 0.8;
+      scene.environmentRotation.y = THREE.MathUtils.degToRad(-8);
       const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 10);
       camera.position.setFromSpherical(
         new THREE.Spherical(
           1,
-          THREE.MathUtils.degToRad(72),
-          THREE.MathUtils.degToRad(20),
+          THREE.MathUtils.degToRad(68),
+          THREE.MathUtils.degToRad(32),
         ),
       );
 
@@ -96,7 +97,7 @@ import modelUrl from "../assets/logo-v2.glb";
 
         renderer.setSize(width, height, false);
         camera.aspect = width / height;
-        camera.setViewOffset(width, height, -width * 0.1, 0, width, height);
+        camera.clearViewOffset();
         frameCamera();
       };
 
@@ -175,7 +176,7 @@ import modelUrl from "../assets/logo-v2.glb";
     width: 100%;
     height: 28rem;
     overflow: hidden;
-    grid-area: badge;
+    justify-self: center;
   }
 
   canvas {

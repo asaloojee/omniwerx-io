@@ -150,17 +150,17 @@ section {
 /* Hero Styles */
 #hero {
 	display: grid;
-	grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr);
-	grid-template-rows: 1fr auto auto auto 1fr;
-	grid-template-areas:
-		". badge"
-		"header badge"
-		"lead badge"
-		"cta badge"
-		". badge";
-	align-items: center;
-	column-gap: 2rem;
+	grid-template-columns: minmax(0, 1fr);
+	align-items: start;
 	min-height: 100dvh;
+	padding-block-start: 32px;
+}
+
+.hero__wordmark {
+	display: block;
+	justify-self: center;
+	width: calc(100cqw - 32px);
+	height: auto;
 }
 
 h1 {
@@ -170,22 +170,22 @@ h1 {
 	color: var(--body-text--emphasis);
 	margin-bottom: 40px;
 	font-weight: 700;
-	grid-area: header;
-	margin-inline-end: -32px;
 }
 
 .hero__lead {
-	grid-area: lead;
-	font-size: 20px;
+	font-size: 24px;
+	font-family: var(--font-sans);
 	color: var(--body-text--emphasis);
-	font-weight: 400;
+	font-weight: 500;
 	letter-spacing: var(--tracking-ui);
 	line-height: var(--leading-ui);
-	margin-bottom: 80px;
+	margin-top: 80px;
+	text-align: center;
+	max-width: 24rem;
+	justify-self: center;
 }
 
 .hero__cta {
-	grid-area: cta;
 	justify-self: start;
 }
 
