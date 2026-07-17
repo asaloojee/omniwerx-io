@@ -13,8 +13,8 @@ import "../styles/global.css";
   <body>
     <header>
       <nav>
-        <a>
-          <img src="/public/wordmark.svg" />
+        <a class="nav__img-link">
+          <img src="/wordmark.svg" />
         </a>
         <div>
           <a>work</a>
@@ -25,7 +25,15 @@ import "../styles/global.css";
     </header>
     <main>
       <section id="hero">
-        <h1>Digital interfaces and websites for startups and small brands.</h1>
+        <div class="hero__content">
+          <h1>Digital interfaces and websites for startups and small brands.</h1>
+          <div class="hero__cta">
+            <button class="button--emphasis" type="button">start a project</button>
+          </div>
+        </div>
+        <div class="hero__graphic">
+          <BlenderLogo />
+        </div>
       </section>
       <section id="bridge">
         <p class="bridge__lead">

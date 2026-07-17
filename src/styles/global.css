@@ -76,13 +76,13 @@
 }
 
 :root {
-	--primary-red: #d61803;
+	--primary-red: #dd311d;
 	--body-text: #c8c8c8;
 	--body-text--emphasis: #f5f5f5;
 	--primary-black: #0b0a0a;
 	--surface-muted: #100e0e;
 	--border-color: #333232;
-	--button-hover: rgba(214, 24, 3, 0.8);
+	--button-hover: rgba(221, 49, 29, 0.8);
 
 	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
 	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -93,7 +93,7 @@
 	--text-body: 16px;
 	--text-title: clamp(36px, 2vw, 40px);
 	--text-heading: clamp(48px, 4vw, 52px);
-	--text-display: clamp(64px, 8vw, 72px);
+	--text-display: clamp(56px, 8vw, 64px);
 
 	/* Line height */
 	--leading-display: 1;
@@ -152,12 +152,19 @@ header {
 	border-bottom: 1px solid var(--border-color);
 	margin-inline: 1.5rem;
 	padding-inline: 2rem;
+	height: 4rem;
 }
 
 nav {
 	display: flex;
 	justify-content: space-between;
 	padding-block: 1rem;
+	align-items: center;
+}
+
+.nav__img-link {
+	display: flex;
+	align-items: center;
 }
 
 nav img {
@@ -195,21 +202,49 @@ section {
 #hero {
 	display: grid;
 	grid-template-columns: minmax(0, 1fr);
-	grid-template-rows: repeat(3, auto) 1fr;
-	align-items: start;
-	min-height: 100dvh;
-	padding-block-start: 32px;
+	grid-template-rows: repeat(2, minmax(0, 1fr));
+	height: calc(100dvh - 4rem);
+	padding-inline: 0;
 }
 
-h1 {
-	font-size: var(--text-display);
-	line-height: var(--leading-display);
-	letter-spacing: var(--tracking-heading);
-	color: var(--body-text--emphasis);
-	margin-bottom: 40px;
-	font-weight: 700;
-	text-align: center;
+.hero__content {
+	display: grid;
+	place-content: center;
+	justify-items: center;
+}
+
+#hero h1 {
+	width: 100%;
 	max-width: 50rem;
+	padding-inline: 2rem;
+	color: var(--body-text--emphasis);
+	font-size: var(--text-display);
+	font-weight: 700;
+	letter-spacing: var(--tracking-heading);
+	line-height: var(--leading-display);
+	text-align: center;
+}
+
+.hero__graphic {
+	display: grid;
+	min-width: 0;
+	overflow: hidden;
+	place-items: center;
+	border-block: 1px solid var(--border-color);
+	background-image:
+		url("/noise-multi.svg"), linear-gradient(rgba(245, 245, 245, 0.02) 1px, transparent 1px),
+		linear-gradient(90deg, rgba(245, 245, 245, 0.02) 1px, transparent 1px), url("/gradient.svg");
+	background-position:
+		0 0,
+		center,
+		center,
+		center;
+	background-repeat: repeat, repeat, repeat, no-repeat;
+	background-size:
+		160px 160px,
+		20px 20px,
+		20px 20px,
+		100% auto;
 }
 
 .hero__lead {
@@ -226,7 +261,7 @@ h1 {
 }
 
 .hero__cta {
-	justify-self: start;
+	padding-top: 2rem;
 }
 
 .button--emphasis {
@@ -245,6 +280,7 @@ h1 {
 	line-height: var(--leading-ui);
 	text-decoration: none;
 	transition: background-color 400ms var(--bezier);
+	border: none;
 }
 
 .button--emphasis:hover {
