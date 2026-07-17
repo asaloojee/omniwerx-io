@@ -226,25 +226,80 @@ section {
 }
 
 .hero__graphic {
+	position: relative;
+	isolation: isolate;
 	display: grid;
 	min-width: 0;
 	overflow: hidden;
 	place-items: center;
 	border-block: 1px solid var(--border-color);
-	background-image:
-		url("/noise-multi.svg"), linear-gradient(rgba(245, 245, 245, 0.02) 1px, transparent 1px),
-		linear-gradient(90deg, rgba(245, 245, 245, 0.02) 1px, transparent 1px), url("/gradient.svg");
-	background-position:
-		0 0,
-		center,
-		center,
-		center;
-	background-repeat: repeat, repeat, repeat, no-repeat;
-	background-size:
-		160px 160px,
-		20px 20px,
-		20px 20px,
-		100% auto;
+	background: var(--primary-black);
+}
+
+.hero__surface {
+	position: absolute;
+	z-index: 1;
+	left: 50%;
+	bottom: -12%;
+	width: min(72rem, 115%);
+	height: 62%;
+	transform: translateX(-50%) perspective(700px) rotateX(64deg);
+	transform-origin: center bottom;
+	pointer-events: none;
+	background: radial-gradient(
+		ellipse at center,
+		rgba(221, 49, 29, 0.2) 0%,
+		rgba(221, 49, 29, 0.08) 32%,
+		rgba(221, 49, 29, 0.025) 52%,
+		transparent 72%
+	);
+}
+
+/* .hero__light-shaft { */
+/* 	position: absolute; */
+/* 	z-index: 2; */
+/* 	top: -35%; */
+/* 	left: -18%; */
+/* 	width: 62%; */
+/* 	height: 135%; */
+/* 	transform: rotate(-8deg); */
+/* 	transform-origin: top left; */
+/* 	pointer-events: none; */
+/* 	background: linear-gradient( */
+/* 		135deg, */
+/* 		rgba(255, 244, 238, 0.11) 0%, */
+/* 		rgba(255, 235, 226, 0.055) 34%, */
+/* 		rgba(221, 49, 29, 0.018) 58%, */
+/* 		transparent 78% */
+/* 	); */
+/* 	filter: blur(30px); */
+/* 	-webkit-mask-image: radial-gradient( */
+/* 		ellipse 95% 125% at 0% 0%, */
+/* 		black 0%, */
+/* 		rgba(0, 0, 0, 0.78) 38%, */
+/* 		rgba(0, 0, 0, 0.35) 58%, */
+/* 		transparent 82% */
+/* 	); */
+/* 	mask-image: radial-gradient( */
+/* 		ellipse 95% 125% at 0% 0%, */
+/* 		black 0%, */
+/* 		rgba(0, 0, 0, 0.78) 38%, */
+/* 		rgba(0, 0, 0, 0.35) 58%, */
+/* 		transparent 82% */
+/* 	); */
+/* } */
+
+@media (max-width: 48rem) {
+	.hero__surface {
+		bottom: -12%;
+		width: 150%;
+	}
+
+	.hero__light-shaft {
+		left: -38%;
+		width: 90%;
+		opacity: 0.7;
+	}
 }
 
 .hero__lead {

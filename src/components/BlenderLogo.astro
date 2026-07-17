@@ -58,6 +58,14 @@ import modelUrl from "../assets/logo-v2.glb";
       scene.add(modelRoot);
       scene.add(new THREE.HemisphereLight(0xffffff, 0x282020, 0.6));
 
+      const keyLight = new THREE.DirectionalLight(0xffeee7, 1.8);
+      keyLight.position.set(-3, 4, 3);
+      scene.add(keyLight);
+
+      const floorLight = new THREE.PointLight(0xdd311d, 0.8, 4);
+      floorLight.position.set(0.3, -0.85, 1);
+      scene.add(floorLight);
+
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       );
@@ -173,6 +181,7 @@ import modelUrl from "../assets/logo-v2.glb";
 <style>
   .model-viewer {
     position: relative;
+    z-index: 3;
     width: min(100%, 64rem);
     height: 100%;
     max-height: 28rem;
