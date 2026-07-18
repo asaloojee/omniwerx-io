@@ -62,9 +62,9 @@ import modelUrl from "../assets/logo-v2.glb";
       keyLight.position.set(-3, 4, 3);
       scene.add(keyLight);
 
-      const floorLight = new THREE.PointLight(0xdd311d, 0.8, 4);
-      floorLight.position.set(0.3, -0.85, 1);
-      scene.add(floorLight);
+      const redLight = new THREE.DirectionalLight(0xdd311d, 1.8);
+      redLight.position.set(3, 4, 3);
+      scene.add(redLight);
 
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
