@@ -12,56 +12,43 @@ import "../styles/global.css";
     <title>Hello world</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a class="nav__img-link">
-          <img src="/wordmark.svg" />
-        </a>
-        <div>
-          <a>work</a>
-          <a>pricing</a>
-          <a>contact</a>
-        </div>
+    <header class="layout-grid">
+      <nav class="content">
+        <a>work</a>
+        <a>pricing</a>
+        <a>contact</a>
       </nav>
-      <SectionCorners />
     </header>
     <main>
-      <section id="hero">
-        <div class="hero__content">
+      <section id="hero" class="layout-grid">
+        <img
+          class="full-bleed-wordmark"
+          src="/wordmark.svg"
+          alt="Omniwerx"
+          width="1047"
+          height="146"
+        />
+        <div class="content">
           <h1>
-            Digital interfaces and websites for startups and small brands.
+            Digital interfaces & websites for startups & small businesses.
           </h1>
-          <div class="hero__cta">
-            <button class="button--emphasis" type="button"
-              >start a project</button
-            >
-          </div>
-        </div>
-        <div class="hero__graphic">
-          <div
-            class="hero__light-shaft hero__light-shaft--white"
-            aria-hidden="true"
-          ></div>
-          <div
-            class="hero__light-shaft hero__light-shaft--red"
-            aria-hidden="true"
-          ></div>
+          <button class="button--emphasis">Start a project</button>
           <BlenderLogo />
         </div>
-        <SectionCorners />
       </section>
-      <section id="bridge">
-        <p class="bridge__lead">
-          omniwerx is a <strong>technical studio</strong> that designs and builds
-          websites for <strong>startups</strong> and <strong
-            >small brands</strong
-          >. We own the entire process, from <strong>design</strong> to <strong
-            >development</strong
-          > to
-          <strong> deployment</strong>, all within the existing framework of
-          your business and the tools you're familiar with.
-        </p>
-        <SectionCorners />
+      <section id="bridge" class="layout-grid">
+        <div class="content">
+          <p class="bridge__lead">
+            omniwerx is a <strong>technical studio</strong> that designs and builds
+            websites for <strong>startups</strong> and <strong
+              >small brands</strong
+            >. We own the entire process, from <strong>design</strong> to <strong
+              >development</strong
+            > to
+            <strong> deployment</strong>, all within the existing framework of
+            your business and the tools you're familiar with.
+          </p>
+        </div>
       </section>
     </main>
   </body>
