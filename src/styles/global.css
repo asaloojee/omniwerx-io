@@ -76,13 +76,13 @@
 }
 
 :root {
-	--primary-red: #dd311d;
+	--primary-red: #d5140d;
 	--body-text: #c8c8c8;
 	--body-text--emphasis: #f5f5f5;
 	--primary-black: #0b0a0a;
 	--surface-muted: #100e0e;
 	--border-color: #333232;
-	--button-hover: rgba(221, 49, 29, 0.8);
+	--button-hover: rgba(213, 20, 13, 0.8);
 
 	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
 	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -109,9 +109,9 @@
 	--tracking-heading: -0.02em;
 
 	/* Layout */
-	--container-wide: 80rem;
-	--container-nav: 90rem;
+	--container-max: 80rem;
 	--container-narrow: 42rem;
+	--page-gutter: 1.5rem;
 
 	/* Motion */
 	--bezier: cubic-bezier(0.1, 0.93, 0, 1);
@@ -134,6 +134,10 @@ html {
 }
 
 body {
+	display: grid;
+	grid-template-columns: min(100%, var(--container-max));
+	justify-content: center;
+	padding-inline: var(--page-gutter);
 	font-family: var(--font-sans);
 	color: var(--body-text);
 	font-size: var(--text-body);
@@ -145,12 +149,13 @@ body {
 }
 
 header {
+	position: relative;
 	display: grid;
-	grid-template-columns: min(100%, 90rem);
+	grid-template-columns: minmax(0, 1fr);
+	min-width: 0;
 	border-left: 1px solid var(--border-color);
 	border-right: 1px solid var(--border-color);
 	border-bottom: 1px solid var(--border-color);
-	margin-inline: 1.5rem;
 	padding-inline: 2rem;
 	height: 4rem;
 }
@@ -186,15 +191,17 @@ nav div a {
 
 main {
 	display: grid;
-	grid-template-columns: min(100%, 90rem);
+	grid-template-columns: minmax(0, 1fr);
+	min-width: 0;
 	border-left: 1px solid var(--border-color);
 	border-right: 1px solid var(--border-color);
-	margin-inline: 1.5rem;
 	gap: 16rem;
 	justify-content: center;
 }
 
 section {
+	position: relative;
+	border-bottom: 1px solid var(--border-color);
 	padding-inline: 2rem;
 }
 
@@ -232,7 +239,7 @@ section {
 	min-width: 0;
 	overflow: hidden;
 	place-items: center;
-	border-block: 1px solid var(--border-color);
+	border-top: 1px solid var(--border-color);
 	background: var(--primary-black);
 }
 
@@ -240,7 +247,7 @@ section {
 	position: absolute;
 	z-index: 1;
 	left: 50%;
-	bottom: -12%;
+	bottom: -10%;
 	width: min(72rem, 115%);
 	height: 62%;
 	transform: translateX(-50%) perspective(700px) rotateX(64deg);
@@ -248,46 +255,46 @@ section {
 	pointer-events: none;
 	background: radial-gradient(
 		ellipse at center,
-		rgba(221, 49, 29, 0.2) 0%,
-		rgba(221, 49, 29, 0.08) 32%,
-		rgba(221, 49, 29, 0.025) 52%,
+		rgba(213, 20, 13, 0.2) 0%,
+		rgba(213, 20, 13, 0.08) 32%,
+		rgba(213, 20, 13, 0.025) 52%,
 		transparent 72%
 	);
 }
 
-/* .hero__light-shaft { */
-/* 	position: absolute; */
-/* 	z-index: 2; */
-/* 	top: -35%; */
-/* 	left: -18%; */
-/* 	width: 62%; */
-/* 	height: 135%; */
-/* 	transform: rotate(-8deg); */
-/* 	transform-origin: top left; */
-/* 	pointer-events: none; */
-/* 	background: linear-gradient( */
-/* 		135deg, */
-/* 		rgba(255, 244, 238, 0.11) 0%, */
-/* 		rgba(255, 235, 226, 0.055) 34%, */
-/* 		rgba(221, 49, 29, 0.018) 58%, */
-/* 		transparent 78% */
-/* 	); */
-/* 	filter: blur(30px); */
-/* 	-webkit-mask-image: radial-gradient( */
-/* 		ellipse 95% 125% at 0% 0%, */
-/* 		black 0%, */
-/* 		rgba(0, 0, 0, 0.78) 38%, */
-/* 		rgba(0, 0, 0, 0.35) 58%, */
-/* 		transparent 82% */
-/* 	); */
-/* 	mask-image: radial-gradient( */
-/* 		ellipse 95% 125% at 0% 0%, */
-/* 		black 0%, */
-/* 		rgba(0, 0, 0, 0.78) 38%, */
-/* 		rgba(0, 0, 0, 0.35) 58%, */
-/* 		transparent 82% */
-/* 	); */
-/* } */
+.hero__light-shaft {
+	position: absolute;
+	z-index: 2;
+	top: -32%;
+	left: -18%;
+	width: 62%;
+	height: 135%;
+	transform: rotate(-8deg);
+	transform-origin: top left;
+	pointer-events: none;
+	background: linear-gradient(
+		135deg,
+		rgba(255, 244, 238, 0.11) 0%,
+		rgba(255, 235, 226, 0.055) 34%,
+		rgba(213, 20, 13, 0.018) 58%,
+		transparent 78%
+	);
+	filter: blur(30px);
+	-webkit-mask-image: radial-gradient(
+		ellipse 95% 125% at 0% 0%,
+		black 0%,
+		rgba(0, 0, 0, 0.78) 38%,
+		rgba(0, 0, 0, 0.35) 58%,
+		transparent 82%
+	);
+	mask-image: radial-gradient(
+		ellipse 95% 125% at 0% 0%,
+		black 0%,
+		rgba(0, 0, 0, 0.78) 38%,
+		rgba(0, 0, 0, 0.35) 58%,
+		transparent 82%
+	);
+}
 
 @media (max-width: 48rem) {
 	.hero__surface {

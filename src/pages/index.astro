@@ -1,5 +1,6 @@
 ---
 import BlenderLogo from "../components/BlenderLogo.astro";
+import SectionCorners from "../components/SectionCorners.astro";
 import "../styles/global.css";
 ---
 
@@ -22,13 +23,18 @@ import "../styles/global.css";
           <a>contact</a>
         </div>
       </nav>
+      <SectionCorners />
     </header>
     <main>
       <section id="hero">
         <div class="hero__content">
-          <h1>Digital interfaces and websites for startups and small brands.</h1>
+          <h1>
+            Digital interfaces and websites for startups and small brands.
+          </h1>
           <div class="hero__cta">
-            <button class="button--emphasis" type="button">start a project</button>
+            <button class="button--emphasis" type="button"
+              >start a project</button
+            >
           </div>
         </div>
         <div class="hero__graphic">
@@ -36,6 +42,7 @@ import "../styles/global.css";
           <div class="hero__light-shaft" aria-hidden="true"></div>
           <BlenderLogo />
         </div>
+        <SectionCorners />
       </section>
       <section id="bridge">
         <p class="bridge__lead">
@@ -48,6 +55,7 @@ import "../styles/global.css";
           <strong> deployment</strong>, all within the existing framework of
           your business and the tools you're familiar with.
         </p>
+        <SectionCorners />
       </section>
     </main>
   </body>

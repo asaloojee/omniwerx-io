@@ -1,0 +1,54 @@
+<svg
+  class="section-corner section-corner--start"
+  width="7"
+  height="7"
+  viewBox="0 0 7 7"
+  aria-hidden="true"
+>
+  <rect
+    x="0.5"
+    y="0.5"
+    width="6"
+    height="6"
+    rx="1.4"
+    fill="var(--primary-black)"
+    stroke="var(--border-color)"
+    stroke-width="1"></rect>
+</svg>
+<svg
+  class="section-corner section-corner--end"
+  width="7"
+  height="7"
+  viewBox="0 0 7 7"
+  aria-hidden="true"
+>
+  <rect
+    x="0.5"
+    y="0.5"
+    width="6"
+    height="6"
+    rx="1.4"
+    fill="var(--primary-black)"
+    stroke="var(--border-color)"
+    stroke-width="1"></rect>
+</svg>
+
+<style>
+  .section-corner {
+    position: absolute;
+    z-index: 4;
+    inset-block-end: -4px;
+    display: block;
+    width: 7px;
+    height: 7px;
+    pointer-events: none;
+  }
+
+  .section-corner--start {
+    inset-inline-start: -4px;
+  }
+
+  .section-corner--end {
+    inset-inline-end: -4px;
+  }
+</style>
