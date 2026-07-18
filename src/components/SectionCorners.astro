@@ -1,5 +1,17 @@
+---
+interface Props {
+  position?: "top" | "bottom";
+}
+
+const { position = "bottom" } = Astro.props;
+---
+
 <svg
-  class="section-corner section-corner--start"
+  class:list={[
+    "section-corner",
+    "section-corner--start",
+    `section-corner--${position}`,
+  ]}
   width="7"
   height="7"
   viewBox="0 0 7 7"
@@ -16,7 +28,11 @@
     stroke-width="1"></rect>
 </svg>
 <svg
-  class="section-corner section-corner--end"
+  class:list={[
+    "section-corner",
+    "section-corner--end",
+    `section-corner--${position}`,
+  ]}
   width="7"
   height="7"
   viewBox="0 0 7 7"
@@ -37,11 +53,18 @@
   .section-corner {
     position: absolute;
     z-index: 4;
-    inset-block-end: -4px;
     display: block;
     width: 7px;
     height: 7px;
     pointer-events: none;
+  }
+
+  .section-corner--top {
+    inset-block-start: -4px;
+  }
+
+  .section-corner--bottom {
+    inset-block-end: -4px;
   }
 
   .section-corner--start {

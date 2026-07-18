@@ -78,8 +78,6 @@ header {
 	inset-block-end: 0;
 	width: min(100%, var(--container-max));
 	margin-inline: auto;
-	padding-block: 1rem;
-	background-color: var(--primary-black);
 }
 
 main {
@@ -90,22 +88,37 @@ main {
 .layout-grid {
 	display: grid;
 	grid-template-columns:
-		minmax(var(--page-gutter), 8rem) minmax(0, 1fr)
-		minmax(var(--page-gutter), 8rem);
+		8rem minmax(0, 1fr)
+		8rem;
+	align-items: flex-start;
 }
 
 nav {
-	align-items: center;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
+	position: relative;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	margin-block-end: 1rem;
+	border: 1px solid var(--border-color);
+	background-color: var(--surface-muted);
 }
 
 nav a {
+	display: grid;
+	place-items: center;
+	padding: 0.5rem 1rem;
+	color: var(--body-text--emphasis);
 	font-family: var(--font-mono);
 	font-weight: 400;
-	color: var(--body-text--emphasis);
 	text-transform: uppercase;
+	transition: background-color 400ms var(--bezier);
+}
+
+nav a:nth-of-type(2) {
+	border-inline: 1px dotted var(--border-color);
+}
+
+nav a:hover {
+	background-color: var(--button-hover);
 }
 
 .layout-grid > .content {
@@ -113,9 +126,15 @@ nav a {
 	padding-inline: 1rem;
 }
 
+.layout-grid > nav.content {
+	padding-inline: 0;
+}
+
 /* Hero Styles */
 #hero {
 	height: 100dvh;
+	padding-block-start: 4rem;
+	grid-template-rows: auto 1fr;
 }
 
 .full-bleed-wordmark {
@@ -130,9 +149,10 @@ nav a {
 #hero h1 {
 	color: var(--body-text--emphasis);
 	font-size: 20px;
-	font-weight: 700;
+	font-weight: 500;
 	letter-spacing: var(--tracking-heading);
 	line-height: var(--leading-display);
+	padding-block-start: 4rem;
 }
 
 .hero__graphic {
@@ -144,11 +164,8 @@ nav a {
 	place-items: center;
 }
 
-.hero__cta {
-	padding-top: 2rem;
-}
-
 .button--emphasis {
+	margin-block-start: 2rem;
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
