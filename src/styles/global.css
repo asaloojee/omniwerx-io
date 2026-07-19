@@ -261,7 +261,7 @@ nav a:hover {
 	display: grid;
 	grid-area: graphic;
 	min-width: 0;
-	overflow: hidden;
+	overflow: visible;
 	place-items: center;
 }
 

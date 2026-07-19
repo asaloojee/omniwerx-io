@@ -17,7 +17,11 @@ import modelUrl from "../assets/logo-v2.glb";
   import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
   import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
   import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
-  import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+  import {
+    RectAreaLightUniformsLib,
+  } from "three/addons/lights/RectAreaLightUniformsLib.js";
+
+  RectAreaLightUniformsLib.init();
 
   const viewers = document.querySelectorAll<HTMLElement>(".model-viewer");
 
@@ -42,43 +46,99 @@ import modelUrl from "../assets/logo-v2.glb";
       renderer.toneMappingExposure = 0.8;
 
       const scene = new THREE.Scene();
-      scene.environmentIntensity = 0.8;
-      scene.environmentRotation.y = THREE.MathUtils.degToRad(-8);
+      scene.environmentIntensity = 0.28;
+      scene.environmentRotation.y = THREE.MathUtils.degToRad(-18);
       const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 10);
       camera.position.setFromSpherical(
         new THREE.Spherical(
           1,
-          THREE.MathUtils.degToRad(68),
-          THREE.MathUtils.degToRad(32),
+          THREE.MathUtils.degToRad(74),
+          THREE.MathUtils.degToRad(26),
         ),
       );
+      camera.lookAt(0, 0, 0);
 
+      const interactionRoot = new THREE.Group();
       const modelRoot = new THREE.Group();
       modelRoot.rotation.x = THREE.MathUtils.degToRad(90);
-      scene.add(modelRoot);
-      scene.add(new THREE.HemisphereLight(0xffffff, 0x282020, 0.6));
+      interactionRoot.add(modelRoot);
+      scene.add(interactionRoot);
 
-      const keyLight = new THREE.DirectionalLight(0xffeee7, 1.8);
-      keyLight.position.set(-3, 4, 3);
+      const keyLight = new THREE.RectAreaLight(0xffeee7, 5.5, 1.6, 1.6);
+      keyLight.position.set(-1.4, 1.6, 1.8);
+      keyLight.lookAt(0, 0, 0);
       scene.add(keyLight);
 
-      const redLight = new THREE.DirectionalLight(0xdd311d, 1.8);
-      redLight.position.set(3, 4, 3);
-      scene.add(redLight);
+      const fillLight = new THREE.RectAreaLight(0xb8c8dc, 0.65, 1.2, 1.4);
+      fillLight.position.set(1.2, 0.3, 1.1);
+      fillLight.lookAt(0, 0, 0);
+      scene.add(fillLight);
+
+      const redRimLight = new THREE.SpotLight(
+        0xc92a1b,
+        18,
+        4,
+        THREE.MathUtils.degToRad(24),
+        0.65,
+        2,
+      );
+      redRimLight.position.set(1.2, 0.8, -1.1);
+      scene.add(redRimLight, redRimLight.target);
 
       const reduceMotion = window.matchMedia(
         "(prefers-reduced-motion: reduce)",
       );
-      const controls = new OrbitControls(camera, canvas);
-      controls.enableDamping = !reduceMotion.matches;
-      controls.enablePan = false;
-      controls.enableZoom = false;
-      canvas.style.touchAction = "pan-y";
+      const finePointer = window.matchMedia(
+        "(hover: hover) and (pointer: fine)",
+      );
 
       let animationFrame = 0;
       let environment: THREE.DataTexture | undefined;
       let model: THREE.Object3D | undefined;
       let modelRadius = 0;
+      let previousFrameTime = 0;
+      let targetRotationX = 0;
+      let targetRotationY = 0;
+
+      const render = (time: number) => {
+        animationFrame = 0;
+        const delta = previousFrameTime
+          ? Math.min((time - previousFrameTime) / 1000, 0.05)
+          : 1 / 60;
+        previousFrameTime = time;
+
+        if (!reduceMotion.matches) {
+          interactionRoot.rotation.x = THREE.MathUtils.damp(
+            interactionRoot.rotation.x,
+            targetRotationX,
+            6,
+            delta,
+          );
+          interactionRoot.rotation.y = THREE.MathUtils.damp(
+            interactionRoot.rotation.y,
+            targetRotationY,
+            6,
+            delta,
+          );
+        }
+
+        renderer.render(scene, camera);
+
+        const isMoving =
+          Math.abs(interactionRoot.rotation.x - targetRotationX) > 0.0001 ||
+          Math.abs(interactionRoot.rotation.y - targetRotationY) > 0.0001;
+
+        if (!reduceMotion.matches && isMoving) {
+          animationFrame = requestAnimationFrame(render);
+        } else {
+          previousFrameTime = 0;
+        }
+      };
+
+      const requestRender = () => {
+        if (animationFrame) return;
+        animationFrame = requestAnimationFrame(render);
+      };
 
       const frameCamera = () => {
         if (!modelRadius) return;
@@ -87,10 +147,11 @@ import modelUrl from "../assets/logo-v2.glb";
         const horizontalFov =
           2 * Math.atan(Math.tan(verticalFov / 2) * camera.aspect);
         const fitFov = Math.min(verticalFov, horizontalFov);
-        const distance = (modelRadius / Math.sin(fitFov / 2)) * 1.08;
+        const distance = (modelRadius / Math.sin(fitFov / 2)) * 0.98;
 
         camera.position.setLength(distance);
-        controls.update();
+        camera.lookAt(0, 0, 0);
+        requestRender();
       };
 
       const dracoLoader = new DRACOLoader();
@@ -113,11 +174,41 @@ import modelUrl from "../assets/logo-v2.glb";
       resizeObserver.observe(viewer);
       resize();
 
-      const render = () => {
-        controls.update();
-        renderer.render(scene, camera);
-        animationFrame = requestAnimationFrame(render);
+      const handlePointerMove = (event: PointerEvent) => {
+        if (!finePointer.matches || reduceMotion.matches) return;
+
+        const bounds = viewer.getBoundingClientRect();
+        const pointerX = THREE.MathUtils.clamp(
+          ((event.clientX - bounds.left) / bounds.width) * 2 - 1,
+          -1,
+          1,
+        );
+        const pointerY = THREE.MathUtils.clamp(
+          ((event.clientY - bounds.top) / bounds.height) * 2 - 1,
+          -1,
+          1,
+        );
+
+        targetRotationX = THREE.MathUtils.degToRad(pointerY * -2);
+        targetRotationY = THREE.MathUtils.degToRad(pointerX * 4);
+        requestRender();
       };
+
+      const resetPose = () => {
+        targetRotationX = 0;
+        targetRotationY = 0;
+        requestRender();
+      };
+
+      const handleMotionPreference = () => {
+        resetPose();
+        if (!reduceMotion.matches) return;
+        interactionRoot.rotation.set(0, 0, 0);
+      };
+
+      viewer.addEventListener("pointermove", handlePointerMove);
+      viewer.addEventListener("pointerleave", resetPose);
+      reduceMotion.addEventListener("change", handleMotionPreference);
 
       new RGBELoader().load(
         environmentUrl,
@@ -125,10 +216,11 @@ import modelUrl from "../assets/logo-v2.glb";
           environment = texture;
           texture.mapping = THREE.EquirectangularReflectionMapping;
           scene.environment = texture;
+          requestRender();
         },
         undefined,
         () => {
-          // The hemisphere light remains as a usable fallback.
+          // The studio lights remain as a usable fallback.
         },
       );
 
@@ -136,17 +228,27 @@ import modelUrl from "../assets/logo-v2.glb";
         modelUrl,
         (gltf) => {
           model = gltf.scene;
-          modelRoot.add(model);
+          model.updateMatrixWorld(true);
 
           const sphere = new THREE.Box3()
             .setFromObject(model)
             .getBoundingSphere(new THREE.Sphere());
           modelRadius = sphere.radius;
           model.position.sub(sphere.center);
+          modelRoot.add(model);
+
+          if (!reduceMotion.matches) {
+            interactionRoot.rotation.set(
+              THREE.MathUtils.degToRad(-2),
+              THREE.MathUtils.degToRad(-7),
+              0,
+            );
+          }
+          targetRotationX = 0;
+          targetRotationY = 0;
           frameCamera();
 
           status.hidden = true;
-          animationFrame = requestAnimationFrame(render);
         },
         undefined,
         () => {
@@ -157,8 +259,10 @@ import modelUrl from "../assets/logo-v2.glb";
       const cleanup = () => {
         cancelAnimationFrame(animationFrame);
         resizeObserver.disconnect();
+        viewer.removeEventListener("pointermove", handlePointerMove);
+        viewer.removeEventListener("pointerleave", resetPose);
+        reduceMotion.removeEventListener("change", handleMotionPreference);
         environment?.dispose();
-        controls.dispose();
         dracoLoader.dispose();
         model?.traverse((object) => {
           if (!(object instanceof THREE.Mesh)) return;
@@ -182,22 +286,18 @@ import modelUrl from "../assets/logo-v2.glb";
   .model-viewer {
     position: relative;
     z-index: 3;
-    width: min(100%, 64rem);
+    width: min(118%, 64rem);
     height: 100%;
-    max-height: 28rem;
+    max-height: 32rem;
     overflow: hidden;
-    justify-self: center;
+    justify-self: start;
+    transform: translateX(-10%);
   }
 
   canvas {
     display: block;
     width: 100%;
     height: 100%;
-    cursor: grab;
-  }
-
-  canvas:active {
-    cursor: grabbing;
   }
 
   .model-status {
