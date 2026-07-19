@@ -12,7 +12,7 @@ import "../styles/global.css";
     <title>Hello world</title>
   </head>
   <body>
-    <header>
+    <header class="site-header">
       <nav class="content">
         <SectionCorners position="top" />
         <a>work</a>
@@ -43,7 +43,12 @@ import "../styles/global.css";
         </div>
       </section>
       <section id="bridge" class="section-grid">
-        <div class="content">
+        <SectionCorners position="top" />
+        <div class="section-grid__header">
+          <h2>About</h2>
+        </div>
+        <span class="section-grid__number" aria-hidden="true">01</span>
+        <div class="content section-grid__content">
           <p class="bridge__lead">
             omniwerx is a <strong>technical studio</strong> that designs and builds
             websites for <strong>startups</strong> and <strong
@@ -55,6 +60,7 @@ import "../styles/global.css";
             your business and the tools you're familiar with.
           </p>
         </div>
+        <SectionCorners position="bottom" />
       </section>
     </main>
   </body>
