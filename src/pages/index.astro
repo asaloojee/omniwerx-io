@@ -42,12 +42,18 @@ import "../styles/global.css";
           </div>
         </div>
       </section>
-      <section id="bridge" class="section-grid">
-        <SectionCorners position="top" />
-        <div class="section-grid__header">
-          <h2>About</h2>
+      <section id="bridge" class="section-grid section-grid--first">
+        <div class="section-grid__header-row">
+          <div class="section-grid__index">
+            <span class="section-grid__number" aria-hidden="true">01</span>
+          </div>
+          <header class="section-grid__header">
+            <SectionCorners position="top" />
+            <p class="section-grid__label">About</p>
+            <h2>One studio from design through deployment.</h2>
+            <SectionCorners position="bottom" />
+          </header>
         </div>
-        <span class="section-grid__number" aria-hidden="true">01</span>
         <div class="content section-grid__content">
           <p class="bridge__lead">
             omniwerx is a <strong>technical studio</strong> that designs and builds
@@ -60,7 +66,6 @@ import "../styles/global.css";
             your business and the tools you're familiar with.
           </p>
         </div>
-        <SectionCorners position="bottom" />
       </section>
     </main>
   </body>
