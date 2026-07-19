@@ -209,6 +209,7 @@ nav a:hover {
 	grid-column: 2;
 	grid-template-columns: minmax(0, 1fr);
 	border-inline: var(--rule-structural);
+	padding-block-end: 8rem;
 }
 
 .work-grid__project {
@@ -279,6 +280,10 @@ nav a:hover {
 	grid-row: 1;
 	border-inline-start: 0;
 	border-inline-end: var(--rule-secondary);
+}
+
+.work-grid__project:last-child {
+	border-block-end: var(--rule-structural);
 }
 
 .work-grid__project-header {
