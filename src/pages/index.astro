@@ -1,5 +1,6 @@
 ---
 import BlenderLogo from "../components/BlenderLogo.astro";
+import DashedDivider from "../components/DashedDivider.astro";
 import SectionCorners from "../components/SectionCorners.astro";
 import "../styles/global.css";
 ---
@@ -13,7 +14,7 @@ import "../styles/global.css";
   </head>
   <body>
     <header class="site-header">
-      <nav class="content">
+      <nav>
         <SectionCorners position="top" />
         <a>work</a>
         <a>pricing</a>
@@ -30,7 +31,7 @@ import "../styles/global.css";
           width="1047"
           height="146"
         />
-        <div class="content hero__content">
+        <div class="hero__content">
           <p class="hero__label">Independent technical studio</p>
 
           <h1>
@@ -44,7 +45,9 @@ import "../styles/global.css";
         </div>
       </section>
       <section id="bridge" class="section-grid section-grid--first">
-        <div class="section-grid__header-row">
+        <div
+          class="section-grid__header-row section-grid__header-row--no-bottom-border"
+        >
           <div class="section-grid__index">
             <span class="section-grid__number" aria-hidden="true">01</span>
           </div>
@@ -55,7 +58,8 @@ import "../styles/global.css";
             <SectionCorners position="bottom" />
           </header>
         </div>
-        <div class="content section-grid__content">
+        <DashedDivider />
+        <div class="section-grid__content">
           <p class="bridge__lead">
             omniwerx is a <strong>technical studio</strong> that designs and builds
             websites for <strong>startups</strong> and <strong
@@ -66,6 +70,111 @@ import "../styles/global.css";
             <strong> deployment</strong>, all within the existing framework of
             your business and the tools you're familiar with.
           </p>
+        </div>
+      </section>
+      <section id="work" class="section-grid">
+        <div
+          class="section-grid__header-row section-grid__header-row--no-bottom-border"
+        >
+          <div class="section-grid__index">
+            <span class="section-grid__number" aria-hidden="true">02</span>
+          </div>
+          <header class="section-grid__header">
+            <SectionCorners position="top" />
+            <p class="section-grid__label">Work</p>
+            <h2>A sample of some of our past engagements.</h2>
+            <SectionCorners position="bottom" />
+          </header>
+        </div>
+        <DashedDivider />
+        <div class="work-grid">
+          <article class="work-grid__project">
+            <div class="work-grid__media">
+              <img
+                src="/clients/pre-script.jpg"
+                alt="Pre-Script certification website homepage"
+                width="2000"
+                height="1125"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="work-grid__details">
+              <p class="work-grid__number">01</p>
+              <div class="work-grid__body">
+                <header class="work-grid__project-header">
+                  <h3>Project title</h3>
+                  <span>Year</span>
+                </header>
+                <p class="work-grid__description">
+                  A short description of the engagement will go here.
+                </p>
+                <ul class="work-grid__tools" aria-label="Tools and platforms">
+                  <li>Tool one</li>
+                  <li>Tool two</li>
+                  <li>Tool three</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="work-grid__project">
+            <div class="work-grid__media">
+              <img
+                src="/clients/spoken-live.jpg"
+                alt="Spoken Live speaker series website homepage"
+                width="2000"
+                height="1125"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="work-grid__details">
+              <p class="work-grid__number">02</p>
+              <div class="work-grid__body">
+                <header class="work-grid__project-header">
+                  <h3>Project title</h3>
+                  <span>Year</span>
+                </header>
+                <p class="work-grid__description">
+                  A short description of the engagement will go here.
+                </p>
+                <ul class="work-grid__tools" aria-label="Tools and platforms">
+                  <li>Tool one</li>
+                  <li>Tool two</li>
+                  <li>Tool three</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+          <article class="work-grid__project">
+            <div class="work-grid__media">
+              <img
+                src="/clients/jc-hp.jpg"
+                alt="JC Health & Performance website homepage"
+                width="2000"
+                height="1125"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="work-grid__details">
+              <p class="work-grid__number">03</p>
+              <div class="work-grid__body">
+                <header class="work-grid__project-header">
+                  <h3>Project title</h3>
+                  <span>Year</span>
+                </header>
+                <p class="work-grid__description">
+                  A short description of the engagement will go here.
+                </p>
+                <ul class="work-grid__tools" aria-label="Tools and platforms">
+                  <li>Tool one</li>
+                  <li>Tool two</li>
+                  <li>Tool three</li>
+                </ul>
+              </div>
+            </div>
+          </article>
         </div>
       </section>
     </main>
