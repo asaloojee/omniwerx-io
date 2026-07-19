@@ -12,7 +12,7 @@ import "../styles/global.css";
     <title>Hello world</title>
   </head>
   <body>
-    <header class="layout-grid">
+    <header>
       <nav class="content">
         <SectionCorners position="top" />
         <a>work</a>
@@ -22,7 +22,7 @@ import "../styles/global.css";
       </nav>
     </header>
     <main>
-      <section id="hero" class="layout-grid">
+      <section id="hero">
         <img
           class="full-bleed-wordmark"
           src="/wordmark.svg"
@@ -30,15 +30,19 @@ import "../styles/global.css";
           width="1047"
           height="146"
         />
-        <div class="content">
+        <div class="content hero__content">
+          <p class="hero__label">Independent technical studio</p>
+
           <h1>
             Digital interfaces & websites for startups & small businesses.
           </h1>
           <button class="button--emphasis">Start a project</button>
-          <BlenderLogo />
+          <div class="hero__graphic">
+            <BlenderLogo />
+          </div>
         </div>
       </section>
-      <section id="bridge" class="layout-grid">
+      <section id="bridge" class="section-grid">
         <div class="content">
           <p class="bridge__lead">
             omniwerx is a <strong>technical studio</strong> that designs and builds

@@ -5,7 +5,7 @@
 	--body-text: #c8c8c8;
 	--body-text--emphasis: #f5f5f5;
 	--primary-black: #0b0a0a;
-	--surface-muted: #100e0e;
+	--surface-muted: #141313;
 	--border-color: #333232;
 	--button-hover: rgba(163, 26, 16, 0.8);
 
@@ -23,6 +23,7 @@
 	/* Line height */
 	--leading-display: 1;
 	--leading-ui: 1.2;
+	--leading-meta: 1.2;
 	--leading-title: 1.4;
 	--leading-body: 1.6;
 
@@ -66,9 +67,7 @@ body {
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	font-weight: 300;
-	display: grid;
-	grid-template-columns: min(100%, var(--container-max));
-	justify-content: center;
+	margin-inline: 1rem;
 }
 
 header {
@@ -80,17 +79,9 @@ header {
 	margin-inline: auto;
 }
 
-main {
-	display: grid;
-	grid-template-columns: 100%;
-}
-
-.layout-grid {
-	display: grid;
-	grid-template-columns:
-		8rem minmax(0, 1fr)
-		8rem;
-	align-items: flex-start;
+main,
+section {
+	width: 100%;
 }
 
 nav {
@@ -99,7 +90,11 @@ nav {
 	grid-template-columns: repeat(3, 1fr);
 	margin-block-end: 1rem;
 	border: 1px solid var(--border-color);
-	background-color: var(--surface-muted);
+	background-color: rgba(11, 10, 10, 0.8);
+	backdrop-filter: blur(12px);
+	max-width: 24rem;
+	width: 100%;
+	justify-self: center;
 }
 
 nav a {
@@ -118,7 +113,7 @@ nav a:nth-of-type(2) {
 }
 
 nav a:hover {
-	background-color: var(--button-hover);
+	background-color: var(--surface-muted);
 }
 
 .layout-grid > .content {
@@ -130,43 +125,86 @@ nav a:hover {
 	padding-inline: 0;
 }
 
+.section-grid {
+	display: grid;
+	grid-template-columns: 10rem minmax(0, 1fr) 10rem;
+	align-items: flex-start;
+	margin-inline: 1rem;
+}
+
+.section-grid > .content {
+	grid-column: 2;
+}
+
 /* Hero Styles */
 #hero {
+	display: grid;
 	height: 100dvh;
 	padding-block-start: 4rem;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: auto minmax(0, 1fr);
 }
 
 .full-bleed-wordmark {
 	display: block;
 	grid-column: 1 / -1;
 	justify-self: center;
-	width: calc(100cqw - 1rem);
+	width: 100%;
 	max-width: none;
 	height: auto;
 }
 
+.hero__content {
+	display: grid;
+	grid-template-areas:
+		"spacer-top graphic"
+		"label graphic"
+		"positioning graphic"
+		"cta graphic"
+		"spacer-bottom graphic";
+	grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+	grid-template-rows: minmax(0, 1fr) auto auto auto minmax(0, 1fr);
+	min-height: 0;
+	padding-inline: 1rem;
+}
+
 #hero h1 {
+	grid-area: positioning;
 	color: var(--body-text--emphasis);
-	font-size: 20px;
-	font-weight: 500;
+	font-size: 40px;
+	font-weight: 700;
 	letter-spacing: var(--tracking-heading);
 	line-height: var(--leading-display);
-	padding-block-start: 4rem;
+	max-width: 40rem;
+	text-wrap: balance;
+	padding-bottom: 4rem;
+}
+
+.hero__label {
+	grid-area: label;
+	color: var(--body-text);
+	font-family: var(--font-mono);
+	font-size: var(--text-meta);
+	letter-spacing: var(--tracking-meta);
+	line-height: var(--leading-meta);
+	text-transform: uppercase;
+	font-weight: 400;
+	padding-bottom: 1.5rem;
 }
 
 .hero__graphic {
 	position: relative;
 	isolation: isolate;
 	display: grid;
+	grid-area: graphic;
 	min-width: 0;
 	overflow: hidden;
 	place-items: center;
 }
 
 .button--emphasis {
-	margin-block-start: 2rem;
 	display: inline-flex;
+	grid-area: cta;
+	justify-self: start;
 	align-items: center;
 	justify-content: center;
 	min-width: 220px;
