@@ -210,16 +210,18 @@ nav a:hover {
 	grid-template-columns: minmax(0, 1fr);
 	border-inline: var(--rule-structural);
 	padding-block-end: 8rem;
+	row-gap: 1rem;
 }
 
 .work-grid__project {
 	display: grid;
-	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-columns: 1fr 4rem 1fr;
 	min-width: 0;
+	border-block: var(--rule-structural);
 }
 
-.work-grid__project + .work-grid__project {
-	border-block-start: var(--rule-structural);
+.work-grid__project:first-of-type {
+	border-block-start: none;
 }
 
 .work-grid__media {
@@ -240,14 +242,14 @@ nav a:hover {
 }
 
 .work-grid__details {
+	grid-column: 3;
 	display: grid;
-	grid-column: 2;
 	grid-row: 1;
-	grid-template-columns: 3rem minmax(0, 1fr);
 	min-width: 0;
 }
 
 .work-grid__number {
+	grid-column: 2;
 	padding-block-start: 1rem;
 	font-variant-numeric: tabular-nums;
 	text-align: center;
@@ -261,14 +263,13 @@ nav a:hover {
 }
 
 .work-grid__project:nth-child(even) .work-grid__media {
-	grid-column: 2;
+	grid-column: 3;
 	border-inline-start: var(--rule-structural);
 	border-inline-end: 0;
 }
 
 .work-grid__project:nth-child(even) .work-grid__details {
 	grid-column: 1;
-	grid-template-columns: minmax(0, 1fr) 3rem;
 }
 
 .work-grid__project:nth-child(even) .work-grid__number {
@@ -276,7 +277,6 @@ nav a:hover {
 }
 
 .work-grid__project:nth-child(even) .work-grid__body {
-	grid-column: 1;
 	grid-row: 1;
 	border-inline-start: 0;
 	border-inline-end: var(--rule-secondary);
@@ -303,7 +303,7 @@ nav a:hover {
 .work-grid__description {
 	padding: 1rem 1rem 2rem;
 	color: var(--body-text--subtle);
-	font-size: var(--text-body);
+	font-size: var(--body-text);
 	line-height: var(--leading-body);
 }
 
