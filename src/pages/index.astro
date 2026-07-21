@@ -13,177 +13,24 @@ import "../styles/global.css";
     <title>omniwerx</title>
   </head>
   <body>
-    <header class="site-header">
+    <header>
       <nav>
-        <SectionCorners position="top" />
-        <a>work</a>
-        <a>pricing</a>
-        <a>contact</a>
-        <SectionCorners position="bottom" />
+        <div class="content">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
+          perspiciatis dignissimos numquam provident nostrum veritatis
+          praesentium, eius vitae deleniti iste corporis, exercitationem quis
+          laudantium quia, voluptatem ullam iure accusamus nihil.
+        </div>
+        <!-- <SectionCorners position="top" /> -->
+        <!-- <a class="nav__img-link"> -->
+        <!--   <img class="nav__img" src="wordmark.svg" /> -->
+        <!-- </a> -->
+        <!-- <a>work</a> -->
+        <!-- <a>pricing</a> -->
+        <!-- <a>contact</a> -->
+        <!-- <SectionCorners position="bottom" /> -->
       </nav>
     </header>
-    <main>
-      <section id="hero">
-        <img
-          class="full-bleed-wordmark"
-          src="/wordmark.svg"
-          alt="Omniwerx"
-          width="1047"
-          height="146"
-        />
-        <div class="hero__content">
-          <p class="hero__label">Independent technical studio</p>
-
-          <h1>
-            Digital interfaces & custom websites for startups & small
-            businesses.
-          </h1>
-          <button class="button--emphasis">Start a project</button>
-          <div class="hero__graphic">
-            <BlenderLogo />
-          </div>
-        </div>
-      </section>
-      <section id="bridge" class="section-grid section-grid--first">
-        <div
-          class="section-grid__header-row section-grid__header-row--no-bottom-border"
-        >
-          <div class="section-grid__index">
-            <span class="section-grid__number" aria-hidden="true">01</span>
-          </div>
-          <header class="section-grid__header">
-            <SectionCorners position="top" />
-            <p class="section-grid__label">About</p>
-            <h2>One studio from design through deployment.</h2>
-            <SectionCorners position="bottom" />
-          </header>
-        </div>
-        <DashedDivider />
-        <div class="section-grid__content">
-          <p class="bridge__lead">
-            omniwerx is a <strong>technical studio</strong> that designs and builds
-            websites for <strong>startups</strong> and <strong
-              >small brands</strong
-            >. We own the entire process, from <strong>design</strong> to <strong
-              >development</strong
-            > to
-            <strong> deployment</strong>, all within the existing framework of
-            your business and the tools you're familiar with.
-          </p>
-        </div>
-      </section>
-      <section id="work" class="section-grid">
-        <div
-          class="section-grid__header-row section-grid__header-row--no-bottom-border"
-        >
-          <div class="section-grid__index">
-            <span class="section-grid__number" aria-hidden="true">02</span>
-          </div>
-          <header class="section-grid__header">
-            <SectionCorners position="top" />
-            <p class="section-grid__label">Work</p>
-            <h2>A selection of our client work.</h2>
-            <SectionCorners position="bottom" />
-          </header>
-        </div>
-        <DashedDivider />
-        <div class="work-grid">
-          <article class="work-grid__project">
-            <div class="work-grid__media">
-              <img
-                src="/clients/pre-script.jpg"
-                alt="Pre-Script certification website homepage"
-                width="2000"
-                height="1125"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <p class="work-grid__number">01</p>
-            <div class="work-grid__details">
-              <div class="work-grid__body">
-                <header class="work-grid__project-header">
-                  <h3>Pre-Script&reg;</h3>
-                  <span>2026</span>
-                </header>
-                <p class="work-grid__description">
-                  Building new front-end pages and supporting email marketing
-                  infrastructure. Helped complete a branding overhaul and
-                  transition to more custom implementation while assisting with
-                  course operations.
-                </p>
-                <ul class="work-grid__tools" aria-label="Tools and platforms">
-                  <li>Webflow</li>
-                  <li>Figma</li>
-                  <li>Emailify</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-          <article class="work-grid__project">
-            <div class="work-grid__media">
-              <img
-                src="/clients/spoken-live.jpg"
-                alt="Spoken Live speaker series website homepage"
-                width="2000"
-                height="1125"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <p class="work-grid__number">02</p>
-            <div class="work-grid__details">
-              <div class="work-grid__body">
-                <header class="work-grid__project-header">
-                  <h3>Spoken Live</h3>
-                  <span>2026</span>
-                </header>
-                <p class="work-grid__description">
-                  Designed and built a bespoke event landing page within an
-                  existing WordPress site, including a multi-stage Stripe
-                  payment flow powered by a custom API.
-                </p>
-                <ul class="work-grid__tools" aria-label="Tools and platforms">
-                  <li>WordPress</li>
-                  <li>Stripe</li>
-                  <li>HostGator</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-          <article class="work-grid__project">
-            <div class="work-grid__media">
-              <img
-                src="/clients/jc-hp.jpg"
-                alt="JC Health & Performance website homepage"
-                width="2000"
-                height="1125"
-                loading="lazy"
-                decoding="async"
-              />
-            </div>
-            <p class="work-grid__number">03</p>
-            <div class="work-grid__details">
-              <div class="work-grid__body">
-                <header class="work-grid__project-header">
-                  <h3>JC Health & Performance</h3>
-                  <span>2025</span>
-                </header>
-                <p class="work-grid__description">
-                  Delivered a complete brand overhaul and custom website for an
-                  independent fitness professional, including a new logo,
-                  typography, color system, development, and deployment.
-                </p>
-                <ul class="work-grid__tools" aria-label="Tools and platforms">
-                  <li>Astro</li>
-                  <li>Cloudflare</li>
-                  <li>Mailgun</li>
-                </ul>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-    </main>
+    <main></main>
   </body>
 </html>
