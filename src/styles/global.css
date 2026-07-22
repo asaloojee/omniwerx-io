@@ -1,14 +1,13 @@
 @import "./fonts.css";
 
 :root {
-	--primary-red: #a31a10;
-	--body-text: #c8c8c8;
-	--body-text--emphasis: #f5f5f5;
-	--body-text--subtle: #a4a1a1;
+	--primary-red: #d61111;
+	--body-text: #cccccc;
+	--body-text--emphasis: #e6e6e6;
+	--body-text--subtle: #b8b8b8;
 	--primary-black: #0b0b0b;
 	--secondary-black: #0f0f0f;
-	--border-color: #292727;
-	--button-hover: rgba(163, 26, 16, 0.8);
+	--border-color: #3d3b3b;
 	--rule-width: 1px;
 	--rule-structural: var(--rule-width) solid var(--border-color);
 	--rule-secondary: var(--rule-width) dashed var(--border-color);
@@ -17,8 +16,8 @@
 	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
 
 	/* Type scale */
-	--text-meta: 12px;
-	--text-ui: 14px;
+	--text-meta: 14px;
+	--text-ui: 16px;
 	--text-body: 16px;
 	--text-title: clamp(20px, 4vw, 28px);
 	--text-heading: clamp(32px, 6vw, 40px);
@@ -139,7 +138,11 @@ nav .breakout {
 
 /* Hero Styles */
 #hero .content {
-	padding-block: 4rem;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+	gap: 2rem;
+	padding-block: 8rem;
 }
 h1 {
 	font-family: var(--font-sans);

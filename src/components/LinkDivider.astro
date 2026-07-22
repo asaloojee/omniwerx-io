@@ -1,0 +1,83 @@
+---
+import SectionCorners from "./SectionCorners.astro";
+
+interface Props {
+  href: string;
+  sectionDots: "top" | "bottom" | "both";
+  borderTop?: boolean;
+  fullWidth?: boolean;
+}
+
+const { href, sectionDots, borderTop = false, fullWidth = false } = Astro.props;
+const hasIcon = Astro.slots.has("icon");
+---
+
+<a
+  class:list={[
+    "link-divider",
+    {
+      "link-divider--border-top": borderTop,
+      "link-divider--full-width": fullWidth,
+    },
+  ]}
+  href={href}
+>
+  {sectionDots !== "bottom" && <SectionCorners position="top" />}
+  <span class="link-divider__content">
+    <span><slot /></span>
+    {
+      hasIcon && (
+        <span class="link-divider__icon">
+          <slot name="icon" />
+        </span>
+      )
+    }
+  </span>
+  {sectionDots !== "top" && <SectionCorners position="bottom" />}
+</a>
+
+<style>
+  .link-divider {
+    position: relative;
+    grid-column: 2;
+    display: block;
+    width: 100%;
+    height: 1.875rem;
+    padding-block: 0.5rem;
+    background-color: color-mix(in srgb, var(--primary-red) 40%, transparent);
+    border-inline: var(--rule-structural);
+    border-block-end: var(--rule-structural);
+    color: var(--body-text);
+    font-size: var(--text-ui);
+    line-height: var(--leading-1);
+    text-decoration: none;
+    transition:
+      background-color 150ms var(--bezier),
+      color 150ms var(--bezier);
+  }
+
+  .link-divider:is(:hover, :focus-visible) {
+    background-color: color-mix(in srgb, var(--primary-red) 60%, transparent);
+    color: var(--body-text--emphasis);
+  }
+
+  .link-divider__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .link-divider__icon {
+    display: inline-flex;
+    flex: none;
+  }
+
+  .link-divider--border-top {
+    border-block-start: var(--rule-structural);
+  }
+
+  .link-divider--full-width {
+    grid-column: 1 / -1;
+  }
+</style>

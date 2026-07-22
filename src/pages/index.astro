@@ -1,6 +1,8 @@
 ---
 import BlenderLogo from "../components/BlenderLogo.astro";
 import Divider from "../components/Divider.astro";
+import LinkDivider from "../components/LinkDivider.astro";
+import PrimaryButton from "../components/PrimaryButton.astro";
 import SectionCorners from "../components/SectionCorners.astro";
 import "../styles/global.css";
 ---
@@ -31,11 +33,9 @@ import "../styles/global.css";
     </header>
     <main>
       <section id="hero" class="layout-grid">
-        <Divider sectionDots="bottom" />
         <div class="content">
-          <h1>
-            Custom websites & interfaces for startups & founder-led businesses.
-          </h1>
+          <h1>Technical studio for founder-led businesses.</h1>
+          <PrimaryButton href="/contact">Start a project</PrimaryButton>
         </div>
       </section>
     </main>
