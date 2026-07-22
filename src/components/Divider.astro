@@ -1,0 +1,49 @@
+---
+import SectionCorners from "./SectionCorners.astro";
+
+interface Props {
+  sectionDots: "top" | "bottom" | "both";
+  borderTop?: boolean;
+  fullWidth?: boolean;
+}
+
+const { sectionDots, borderTop = false, fullWidth = false } = Astro.props;
+---
+
+<div
+  class:list={[
+    "divider",
+    {
+      "divider--border-top": borderTop,
+      "divider--full-width": fullWidth,
+    },
+  ]}
+  aria-hidden="true"
+>
+  {sectionDots !== "bottom" && <SectionCorners position="top" />}
+  {sectionDots !== "top" && <SectionCorners position="bottom" />}
+</div>
+
+<style>
+  .divider {
+    position: relative;
+    grid-column: 2;
+    width: 100%;
+    height: 1.25rem;
+    background-image: repeating-linear-gradient(
+      -45deg,
+      transparent 0 7px,
+      rgba(51, 50, 50, 0.8) 7px 8px
+    );
+    border-inline: var(--rule-structural);
+    border-block-end: var(--rule-structural);
+  }
+
+  .divider--border-top {
+    border-block-start: var(--rule-structural);
+  }
+
+  .divider--full-width {
+    grid-column: 1 / -1;
+  }
+</style>

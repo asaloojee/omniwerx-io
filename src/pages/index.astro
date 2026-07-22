@@ -1,6 +1,6 @@
 ---
 import BlenderLogo from "../components/BlenderLogo.astro";
-import DashedDivider from "../components/DashedDivider.astro";
+import Divider from "../components/Divider.astro";
 import SectionCorners from "../components/SectionCorners.astro";
 import "../styles/global.css";
 ---
@@ -14,23 +14,30 @@ import "../styles/global.css";
   </head>
   <body>
     <header>
-      <nav>
-        <div class="content">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio
-          perspiciatis dignissimos numquam provident nostrum veritatis
-          praesentium, eius vitae deleniti iste corporis, exercitationem quis
-          laudantium quia, voluptatem ullam iure accusamus nihil.
+      <nav class="layout-grid">
+        <div class="breakout">
+          <SectionCorners position="top" />
+          <a class="nav__img-link">
+            <img class="nav__img" src="wordmark.svg" />
+          </a>
+          <div class="nav__links">
+            <a>work</a>
+            <a>pricing</a>
+            <a>contact</a>
+          </div>
+          <SectionCorners position="bottom" />
         </div>
-        <!-- <SectionCorners position="top" /> -->
-        <!-- <a class="nav__img-link"> -->
-        <!--   <img class="nav__img" src="wordmark.svg" /> -->
-        <!-- </a> -->
-        <!-- <a>work</a> -->
-        <!-- <a>pricing</a> -->
-        <!-- <a>contact</a> -->
-        <!-- <SectionCorners position="bottom" /> -->
       </nav>
     </header>
-    <main></main>
+    <main>
+      <section id="hero" class="layout-grid">
+        <Divider sectionDots="bottom" />
+        <div class="content">
+          <h1>
+            Custom websites & interfaces for startups & founder-led businesses.
+          </h1>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
