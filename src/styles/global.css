@@ -2,6 +2,7 @@
 
 :root {
 	--primary-red: #d61111;
+	--primary-red--09: rgba(214, 17, 17, 0.9);
 	--body-text: #cccccc;
 	--body-text--emphasis: #e6e6e6;
 	--body-text--subtle: #b8b8b8;

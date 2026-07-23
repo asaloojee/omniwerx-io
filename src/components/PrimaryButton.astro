@@ -1,6 +1,4 @@
 ---
-import { ArrowRight } from "@lucide/astro";
-
 interface Props {
   href: string;
 }
@@ -9,31 +7,27 @@ const { href } = Astro.props;
 ---
 
 <a class="primary-button" href={href}>
-  <span><slot /></span>
-  <ArrowRight aria-hidden="true" size={18} strokeWidth={2} />
+  <span class="primary-button__label">
+    <slot />
+  </span>
 </a>
 
 <style>
   .primary-button {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem 0.75rem 1.5rem;
+    padding: 0.75rem 2rem;
     color: var(--primary-black);
+    background-color: var(--primary-red);
+
     font-family: var(--font-mono);
-    font-size: var(--text-ui);
+    font-size: var(--text-body);
     font-weight: 600;
     line-height: var(--leading-1);
+    letter-spacing: var(--tracking-vwide);
+    text-transform: uppercase;
     text-decoration: none;
-    transition: opacity 150ms var(--bezier);
-    background-color: var(--primary-red);
   }
 
   .primary-button:hover {
-    opacity: 0.9;
-  }
-
-  .primary-button :global(svg) {
-    flex: none;
+    background-color: var(--primary-red--09);
   }
 </style>
