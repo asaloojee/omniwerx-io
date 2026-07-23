@@ -79,7 +79,7 @@ h1 {
 	line-height: var(--leading-1);
 	letter-spacing: var(--tracking-vtight);
 	color: var(--body-text--emphasis);
-	font-size: 52px;
+	font-size: 54px;
 }
 
 h2 {
@@ -119,9 +119,17 @@ h2 {
 }
 
 .hero__lead {
-	padding-block-start: 2.5rem;
+	padding-block-start: 4rem;
 	font-family: var(--font-sans);
 	font-weight: 400;
 	font-size: 1.25rem;
-	padding-block-end: 4rem;
+	padding-block-end: 6rem;
+	color: var(--body-text);
+	line-height: var(--leading-mid);
+	letter-spacing: var(--tracking-wide);
+}
+
+.hero__lead--emphasis {
+	font-weight: 500;
+	color: var(--body-text--emphasis);
 }
