@@ -1,7 +1,7 @@
 ---
 import BlenderLogo from "../components/BlenderLogo.astro";
+import Nav from "../components/Nav.astro";
 import Divider from "../components/Divider.astro";
-import LinkDivider from "../components/LinkDivider.astro";
 import PrimaryButton from "../components/PrimaryButton.astro";
 import SectionCorners from "../components/SectionCorners.astro";
 import "../styles/global.css";
@@ -15,28 +15,23 @@ import "../styles/global.css";
     <title>omniwerx</title>
   </head>
   <body>
-    <header>
-      <nav class="layout-grid">
-        <div class="breakout">
-          <SectionCorners position="top" />
-          <a class="nav__img-link">
-            <img class="nav__img" src="wordmark.svg" />
-          </a>
-          <div class="nav__links">
-            <a>work</a>
-            <a>pricing</a>
-            <a>contact</a>
-          </div>
-          <SectionCorners position="bottom" />
-        </div>
-      </nav>
+    <header class="page-grid">
+      <Nav />
     </header>
     <main>
-      <section id="hero" class="layout-grid">
-        <div class="content">
-          <h1>Technical studio for founder-led businesses.</h1>
-          <PrimaryButton href="/contact">Start a project</PrimaryButton>
+      <section id="hero" class="page-grid">
+        <div class="section-frame">
+          <div class="section-content">
+            <h1>Precision-engineered websites and interfaces.</h1>
+            <div class="hero__lead">
+              We design and build custom websites and digital interfaces for
+              startups and founder-led businesses. We support you with tool
+              integrations, customer flows, and brand messaging.
+            </div>
+            <PrimaryButton href="#contact">Start a Project</PrimaryButton>
+          </div>
         </div>
+        <Divider />
       </section>
     </main>
   </body>
