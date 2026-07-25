@@ -1,4 +1,11 @@
+@import "remixicon/fonts/remixicon.css";
 @import "./fonts.css";
+
+[class^="ri-"],
+[class*=" ri-"] {
+	/* font-weight: 400; */
+	font-synthesis: none;
+}
 
 :root {
 	--primary-red: #e01b1b;
@@ -243,4 +250,9 @@ h2 {
 	grid-column: content-start / content-end;
 	block-size: 6rem;
 	border-inline: var(--rule-secondary);
+}
+
+/* Pricing Section */
+#pricing .section-content {
+	padding-block: 8rem 4rem;
 }

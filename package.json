@@ -10,10 +10,10 @@
     "prepare": "vp config"
   },
   "dependencies": {
-    "@lucide/astro": "^1.25.0",
     "astro": "^7.0.7",
     "prettier": "^3.9.5",
     "prettier-plugin-astro": "^0.14.1",
+    "remixicon": "^4.9.1",
     "three": "^0.185.1"
   },
   "devDependencies": {
