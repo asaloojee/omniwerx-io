@@ -238,3 +238,9 @@ h2 {
 	font-size: var(--text-body);
 	text-align: left;
 }
+
+.section-rail-spacer {
+	grid-column: content-start / content-end;
+	block-size: 6rem;
+	border-inline: var(--rule-secondary);
+}
