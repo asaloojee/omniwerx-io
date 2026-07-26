@@ -96,6 +96,7 @@ h2 {
 	letter-spacing: var(--tracking-tight);
 	color: var(--body-text--emphasis);
 	font-size: 2.5rem;
+	text-wrap: balance;
 }
 
 .page-grid {
@@ -304,7 +305,7 @@ p.pricing__capabilities__item {
 }
 
 .pricing__capabilities__spacer {
-	height: 30px;
+	height: 1rem;
 }
 
 .pricing__grid {
@@ -425,6 +426,63 @@ p.pricing__capabilities__item {
 
 .faq__body {
 	padding-block: 4rem 1rem;
+}
+
+/* About Section */
+#about .section-content {
+	padding-block: 8rem 0;
+}
+
+#about h2 {
+	text-wrap: balance;
+}
+
+.about__body {
+	padding-block-start: 4rem;
+	display: grid;
+	gap: 1rem;
+	grid-template-columns: 12rem 1fr;
+}
+
+.about__identity {
+	display: grid;
+	grid-template-columns: 1fr;
+	justify-content: flex-start;
+	align-content: flex-start;
+	gap: 1rem;
+}
+
+.about__identity-text {
+	display: grid;
+	gap: 0.25rem;
+}
+
+.about__name {
+	font-weight: 500;
+	color: var(--body-text--emphasis);
+	line-height: var(--leading-short);
+}
+
+.about__title {
+	font-family: var(--font-mono);
+	font-size: var(--text-meta);
+	color: var(--body-text--subtle);
+	line-height: var(--leading-short);
+}
+
+.about__copy {
+	display: grid;
+	gap: 1.5rem;
+	max-inline-size: 32rem;
+}
+
+.about__headshot {
+	flex: none;
+	inline-size: 10rem;
+	block-size: 10rem;
+	border: var(--rule-structural);
+	border-radius: 2rem;
+	object-fit: cover;
 }
 
 .section-rail-spacer {
