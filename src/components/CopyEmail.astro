@@ -1,0 +1,200 @@
+---
+import ClipboardIcon from "../assets/icons/clipboard.svg";
+
+interface Props {
+  email: string;
+}
+
+const { email } = Astro.props;
+---
+
+<span class="copy-email" data-copy-email={email}>
+  <button
+    class="copy-email__button"
+    type="button"
+    aria-describedby="copy-email-tooltip"
+  >
+    {email}
+  </button>
+  <span
+    class="copy-email__tooltip"
+    id="copy-email-tooltip"
+    role="status"
+    aria-live="polite"
+  >
+    <svg class="copy-email__caret" viewBox="0 0 14 8" aria-hidden="true">
+      <path d="M1 8 5.9 2.2a1.45 1.45 0 0 1 2.2 0L13 8Z"></path>
+      <path d="m1 8 4.9-5.8a1.45 1.45 0 0 1 2.2 0L13 8"></path>
+    </svg>
+    <ClipboardIcon class="copy-email__icon" aria-hidden="true" />
+    <span data-copy-status>Click to copy</span>
+  </span>
+</span>
+
+<script>
+  const copyEmail = async (
+    copyControl: HTMLElement,
+    button: HTMLButtonElement,
+    email: string,
+  ) => {
+    const tooltip = button.nextElementSibling;
+    const status = tooltip?.querySelector("[data-copy-status]");
+
+    if (!(status instanceof HTMLElement)) return;
+
+    try {
+      await navigator.clipboard.writeText(email);
+      status.textContent = "Copied to clipboard";
+    } catch {
+      status.textContent = "Could not copy";
+    }
+
+    window.setTimeout(() => {
+      copyControl.dataset.tooltipDismissed = "";
+
+      window.setTimeout(() => {
+        status.textContent = "Click to copy";
+      }, 800);
+    }, 1800);
+  };
+
+  document
+    .querySelectorAll<HTMLElement>("[data-copy-email]")
+    .forEach((copyControl) => {
+      const button = copyControl.querySelector("button");
+      const email = copyControl.dataset.copyEmail;
+
+      if (!(button instanceof HTMLButtonElement) || !email) return;
+
+      const resetTooltip = () => {
+        delete copyControl.dataset.tooltipDismissed;
+      };
+
+      button.addEventListener("click", () =>
+        copyEmail(copyControl, button, email),
+      );
+      button.addEventListener("focus", resetTooltip);
+      copyControl.addEventListener("pointerenter", resetTooltip);
+    });
+</script>
+
+<style>
+  .copy-email {
+    position: relative;
+    display: inline-block;
+    line-height: var(--leading-short);
+  }
+
+  .copy-email__button {
+    anchor-name: --about-email;
+    appearance: none;
+    padding: 0.5rem 0 0 0;
+    border: 0;
+    background: transparent;
+    color: var(--body-text--emphasis);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    font-weight: inherit;
+    line-height: var(--leading-short);
+    text-decoration: none;
+    box-shadow: inset 0 -1px 0 var(--body-text--emphasis);
+    box-decoration-break: clone;
+    cursor: pointer;
+    transition: box-shadow 800ms var(--bezier);
+  }
+
+  .copy-email__button:hover {
+    box-shadow: inset 0 -1px 0 transparent;
+  }
+
+  .copy-email__button:focus-visible {
+    outline: 1px solid var(--primary-red);
+    outline-offset: 0.25rem;
+  }
+
+  .copy-email__tooltip {
+    position: absolute;
+    z-index: 1;
+    inset-block-start: 100%;
+    inset-inline-start: 50%;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.5rem 0.75rem;
+    border: var(--rule-structural);
+    background: var(--surface);
+    color: var(--body-text--emphasis);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    line-height: var(--leading-short);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    translate: -50% 0.75rem;
+    transition-property: opacity, translate, visibility;
+    transition-duration: 800ms;
+    transition-timing-function: var(--bezier);
+  }
+
+  .copy-email:hover .copy-email__tooltip,
+  .copy-email:focus-within .copy-email__tooltip {
+    opacity: 1;
+    visibility: visible;
+    translate: -50% 0.75rem;
+  }
+
+  .copy-email__caret {
+    position: absolute;
+    inset-block-start: 2px;
+    inset-inline-start: 50%;
+    inline-size: 1rem;
+    block-size: 0.8rem;
+    overflow: visible;
+    translate: -50% -100%;
+  }
+
+  .copy-email__caret path:first-child {
+    fill: var(--surface);
+  }
+
+  .copy-email__caret path:last-child {
+    fill: none;
+    stroke: var(--border-color);
+    stroke-width: 1;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .copy-email__icon {
+    inline-size: 1rem;
+    block-size: 1rem;
+    flex: none;
+  }
+
+  @supports (position-area: bottom) {
+    .copy-email__tooltip {
+      inset: auto;
+      position-anchor: --about-email;
+      position-area: bottom center;
+      margin-block-start: 2.25rem;
+      translate: 0 -0.125rem;
+    }
+
+    .copy-email:hover .copy-email__tooltip,
+    .copy-email:focus-within .copy-email__tooltip {
+      translate: 0 0;
+    }
+  }
+
+  .copy-email[data-tooltip-dismissed] .copy-email__tooltip {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .copy-email__button,
+    .copy-email__tooltip {
+      transition-duration: 0s;
+    }
+  }
+</style>

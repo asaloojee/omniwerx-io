@@ -7,6 +7,7 @@ import CompleteIcon from "../assets/icons/complete.svg";
 import CheckIcon from "../assets/icons/check.svg";
 
 import BlenderLogo from "../components/BlenderLogo.astro";
+import CopyEmail from "../components/CopyEmail.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
@@ -106,49 +107,51 @@ const faqItems = [
                 </p>
               </div>
             </div>
-            <div class="work__grid-row">
-              <div class="work__grid-row__index">002</div>
-              <img
-                src="/clients/spoken-live.jpg"
-                alt=""
-                class="work__grid-row__img"
-              />
-              <div class="work__grid-row__content">
-                <p class="work__grid-row__key">Name:</p>
-                <p class="work__grid-row__value">Spoken Live</p>
-                <p class="work__grid-row__key">Engagement Type:</p>
-                <p class="work__grid-row__value">Project</p>
-                <p class="work__grid-row__key work__grid-row__key--long">
-                  Description:
-                </p>
-                <p class="work__grid-row__value work__grid-row__value--long">
-                  Designed and built a bespoke event landing page within an
-                  existing WordPress site, including a multi-stage Stripe
-                  payment flow powered by a custom API.
-                </p>
+            <div class="work__grid-pair">
+              <div class="work__grid-row work__grid-row--pair-left">
+                <div class="work__grid-row__index">002</div>
+                <img
+                  src="/clients/spoken-live.jpg"
+                  alt=""
+                  class="work__grid-row__img"
+                />
+                <div class="work__grid-row__content">
+                  <p class="work__grid-row__key">Name:</p>
+                  <p class="work__grid-row__value">Spoken Live</p>
+                  <p class="work__grid-row__key">Engagement Type:</p>
+                  <p class="work__grid-row__value">Project</p>
+                  <p class="work__grid-row__key work__grid-row__key--long">
+                    Description:
+                  </p>
+                  <p class="work__grid-row__value work__grid-row__value--long">
+                    Designed and built a bespoke event landing page within an
+                    existing WordPress site, including a multi-stage Stripe
+                    payment flow powered by a custom API.
+                  </p>
+                </div>
               </div>
-            </div>
 
-            <div class="work__grid-row">
-              <div class="work__grid-row__index">003</div>
-              <img
-                src="/clients/jc-hp.jpg"
-                alt=""
-                class="work__grid-row__img"
-              />
-              <div class="work__grid-row__content">
-                <p class="work__grid-row__key">Name:</p>
-                <p class="work__grid-row__value">JC Health & Performance</p>
-                <p class="work__grid-row__key">Engagement Type:</p>
-                <p class="work__grid-row__value">Project</p>
-                <p class="work__grid-row__key work__grid-row__key--long">
-                  Description:
-                </p>
-                <p class="work__grid-row__value work__grid-row__value--long">
-                  Delivered a complete brand overhaul and custom website for an
-                  independent fitness professional, including a new logo,
-                  typography, color system, development, and deployment.
-                </p>
+              <div class="work__grid-row work__grid-row--pair-right">
+                <div class="work__grid-row__index">003</div>
+                <img
+                  src="/clients/jc-hp.jpg"
+                  alt=""
+                  class="work__grid-row__img"
+                />
+                <div class="work__grid-row__content">
+                  <p class="work__grid-row__key">Name:</p>
+                  <p class="work__grid-row__value">JC Health & Performance</p>
+                  <p class="work__grid-row__key">Engagement Type:</p>
+                  <p class="work__grid-row__value">Project</p>
+                  <p class="work__grid-row__key work__grid-row__key--long">
+                    Description:
+                  </p>
+                  <p class="work__grid-row__value work__grid-row__value--long">
+                    Delivered a complete brand overhaul and custom website for
+                    an independent fitness professional, including a new logo,
+                    typography, color system, development, and deployment.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -274,6 +277,7 @@ const faqItems = [
                 <div class="about__identity-text">
                   <p class="about__name">Abdurahmaan Saloojee</p>
                   <p class="about__title">Designer-Developer</p>
+                  <CopyEmail email="asaloojee@omniwerx.io" />
                 </div>
               </div>
               <div class="about__copy">
