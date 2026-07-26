@@ -1,14 +1,23 @@
 ---
+import UpRightIcon from "../assets/icons/up-right.svg";
+
 interface Props {
   href: string;
+  fullWidth?: boolean;
 }
 
-const { href } = Astro.props;
+const { href, fullWidth = false } = Astro.props;
 ---
 
-<a class="primary-button" href={href}>
+<a
+  class:list={["primary-button", { "primary-button--full": fullWidth }]}
+  href={href}
+>
   <span class="primary-button__label">
     <slot />
+  </span>
+  <span class="primary-button__icon" aria-hidden="true">
+    <UpRightIcon />
   </span>
 </a>
 
@@ -16,10 +25,11 @@ const { href } = Astro.props;
   .primary-button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.75rem;
     justify-self: start;
     padding: 0.75rem 2rem;
-    color: var(--primary-black);
+    color: var(--background);
     background-color: var(--primary-red);
     background-image: repeating-linear-gradient(
       -45deg,
@@ -40,17 +50,42 @@ const { href } = Astro.props;
       background-color 1600ms var(--bezier);
   }
 
+  .primary-button--full {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .primary-button__icon {
+    display: flex;
+    flex: none;
+    transition: translate 1600ms var(--bezier);
+  }
+
+  .primary-button__icon svg {
+    vertical-align: bottom;
+  }
+
   .primary-button:hover {
     color: var(--primary-red);
-    background-color: var(--primary-black);
+    background-color: var(--background);
     transition:
       color 800ms var(--bezier),
       background-color 800ms var(--bezier);
   }
 
+  .primary-button:hover .primary-button__icon {
+    translate: 4px -4px;
+    transition-duration: 800ms;
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .primary-button {
+    .primary-button,
+    .primary-button__icon {
       transition: none;
+    }
+
+    .primary-button:hover .primary-button__icon {
+      translate: none;
     }
   }
 </style>

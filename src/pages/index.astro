@@ -1,6 +1,11 @@
 ---
 import ComposeIcon from "../assets/icons/compose.svg";
 import ConnectIcon from "../assets/icons/connect.svg";
+import AdjustIcon from "../assets/icons/adjust.svg";
+import ContinueIcon from "../assets/icons/continue.svg";
+import CompleteIcon from "../assets/icons/complete.svg";
+import CheckIcon from "../assets/icons/check.svg";
+
 import BlenderLogo from "../components/BlenderLogo.astro";
 import Nav from "../components/Nav.astro";
 import Divider from "../components/Divider.astro";
@@ -131,10 +136,7 @@ import "../styles/global.css";
                 <div
                   class="pricing__capabilities__item pricing__capabilities__item--header"
                 >
-                  <ComposeIcon
-                    class="pricing__capabilities__icon"
-                    aria-hidden="true"
-                  />The customer experience
+                  The customer experience
                 </div>
                 <p class="pricing__capabilities__item">
                   Websites and landing pages
@@ -154,10 +156,7 @@ import "../styles/global.css";
                 <div
                   class="pricing__capabilities__item pricing__capabilities__item--header"
                 >
-                  <ConnectIcon
-                    class="pricing__capabilities__icon"
-                    aria-hidden="true"
-                  />The systems behind it
+                  The systems behind it
                 </div>
                 <p class="pricing__capabilities__item">
                   CMS and commerce integrations
@@ -175,6 +174,98 @@ import "../styles/global.css";
               </div>
             </div>
           </div>
+          <div class="pricing__grid">
+            <div class="pricing__card">
+              <div class="pricing__card__header">
+                <p class="pricing__card__title">Monthly Engagement</p>
+              </div>
+              <div class="pricing__card__price">
+                <p class="pricing__card__price__qual">starting at</p>
+                <div class="pricing__card__price__num">
+                  $3,000 <div class="pricing__card__price__num-freq">
+                    /month
+                  </div>
+                </div>
+                <p class="pricing__card__price__cur">USD</p>
+              </div>
+              <div class="pricing__card__statement">
+                For teams that need an ongoing design and development partner.
+              </div>
+              <div class="pricing__card__features">
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Submit as many requests as needed
+                  </div>
+                </div>
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Priorities can change as your needs evolve
+                  </div>
+                </div>
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Unlimited requests within reserved capacity
+                  </div>
+                </div>
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Engagement renews monthly
+                  </div>
+                </div>
+              </div>
+              <PrimaryButton href="#contact" fullWidth
+                >Start an engagement</PrimaryButton
+              >
+            </div>
+            <div class="pricing__card">
+              <div class="pricing__card__header">
+                <p class="pricing__card__title">Focused Build</p>
+              </div>
+              <div class="pricing__card__price">
+                <p class="pricing__card__price__qual">starting at</p>
+                <div class="pricing__card__price__num">$5,000</div>
+                <p class="pricing__card__price__cur">USD</p>
+              </div>
+              <div class="pricing__card__statement">
+                For teams that need to commission a defined product with a clear
+                endpoint.
+              </div>
+              <div class="pricing__card__features">
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Scope is agreed on before work begins
+                  </div>
+                </div>
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Delivery follows an established schedule
+                  </div>
+                </div>
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Pricing is fixed around the defined scope
+                  </div>
+                </div>
+                <div class="pricing__card__feature">
+                  <CheckIcon class="pricing__card__feature__icon" />
+                  <div class="pricing__card__feature__text">
+                    Engagement concludes at launch or handoff
+                  </div>
+                </div>
+              </div>
+              <PrimaryButton href="#contact" fullWidth
+                >Start a build</PrimaryButton
+              >
+            </div>
+          </div>
+          <div class="section-rail-spacer" aria-hidden="true"></div>
         </div>
         <Divider />
       </section>
