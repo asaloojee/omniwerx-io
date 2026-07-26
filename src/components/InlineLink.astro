@@ -1,0 +1,81 @@
+---
+import UpRightExtIcon from "../assets/icons/up-right-ext.svg";
+
+interface Props {
+  href: string;
+  external?: boolean;
+}
+
+const { href, external = false } = Astro.props;
+---
+
+<a
+  class="inline-link"
+  href={href}
+  target={external ? "_blank" : undefined}
+  rel={external ? "noopener noreferrer" : undefined}
+>
+  <span class="inline-link__content">
+    <span><slot /></span>
+    {
+      external && (
+        <span class="inline-link__icon" aria-hidden="true">
+          <UpRightExtIcon />
+        </span>
+      )
+    }
+  </span>
+</a>
+
+<style>
+  .inline-link {
+    display: inline-grid;
+    color: var(--body-text--emphasis);
+    font-weight: 400;
+    line-height: inherit;
+    text-decoration: none;
+    box-shadow: inset 0 -1px 0 var(--primary-red);
+    box-decoration-break: clone;
+    transition: box-shadow 800ms var(--bezier);
+  }
+
+  .inline-link__content {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25em;
+  }
+
+  .inline-link__icon {
+    display: inline-flex;
+    flex: none;
+    align-self: center;
+  }
+
+  .inline-link__icon :global(svg) {
+    inline-size: 1em;
+    block-size: 1em;
+  }
+
+  :global(.inline-link__icon path:last-child) {
+    transition: translate 800ms var(--bezier);
+  }
+
+  .inline-link:hover {
+    box-shadow: inset 0 -1px 0 transparent;
+  }
+
+  .inline-link:hover :global(.inline-link__icon path:last-child) {
+    translate: 2px -2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .inline-link,
+    :global(.inline-link__icon path:last-child) {
+      transition: none;
+    }
+
+    .inline-link:hover :global(.inline-link__icon path:last-child) {
+      translate: none;
+    }
+  }
+</style>

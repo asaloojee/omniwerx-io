@@ -7,11 +7,41 @@ import CompleteIcon from "../assets/icons/complete.svg";
 import CheckIcon from "../assets/icons/check.svg";
 
 import BlenderLogo from "../components/BlenderLogo.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
 import Nav from "../components/Nav.astro";
 import Divider from "../components/Divider.astro";
 import PrimaryButton from "../components/PrimaryButton.astro";
 import SectionCorners from "../components/SectionCorners.astro";
+import InlineLink from "../components/InlineLink.astro";
 import "../styles/global.css";
+
+const faqItems = [
+  {
+    question: "What is the monthly engagement plan?",
+    answer:
+      "If you have a lot of ongoing work, this is a way for you to pay a flat fee for all of the items you need done instead of repeatedly scoping separate projects. We work through your requests one at a time, and you can continuously add items to the list, request revisions, or reshuffle priorities.",
+  },
+  {
+    question: "How are one-off projects scoped and billed?",
+    answer:
+      "First, we sit down to iron out the scope and schedule of the project and agree on a quote. Then, 50% of the payment is due up front, and 50% is due after completion. You will receive a full handoff with clearly outlined next steps.",
+  },
+  {
+    question: "What tools do you use?",
+    answer:
+      "Our diverse expertise covers everything from low-code platforms like Kajabi and Webflow to fully custom solutions and JavaScript frameworks. We design from scratch, then implement in the context your business is already comfortable with to reduce friction.",
+  },
+  {
+    question: "What happens after a focused build launches?",
+    answer:
+      "A focused build concludes with launch or handoff. Ongoing support can be arranged separately when maintenance, iteration, or additional development is needed.",
+  },
+  {
+    question: "Do you design for both mobile and desktop?",
+    answer:
+      "Yes. Responsive design is central to our method. We believe in thorough implementation across a range of screen sizes. Websites should be polished from superwide monitors down to small phones.",
+  },
+];
 ---
 
 <!doctype html>
@@ -182,7 +212,7 @@ import "../styles/global.css";
               <div class="pricing__card__price">
                 <p class="pricing__card__price__qual">starting at</p>
                 <div class="pricing__card__price__num">
-                  $3,000 <div class="pricing__card__price__num-freq">
+                  $4,000 <div class="pricing__card__price__num-freq">
                     /month
                   </div>
                 </div>
@@ -227,7 +257,7 @@ import "../styles/global.css";
               </div>
               <div class="pricing__card__price">
                 <p class="pricing__card__price__qual">starting at</p>
-                <div class="pricing__card__price__num">$5,000</div>
+                <div class="pricing__card__price__num">$6,000</div>
                 <p class="pricing__card__price__cur">USD</p>
               </div>
               <div class="pricing__card__statement">
@@ -264,6 +294,22 @@ import "../styles/global.css";
                 >Start a build</PrimaryButton
               >
             </div>
+          </div>
+          <div class="section-rail-spacer" aria-hidden="true"></div>
+        </div>
+        <Divider />
+      </section>
+      <section id="faq" class="page-grid">
+        <div class="section-frame">
+          <div class="section-content">
+            <p class="label">FAQ</p>
+            <h2>Answers for your questions.</h2>
+            <div class="faq__body">
+              Don't see what you're looking for? Reach out to <InlineLink
+                href="">asaloojee@omniwerx.io</InlineLink
+              > or <InlineLink href="" external>book a call</InlineLink>.
+            </div>
+            <FaqAccordion items={faqItems} />
           </div>
           <div class="section-rail-spacer" aria-hidden="true"></div>
         </div>

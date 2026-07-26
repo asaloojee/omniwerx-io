@@ -122,7 +122,7 @@ h2 {
 
 /* Hero Styles */
 #hero .section-content {
-	padding-block: 8rem;
+	padding-block: 10rem;
 }
 
 .hero__lead {
@@ -246,17 +246,17 @@ h2 {
 
 .section-rail-spacer {
 	grid-column: content-start / content-end;
-	block-size: 6rem;
+	block-size: 8rem;
 	border-inline: var(--rule-secondary);
 }
 
 /* Pricing Section */
 #pricing .section-content {
-	padding-block: 8rem 4rem;
+	padding-block: 10rem 4rem;
 }
 
 .pricing__body {
-	padding-block: 3rem 2rem;
+	padding-block: 4rem 2rem;
 }
 
 .pricing__capabilities {
@@ -410,4 +410,23 @@ p.pricing__capabilities__item {
 	height: 1.25rem;
 	opacity: 0.8;
 	color: var(--body-text--emphasis);
+}
+
+/* FAQ Section */
+#faq .section-content {
+	padding-block: 8rem 0;
+}
+
+.faq__accordion-frame {
+	grid-column: content-start / content-end;
+	padding-inline: 1px;
+	border-inline: var(--rule-secondary);
+}
+
+.faq__body {
+	padding-block: 4rem 1rem;
+}
+
+.section-rail-spacer {
+	block-size: 6rem;
 }
