@@ -253,7 +253,7 @@ h2 {
 
 /* Pricing Section */
 #pricing .section-content {
-	padding-block: 10rem 4rem;
+	padding-block: 10rem 8rem;
 }
 
 .pricing__body {
@@ -308,17 +308,10 @@ p.pricing__capabilities__item {
 	height: 1rem;
 }
 
-.pricing__grid {
-	grid-column: 1 / 4;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 1.5rem;
-	padding: 4rem 2rem;
-	background-color: var(--background);
-	border-block: var(--rule-structural);
-}
-
 .pricing__card {
+	max-width: 24rem;
+	margin-block: 4rem;
+	justify-self: center;
 	border: var(--rule-width) solid transparent;
 	background:
 		linear-gradient(var(--surface-inset), var(--surface-inset)) padding-box,
@@ -413,24 +406,9 @@ p.pricing__capabilities__item {
 	color: var(--body-text--emphasis);
 }
 
-/* FAQ Section */
-#faq .section-content {
-	padding-block: 8rem 0;
-}
-
-.faq__accordion-frame {
-	grid-column: content-start / content-end;
-	padding-inline: 1px;
-	border-inline: var(--rule-secondary);
-}
-
-.faq__body {
-	padding-block: 4rem 1rem;
-}
-
 /* About Section */
 #about .section-content {
-	padding-block: 8rem 0;
+	padding-block: 10rem 4rem;
 }
 
 #about h2 {
@@ -438,7 +416,7 @@ p.pricing__capabilities__item {
 }
 
 .about__body {
-	padding-block-start: 4rem;
+	padding-block: 4rem;
 	display: grid;
 	gap: 1rem;
 	grid-template-columns: 12rem 1fr;
@@ -489,16 +467,7 @@ p.pricing__capabilities__item {
 	block-size: 6rem;
 }
 
-/* Contact Section */
-#contact .section-content {
-	padding-block: 8rem 0;
-}
-
-.contact__cta {
-	padding-block-start: 4rem;
-}
-
-.contact__badge {
+.about__badge {
 	inline-size: min(100%, 32rem);
 	aspect-ratio: 1;
 	margin-inline: auto;

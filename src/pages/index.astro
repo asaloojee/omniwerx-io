@@ -69,7 +69,9 @@ const faqItems = [
               you present your product or service with greater clarity, credibility,
               and polish.
             </div>
-            <PrimaryButton href="#contact">Start a Project</PrimaryButton>
+            <PrimaryButton href="mailto:info@omniwerx.io"
+              >Start a Project</PrimaryButton
+            >
           </div>
         </div>
         <Divider />
@@ -204,8 +206,6 @@ const faqItems = [
                 <div class="pricing__capabilities__spacer"></div>
               </div>
             </div>
-          </div>
-          <div class="pricing__grid">
             <div class="pricing__card">
               <div class="pricing__card__header">
                 <p class="pricing__card__title">Monthly Engagement</p>
@@ -248,71 +248,12 @@ const faqItems = [
                   </div>
                 </div>
               </div>
-              <PrimaryButton href="#contact" fullWidth
+              <PrimaryButton href="mailto:info@omniwerx.io" fullWidth
                 >Start an engagement</PrimaryButton
               >
             </div>
-            <div class="pricing__card">
-              <div class="pricing__card__header">
-                <p class="pricing__card__title">Focused Build</p>
-              </div>
-              <div class="pricing__card__price">
-                <p class="pricing__card__price__qual">starting at</p>
-                <div class="pricing__card__price__num">$6,000</div>
-                <p class="pricing__card__price__cur">USD</p>
-              </div>
-              <div class="pricing__card__statement">
-                For teams that need to commission a defined product with a clear
-                endpoint.
-              </div>
-              <div class="pricing__card__features">
-                <div class="pricing__card__feature">
-                  <CheckIcon class="pricing__card__feature__icon" />
-                  <div class="pricing__card__feature__text">
-                    Scope is agreed on before work begins
-                  </div>
-                </div>
-                <div class="pricing__card__feature">
-                  <CheckIcon class="pricing__card__feature__icon" />
-                  <div class="pricing__card__feature__text">
-                    Delivery follows an established schedule
-                  </div>
-                </div>
-                <div class="pricing__card__feature">
-                  <CheckIcon class="pricing__card__feature__icon" />
-                  <div class="pricing__card__feature__text">
-                    Pricing is fixed around the defined scope
-                  </div>
-                </div>
-                <div class="pricing__card__feature">
-                  <CheckIcon class="pricing__card__feature__icon" />
-                  <div class="pricing__card__feature__text">
-                    Engagement concludes at launch or handoff
-                  </div>
-                </div>
-              </div>
-              <PrimaryButton href="#contact" fullWidth
-                >Start a build</PrimaryButton
-              >
-            </div>
-          </div>
-          <div class="section-rail-spacer" aria-hidden="true"></div>
-        </div>
-        <Divider />
-      </section>
-      <section id="faq" class="page-grid">
-        <div class="section-frame">
-          <div class="section-content">
-            <p class="label">FAQ</p>
-            <h2>Answers for your questions.</h2>
-            <div class="faq__body">
-              Don't see what you're looking for? Reach out to <InlineLink
-                href="">info@omniwerx.io</InlineLink
-              > or <InlineLink href="" external>book a call</InlineLink>.
-            </div>
             <FaqAccordion items={faqItems} />
           </div>
-          <div class="section-rail-spacer" aria-hidden="true"></div>
         </div>
         <Divider />
       </section>
@@ -361,22 +302,7 @@ const faqItems = [
                 </p>
               </div>
             </div>
-          </div>
-          <div class="section-rail-spacer" aria-hidden="true"></div>
-        </div>
-        <Divider />
-      </section>
-      <section id="contact" class="page-grid">
-        <div class="section-frame">
-          <div class="section-content">
-            <p class="label">Contact</p>
-            <h2>Put your implementation in the right hands.</h2>
-            <div class="contact__cta">
-              <PrimaryButton href="mailto:info@omniwerx.io">
-                Get in touch
-              </PrimaryButton>
-            </div>
-            <div class="contact__badge">
+            <div class="about__badge">
               <BlenderLogo />
             </div>
           </div>
