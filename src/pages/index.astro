@@ -8,6 +8,7 @@ import CheckIcon from "../assets/icons/check.svg";
 
 import BlenderLogo from "../components/BlenderLogo.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
+import Footer from "../components/Footer.astro";
 import Nav from "../components/Nav.astro";
 import Divider from "../components/Divider.astro";
 import PrimaryButton from "../components/PrimaryButton.astro";
@@ -365,6 +366,23 @@ const faqItems = [
         </div>
         <Divider />
       </section>
+      <section id="contact" class="page-grid">
+        <div class="section-frame">
+          <div class="section-content">
+            <p class="label">Contact</p>
+            <h2>Put your implementation in the right hands.</h2>
+            <div class="contact__cta">
+              <PrimaryButton href="mailto:info@omniwerx.io">
+                Get in touch
+              </PrimaryButton>
+            </div>
+            <div class="contact__badge">
+              <BlenderLogo />
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+    <Footer />
   </body>
 </html>
