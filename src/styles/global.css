@@ -1,8 +1,8 @@
 @import "./fonts.css";
 
 :root {
-	--primary-red: #e01b1b;
-	--primary-red--09: rgba(224, 27, 27, 0.9);
+	--primary-red: #e00917;
+	--primary-red--09: rgba(224, 9, 23, 0.9);
 	--body-text: #cccccc;
 	--body-text--emphasis: #e6e6e6;
 	--body-text--subtle: #b8b8b8;
@@ -67,6 +67,7 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	background: var(--background);
+	overscroll-behavior: none;
 }
 
 body {
