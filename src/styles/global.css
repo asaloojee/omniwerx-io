@@ -7,7 +7,7 @@
 	--body-text--emphasis: #e6e6e6;
 	--body-text--subtle: #b8b8b8;
 	--background: #060505;
-	--surface: #100f0f;
+	--surface: #0f0f0f;
 	--surface-inset: #090808;
 	--border-color--hatched: rgba(61, 59, 59, 0.4);
 	--border-color: rgba(61, 59, 59, 0.8);
@@ -298,54 +298,65 @@ h2 {
 
 .pricing__capabilities {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
-}
-
-.pricing__capabilities--left {
-	border-inline-end: var(--rule-structural);
+	grid-template-columns: repeat(4, 1fr);
+	border-block: var(--rule-structural);
+	justify-content: center;
+	align-items: center;
 }
 
 .pricing__capabilities__item {
-	padding-block: 0.75rem;
-	border-block-end: var(--rule-secondary);
-	font-family: var(--font-sans);
+	border-inline: var(--rule-secondary);
 	font-size: var(--text-meta);
+	padding: 1rem;
+	font-family: var(--font-mono);
 	color: var(--body-text);
 	font-weight: 400;
 	line-height: var(--leading-1);
-}
-
-.pricing__capabilities__item.pricing__capabilities__item--header {
-	border-block-end: var(--rule-structural);
-	padding-inline: 1rem;
-	font-size: var(--text-meta);
-	color: var(--body-text--emphasis);
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
-	font-family: var(--font-mono);
-	font-weight: 600;
 	letter-spacing: var(--tracking-wide);
+	text-align: center;
 }
 
-.pricing__capabilities__icon {
-	flex: none;
-	width: 1.5rem;
-	height: 1.5rem;
+.pricing__capabilities__item:first-of-type {
+	border-inline-start: none;
+}
+
+.pricing__capabilities__item:last-of-type {
+	border-inline: none;
+}
+
+.pricing-card {
+	max-width: 24rem;
+	width: 100%;
+	justify-self: center;
+	margin-block: 4rem;
+	background-color: var(--surface);
+	padding: 1rem;
+}
+
+.pricing-card__header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding-block-end: 2rem;
+}
+
+.pricing-card__title {
+	font-family: var(--font-sans);
 	color: var(--body-text--emphasis);
-	opacity: 0.6;
+	font-weight: 500;
+	font-size: 1.25rem;
+	line-height: var(--leading-short);
+	width: min-content;
 }
 
-p.pricing__capabilities__item {
-	padding-inline-start: 1rem;
+.pricing-card__num {
+	font-family: var(--font-mono);
+	font-size: var(--text-body);
+	color: var(--body-text--subtle);
+	font-weight: 400;
+	letter-spacing: var(--tracking-vwide);
+	line-height: var(--leading-short);
 }
-
-.pricing__capabilities__spacer {
-	height: 1rem;
-}
-
-/* .pricing-card { */
-/* } */
 
 /* About Section */
 #about .section-content {
