@@ -3,60 +3,36 @@ import SectionCorners from "./SectionCorners.astro";
 ---
 
 <div class="divider" aria-hidden="true">
-  <div class="divider__row-1">
-    <div class="divider-content"></div>
+  <div class="divider__gutter"></div>
+  <div class="divider__column">
+    <SectionCorners position="top" />
     <SectionCorners position="bottom" />
   </div>
-  <div class="divider__row-2"></div>
-  <div class="divider__row-3">
-    <div class="divider-content"></div>
-    <SectionCorners position="top" />
-  </div>
+  <div class="divider__gutter"></div>
 </div>
 
 <style>
   .divider {
-    grid-column: full-start / full-end;
-
+    grid-column: 1 / -1;
+    height: 2rem;
     display: grid;
     grid-template-columns: subgrid;
-    grid-template-rows: var(--divider-empty) var(--divider-hatched) var(
-        --divider-empty
-      );
-    border-block: var(--rule-secondary);
   }
 
-  .divider-content {
-    grid-column: content-start / content-end;
-    border-inline: var(--rule-secondary);
-    padding-inline: 1rem;
+  .divider__gutter {
+    border-block: var(--rule--secondary);
+    height: 100%;
   }
 
-  .divider__row-1,
-  .divider__row-3 {
-    grid-column: structure-start / structure-end;
-    display: grid;
-    grid-template-columns: subgrid;
-    border-inline: var(--rule-structural);
-    position: relative;
-  }
-
-  .divider__row-1 {
-    grid-row: 1;
-  }
-
-  .divider__row-2 {
-    grid-row: 2;
-    grid-column: full-start / full-end;
-    border-block: var(--rule-structural);
-    background: repeating-linear-gradient(
+  .divider__column {
+    grid-column: 2;
+    border: var(--rule--primary);
+    background-image: repeating-linear-gradient(
       -45deg,
-      var(--border-color--hatched) 0 1px,
-      transparent 1px 8px
+      transparent 0 7px,
+      var(--border-color--02) 7px 8px
     );
-  }
-
-  .divider__row-3 {
-    grid-row: 3;
+    height: 100%;
+    position: relative;
   }
 </style>
