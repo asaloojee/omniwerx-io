@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import Divider from "../components/Divider.astro";
-import PrimaryButton from "../components/PrimaryButton.astro";
+import Spacer from "../components/Spacer.astro";
 ---
 
 <!doctype html>
@@ -12,31 +12,115 @@ import PrimaryButton from "../components/PrimaryButton.astro";
     <title>omniwerx</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <a href="/" class="nav__link">Work</a>
-        <a href="/" class="nav__link">Services</a>
-        <a href="/" class="nav__link">About</a>
-      </nav>
-    </header>
-    <main>
-      <img src="/wordmark.svg" alt="" class="hero-wordmark" />
-      <section id="hero">
-        <h1>Precision-engineered websites and interfaces.</h1>
-        <div class="hero__lead">
-          <span class="hero__lead--emphasis"
-            >We design and build custom websites and digital interfaces for
-            startups and founder-led businesses.</span
-          > We combine design, development, infrastructure, and business thinking
-          to create refined digital experiences that elevate your product and advance
-          your brand.
+    <main class="page-grid">
+      <section class="grid-full grid-intro">
+        <p class="grid-label">Five-column system</p>
+        <h1>Three equal content columns inside fluid viewport gutters.</h1>
+      </section>
+
+      <Spacer size={4} />
+
+      <section class="grid-left grid-sample">
+        <p class="grid-label">.grid-left</p>
+        <p>Spans the left and center columns.</p>
+      </section>
+      <div class="grid-column-right" aria-hidden="true"></div>
+
+      <Spacer size={2} />
+      <Divider />
+      <Spacer size={2} />
+
+      <div class="grid-column-left" aria-hidden="true"></div>
+      <section class="grid-right grid-sample">
+        <p class="grid-label">.grid-right</p>
+        <p>Spans the center and right columns.</p>
+      </section>
+
+      <Spacer size={4} />
+
+      <section class="grid-full grid-sample">
+        <p class="grid-label">.grid-full</p>
+        <p>Spans all three primary columns.</p>
+      </section>
+
+      <section class="grid-section" aria-labelledby="nested-grid-heading">
+        <Spacer size={4} />
+
+        <div class="grid-left grid-sample">
+          <p class="grid-label">Nested .grid-left</p>
+          <h2 id="nested-grid-heading">Left and center columns.</h2>
         </div>
-        <PrimaryButton href="/">Start a Project</PrimaryButton>
+        <div class="grid-column-right grid-sample">
+          <p class="grid-label">.grid-column-right</p>
+          <p>Remaining right column.</p>
+        </div>
+
+        <Spacer size={2} />
+
+        <div class="grid-column-left grid-sample">
+          <p class="grid-label">.grid-column-left</p>
+          <p>Remaining left column.</p>
+        </div>
+        <div class="grid-right grid-sample">
+          <p class="grid-label">Nested .grid-right</p>
+          <p>Center and right columns.</p>
+        </div>
+
+        <Spacer size={2} />
+
+        <div class="grid-full grid-sample">
+          <p class="grid-label">Nested .grid-full</p>
+          <p>All three primary columns.</p>
+        </div>
+
+        <Spacer size={4} />
       </section>
-      <section id="work">
-        <p class="label">Work</p>
-        <h2>A selection of our projects.</h2>
-      </section>
+
+      <Divider />
     </main>
   </body>
 </html>
+
+<style>
+  .grid-intro,
+  .grid-sample {
+    padding: 2rem;
+  }
+
+  .grid-intro {
+    padding-block-start: 8rem;
+  }
+
+  .grid-intro h1 {
+    max-width: 40rem;
+    color: var(--white--primary);
+    font-size: 3rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-vtight);
+    line-height: var(--leading-1);
+    text-wrap: balance;
+  }
+
+  .grid-sample h2 {
+    color: var(--white--primary);
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-short);
+  }
+
+  .grid-sample {
+    border-block: var(--rule--primary-emphasis);
+    background-color: var(--black--secondary);
+  }
+
+  .grid-label {
+    margin-block-end: 0.5rem;
+    color: var(--white--tertiary);
+    font-family: var(--font-mono);
+    font-size: var(--text-meta);
+    letter-spacing: var(--tracking-vwide);
+    line-height: var(--leading-short);
+    text-transform: uppercase;
+  }
+</style>

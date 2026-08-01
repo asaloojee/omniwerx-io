@@ -2,37 +2,32 @@
 import SectionCorners from "./SectionCorners.astro";
 ---
 
-<div class="divider" aria-hidden="true">
-  <div class="divider__gutter"></div>
-  <div class="divider__column">
+<div class="divider grid-viewport" aria-hidden="true">
+  <div class="divider__content grid-full">
     <SectionCorners position="top" />
     <SectionCorners position="bottom" />
   </div>
-  <div class="divider__gutter"></div>
 </div>
 
 <style>
   .divider {
-    grid-column: 1 / -1;
     height: 2rem;
-    display: grid;
-    grid-template-columns: subgrid;
-  }
-
-  .divider__gutter {
-    border-block: var(--rule--secondary);
-    height: 100%;
-  }
-
-  .divider__column {
-    grid-column: 2;
-    border: var(--rule--primary);
+    border-block: var(--rule--primary);
     background-image: repeating-linear-gradient(
       -45deg,
       transparent 0 7px,
       var(--border-color--02) 7px 8px
     );
-    height: 100%;
-    position: relative;
+  }
+
+  @media (min-width: 992px) {
+    .divider {
+      display: grid;
+      grid-template-columns: subgrid;
+    }
+
+    .divider__content {
+      position: relative;
+    }
   }
 </style>
