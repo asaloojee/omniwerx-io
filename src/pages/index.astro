@@ -12,115 +12,27 @@ import Spacer from "../components/Spacer.astro";
     <title>omniwerx</title>
   </head>
   <body>
-    <main class="page-grid">
-      <section class="grid-full grid-intro">
-        <p class="grid-label">Five-column system</p>
-        <h1>Three equal content columns inside fluid viewport gutters.</h1>
-      </section>
-
-      <Spacer size={4} />
-
-      <section class="grid-left grid-sample">
-        <p class="grid-label">.grid-left</p>
-        <p>Spans the left and center columns.</p>
-      </section>
-      <div class="grid-column-right" aria-hidden="true"></div>
-
-      <Spacer size={2} />
-      <Divider />
-      <Spacer size={2} />
-
-      <div class="grid-column-left" aria-hidden="true"></div>
-      <section class="grid-right grid-sample">
-        <p class="grid-label">.grid-right</p>
-        <p>Spans the center and right columns.</p>
-      </section>
-
-      <Spacer size={4} />
-
-      <section class="grid-full grid-sample">
-        <p class="grid-label">.grid-full</p>
-        <p>Spans all three primary columns.</p>
-      </section>
-
-      <section class="grid-section" aria-labelledby="nested-grid-heading">
-        <Spacer size={4} />
-
-        <div class="grid-left grid-sample">
-          <p class="grid-label">Nested .grid-left</p>
-          <h2 id="nested-grid-heading">Left and center columns.</h2>
+    <header>
+      <nav>
+        <a href="/" class="nav__img-link">
+          <img src="/wordmark.svg" alt="" class="nav__img" />
+        </a>
+        <div class="nav__links">
+          <a href="/" class="nav__link">Services</a>
+          <a href="" class="accent-button">Contact</a>
         </div>
-        <div class="grid-column-right grid-sample">
-          <p class="grid-label">.grid-column-right</p>
-          <p>Remaining right column.</p>
-        </div>
-
-        <Spacer size={2} />
-
-        <div class="grid-column-left grid-sample">
-          <p class="grid-label">.grid-column-left</p>
-          <p>Remaining left column.</p>
-        </div>
-        <div class="grid-right grid-sample">
-          <p class="grid-label">Nested .grid-right</p>
-          <p>Center and right columns.</p>
-        </div>
-
-        <Spacer size={2} />
-
-        <div class="grid-full grid-sample">
-          <p class="grid-label">Nested .grid-full</p>
-          <p>All three primary columns.</p>
-        </div>
-
-        <Spacer size={4} />
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <h1>Precision-engineered websites & interfaces.</h1>
+        <p class="hero__lead">
+          We design digital experiences and build custom websites for startups
+          and founder-led businesses. We elevate your product and strengthen
+          your company through thoughtful customer journeys, seamless
+          infrastructure integration, and distinctive brand presence.
+        </p>
       </section>
-
-      <Divider />
     </main>
   </body>
 </html>
-
-<style>
-  .grid-intro,
-  .grid-sample {
-    padding: 2rem;
-  }
-
-  .grid-intro {
-    padding-block-start: 8rem;
-  }
-
-  .grid-intro h1 {
-    max-width: 40rem;
-    color: var(--white--primary);
-    font-size: 3rem;
-    font-weight: 500;
-    letter-spacing: var(--tracking-vtight);
-    line-height: var(--leading-1);
-    text-wrap: balance;
-  }
-
-  .grid-sample h2 {
-    color: var(--white--primary);
-    font-size: 2rem;
-    font-weight: 500;
-    letter-spacing: var(--tracking-tight);
-    line-height: var(--leading-short);
-  }
-
-  .grid-sample {
-    border-block: var(--rule--primary-emphasis);
-    background-color: var(--black--secondary);
-  }
-
-  .grid-label {
-    margin-block-end: 0.5rem;
-    color: var(--white--tertiary);
-    font-family: var(--font-mono);
-    font-size: var(--text-meta);
-    letter-spacing: var(--tracking-vwide);
-    line-height: var(--leading-short);
-    text-transform: uppercase;
-  }
-</style>
