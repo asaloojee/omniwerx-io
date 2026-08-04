@@ -54,7 +54,6 @@ html {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
 	background-color: var(--black--primary);
-	overscroll-behavior: none;
 }
 
 body {
@@ -154,10 +153,13 @@ nav {
 
 /* Hero Styles */
 #hero {
-	padding-block: 8rem;
+	display: grid;
+	grid-template-rows: 1fr auto auto auto 1fr;
+	min-height: calc(100dvh - 4rem);
 }
 
 h1 {
+	grid-row: 2;
 	font-family: var(--font-sans);
 	color: var(--white--primary);
 	font-weight: 700;
@@ -167,6 +169,7 @@ h1 {
 }
 
 .hero__lead {
+	grid-row: 3;
 	padding-block: 3rem 4rem;
 	font-family: var(--font-sans);
 	font-weight: 300;
@@ -174,5 +177,17 @@ h1 {
 	letter-spacing: var(--tracking-wide);
 	font-size: 1.5rem;
 	text-wrap: pretty;
-	max-width: 40rem;
+	max-width: 44rem;
+}
+
+.hero__lead strong {
+	font-weight: 500;
+	color: var(--white--primary);
+}
+
+.accent-button.accent-button--primary {
+	grid-row: 4;
+	padding: 0.75rem 1.5rem;
+	min-width: 12rem;
+	justify-self: start;
 }
