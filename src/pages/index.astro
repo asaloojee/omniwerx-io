@@ -2,6 +2,8 @@
 import "../styles/global.css";
 import Divider from "../components/Divider.astro";
 import Spacer from "../components/Spacer.astro";
+import checkCutoutAccent from "../assets/icons/check--cutout-accent.svg";
+import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
 ---
 
 <!doctype html>
@@ -14,12 +16,12 @@ import Spacer from "../components/Spacer.astro";
   <body>
     <header>
       <nav>
-        <a href="/" class="nav__img-link">
+        <a href="/" class="nav__img-link" aria-label="Omniwerx home">
           <img src="/wordmark.svg" alt="" class="nav__img" />
         </a>
         <div class="nav__links">
-          <a href="/" class="nav__link">Services</a>
-          <a href="" class="accent-button">Contact</a>
+          <a href="#services" class="nav__link">Services</a>
+          <a href="mailto:info@omniwerx.io" class="white-button">Contact</a>
         </div>
       </nav>
     </header>
@@ -33,8 +35,9 @@ import Spacer from "../components/Spacer.astro";
           > We elevate your product and strengthen your brand through polished interfaces,
           thoughtful customer journeys, and reliable infrastructure integration.
         </p>
-        <a href="/" class="accent-button accent-button--primary"
-          >Start a project</a
+        <a
+          href="mailto:info@omniwerx.io"
+          class="accent-button accent-button--primary">Start a project</a
         >
       </section>
       <section id="work">
@@ -44,12 +47,15 @@ import Spacer from "../components/Spacer.astro";
           <article class="work__project">
             <div class="work__project__index">001</div>
             <div class="work__project__image">
-              <div
+              <img
+                src="/clients/pre-script.jpg"
+                alt="Pre-Script website"
                 class="work__project__image__asset work__project__image__asset--pre-script"
-                role="img"
-                aria-label="Pre-Script website"
-              >
-              </div>
+                width="2000"
+                height="1126"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="work__project__content">
               <p class="work__project__title">Pre-Script&reg;</p>
@@ -57,11 +63,11 @@ import Spacer from "../components/Spacer.astro";
                 An education platform for fitness professionals.
               </p>
               <div class="work__project__meta-row">
-                <p class="work__project__meta__key">Engagement</p>
+                <p class="work__project__meta__key">Engagement:</p>
                 <p class="work__project__meta__value">Retainer</p>
               </div>
               <div class="work__project__meta-row">
-                <p class="work__project__meta__key">Year</p>
+                <p class="work__project__meta__key">Year:</p>
                 <p class="work__project__meta__value">2023-Present</p>
               </div>
             </div>
@@ -70,12 +76,15 @@ import Spacer from "../components/Spacer.astro";
           <article class="work__project">
             <div class="work__project__index">002</div>
             <div class="work__project__image">
-              <div
+              <img
+                src="/clients/spoken-live.jpg"
+                alt="Spoken Live website"
                 class="work__project__image__asset work__project__image__asset--spoken-live"
-                role="img"
-                aria-label="Spoken Live website"
-              >
-              </div>
+                width="2000"
+                height="1140"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="work__project__content">
               <p class="work__project__title">Spoken Live</p>
@@ -83,11 +92,11 @@ import Spacer from "../components/Spacer.astro";
                 A registration page for a fitness networking event.
               </p>
               <div class="work__project__meta-row">
-                <p class="work__project__meta__key">Engagement</p>
+                <p class="work__project__meta__key">Engagement:</p>
                 <p class="work__project__meta__value">Project</p>
               </div>
               <div class="work__project__meta-row">
-                <p class="work__project__meta__key">Year</p>
+                <p class="work__project__meta__key">Year:</p>
                 <p class="work__project__meta__value">2026</p>
               </div>
             </div>
@@ -96,12 +105,15 @@ import Spacer from "../components/Spacer.astro";
           <article class="work__project">
             <div class="work__project__index">003</div>
             <div class="work__project__image">
-              <div
+              <img
+                src="/clients/jc-hp.jpg"
+                alt="JC Health & Performance website"
                 class="work__project__image__asset work__project__image__asset--jc-hp"
-                role="img"
-                aria-label="JC website"
-              >
-              </div>
+                width="2000"
+                height="1140"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
             <div class="work__project__content">
               <p class="work__project__title">JC Health & Performance</p>
@@ -109,18 +121,155 @@ import Spacer from "../components/Spacer.astro";
                 A brand kit & landing page for a personal trainer.
               </p>
               <div class="work__project__meta-row">
-                <p class="work__project__meta__key">Engagement</p>
+                <p class="work__project__meta__key">Engagement:</p>
                 <p class="work__project__meta__value">Project</p>
               </div>
               <div class="work__project__meta-row">
-                <p class="work__project__meta__key">Year</p>
+                <p class="work__project__meta__key">Year:</p>
                 <p class="work__project__meta__value">2025</p>
               </div>
             </div>
           </article>
         </div>
       </section>
-      <section id="services"></section>
+      <section id="services">
+        <p class="label">Services</p>
+        <h2>What an engagement looks like.</h2>
+        <div class="services__capability-row">
+          <p class="services__capability-row__item">Design</p>
+          <p class="services__capability-row__item">Development</p>
+          <p class="services__capability-row__item">Product</p>
+          <p class="services__capability-row__item">Branding</p>
+        </div>
+        <h3>Ways we can work together:</h3>
+        <div class="services__cards">
+          <div class="services__card">
+            <h4 class="services__card__title">Project</h4>
+            <div class="services__card__features">
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutPwhite.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Scope and price defined upfront</span
+                >
+              </div>
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutPwhite.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Fixed launch date</span
+                >
+              </div>
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutPwhite.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Milestone-based delivery and handoff</span
+                >
+              </div>
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutPwhite.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Best for focused work with a strict deadline</span
+                >
+              </div>
+            </div>
+            <div class="services__card__price">
+              <p class="services__card__price__tagline">Projects start at</p>
+              <p class="services__card__price__num">$7,500</p>
+            </div>
+            <a
+              href="mailto:info@omniwerx.io"
+              class="white-button white-button--primary">Discuss a project</a
+            >
+          </div>
+          <div class="services__card">
+            <h4 class="services__card__title">Retainer</h4>
+            <div class="services__card__features">
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutAccent.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Ongoing design & development support</span
+                >
+              </div>
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutAccent.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Unlimited requests in a rolling queue</span
+                >
+              </div>
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutAccent.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Flexible, custom implementation</span
+                >
+              </div>
+              <div class="services__card__feature">
+                <span class="services__card__feature__icon">
+                  <img
+                    src={checkCutoutAccent.src}
+                    alt=""
+                    class="services__card__feature__img"
+                  />
+                </span>
+                <span class="services__card__feature__text"
+                  >Best for businesses that have a backlog of work</span
+                >
+              </div>
+            </div>
+            <div class="services__card__price">
+              <p class="services__card__price__tagline">Starting at</p>
+              <p class="services__card__price__num">
+                $5,000
+                <span class="services__card__price__num-freq"> / month</span>
+              </p>
+            </div>
+            <a
+              href="mailto:info@omniwerx.io"
+              class="accent-button accent-button--primary">Discuss a retainer</a
+            >
+          </div>
+        </div>
+      </section>
     </main>
   </body>
 </html>
