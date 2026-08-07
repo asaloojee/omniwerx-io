@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Divider from "../components/Divider.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
 import Spacer from "../components/Spacer.astro";
 import checkCutoutAccent from "../assets/icons/check--cutout-accent.svg";
 import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
@@ -304,6 +305,10 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
                 >Discuss a retainer</a
               >
             </div>
+          </div>
+          <div class="services__faq">
+            <h3 class="services__faq__title">Frequently asked questions:</h3>
+            <FaqAccordion />
           </div>
         </div>
       </section>

@@ -456,23 +456,20 @@ h2 {
 .services__cards {
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
+	border-block-end: var(--rule--secondary);
 }
 
 .services__card {
 	display: flex;
 	flex-direction: column;
 	gap: 1.75rem;
-	padding: 2rem 1rem;
+	padding: 2rem 1rem 2.25rem;
 	border-inline-end: var(--rule--secondary);
 }
 
 .services__card.services__card--retainer {
 	background-color: var(--primary-red--01);
 	border-inline-end: none;
-}
-
-.services__card + .services__card {
-	border-inline-start: var(--rule--secondary);
 }
 
 .services__card__title {
@@ -541,4 +538,19 @@ h2 {
 	font-size: 1rem;
 	font-weight: 400;
 	color: var(--white--tertiary);
+}
+
+.services__faq {
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.services__faq__title {
+	padding: 1rem;
+	color: var(--white--secondary);
+	font-family: var(--font-mono);
+	font-size: var(--text-meta);
+	font-weight: 400;
+	letter-spacing: var(--tracking-vwide);
+	line-height: var(--leading-mid);
 }
