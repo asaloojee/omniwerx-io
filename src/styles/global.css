@@ -223,7 +223,7 @@ h1 {
 .white-button.white-button--primary {
 	grid-row: 4;
 	padding: 0.75rem 1.5rem;
-	min-width: 12rem;
+	min-width: 14rem;
 	justify-self: start;
 }
 
@@ -252,7 +252,7 @@ h2 {
 }
 
 .section-intro {
-	max-inline-size: 32rem;
+	max-inline-size: 36rem;
 	margin-block: 1.5rem 4rem;
 	color: var(--white--secondary);
 	text-wrap: pretty;
@@ -594,6 +594,11 @@ h2 {
 	aspect-ratio: 1;
 	border-radius: 20%;
 	object-fit: cover;
+}
+
+.about__identity {
+	display: grid;
+	gap: 0.5rem;
 }
 
 .about__name {

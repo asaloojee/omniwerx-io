@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import BlenderLogo from "../components/BlenderLogo.astro";
+import CopyEmail from "../components/CopyEmail.astro";
 import Divider from "../components/Divider.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import Footer from "../components/Footer.astro";
@@ -25,7 +26,7 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
         </a>
         <div class="nav__links">
           <a href="#services" class="nav__link">Services</a>
-          <a href="mailto:info@omniwerx.io" class="white-button">Contact</a>
+          <a href="mailto:info@omniwerx.io" class="white-button">Book a call</a>
         </div>
       </nav>
     </header>
@@ -48,8 +49,10 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
         <p class="label">Work</p>
         <h2>A selection of our projects.</h2>
         <p class="section-intro">
-          Placeholder body copy introducing the selected work and the thinking
-          behind each project.
+          Every engagement starts with a real business need and ends with a
+          polished, durable solution. These selected engagements reflect the
+          breadth of the services we offer across design, development, and
+          brand.
         </p>
         <div class="work__projects">
           <article class="work__project">
@@ -178,8 +181,11 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
         <p class="label">Services</p>
         <h2>What an engagement looks like.</h2>
         <p class="section-intro">
-          Placeholder body copy explaining how each engagement is structured
-          around the needs of the business.
+          Bring a defined project or an evolving list of priorities. We can work
+          towards a fixed launch, or provide ongoing design and development
+          support as your business grows. Not sure what you need? <InlineLink
+            href="">Book a call</InlineLink
+          >, and we'll find out.
         </p>
         <div class="services__grid">
           <div class="services__capability-row">
@@ -363,9 +369,7 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
             <figcaption class="about__identity">
               <p class="about__name">Abdurahmaan Saloojee</p>
               <p class="about__email">
-                <InlineLink href="mailto:asaloojee@omniwerx.io"
-                  >asaloojee@omniwerx.io</InlineLink
-                >
+                <CopyEmail email="asaloojee@omniwerx.io" />
               </p>
             </figcaption>
           </figure>

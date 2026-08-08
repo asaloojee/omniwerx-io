@@ -1,6 +1,4 @@
 ---
-import ClipboardIcon from "../assets/icons/clipboard.svg";
-
 interface Props {
   email: string;
 }
@@ -19,62 +17,64 @@ const { email } = Astro.props;
   <span
     class="copy-email__tooltip"
     id="copy-email-tooltip"
-    role="status"
+    role="tooltip"
     aria-live="polite"
   >
-    <svg class="copy-email__caret" viewBox="0 0 14 8" aria-hidden="true">
-      <path d="M1 8 5.9 2.2a1.45 1.45 0 0 1 2.2 0L13 8Z"></path>
-      <path d="m1 8 4.9-5.8a1.45 1.45 0 0 1 2.2 0L13 8"></path>
-    </svg>
-    <ClipboardIcon class="copy-email__icon" aria-hidden="true" />
     <span data-copy-status>Click to copy</span>
   </span>
 </span>
 
 <script>
-  const copyEmail = async (
-    copyControl: HTMLElement,
-    button: HTMLButtonElement,
-    email: string,
-  ) => {
-    const tooltip = button.nextElementSibling;
-    const status = tooltip?.querySelector("[data-copy-status]");
-
-    if (!(status instanceof HTMLElement)) return;
-
-    try {
-      await navigator.clipboard.writeText(email);
-      status.textContent = "Copied to clipboard";
-    } catch {
-      status.textContent = "Could not copy";
-    }
-
-    window.setTimeout(() => {
-      copyControl.dataset.tooltipDismissed = "";
-
-      window.setTimeout(() => {
-        status.textContent = "Click to copy";
-      }, 800);
-    }, 1800);
-  };
-
   document
     .querySelectorAll<HTMLElement>("[data-copy-email]")
     .forEach((copyControl) => {
       const button = copyControl.querySelector("button");
+      const status = copyControl.querySelector("[data-copy-status]");
       const email = copyControl.dataset.copyEmail;
+      let resetTimer: number | undefined;
 
-      if (!(button instanceof HTMLButtonElement) || !email) return;
+      if (
+        !(button instanceof HTMLButtonElement) ||
+        !(status instanceof HTMLElement) ||
+        !email
+      ) {
+        return;
+      }
 
       const resetTooltip = () => {
+        window.clearTimeout(resetTimer);
         delete copyControl.dataset.tooltipDismissed;
+        delete copyControl.dataset.tooltipFeedback;
+        status.textContent = "Click to copy";
       };
 
-      button.addEventListener("click", () =>
-        copyEmail(copyControl, button, email),
-      );
-      button.addEventListener("focus", resetTooltip);
-      copyControl.addEventListener("pointerenter", resetTooltip);
+      button.addEventListener("click", async () => {
+        window.clearTimeout(resetTimer);
+        delete copyControl.dataset.tooltipDismissed;
+
+        try {
+          await navigator.clipboard.writeText(email);
+          status.textContent = "Copied!";
+        } catch {
+          status.textContent = "Could not copy";
+        }
+
+        copyControl.dataset.tooltipFeedback = "";
+        resetTimer = window.setTimeout(() => {
+          delete copyControl.dataset.tooltipFeedback;
+          copyControl.dataset.tooltipDismissed = "";
+        }, 2000);
+      });
+
+      const resetTooltipIfIdle = () => {
+        if (!copyControl.hasAttribute("data-tooltip-feedback")) {
+          resetTooltip();
+        }
+      };
+
+      button.addEventListener("blur", resetTooltip);
+      copyControl.addEventListener("pointerenter", resetTooltipIfIdle);
+      copyControl.addEventListener("pointerleave", resetTooltipIfIdle);
     });
 </script>
 
@@ -88,17 +88,14 @@ const { email } = Astro.props;
   .copy-email__button {
     anchor-name: --about-email;
     appearance: none;
-    padding: 0.5rem 0 0 0;
+    padding: 0 0 2px;
     border: 0;
     background: transparent;
-    color: var(--body-text--emphasis);
-    font-family: var(--font-mono);
-    font-size: var(--text-meta);
-    font-weight: inherit;
-    line-height: var(--leading-short);
-    text-decoration: none;
-    box-shadow: inset 0 -1px 0 var(--body-text--emphasis);
-    box-decoration-break: clone;
+    color: var(--white--primary);
+    font: inherit;
+    font-weight: 400;
+    line-height: var(--leading-1);
+    box-shadow: inset 0 -1px 0 var(--primary-red);
     cursor: pointer;
     transition: box-shadow 800ms var(--bezier);
   }
@@ -113,82 +110,107 @@ const { email } = Astro.props;
   }
 
   .copy-email__tooltip {
+    --r: 1px;
+    --ap: 50%;
+    --ah: 0.5rem;
+    --aw: 0.5rem;
+    --shadow-highlight: rgba(255, 255, 255, 0.18);
+    --shadow-base: rgba(71, 7, 11, 0.56);
     position: absolute;
     z-index: 1;
-    inset-block-start: 100%;
+    inset-block-end: calc(100% + 0.25rem);
+    display: grid;
+    place-items: center;
     inset-inline-start: 50%;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    padding: 0.5rem 0.75rem;
-    border: var(--rule-structural);
-    background: var(--surface);
-    color: var(--body-text--emphasis);
+    padding: 0.5rem 0.75rem calc(0.5rem + var(--ah));
+    background: linear-gradient(180deg, var(--primary-red) 0%, #c90814 100%);
+    color: var(--white--secondary);
     font-family: var(--font-mono);
     font-size: 0.75rem;
+    font-weight: 600;
     line-height: var(--leading-short);
     white-space: nowrap;
+    box-shadow:
+      inset 0 1px 0 var(--shadow-highlight),
+      0 1px 0 var(--shadow-base);
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - var(--ah)),
+      calc(var(--ap) + var(--aw)) calc(100% - var(--ah)),
+      var(--ap) 100%,
+      calc(var(--ap) - var(--aw)) calc(100% - var(--ah)),
+      0 calc(100% - var(--ah))
+    );
+    border-shape: shape(
+      from var(--r) 0,
+      hline to calc(100% - var(--r)),
+      curve to right var(--r) with right top,
+      vline to calc(100% - (var(--r) + var(--ah))),
+      curve to calc(100% - var(--r)) calc(100% - var(--ah)) with right
+        calc(100% - var(--ah)),
+      hline to calc(var(--ap) + var(--aw)),
+      line by calc(var(--aw) * -1) var(--ah),
+      line by calc(var(--aw) * -1) calc(var(--ah) * -1),
+      hline to var(--r),
+      curve to left calc(100% - (var(--r) + var(--ah))) with left
+        calc(100% - var(--ah)),
+      vline to var(--r),
+      curve to var(--r) top with left top
+    );
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-    translate: -50% 0.75rem;
+    translate: -50% 0.25rem;
     transition-property: opacity, translate, visibility;
-    transition-duration: 800ms;
+    transition-duration: 160ms;
     transition-timing-function: var(--bezier);
   }
 
+  .copy-email__tooltip::before,
+  .copy-email__tooltip [data-copy-status] {
+    grid-area: 1 / 1;
+  }
+
+  .copy-email__tooltip::before {
+    content: "Click to copy";
+    visibility: hidden;
+  }
+
   .copy-email:hover .copy-email__tooltip,
-  .copy-email:focus-within .copy-email__tooltip {
+  .copy-email__button:focus-visible + .copy-email__tooltip,
+  .copy-email[data-tooltip-feedback] .copy-email__tooltip {
     opacity: 1;
     visibility: visible;
-    translate: -50% 0.75rem;
-  }
-
-  .copy-email__caret {
-    position: absolute;
-    inset-block-start: 2px;
-    inset-inline-start: 50%;
-    inline-size: 1rem;
-    block-size: 0.8rem;
-    overflow: visible;
-    translate: -50% -100%;
-  }
-
-  .copy-email__caret path:first-child {
-    fill: var(--surface);
-  }
-
-  .copy-email__caret path:last-child {
-    fill: none;
-    stroke: var(--border-color);
-    stroke-width: 1;
-    vector-effect: non-scaling-stroke;
-  }
-
-  .copy-email__icon {
-    inline-size: 1rem;
-    block-size: 1rem;
-    flex: none;
-  }
-
-  @supports (position-area: bottom) {
-    .copy-email__tooltip {
-      inset: auto;
-      position-anchor: --about-email;
-      position-area: bottom center;
-      margin-block-start: 2.25rem;
-      translate: 0 -0.125rem;
-    }
-
-    .copy-email:hover .copy-email__tooltip,
-    .copy-email:focus-within .copy-email__tooltip {
-      translate: 0 0;
-    }
+    translate: -50% 0;
   }
 
   .copy-email[data-tooltip-dismissed] .copy-email__tooltip {
     opacity: 0;
     visibility: hidden;
+  }
+
+  @supports (border-shape: circle()) {
+    .copy-email__tooltip {
+      clip-path: none;
+    }
+  }
+
+  @supports (position-area: top) {
+    .copy-email__tooltip {
+      position: fixed;
+      inset: auto;
+      position-anchor: --about-email;
+      position-area: top center;
+      margin-block-end: 0.25rem;
+      translate: 0 0.25rem;
+    }
+
+    .copy-email:hover .copy-email__tooltip,
+    .copy-email__button:focus-visible + .copy-email__tooltip,
+    .copy-email[data-tooltip-feedback] .copy-email__tooltip {
+      translate: 0 0;
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
