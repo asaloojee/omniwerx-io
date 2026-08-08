@@ -251,8 +251,11 @@ h2 {
 	letter-spacing: var(--tracking-vtight);
 }
 
-#work h2 {
-	margin-block-end: 6rem;
+.section-intro {
+	max-inline-size: 32rem;
+	margin-block: 1.5rem 4rem;
+	color: var(--white--secondary);
+	text-wrap: pretty;
 }
 
 .work__projects {
@@ -412,10 +415,6 @@ h2 {
 	padding-block: 12rem 0;
 }
 
-#services h2 {
-	padding-block-end: 6rem;
-}
-
 .services__grid {
 	border-block: var(--rule--secondary);
 }
@@ -553,4 +552,59 @@ h2 {
 	font-weight: 400;
 	letter-spacing: var(--tracking-vwide);
 	line-height: var(--leading-mid);
+}
+
+/* About Styles */
+#about {
+	padding-block: 12rem 0;
+}
+
+#about h2 {
+	padding-block-end: 6rem;
+	text-wrap: balance;
+}
+
+.about__grid {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	border-block: var(--rule--secondary);
+	align-items: flex-start;
+}
+
+.about__copy {
+	display: grid;
+	gap: 1.5rem;
+	padding: 1rem;
+	border-inline-end: var(--rule--secondary);
+}
+
+.about__profile {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	align-items: flex-start;
+	padding: 1rem;
+	border-block-end: var(--rule--secondary);
+}
+
+.about__headshot {
+	display: block;
+	inline-size: 100%;
+	block-size: auto;
+	aspect-ratio: 1;
+	border-radius: 20%;
+	object-fit: cover;
+}
+
+.about__name {
+	color: var(--white--primary);
+	font-weight: 500;
+	line-height: var(--leading-short);
+}
+
+.about__logo {
+	inline-size: min(100%, 24rem);
+	aspect-ratio: 1;
+	margin-block: 6rem;
+	margin-inline: auto;
 }

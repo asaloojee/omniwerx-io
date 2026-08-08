@@ -1,7 +1,10 @@
 ---
 import "../styles/global.css";
+import BlenderLogo from "../components/BlenderLogo.astro";
 import Divider from "../components/Divider.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
+import Footer from "../components/Footer.astro";
+import InlineLink from "../components/InlineLink.astro";
 import Spacer from "../components/Spacer.astro";
 import checkCutoutAccent from "../assets/icons/check--cutout-accent.svg";
 import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
@@ -44,6 +47,10 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
       <section id="work">
         <p class="label">Work</p>
         <h2>A selection of our projects.</h2>
+        <p class="section-intro">
+          Placeholder body copy introducing the selected work and the thinking
+          behind each project.
+        </p>
         <div class="work__projects">
           <article class="work__project">
             <div
@@ -170,6 +177,10 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
       <section id="services">
         <p class="label">Services</p>
         <h2>What an engagement looks like.</h2>
+        <p class="section-intro">
+          Placeholder body copy explaining how each engagement is structured
+          around the needs of the business.
+        </p>
         <div class="services__grid">
           <div class="services__capability-row">
             <p class="services__capability-row__item">Design</p>
@@ -293,7 +304,7 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
                 </div>
               </div>
               <div class="services__card__price">
-                <p class="services__card__price__tagline">Starting at</p>
+                <p class="services__card__price__tagline">From</p>
                 <p class="services__card__price__num">
                   $5,000
                   <span class="services__card__price__num-freq"> / month</span>
@@ -312,6 +323,58 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
           </div>
         </div>
       </section>
+      <section id="about">
+        <p class="label">About</p>
+        <h2>A principles-first approach to design and development.</h2>
+        <div class="about__grid">
+          <div class="about__copy">
+            <p>
+              I'm a designer and developer from Ottawa, Canada. I'm currently
+              working as a software engineer for <InlineLink
+                href="https://www.pre-script.com">Pre-Script&reg;</InlineLink
+              >, a fitness education company.
+            </p>
+            <p>
+              My background is in development, but I work across a number of
+              fields that are relevant for small businesses, from design to
+              development to communication.
+            </p>
+            <p>
+              I believe that your work is an expression of who you are. I value
+              precision, meticulousness, and care, and my aim is to demonstrate
+              that in the services I provide.
+            </p>
+            <p>
+              If that resonates with you, <InlineLink
+                href="mailto:asaloojee@omniwerx.io">book a call</InlineLink
+              > and let's talk.
+            </p>
+          </div>
+          <figure class="about__profile">
+            <img
+              src="/headshot.jpg"
+              alt="Portrait of Abdurahmaan Saloojee"
+              class="about__headshot"
+              width="160"
+              height="160"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="about__identity">
+              <p class="about__name">Abdurahmaan Saloojee</p>
+              <p class="about__email">
+                <InlineLink href="mailto:asaloojee@omniwerx.io"
+                  >asaloojee@omniwerx.io</InlineLink
+                >
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="about__logo">
+          <BlenderLogo />
+        </div>
+      </section>
     </main>
+    <Footer />
   </body>
 </html>

@@ -1,69 +1,22 @@
----
-import SectionCorners from "./SectionCorners.astro";
----
-
-<footer class="site-footer page-grid">
-  <div class="site-footer__row site-footer__row--first">
-    <div class="site-footer__content"></div>
-    <SectionCorners position="bottom" />
-  </div>
-  <div class="site-footer__hatched" aria-hidden="true"></div>
-  <div class="site-footer__row site-footer__row--last">
-    <div class="site-footer__content site-footer__content--copyright">
-      <p>&copy; 2026 omniwerx&trade;. All Rights Reserved.</p>
-    </div>
-    <SectionCorners position="top" />
-  </div>
+<footer class="site-footer">
+  <p>&copy; 2026 omniwerx&trade;. All rights reserved.</p>
 </footer>
 
 <style>
   .site-footer {
-    grid-template-rows: var(--divider-empty) var(--divider-hatched) var(
-        --divider-empty
-      );
-    border-block-start: var(--rule-secondary);
-  }
-
-  .site-footer__row {
-    grid-column: structure-start / structure-end;
-    position: relative;
     display: grid;
-    grid-template-columns: subgrid;
-    border-inline: var(--rule-structural);
-  }
-
-  .site-footer__row--first {
-    grid-row: 1;
-  }
-
-  .site-footer__row--last {
-    grid-row: 3;
-  }
-
-  .site-footer__content {
-    grid-column: content-start / content-end;
-    border-inline: var(--rule-secondary);
+    grid-template-columns: min(100%, 48rem);
+    justify-content: center;
     padding-inline: 1rem;
   }
 
-  .site-footer__content--copyright {
-    display: grid;
-    place-items: center;
+  .site-footer p {
+    padding-block: 1rem;
+    border-block-start: var(--rule--secondary);
+    color: var(--white--tertiary);
     font-family: var(--font-mono);
-    font-size: var(--text-meta);
-    line-height: var(--leading-short);
-    color: var(--body-text--subtle);
+    font-size: 14px;
+    line-height: var(--leading-mid);
     text-align: center;
-  }
-
-  .site-footer__hatched {
-    grid-row: 2;
-    grid-column: full-start / full-end;
-    border-block: var(--rule-structural);
-    background: repeating-linear-gradient(
-      -45deg,
-      var(--border-color--hatched) 0 1px,
-      transparent 1px 8px
-    );
   }
 </style>
