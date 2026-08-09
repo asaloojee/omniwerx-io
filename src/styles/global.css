@@ -304,15 +304,15 @@ h2 {
 .work__project__image {
 	grid-column: 2;
 	grid-row: span 2;
-	aspect-ratio: 1;
 	padding: 1rem;
 	border-inline-end: var(--rule--secondary);
 }
 
 .work__project__image__asset {
 	display: block;
-	height: 100%;
 	width: 100%;
+	height: auto;
+	aspect-ratio: 1;
 	border-radius: 20%;
 	object-fit: cover;
 }
@@ -700,7 +700,6 @@ h2 {
 	.work__project__image {
 		grid-column: 1;
 		grid-row: 2;
-		align-self: start;
 		padding: 0.75rem;
 	}
 
@@ -752,5 +751,39 @@ h2 {
 		border-block-start: 0;
 		border-inline-start: 0;
 		text-align: end;
+	}
+
+	.services__capability-row {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.services__capability-row__item:nth-child(-n + 2) {
+		border-block-end: var(--rule--secondary);
+	}
+
+	.services__capability-row__item:nth-child(even) {
+		border-inline-end: 0;
+	}
+
+	.services__cards {
+		grid-template-columns: 1fr;
+	}
+
+	.services__card {
+		border-block-end: var(--rule--secondary);
+		border-inline-end: 0;
+		padding-block: 2rem;
+	}
+
+	.services__card.services__card--retainer {
+		border-block-end: 0;
+	}
+
+	.services__faq {
+		grid-template-columns: 1fr;
+	}
+
+	.services__faq__title {
+		border-block-end: var(--rule--secondary);
 	}
 }
