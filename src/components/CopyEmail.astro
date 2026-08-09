@@ -213,6 +213,14 @@ const { email } = Astro.props;
     }
   }
 
+  @media (max-width: 768px) {
+    .copy-email__button {
+      display: inline-flex;
+      align-items: center;
+      min-block-size: 2.75rem;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .copy-email__button,
     .copy-email__tooltip {

@@ -16,6 +16,13 @@
 
 	--rule--secondary: 1px dashed var(--border-color);
 
+	/* Spacing */
+	--page-gutter: 1rem;
+	--space-section: 12rem;
+	--space-intro: 4rem;
+	--space-content: 2rem;
+	--space-brand: 6rem;
+
 	/* Type scale */
 	--text-small: 0.75rem;
 	--text-meta: 0.875rem;
@@ -80,7 +87,7 @@ main {
 
 nav,
 section {
-	padding-inline: 1rem;
+	padding-inline: var(--page-gutter);
 }
 
 .accent-button,
@@ -206,7 +213,7 @@ h1 {
 
 .hero__lead {
 	grid-row: 3;
-	padding-block: 3rem 4rem;
+	padding-block: 3rem var(--space-intro);
 	font-family: var(--font-sans);
 	font-weight: 300;
 	color: var(--white--secondary);
@@ -232,7 +239,7 @@ h1 {
 
 /* Work Styles */
 #work {
-	margin-block: 4rem 0;
+	margin-block: var(--space-intro) 0;
 }
 
 .label {
@@ -257,7 +264,7 @@ h2 {
 
 .section-intro {
 	max-inline-size: 36rem;
-	margin-block: 1.5rem 4rem;
+	margin-block: 1.5rem var(--space-intro);
 	color: var(--white--secondary);
 	text-wrap: pretty;
 }
@@ -416,7 +423,7 @@ h2 {
 
 /* Services Styles */
 #services {
-	padding-block: 12rem 0;
+	padding-block: var(--space-section) 0;
 }
 
 .services__grid {
@@ -466,7 +473,7 @@ h2 {
 	display: flex;
 	flex-direction: column;
 	gap: 1.75rem;
-	padding: 2rem 1rem;
+	padding: var(--space-content) var(--page-gutter);
 	border-inline-end: var(--rule--secondary);
 }
 
@@ -560,11 +567,11 @@ h2 {
 
 /* About Styles */
 #about {
-	padding-block: 12rem 0;
+	padding-block: var(--space-section) 0;
 }
 
 #about h2 {
-	padding-block-end: 4rem;
+	padding-block-end: var(--space-intro);
 }
 
 .about__grid {
@@ -613,6 +620,36 @@ h2 {
 .about__logo {
 	inline-size: min(100%, 24rem);
 	aspect-ratio: 1;
-	margin-block: 6rem;
+	margin-block: var(--space-brand);
 	margin-inline: auto;
+}
+
+@media (max-width: 768px) {
+	:root {
+		--text-lead: 1.125rem;
+		--text-heading: 2.25rem;
+		--text-display: 3rem;
+		--space-section: 6rem;
+		--space-intro: 2.5rem;
+		--space-content: 1.5rem;
+		--space-brand: 4rem;
+	}
+
+	h1,
+	h2 {
+		line-height: 1.1;
+	}
+
+	.nav__img-link,
+	.nav__link,
+	.accent-button,
+	.white-button {
+		min-block-size: 2.75rem;
+	}
+
+	.accent-button.accent-button--primary,
+	.white-button.white-button--primary {
+		inline-size: 100%;
+		min-width: 0;
+	}
 }
