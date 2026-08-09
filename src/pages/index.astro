@@ -1,29 +1,71 @@
 ---
+import { Image } from "astro:assets";
 import "../styles/global.css";
 import BlenderLogo from "../components/BlenderLogo.astro";
 import CopyEmail from "../components/CopyEmail.astro";
-import Divider from "../components/Divider.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import Footer from "../components/Footer.astro";
-// import HeroInspection from "../components/HeroInspection.astro";
 import InlineLink from "../components/InlineLink.astro";
-import Spacer from "../components/Spacer.astro";
 import checkCutoutAccent from "../assets/icons/check--cutout-accent.svg";
 import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
+import wordmark from "../assets/images/brand/wordmark.svg";
+import profileImage from "../assets/images/portraits/abdurahmaan-saloojee.jpg";
+import jordanShallowImage from "../assets/images/portraits/jordan-shallow.jpg";
+import socialImage from "../assets/images/social/og-image.png";
+import jcHealthPerformanceImage from "../assets/images/work/jc-health-performance.jpg";
+import preScriptImage from "../assets/images/work/pre-script.jpg";
+import spokenLiveImage from "../assets/images/work/spoken-live.jpg";
+
+const title = "Web Design & Development — Omniwerx";
+const description =
+  "Omniwerx designs and builds custom websites and digital interfaces for startups and founder-led businesses.";
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>omniwerx</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0b0a0a" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Omniwerx" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta
+      property="og:image:alt"
+      content="Omniwerx web design and development"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta
+      name="twitter:image:alt"
+      content="Omniwerx web design and development"
+    />
   </head>
   <body>
     <header>
       <nav>
         <a href="/" class="nav__img-link" aria-label="Omniwerx home">
-          <img src="/wordmark.svg" alt="" class="nav__img" />
+          <Image src={wordmark} alt="" class="nav__img" />
         </a>
         <div class="nav__links">
           <a href="#services" class="nav__link">Services</a>
@@ -33,7 +75,7 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
     </header>
     <main>
       <section id="hero">
-        <!-- <HeroInspection /> -->
+        <h1>Precision-engineered websites & interfaces.</h1>
         <p class="hero__lead">
           <strong
             >We design and build custom websites for startups and founder-led
@@ -63,8 +105,8 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
               001
             </div>
             <div class="work__project__image">
-              <img
-                src="/clients/pre-script.jpg"
+              <Image
+                src={preScriptImage}
                 alt="Pre-Script website"
                 class="image-frame work__project__image__asset work__project__image__asset--pre-script"
                 width="2000"
@@ -100,9 +142,9 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
                 </p>
               </blockquote>
               <div class="work__project__testimonial__image">
-                <img
+                <Image
                   class="image-frame work__project__testimonial__image-asset"
-                  src="/j-shallow.JPG"
+                  src={jordanShallowImage}
                   alt="Dr. Jordan Shallow"
                   width="1342"
                   height="1200"
@@ -119,8 +161,8 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
           <article class="work__project">
             <div class="work__project__index">002</div>
             <div class="work__project__image">
-              <img
-                src="/clients/spoken-live.jpg"
+              <Image
+                src={spokenLiveImage}
                 alt="Spoken Live website"
                 class="image-frame work__project__image__asset work__project__image__asset--spoken-live"
                 width="2000"
@@ -149,8 +191,8 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
           <article class="work__project">
             <div class="work__project__index">003</div>
             <div class="work__project__image">
-              <img
-                src="/clients/jc-hp.jpg"
+              <Image
+                src={jcHealthPerformanceImage}
                 alt="JC Health & Performance website"
                 class="image-frame work__project__image__asset work__project__image__asset--jc-hp"
                 width="2000"
@@ -185,7 +227,7 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
           Bring a defined project or an evolving list of priorities. We can work
           towards a fixed launch, or provide ongoing design and development
           support as your business grows. Not sure what you need? <InlineLink
-            href="">Book a call</InlineLink
+            href="mailto:info@omniwerx.io">Book a call</InlineLink
           >, and we'll find out.
         </p>
         <div class="services__grid">
@@ -353,13 +395,13 @@ import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
             </p>
             <p>
               If that resonates with you, <InlineLink
-                href="mailto:asaloojee@omniwerx.io">book a call</InlineLink
+                href="mailto:info@omniwerx.io">book a call</InlineLink
               > and let's talk.
             </p>
           </div>
           <figure class="about__profile">
-            <img
-              src="/headshot.jpg"
+            <Image
+              src={profileImage}
               alt="Portrait of Abdurahmaan Saloojee"
               class="about__headshot"
               width="160"

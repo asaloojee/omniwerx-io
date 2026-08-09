@@ -1,271 +1,71 @@
 ---
-import environmentUrl from "../assets/studio_kontrast_02_1k.hdr";
-import modelUrl from "../assets/logo-v2.glb";
+import { Image } from "astro:assets";
+import environmentUrl from "../assets/environments/studio-kontrast-02-1k.hdr";
+import logoMark from "../assets/images/brand/mark.svg";
+import modelUrl from "../assets/models/logo-v2.glb";
 ---
 
 <figure
   class="model-viewer"
   data-model-url={modelUrl}
   data-environment-url={environmentUrl}
+  role="img"
+  aria-label="Omniwerx logo"
 >
-  <canvas role="img" aria-label="Omniwerx logo"></canvas>
-  <p class="model-status" role="status">Loading 3D model…</p>
+  <Image
+    class="model-fallback"
+    src={logoMark}
+    alt=""
+    width="240"
+    height="240"
+    aria-hidden="true"
+  />
+  <canvas aria-hidden="true"></canvas>
 </figure>
 
 <script>
-  import * as THREE from "three";
-  import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
-  import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-  import { RGBELoader } from "three/addons/loaders/RGBELoader.js";
-  import { RectAreaLightUniformsLib } from "three/addons/lights/RectAreaLightUniformsLib.js";
-
-  RectAreaLightUniformsLib.init();
-
   const viewers = document.querySelectorAll<HTMLElement>(".model-viewer");
 
   for (const viewer of viewers) {
-    const canvas = viewer.querySelector<HTMLCanvasElement>("canvas");
-    const status = viewer.querySelector<HTMLElement>(".model-status");
-    const modelUrl = viewer.dataset.modelUrl;
-    const environmentUrl = viewer.dataset.environmentUrl;
+    let disposed = false;
+    let cleanup: (() => void) | undefined;
+    let observer: IntersectionObserver | undefined;
 
-    if (!canvas || !status || !modelUrl || !environmentUrl) continue;
+    const initialize = async () => {
+      observer?.disconnect();
 
-    try {
-      const renderer = new THREE.WebGLRenderer({
-        canvas,
-        alpha: true,
-        antialias: true,
-        powerPreference: "high-performance",
-      });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
-      renderer.outputColorSpace = THREE.SRGBColorSpace;
-      renderer.toneMapping = THREE.ACESFilmicToneMapping;
-      renderer.toneMappingExposure = 0.8;
-
-      const scene = new THREE.Scene();
-      scene.environmentIntensity = 0.4;
-      scene.environmentRotation.y = THREE.MathUtils.degToRad(-18);
-      const camera = new THREE.PerspectiveCamera(30, 1, 0.01, 10);
-      camera.position.setFromSpherical(
-        new THREE.Spherical(
-          1,
-          THREE.MathUtils.degToRad(74),
-          THREE.MathUtils.degToRad(26),
-        ),
-      );
-      camera.lookAt(0, 0, 0);
-
-      const interactionRoot = new THREE.Group();
-      const modelRoot = new THREE.Group();
-      modelRoot.rotation.x = THREE.MathUtils.degToRad(90);
-      interactionRoot.add(modelRoot);
-      scene.add(interactionRoot);
-
-      const keyLight = new THREE.RectAreaLight(0xffeee7, 5.5, 1.6, 1.6);
-      keyLight.position.set(-1.4, 1.6, 1.8);
-      keyLight.lookAt(0, 0, 0);
-      scene.add(keyLight);
-
-      const fillLight = new THREE.RectAreaLight(0xb8c8dc, 0.65, 1.2, 1.4);
-      fillLight.position.set(1.2, 0.3, 1.1);
-      fillLight.lookAt(0, 0, 0);
-      scene.add(fillLight);
-
-      const reduceMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)",
-      );
-      const finePointer = window.matchMedia(
-        "(hover: hover) and (pointer: fine)",
-      );
-      const maxRotationX = THREE.MathUtils.degToRad(4);
-      const maxRotationY = THREE.MathUtils.degToRad(8);
-
-      let animationFrame = 0;
-      let environment: THREE.DataTexture | undefined;
-      let model: THREE.Object3D | undefined;
-      let modelRadius = 0;
-      let previousFrameTime = 0;
-      let targetRotationX = 0;
-      let targetRotationY = 0;
-
-      const render = (time: number) => {
-        animationFrame = 0;
-        const delta = previousFrameTime
-          ? Math.min((time - previousFrameTime) / 1000, 0.05)
-          : 1 / 60;
-        previousFrameTime = time;
-
-        if (!reduceMotion.matches) {
-          interactionRoot.rotation.x = THREE.MathUtils.damp(
-            interactionRoot.rotation.x,
-            targetRotationX,
-            4.25,
-            delta,
-          );
-          interactionRoot.rotation.y = THREE.MathUtils.damp(
-            interactionRoot.rotation.y,
-            targetRotationY,
-            4.25,
-            delta,
-          );
-        }
-
-        renderer.render(scene, camera);
-
-        const isMoving =
-          Math.abs(interactionRoot.rotation.x - targetRotationX) > 0.00005 ||
-          Math.abs(interactionRoot.rotation.y - targetRotationY) > 0.00005;
-
-        if (!reduceMotion.matches && isMoving) {
-          animationFrame = requestAnimationFrame(render);
-        } else {
-          previousFrameTime = 0;
-        }
-      };
-
-      const requestRender = () => {
-        if (animationFrame) return;
-        animationFrame = requestAnimationFrame(render);
-      };
-
-      const frameCamera = () => {
-        if (!modelRadius) return;
-
-        const verticalFov = THREE.MathUtils.degToRad(camera.fov);
-        const horizontalFov =
-          2 * Math.atan(Math.tan(verticalFov / 2) * camera.aspect);
-        const fitFov = Math.min(verticalFov, horizontalFov);
-        const distance = (modelRadius / Math.sin(fitFov / 2)) * 0.98;
-
-        camera.position.setLength(distance);
-        camera.lookAt(0, 0, 0);
-        requestRender();
-      };
-
-      const dracoLoader = new DRACOLoader();
-      dracoLoader.setDecoderPath(`${import.meta.env.BASE_URL}draco/`);
-
-      const gltfLoader = new GLTFLoader();
-      gltfLoader.setDRACOLoader(dracoLoader);
-
-      const resize = () => {
-        const { width, height } = viewer.getBoundingClientRect();
-        if (!width || !height) return;
-
-        renderer.setSize(width, height, false);
-        camera.aspect = width / height;
-        camera.clearViewOffset();
-        frameCamera();
-      };
-
-      const resizeObserver = new ResizeObserver(resize);
-      resizeObserver.observe(viewer);
-      resize();
-
-      const updatePointerTarget = (event: PointerEvent) => {
-        if (!finePointer.matches || reduceMotion.matches) return;
-
-        const bounds = viewer.getBoundingClientRect();
-        const pointerX = THREE.MathUtils.clamp(
-          ((event.clientX - bounds.left) / bounds.width) * 2 - 1,
-          -1,
-          1,
+      try {
+        const { initializeBlenderLogo } = await import(
+          "../scripts/blender-logo-viewer.js"
         );
-        const pointerY = THREE.MathUtils.clamp(
-          ((event.clientY - bounds.top) / bounds.height) * 2 - 1,
-          -1,
-          1,
-        );
+        if (disposed || !viewer.isConnected) return;
+        cleanup = initializeBlenderLogo(viewer);
+      } catch {
+        // The SVG logo remains visible if WebGL cannot be initialized.
+      }
+    };
 
-        targetRotationX = pointerY * maxRotationX;
-        targetRotationY = pointerX * maxRotationY;
-        requestRender();
-      };
-
-      const resetPose = () => {
-        targetRotationX = 0;
-        targetRotationY = 0;
-        requestRender();
-      };
-
-      const handleMotionPreference = () => {
-        resetPose();
-        if (!reduceMotion.matches) return;
-        interactionRoot.rotation.set(0, 0, 0);
-      };
-
-      const handlePointerCapability = () => {
-        if (!finePointer.matches) resetPose();
-      };
-
-      viewer.addEventListener("pointerenter", updatePointerTarget);
-      viewer.addEventListener("pointermove", updatePointerTarget);
-      viewer.addEventListener("pointerleave", resetPose);
-      reduceMotion.addEventListener("change", handleMotionPreference);
-      finePointer.addEventListener("change", handlePointerCapability);
-
-      new RGBELoader().load(
-        environmentUrl,
-        (texture) => {
-          environment = texture;
-          texture.mapping = THREE.EquirectangularReflectionMapping;
-          scene.environment = texture;
-          requestRender();
+    if ("IntersectionObserver" in window) {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) void initialize();
         },
-        undefined,
-        () => {
-          // The studio lights remain as a usable fallback.
-        },
+        { rootMargin: "320px 0px", threshold: 0.01 },
       );
-
-      gltfLoader.load(
-        modelUrl,
-        (gltf) => {
-          model = gltf.scene;
-          model.updateMatrixWorld(true);
-
-          const sphere = new THREE.Box3()
-            .setFromObject(model)
-            .getBoundingSphere(new THREE.Sphere());
-          modelRadius = sphere.radius;
-          model.position.sub(sphere.center);
-          modelRoot.add(model);
-          frameCamera();
-
-          status.hidden = true;
-        },
-        undefined,
-        () => {
-          status.textContent = "The 3D model could not be loaded.";
-        },
-      );
-
-      const cleanup = () => {
-        cancelAnimationFrame(animationFrame);
-        resizeObserver.disconnect();
-        viewer.removeEventListener("pointerenter", updatePointerTarget);
-        viewer.removeEventListener("pointermove", updatePointerTarget);
-        viewer.removeEventListener("pointerleave", resetPose);
-        reduceMotion.removeEventListener("change", handleMotionPreference);
-        finePointer.removeEventListener("change", handlePointerCapability);
-        environment?.dispose();
-        dracoLoader.dispose();
-        model?.traverse((object) => {
-          if (!(object instanceof THREE.Mesh)) return;
-          object.geometry.dispose();
-          const materials = Array.isArray(object.material)
-            ? object.material
-            : [object.material];
-          for (const material of materials) material.dispose();
-        });
-        renderer.dispose();
-      };
-
-      document.addEventListener("astro:before-swap", cleanup, { once: true });
-    } catch {
-      status.textContent = "This browser cannot display the 3D model.";
+      observer.observe(viewer);
+    } else {
+      void initialize();
     }
+
+    document.addEventListener(
+      "astro:before-swap",
+      () => {
+        disposed = true;
+        observer?.disconnect();
+        cleanup?.();
+      },
+      { once: true },
+    );
   }
 </script>
 
@@ -279,20 +79,39 @@ import modelUrl from "../assets/logo-v2.glb";
     overflow: hidden;
   }
 
+  .model-fallback {
+    position: absolute;
+    inset: 50% auto auto 50%;
+    inline-size: min(62.5%, 15rem);
+    block-size: auto;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition-property: opacity, visibility;
+    transition-duration: 180ms;
+    transition-timing-function: var(--bezier);
+  }
+
   canvas {
     display: block;
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: opacity 180ms var(--bezier);
   }
 
-  .model-status {
-    position: absolute;
-    inset: 50% auto auto 50%;
-    color: var(--body-text);
-    font-family: var(--font-mono);
-    font-size: var(--text-meta);
-    letter-spacing: var(--tracking-meta);
-    text-transform: uppercase;
-    transform: translate(-50%, -50%);
+  .model-viewer[data-ready] .model-fallback {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .model-viewer[data-ready] canvas {
+    opacity: 1;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .model-fallback,
+    canvas {
+      transition-duration: 0s;
+    }
   }
 </style>
