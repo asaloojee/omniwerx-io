@@ -149,8 +149,8 @@ const { email } = Astro.props;
     --ap: 50%;
     --ah: 0.5rem;
     --aw: 0.5rem;
-    --shadow-highlight: rgba(255, 255, 255, 0.18);
-    --shadow-base: rgba(71, 7, 11, 0.56);
+    --shadow-highlight: oklch(1 0 0 / 0.18);
+    --shadow-base: oklch(0.259 0.094 27.557 / 0.56);
     position: absolute;
     z-index: 1;
     inset-block-end: calc(100% + 0.25rem);
@@ -158,8 +158,12 @@ const { email } = Astro.props;
     place-items: center;
     inset-inline-start: 50%;
     padding: 0.5rem 0.75rem calc(0.5rem + var(--ah));
-    background: linear-gradient(180deg, var(--primary-red) 0%, #c90814 100%);
-    color: var(--white--secondary);
+    background: linear-gradient(
+      180deg,
+      var(--primary-red) 0%,
+      var(--primary-red--deep) 100%
+    );
+    color: var(--white--on-accent);
     font-family: var(--font-mono);
     font-size: var(--text-small);
     font-weight: 600;

@@ -1,17 +1,23 @@
 @import "./fonts.css";
 
 :root {
-	--primary-red: #e00917;
-	--primary-red--01: rgba(224, 9, 23, 0.1);
-	--white--primary: #f5f2f3;
-	--white--secondary: #e0dede;
-	--white--tertiary: #cccaca;
-	--white--tertiary-06: RGBA(204, 202, 202, 0.6);
-	--black--primary: #060505;
-	--black--secondary: #0f0f0f;
-	--border-color: #3e3d3d;
-	--card-bg: rgba(15, 15, 15, 0.8);
-	--card-bg--accent: rgba(224, 9, 23, 0.2);
+	/* Accent */
+	--primary-red: oklch(0.572 0.231 27.557);
+	--primary-red--deep: oklch(0.528 0.212 27.557);
+
+	/* Text */
+	--white--primary: oklch(0.964 0.003 27.557);
+	--white--secondary: oklch(0.902 0.003 27.557);
+	--white--tertiary: oklch(0.841 0.003 27.557);
+	--white--on-accent: oklch(0.98 0.002 27.557);
+
+	/* Backgrounds and surfaces */
+	--black--primary: oklch(0.117 0.003 27.557);
+	--black--secondary: oklch(0.168 0.003 27.557);
+	--border-color: oklch(0.361 0.003 27.557);
+	--card-bg: oklch(0.168 0.003 27.557 / 0.8);
+	--card-bg--accent: oklch(0.572 0.231 27.557 / 0.2);
+	--white-button--deep: oklch(0.882 0.004 27.557);
 
 	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
 	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -100,8 +106,8 @@ section {
 }
 
 .image-frame {
-	--shadow-highlight: rgba(255, 255, 255, 0.12);
-	--shadow-base: rgba(0, 0, 0, 0.64);
+	--shadow-highlight: oklch(1 0 0 / 0.12);
+	--shadow-base: oklch(0 0 0 / 0.64);
 	box-shadow:
 		0 -1px 0 var(--shadow-highlight),
 		0 1px 0 var(--shadow-base);
@@ -168,21 +174,21 @@ nav {
 }
 
 .accent-button {
-	--shadow-highlight: rgba(255, 255, 255, 0.18);
-	--shadow-base: rgba(71, 7, 11, 0.56);
-	background: linear-gradient(180deg, var(--primary-red) 0%, #c90814 100%);
-	color: var(--white--secondary);
+	--shadow-highlight: oklch(1 0 0 / 0.18);
+	--shadow-base: oklch(0.259 0.094 27.557 / 0.56);
+	background: linear-gradient(180deg, var(--primary-red) 0%, var(--primary-red--deep) 100%);
+	color: var(--white--on-accent);
 }
 
 .white-button {
-	--shadow-highlight: rgba(255, 255, 255, 0.72);
-	--shadow-base: rgba(204, 202, 202, 0.32);
-	background: linear-gradient(180deg, var(--white--primary) 0%, #dad7d8 100%);
+	--shadow-highlight: oklch(1 0 0 / 0.72);
+	--shadow-base: oklch(0.841 0.003 27.557 / 0.32);
+	background: linear-gradient(180deg, var(--white--primary) 0%, var(--white-button--deep) 100%);
 	color: var(--black--primary);
 }
 
 .accent-button:hover {
-	color: var(--white--primary);
+	color: var(--white--on-accent);
 }
 
 .white-button:hover {
@@ -191,7 +197,7 @@ nav {
 
 .accent-button:focus-visible,
 .white-button:focus-visible {
-	outline: 1px solid rgba(245, 242, 243, 0.45);
+	outline: 1px solid oklch(0.964 0.003 27.557 / 0.45);
 	outline-offset: 2px;
 }
 
