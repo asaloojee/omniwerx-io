@@ -19,7 +19,6 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
-    "sharp": "^0.35.3",
     "vite": "catalog:",
     "vite-plus": "catalog:",
     "wrangler": "^4.103.0"

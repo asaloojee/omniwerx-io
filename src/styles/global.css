@@ -615,14 +615,12 @@ h2 {
 .about__profile {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
 	align-items: flex-start;
-	padding: 1rem 1rem 0;
-	border-block-end: var(--rule--secondary);
 }
 
 .about__image {
 	inline-size: 100%;
+	padding: 1rem;
 	border-block-end: var(--rule--secondary);
 }
 
@@ -637,6 +635,8 @@ h2 {
 
 .about__identity {
 	display: grid;
+	padding: 1rem 1rem 0;
+	border-block-end: var(--rule--secondary);
 }
 
 .about__name {
@@ -661,7 +661,7 @@ h2 {
 		--text-lead: 1.125rem;
 		--text-heading: 2.25rem;
 		--text-display: 3rem;
-		--space-section: 6rem;
+		--space-section: 8rem;
 		--space-intro: 2.5rem;
 		--space-content: 1.5rem;
 		--space-brand: 4rem;
@@ -859,6 +859,7 @@ h2 {
 		min-inline-size: 0;
 		gap: 0;
 		padding: var(--space-grid-cell);
+		border-block-end: none;
 	}
 
 	.about__logo {
