@@ -478,12 +478,12 @@ h2 {
 .services__grid__title {
 	padding: 1rem;
 	border-block-end: var(--rule--secondary);
-	color: var(--white--secondary);
-	font-family: var(--font-mono);
-	font-size: var(--text-meta);
-	font-weight: 400;
-	letter-spacing: var(--tracking-vwide);
-	line-height: var(--leading-1);
+	color: var(--white--primary);
+	font-family: var(--font-sans);
+	font-size: var(--text-title);
+	font-weight: 500;
+	letter-spacing: var(--tracking-tight);
+	line-height: var(--leading-short);
 }
 
 .services__cards {
@@ -508,8 +508,8 @@ h2 {
 
 .services__card__title {
 	font-family: var(--font-sans);
-	font-size: var(--text-title);
-	letter-spacing: var(--tracking-tight);
+	font-size: 1.75rem;
+	letter-spacing: var(--tracking-vtight);
 	color: var(--white--primary);
 	font-weight: 500;
 	line-height: var(--leading-short);
@@ -581,12 +581,12 @@ h2 {
 
 .services__faq__title {
 	padding: 1rem;
-	color: var(--white--secondary);
-	font-family: var(--font-mono);
-	font-size: var(--text-meta);
-	font-weight: 400;
-	letter-spacing: var(--tracking-vwide);
-	line-height: var(--leading-mid);
+	color: var(--white--primary);
+	font-family: var(--font-sans);
+	font-size: var(--text-title);
+	font-weight: 500;
+	letter-spacing: var(--tracking-tight);
+	line-height: var(--leading-short);
 }
 
 /* About Styles */
@@ -665,6 +665,8 @@ h2 {
 		--space-intro: 2.5rem;
 		--space-content: 1.5rem;
 		--space-brand: 4rem;
+		--space-grid-cell: 0.75rem;
+		--space-grid-emphasis: 2rem;
 	}
 
 	h1,
@@ -702,36 +704,43 @@ h2 {
 	}
 
 	.work__project {
-		grid-template-columns: clamp(8rem, 40vw, 9.5rem) minmax(0, 1fr);
+		grid-template-columns: auto minmax(0, 1fr);
 		grid-template-rows: auto auto auto;
 	}
 
 	.work__project__index {
-		grid-column: 1 / -1;
+		grid-column: 1;
+		grid-row: 1 / span 3;
+		padding: var(--space-grid-cell);
+		border-inline-end: var(--rule--secondary);
+	}
+
+	.work__project__index--with-testimonial {
+		grid-row: 1 / span 4;
+	}
+
+	.work__project__image {
+		grid-column: 2;
 		grid-row: 1;
-		padding: 2rem 0.75rem 0.75rem;
+		padding: var(--space-grid-cell);
 		border-block-end: var(--rule--secondary);
 		border-inline-end: 0;
 	}
 
-	.work__project__image {
-		grid-column: 1;
-		grid-row: 2;
-		padding: 0.75rem;
+	.work__project__image__asset {
+		max-width: 16rem;
 	}
 
 	.work__project__summary {
 		grid-column: 2;
 		grid-row: 2;
-		padding: 0.75rem;
-		border-block-end: 0;
+		padding: var(--space-grid-cell);
 	}
 
 	.work__project__metadata {
-		grid-column: 1 / -1;
+		grid-column: 2;
 		grid-row: 3;
-		padding: 0.75rem;
-		border-block-start: var(--rule--secondary);
+		padding: var(--space-grid-cell);
 	}
 
 	.work__project__meta-row {
@@ -739,21 +748,22 @@ h2 {
 	}
 
 	.work__project__testimonial {
-		grid-column: 1 / -1;
+		grid-column: 2;
+		grid-row: 4;
 		grid-template-columns: minmax(0, 1fr) 5.5rem;
 	}
 
 	.work__project__testimonial__quote {
 		grid-column: 1 / -1;
 		grid-row: auto;
-		padding: 0.75rem;
+		padding: var(--space-grid-cell);
 		border-block-end: var(--rule--secondary);
 	}
 
 	.work__project__testimonial__image {
 		grid-column: 2;
 		justify-content: flex-end;
-		padding: 0.75rem;
+		padding: var(--space-grid-cell);
 		border-inline-start: var(--rule--secondary);
 	}
 
@@ -764,7 +774,7 @@ h2 {
 		flex-direction: column;
 		align-items: flex-end;
 		justify-content: center;
-		padding: 0.75rem;
+		padding: var(--space-grid-cell);
 		border-block-start: 0;
 		border-inline-start: 0;
 		text-align: end;
@@ -772,6 +782,10 @@ h2 {
 
 	.services__capability-row {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.services__capability-row__item {
+		padding: var(--space-grid-cell);
 	}
 
 	.services__capability-row__item:nth-child(-n + 2) {
@@ -782,6 +796,11 @@ h2 {
 		border-inline-end: 0;
 	}
 
+	.services__grid__title,
+	.services__faq__title {
+		padding: var(--space-grid-cell);
+	}
+
 	.services__cards {
 		grid-template-columns: 1fr;
 	}
@@ -789,7 +808,7 @@ h2 {
 	.services__card {
 		border-block-end: var(--rule--secondary);
 		border-inline-end: 0;
-		padding-block: 2rem;
+		padding: var(--space-grid-emphasis) var(--space-grid-cell);
 	}
 
 	.services__card.services__card--retainer {
@@ -809,7 +828,7 @@ h2 {
 	}
 
 	.about__copy {
-		padding: 0.75rem;
+		padding: var(--space-grid-cell);
 		border-inline-end: 0;
 	}
 
@@ -826,7 +845,7 @@ h2 {
 	.about__image {
 		display: flex;
 		align-items: center;
-		padding: 0.75rem;
+		padding: var(--space-grid-cell);
 		border-block-end: 0;
 		border-inline-end: var(--rule--secondary);
 	}
@@ -839,7 +858,7 @@ h2 {
 		align-content: flex-start;
 		min-inline-size: 0;
 		gap: 0;
-		padding: 0.75rem;
+		padding: var(--space-grid-cell);
 	}
 
 	.about__logo {
