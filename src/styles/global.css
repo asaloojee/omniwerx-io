@@ -17,7 +17,6 @@
 	--border-color: oklch(0.361 0.003 27.557);
 	--card-bg: oklch(0.155 0.006 27.557);
 	--card-bg--accent: oklch(0.235 0.055 27.557);
-	--card-accent-edge: oklch(0.572 0.231 27.557 / 0.45);
 	--white-button--deep: oklch(0.882 0.004 27.557);
 
 	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
@@ -647,9 +646,9 @@ h2 {
 }
 
 .about__logo {
-	inline-size: min(100%, 24rem);
+	inline-size: min(100%, 30rem);
 	aspect-ratio: 1;
-	margin-block: var(--space-brand);
+	margin-block: var(--space-brand) 2rem;
 	margin-inline: auto;
 }
 
