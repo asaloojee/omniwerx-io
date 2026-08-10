@@ -10,6 +10,8 @@
 	--black--primary: #060505;
 	--black--secondary: #0f0f0f;
 	--border-color: #3e3d3d;
+	--card-bg: rgba(15, 15, 15, 0.8);
+	--card-bg--accent: rgba(224, 9, 23, 0.2);
 
 	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
 	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
@@ -490,10 +492,11 @@ h2 {
 	gap: 1.75rem;
 	padding: var(--space-content) var(--page-gutter);
 	border-inline-end: var(--rule--secondary);
+	background-color: var(--card-bg);
 }
 
 .services__card.services__card--retainer {
-	background-color: var(--primary-red--01);
+	background-color: var(--card-bg--accent);
 	border-inline-end: none;
 }
 
@@ -608,7 +611,12 @@ h2 {
 	flex-direction: column;
 	gap: 1rem;
 	align-items: flex-start;
-	padding: 1rem;
+	padding: 1rem 1rem 0;
+	border-block-end: var(--rule--secondary);
+}
+
+.about__image {
+	inline-size: 100%;
 	border-block-end: var(--rule--secondary);
 }
 
@@ -623,7 +631,6 @@ h2 {
 
 .about__identity {
 	display: grid;
-	gap: 0.25rem;
 }
 
 .about__name {
@@ -637,6 +644,10 @@ h2 {
 	aspect-ratio: 1;
 	margin-block: var(--space-brand);
 	margin-inline: auto;
+}
+
+.about__email {
+	line-height: var(--leading-1);
 }
 
 @media (max-width: 768px) {
@@ -785,5 +796,47 @@ h2 {
 
 	.services__faq__title {
 		border-block-end: var(--rule--secondary);
+	}
+
+	.about__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.about__copy {
+		padding: 0.75rem;
+		border-inline-end: 0;
+	}
+
+	.about__profile {
+		display: grid;
+		grid-template-columns: 6rem minmax(0, 1fr);
+		align-items: stretch;
+		gap: 0;
+		padding: 0;
+		border-block-start: var(--rule--secondary);
+		border-block-end: 0;
+	}
+
+	.about__image {
+		display: flex;
+		align-items: center;
+		padding: 0.75rem;
+		border-block-end: 0;
+		border-inline-end: var(--rule--secondary);
+	}
+
+	.about__headshot {
+		inline-size: 4.5rem;
+	}
+
+	.about__identity {
+		align-content: flex-start;
+		min-inline-size: 0;
+		gap: 0;
+		padding: 0.75rem;
+	}
+
+	.about__logo {
+		inline-size: min(75vw, 18rem);
 	}
 }

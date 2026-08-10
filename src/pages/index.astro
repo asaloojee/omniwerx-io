@@ -406,15 +406,17 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             </p>
           </div>
           <figure class="about__profile">
-            <Image
-              src={profileImage}
-              alt="Portrait of Abdurahmaan Saloojee"
-              class="about__headshot"
-              width="160"
-              height="160"
-              loading="lazy"
-              decoding="async"
-            />
+            <div class="about__image">
+              <Image
+                src={profileImage}
+                alt="Portrait of Abdurahmaan Saloojee"
+                class="about__headshot"
+                width="160"
+                height="160"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <figcaption class="about__identity">
               <p class="about__name">Abdurahmaan Saloojee</p>
               <p class="about__email">

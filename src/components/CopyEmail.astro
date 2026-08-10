@@ -12,7 +12,7 @@ const { email } = Astro.props;
     type="button"
     aria-describedby="copy-email-tooltip"
   >
-    {email}
+    <span class="copy-email__label">{email}</span>
   </button>
   <span
     class="copy-email__tooltip"
@@ -48,16 +48,38 @@ const { email } = Astro.props;
         status.textContent = "Click to copy";
       };
 
+      const copyEmail = async () => {
+        if (navigator.clipboard?.writeText) {
+          try {
+            await navigator.clipboard.writeText(email);
+            return true;
+          } catch {
+            // Fall through to the selection-based fallback.
+          }
+        }
+
+        const textarea = document.createElement("textarea");
+        textarea.value = email;
+        textarea.readOnly = true;
+        textarea.style.position = "fixed";
+        textarea.style.opacity = "0";
+        document.body.append(textarea);
+        textarea.select();
+        textarea.setSelectionRange(0, email.length);
+
+        try {
+          return document.execCommand("copy");
+        } catch {
+          return false;
+        } finally {
+          textarea.remove();
+        }
+      };
+
       button.addEventListener("click", async () => {
         window.clearTimeout(resetTimer);
         delete copyControl.dataset.tooltipDismissed;
-
-        try {
-          await navigator.clipboard.writeText(email);
-          status.textContent = "Copied!";
-        } catch {
-          status.textContent = "Could not copy";
-        }
+        status.textContent = (await copyEmail()) ? "Copied!" : "Could not copy";
 
         copyControl.dataset.tooltipFeedback = "";
         resetTimer = window.setTimeout(() => {
@@ -82,25 +104,38 @@ const { email } = Astro.props;
   .copy-email {
     position: relative;
     display: inline-block;
-    line-height: var(--leading-short);
+    line-height: 0;
+    vertical-align: top;
   }
 
   .copy-email__button {
+    position: relative;
+    display: inline-flex;
+    align-items: flex-start;
+    min-inline-size: 2.75rem;
+    min-block-size: 2.75rem;
     anchor-name: --about-email;
     appearance: none;
-    padding: 0 0 2px;
+    padding: 0.5rem 0 0;
     border: 0;
     background: transparent;
     color: var(--white--tertiary);
     font-family: var(--font-mono);
     font-weight: 400;
     line-height: var(--leading-1);
-    box-shadow: inset 0 -1px 0 var(--white--primary);
     cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  .copy-email__label {
+    display: inline-block;
+    padding-block-end: 2px;
+    font-size: var(--text-meta);
+    box-shadow: inset 0 -1px 0 var(--white--primary);
     transition: box-shadow 800ms var(--bezier);
   }
 
-  .copy-email__button:hover {
+  .copy-email__button:hover .copy-email__label {
     box-shadow: inset 0 -1px 0 transparent;
   }
 
@@ -213,16 +248,8 @@ const { email } = Astro.props;
     }
   }
 
-  @media (max-width: 768px) {
-    .copy-email__button {
-      display: inline-flex;
-      align-items: center;
-      min-block-size: 2.75rem;
-    }
-  }
-
   @media (prefers-reduced-motion: reduce) {
-    .copy-email__button,
+    .copy-email__label,
     .copy-email__tooltip {
       transition-duration: 0s;
     }
