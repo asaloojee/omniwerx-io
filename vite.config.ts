@@ -8,7 +8,8 @@ export default defineConfig({
     options: { typeAware: true, typeCheck: true },
   },
   fmt: {
-    ignorePatterns: ["public/draco/**"],
+    // Oxfmt does not support Astro files; Prettier checks them in `vp run verify`.
+    ignorePatterns: ["public/draco/**", "**/*.astro"],
     useTabs: false,
     tabWidth: 2,
     overrides: [
@@ -22,5 +23,6 @@ export default defineConfig({
   },
   staged: {
     "*": "vp check --fix",
+    "*.astro": "vp exec prettier --write",
   },
 });

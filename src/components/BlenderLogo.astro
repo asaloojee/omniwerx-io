@@ -35,9 +35,8 @@ import modelUrl from "../assets/models/logo-v2.glb";
       observer?.disconnect();
 
       try {
-        const { initializeBlenderLogo } = await import(
-          "../scripts/blender-logo-viewer.js"
-        );
+        const { initializeBlenderLogo } =
+          await import("../scripts/blender-logo-viewer.js");
         if (disposed || !viewer.isConnected) return;
         cleanup = initializeBlenderLogo(viewer);
       } catch {
