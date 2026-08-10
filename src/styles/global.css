@@ -15,8 +15,9 @@
 	--black--primary: oklch(0.117 0.003 27.557);
 	--black--secondary: oklch(0.168 0.003 27.557);
 	--border-color: oklch(0.361 0.003 27.557);
-	--card-bg: oklch(0.168 0.003 27.557 / 0.8);
-	--card-bg--accent: oklch(0.572 0.231 27.557 / 0.2);
+	--card-bg: oklch(0.155 0.006 27.557);
+	--card-bg--accent: oklch(0.235 0.055 27.557);
+	--card-accent-edge: oklch(0.572 0.231 27.557 / 0.45);
 	--white-button--deep: oklch(0.882 0.004 27.557);
 
 	--font-sans: "Söhne", "Avenir Next", "Segoe UI", sans-serif;
@@ -495,7 +496,7 @@ h2 {
 .services__card {
 	display: flex;
 	flex-direction: column;
-	gap: 1.75rem;
+	gap: 1.5rem;
 	padding: var(--space-content) var(--page-gutter);
 	border-inline-end: var(--rule--secondary);
 	background-color: var(--card-bg);
@@ -562,7 +563,7 @@ h2 {
 
 .services__card__price__num {
 	font-family: var(--font-mono);
-	color: var(--white--secondary);
+	color: var(--white--primary);
 	line-height: var(--leading-1);
 	font-weight: 400;
 	font-size: var(--text-heading);
