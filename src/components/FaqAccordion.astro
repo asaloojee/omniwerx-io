@@ -1,0 +1,140 @@
+---
+import CloseIcon from "../assets/icons/close.svg";
+import OpenIcon from "../assets/icons/open.svg";
+
+const faqItems = [
+  {
+    question: "What is the monthly engagement plan?",
+    answers: [
+      "If you have a lot of ongoing work, this is a way for you to pay a flat fee for all of the items you need done instead of repeatedly scoping separate projects. We work through your requests one at a time, and you can continuously add items to the list, request revisions, or reshuffle priorities.",
+    ],
+  },
+  {
+    question: "How are one-off projects scoped and billed?",
+    answers: [
+      "First, we sit down to iron out the scope and schedule of the project and agree on a quote. Then, 50% of the payment is due up front, and 50% is due after completion. You will receive a full handoff with clearly outlined next steps.",
+    ],
+  },
+  {
+    question: "What tools do you use?",
+    answers: [
+      "Our diverse expertise covers everything from low-code platforms like Kajabi and Webflow to fully custom solutions and JavaScript frameworks. We design from scratch, then implement in the context your business is already comfortable with to reduce friction.",
+    ],
+  },
+  {
+    question: "Do you design for both mobile and desktop?",
+    answers: [
+      "Yes. Responsive design is central to our method. We believe in thorough implementation across a range of screen sizes. Websites should be polished, clean, and readable, from superwide monitors down to small phones.",
+    ],
+  },
+];
+---
+
+<div class="faq-accordion">
+  {
+    faqItems.map(({ question, answers }) => (
+      <details class="faq-item" name="faq">
+        <summary class="faq-item__summary">
+          <span>{question}</span>
+          <span class="faq-item__icons" aria-hidden="true">
+            <OpenIcon class="faq-item__icon faq-item__icon--open" />
+            <CloseIcon class="faq-item__icon faq-item__icon--close" />
+          </span>
+        </summary>
+        <div class="faq-item__answer">
+          {answers.map((answer) => (
+            <p>{answer}</p>
+          ))}
+        </div>
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  .faq-accordion {
+    grid-column: 2 / -1;
+    width: 100%;
+    border-inline-start: var(--rule--secondary);
+  }
+
+  .faq-item + .faq-item {
+    border-block-start: var(--rule--secondary);
+  }
+
+  .faq-item__summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    list-style: none;
+    color: var(--white--primary);
+    font-weight: 400;
+    line-height: var(--leading-mid);
+  }
+
+  .faq-item__summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item__summary::marker {
+    content: "";
+  }
+
+  .faq-item__icons {
+    position: relative;
+    display: grid;
+    flex: 0 0 1.5rem;
+    place-items: center;
+    inline-size: 1.5rem;
+    block-size: 1.5rem;
+  }
+
+  .faq-item__icon {
+    grid-area: 1 / 1;
+    inline-size: 1.25rem;
+    block-size: 1.25rem;
+  }
+
+  .faq-item__icon--close,
+  .faq-item[open] .faq-item__icon--open {
+    display: none;
+  }
+
+  .faq-item[open] .faq-item__icon--close {
+    display: block;
+  }
+
+  .faq-item__answer {
+    inline-size: 100%;
+    padding: 0 1rem 1.5rem;
+    color: var(--white--secondary);
+    line-height: var(--leading-tall);
+  }
+
+  .faq-item__answer p {
+    text-wrap: pretty;
+  }
+
+  .faq-item__answer p + p {
+    margin-block-start: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .faq-accordion {
+      grid-column: 1;
+      border-inline-start: 0;
+    }
+
+    .faq-item__summary {
+      min-block-size: 2.75rem;
+      padding: var(--space-grid-cell);
+    }
+
+    .faq-item__answer {
+      padding: 0 var(--space-grid-cell) var(--space-grid-cell);
+    }
+  }
+</style>

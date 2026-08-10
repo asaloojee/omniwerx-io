@@ -1,0 +1,435 @@
+---
+import { Image } from "astro:assets";
+import "../styles/global.css";
+import BlenderLogo from "../components/BlenderLogo.astro";
+import CopyEmail from "../components/CopyEmail.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import Footer from "../components/Footer.astro";
+import InlineLink from "../components/InlineLink.astro";
+import checkCutoutAccent from "../assets/icons/check--cutout-accent.svg";
+import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
+import wordmark from "../assets/images/brand/wordmark.svg";
+import profileImage from "../assets/images/portraits/abdurahmaan-saloojee.jpg";
+import jordanShallowImage from "../assets/images/portraits/jordan-shallow.jpg";
+import socialImage from "../assets/images/social/og-image.png";
+import jcHealthPerformanceImage from "../assets/images/work/jc-health-performance.jpg";
+import preScriptImage from "../assets/images/work/pre-script.jpg";
+import spokenLiveImage from "../assets/images/work/spoken-live.jpg";
+
+const title = "omniwerx: web design & development";
+const description =
+  "Omniwerx designs and builds custom websites and digital interfaces for startups and founder-led businesses.";
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
+const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="oklch(0.117 0.003 27.557)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Omniwerx" />
+    <meta property="og:locale" content="en_CA" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="2400" />
+    <meta property="og:image:height" content="1260" />
+    <meta
+      property="og:image:alt"
+      content="Omniwerx web design and development"
+    />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta
+      name="twitter:image:alt"
+      content="Omniwerx web design and development"
+    />
+  </head>
+  <body id="top">
+    <header>
+      <nav>
+        <a href="/" class="nav__img-link" aria-label="Omniwerx home">
+          <Image src={wordmark} alt="" class="nav__img" />
+        </a>
+        <div class="nav__links">
+          <a href="#services" class="nav__link">Services</a>
+          <a href="mailto:info@omniwerx.io" class="white-button">Book a call</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <h1>Precision-engineered websites & interfaces.</h1>
+        <p class="hero__lead">
+          <strong
+            >We design and build custom websites for startups and founder-led
+            businesses.</strong
+          > We elevate your product and strengthen your brand through polished interfaces,
+          thoughtful customer journeys, and reliable infrastructure integration.
+        </p>
+        <a
+          href="mailto:info@omniwerx.io"
+          class="accent-button accent-button--primary">Start a project</a
+        >
+      </section>
+      <section id="work">
+        <p class="label">Work</p>
+        <h2>A selection of our projects.</h2>
+        <p class="section-intro">
+          Every engagement starts with a real business need and ends with a
+          polished, durable solution. These selected engagements reflect the
+          breadth of the services we offer across design, development, and
+          brand.
+        </p>
+        <div class="work__projects">
+          <article class="work__project">
+            <div
+              class="work__project__index work__project__index--with-testimonial"
+            >
+              001
+            </div>
+            <div class="work__project__image">
+              <Image
+                src={preScriptImage}
+                alt="Pre-Script website"
+                class="image-frame work__project__image__asset work__project__image__asset--pre-script"
+                width="2000"
+                height="1126"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="work__project__summary">
+              <h3 class="work__project__title">Pre-Script&reg;</h3>
+              <p class="work__project__desc">
+                An education platform for fitness professionals.
+              </p>
+            </div>
+            <div class="work__project__metadata">
+              <dl>
+                <div class="work__project__meta-row">
+                  <dt>Engagement:</dt>
+                  <dd>Retainer</dd>
+                </div>
+                <div class="work__project__meta-row">
+                  <dt>Year:</dt>
+                  <dd>2023-Present</dd>
+                </div>
+              </dl>
+            </div>
+            <figure class="work__project__testimonial">
+              <blockquote class="work__project__testimonial__quote">
+                <p>
+                  “As a business owner who's dedicated to quality, having an
+                  engineer who can attend to details in both design and
+                  implementation is such a competitive advantage for my
+                  business. A truly standout service that produces standout
+                  work.”
+                </p>
+              </blockquote>
+              <div class="work__project__testimonial__image">
+                <Image
+                  class="image-frame work__project__testimonial__image-asset"
+                  src={jordanShallowImage}
+                  alt="Dr. Jordan Shallow"
+                  width="1342"
+                  height="1200"
+                />
+              </div>
+              <figcaption class="work__project__testimonial__attribution">
+                <p>Dr. Jordan Shallow</p>
+                <p class="work__project__testimonial__attribution-label">
+                  Co-founder, Pre-Script&reg;
+                </p>
+              </figcaption>
+            </figure>
+          </article>
+          <article class="work__project">
+            <div class="work__project__index">002</div>
+            <div class="work__project__image">
+              <Image
+                src={spokenLiveImage}
+                alt="Spoken Live website"
+                class="image-frame work__project__image__asset work__project__image__asset--spoken-live"
+                width="2000"
+                height="1140"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="work__project__summary">
+              <h3 class="work__project__title">Spoken Live</h3>
+              <p class="work__project__desc">
+                A registration page for a fitness networking event.
+              </p>
+            </div>
+            <div class="work__project__metadata">
+              <dl>
+                <div class="work__project__meta-row">
+                  <dt>Engagement:</dt>
+                  <dd>Project</dd>
+                </div>
+                <div class="work__project__meta-row">
+                  <dt>Year:</dt>
+                  <dd>2026</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+          <article class="work__project">
+            <div class="work__project__index">003</div>
+            <div class="work__project__image">
+              <Image
+                src={jcHealthPerformanceImage}
+                alt="JC Health & Performance website"
+                class="image-frame work__project__image__asset work__project__image__asset--jc-hp"
+                width="2000"
+                height="1140"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <div class="work__project__summary">
+              <h3 class="work__project__title">JC Health & Performance</h3>
+              <p class="work__project__desc">
+                A brand kit & landing page for a personal trainer.
+              </p>
+            </div>
+            <div class="work__project__metadata">
+              <dl>
+                <div class="work__project__meta-row">
+                  <dt>Engagement:</dt>
+                  <dd>Project</dd>
+                </div>
+                <div class="work__project__meta-row">
+                  <dt>Year:</dt>
+                  <dd>2025</dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="services">
+        <p class="label">Services</p>
+        <h2>What an engagement looks like.</h2>
+        <p class="section-intro">
+          Bring a defined project or an evolving list of priorities. We can work
+          towards a fixed launch, or provide ongoing design and development
+          support as your business grows. Not sure what you need? <InlineLink
+            href="mailto:info@omniwerx.io">Book a call</InlineLink
+          >, and we'll find out.
+        </p>
+        <div class="services__grid">
+          <div class="services__capability-row">
+            <p class="services__capability-row__item">Design</p>
+            <p class="services__capability-row__item">Development</p>
+            <p class="services__capability-row__item">Product</p>
+            <p class="services__capability-row__item">Branding</p>
+          </div>
+          <h3 class="services__grid__title">Choose an engagement model.</h3>
+          <div class="services__cards">
+            <div class="services__card">
+              <h4 class="services__card__title">Project</h4>
+              <div class="services__card__features">
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Scope and price defined upfront</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Fixed launch date</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Milestone-based delivery and handoff</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Best for focused work with a strict deadline</span
+                  >
+                </div>
+              </div>
+              <div class="services__card__price">
+                <p class="services__card__price__tagline">Projects start at</p>
+                <p class="services__card__price__num">$7,500</p>
+              </div>
+              <a
+                href="mailto:info@omniwerx.io"
+                class="white-button white-button--primary">Discuss a project</a
+              >
+            </div>
+            <div class="services__card services__card--retainer">
+              <h4 class="services__card__title">Retainer</h4>
+              <div class="services__card__features">
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutAccent.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Ongoing design & development support</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutAccent.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Unlimited requests in a rolling queue</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutAccent.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Flexible, custom implementation</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutAccent.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Best for businesses that have a backlog of work</span
+                  >
+                </div>
+              </div>
+              <div class="services__card__price">
+                <p class="services__card__price__tagline">From</p>
+                <p class="services__card__price__num">
+                  $5,000
+                  <span class="services__card__price__num-freq"> / month</span>
+                </p>
+              </div>
+              <a
+                href="mailto:info@omniwerx.io"
+                class="accent-button accent-button--primary"
+                >Discuss a retainer</a
+              >
+            </div>
+          </div>
+          <div class="services__faq">
+            <h3 class="services__faq__title">Frequently asked questions.</h3>
+            <FaqAccordion />
+          </div>
+        </div>
+      </section>
+      <section id="about">
+        <p class="label">About</p>
+        <h2>A principles-first approach to design and development.</h2>
+        <div class="about__grid">
+          <div class="about__copy">
+            <p>
+              I'm a designer and developer from Ottawa, Canada. I'm currently
+              working as a software engineer for <InlineLink
+                href="https://www.pre-script.com">Pre-Script&reg;</InlineLink
+              >, a fitness education company.
+            </p>
+            <p>
+              My background is in development, but I work across a number of
+              fields that are relevant for small businesses, from design to
+              development to communication.
+            </p>
+            <p>
+              I believe that your work is an expression of who you are. I value
+              precision, meticulousness, and care, and my aim is to demonstrate
+              that in the services I provide.
+            </p>
+            <p>
+              If that resonates with you, <InlineLink
+                href="mailto:info@omniwerx.io">book a call</InlineLink
+              > and let's talk.
+            </p>
+          </div>
+          <figure class="about__profile">
+            <div class="about__image">
+              <Image
+                src={profileImage}
+                alt="Portrait of Abdurahmaan Saloojee"
+                class="about__headshot"
+                width="160"
+                height="160"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <figcaption class="about__identity">
+              <p class="about__name">Abdurahmaan Saloojee</p>
+              <p class="about__email">
+                <CopyEmail email="asaloojee@omniwerx.io" />
+              </p>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="about__logo">
+          <BlenderLogo />
+        </div>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

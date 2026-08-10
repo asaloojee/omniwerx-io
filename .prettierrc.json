@@ -1,0 +1,13 @@
+{
+  "plugins": ["prettier-plugin-astro"],
+  "useTabs": false,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": ["*.css"],
+      "options": {
+        "useTabs": true
+      }
+    }
+  ]
+}

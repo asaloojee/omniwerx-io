@@ -1,0 +1,81 @@
+---
+import { Image } from "astro:assets";
+import "../styles/global.css";
+import Footer from "../components/Footer.astro";
+import wordmark from "../assets/images/brand/wordmark.svg";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Page Not Found — Omniwerx</title>
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="oklch(0.117 0.003 27.557)" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  </head>
+  <body id="top">
+    <header>
+      <nav>
+        <a href="/" class="nav__img-link" aria-label="Omniwerx home">
+          <Image src={wordmark} alt="" class="nav__img" />
+        </a>
+        <div class="nav__links">
+          <a href="/#services" class="nav__link">Services</a>
+          <a href="mailto:info@omniwerx.io" class="white-button">Book a call</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="not-found">
+        <p class="label">Error 404</p>
+        <h1>This page doesn’t exist.</h1>
+        <p class="not-found__message">
+          The address may be incorrect, or the page may have moved.
+        </p>
+        <nav class="not-found__links" aria-label="Helpful links">
+          <a href="/" class="accent-button accent-button--primary"
+            >Return home</a
+          >
+        </nav>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style>
+  main {
+    min-height: calc(100dvh - 9rem);
+  }
+
+  .not-found {
+    display: grid;
+    align-content: center;
+    padding-block: 6rem;
+  }
+
+  .not-found h1 {
+    grid-row: auto;
+    max-inline-size: 40rem;
+    text-wrap: balance;
+  }
+
+  .not-found__message {
+    max-inline-size: 34rem;
+    margin-block: 2rem 2.5rem;
+    color: var(--white--secondary);
+    text-wrap: pretty;
+  }
+
+  .not-found__links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 1rem 2rem;
+    padding: 0;
+  }
+</style>

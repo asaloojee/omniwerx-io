@@ -1,18 +1,28 @@
-import { sveltekit } from "@sveltejs/kit/vite";
 import { defineConfig } from "vite-plus";
 
-const ignoredPaths = [".pi-lens/**", "**/.pi-lens/**"];
-
 export default defineConfig({
-  plugins: [sveltekit()],
-  fmt: {
-    ignorePatterns: ignoredPaths,
-  },
   lint: {
-    ignorePatterns: ignoredPaths,
+    ignorePatterns: ["public/draco/**"],
+    jsPlugins: [{ name: "vite-plus", specifier: "vite-plus/oxlint-plugin" }],
+    rules: { "vite-plus/prefer-vite-plus-imports": "error" },
+    options: { typeAware: true, typeCheck: true },
   },
-  server: {
-    host: "0.0.0.0",
-    allowedHosts: ["omnx-mac"],
+  fmt: {
+    // Oxfmt does not support Astro files; Prettier checks them in `vp run verify`.
+    ignorePatterns: ["public/draco/**", "**/*.astro"],
+    useTabs: false,
+    tabWidth: 2,
+    overrides: [
+      {
+        files: ["*.css"],
+        options: {
+          useTabs: true,
+        },
+      },
+    ],
+  },
+  staged: {
+    "*": "vp check --fix",
+    "*.astro": "vp exec prettier --write",
   },
 });
