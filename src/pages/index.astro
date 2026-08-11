@@ -68,7 +68,8 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           <Image src={wordmark} alt="" class="nav__img" />
         </a>
         <div class="nav__links">
-          <a href="#services" class="nav__link">Services</a>
+          <a href="#work" class="nav__link">Work</a>
+          <a href="#about" class="nav__link">About</a>
           <a href="mailto:info@omniwerx.io" class="white-button">Book a call</a>
         </div>
       </nav>
@@ -83,9 +84,11 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           > We elevate your product and strengthen your brand through polished interfaces,
           thoughtful customer journeys, and reliable infrastructure integration.
         </p>
-        <a
-          href="mailto:info@omniwerx.io"
-          class="accent-button accent-button--primary">Start a project</a
+        <p class="hero__contact">
+          Get in touch: <CopyEmail email="info@omniwerx.io" />
+        </p>
+        <a href="#services" class="accent-button accent-button--primary"
+          >View services</a
         >
       </section>
       <section id="work">

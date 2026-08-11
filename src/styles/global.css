@@ -162,7 +162,7 @@ nav {
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	min-block-size: 2.5rem;
+	min-block-size: 2.75rem;
 	padding: 0.5rem 1rem;
 	border-radius: 1px;
 	font-family: var(--font-mono);
@@ -187,6 +187,11 @@ nav {
 	color: var(--black--primary);
 }
 
+.nav__links .white-button {
+	min-block-size: 2.5rem;
+	font-size: var(--text-meta);
+}
+
 .accent-button:hover {
 	color: var(--white--on-accent);
 }
@@ -204,7 +209,7 @@ nav {
 /* Hero Styles */
 #hero {
 	display: grid;
-	grid-template-rows: 1fr auto auto auto 1fr;
+	grid-template-rows: 1fr auto auto auto auto 1fr;
 	min-height: calc(100svh - 4rem);
 }
 
@@ -221,7 +226,7 @@ h1 {
 
 .hero__lead {
 	grid-row: 3;
-	padding-block: 3rem var(--space-intro);
+	padding-block: 3rem 1.25rem;
 	font-family: var(--font-sans);
 	font-weight: 300;
 	color: var(--white--secondary);
@@ -237,9 +242,28 @@ h1 {
 	color: var(--white--primary);
 }
 
+.hero__contact {
+	grid-row: 4;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	padding-block-end: 3rem;
+	color: var(--white--secondary);
+	font-size: var(--text-lead);
+	font-weight: 300;
+	letter-spacing: var(--tracking-wide);
+	line-height: var(--leading-1);
+	--copy-email-color: var(--white--primary);
+	--copy-email-font-family: var(--font-sans);
+	--copy-email-font-size: var(--text-lead);
+	--copy-email-font-weight: 400;
+	--copy-email-letter-spacing: var(--tracking-0);
+	--copy-email-line-height: var(--leading-1);
+}
+
 .accent-button.accent-button--primary,
 .white-button.white-button--primary {
-	grid-row: 4;
+	grid-row: 5;
 	padding: 0.75rem 1.5rem;
 	min-width: 14rem;
 	justify-self: start;
@@ -643,6 +667,7 @@ h2 {
 	color: var(--white--primary);
 	font-weight: 500;
 	line-height: var(--leading-short);
+	padding-block-end: 0.5rem;
 }
 
 .about__logo {
@@ -679,18 +704,12 @@ h2 {
 	}
 
 	#hero {
-		grid-template-rows: 0.75fr auto auto auto 1.25fr;
+		grid-template-rows: 0.75fr auto auto auto auto 1.25fr;
 		min-height: calc(100dvh - 4.75rem);
 	}
 
 	.hero__lead {
 		padding-block-start: 2rem;
-	}
-
-	.nav__img-link,
-	.accent-button,
-	.white-button {
-		min-block-size: 2.75rem;
 	}
 
 	.nav__link {

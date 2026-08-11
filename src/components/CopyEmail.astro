@@ -4,19 +4,20 @@ interface Props {
 }
 
 const { email } = Astro.props;
+const tooltipId = `copy-email-tooltip-${email.replace(/[^a-z0-9]+/gi, "-")}`;
 ---
 
-<span class="copy-email" data-copy-email={email}>
-  <button
-    class="copy-email__button"
-    type="button"
-    aria-describedby="copy-email-tooltip"
-  >
+<span
+  class="copy-email"
+  data-copy-email={email}
+  style={`--copy-email-anchor: --${tooltipId}`}
+>
+  <button class="copy-email__button" type="button" aria-describedby={tooltipId}>
     <span class="copy-email__label">{email}</span>
   </button>
   <span
     class="copy-email__tooltip"
-    id="copy-email-tooltip"
+    id={tooltipId}
     role="tooltip"
     aria-live="polite"
   >
@@ -114,15 +115,17 @@ const { email } = Astro.props;
     align-items: flex-start;
     min-inline-size: 2.75rem;
     min-block-size: 2.75rem;
-    anchor-name: --about-email;
+    anchor-name: var(--copy-email-anchor);
     appearance: none;
-    padding: 0.5rem 0 0;
+    padding: 0;
     border: 0;
     background: transparent;
-    color: var(--white--tertiary);
-    font-family: var(--font-mono);
-    font-weight: 400;
-    line-height: var(--leading-1);
+    color: var(--copy-email-color, var(--white--tertiary));
+    font-family: var(--copy-email-font-family, var(--font-mono));
+    font-size: var(--copy-email-font-size, var(--text-meta));
+    font-weight: var(--copy-email-font-weight, 400);
+    letter-spacing: var(--copy-email-letter-spacing, normal);
+    line-height: var(--copy-email-line-height, var(--leading-1));
     cursor: pointer;
     touch-action: manipulation;
   }
@@ -130,8 +133,8 @@ const { email } = Astro.props;
   .copy-email__label {
     display: inline-block;
     padding-block-end: 2px;
-    font-size: var(--text-meta);
-    box-shadow: inset 0 -1px 0 var(--white--primary);
+    font-size: inherit;
+    box-shadow: inset 0 -1px 0 var(--primary-red);
     transition: box-shadow 800ms var(--bezier);
   }
 
@@ -153,7 +156,7 @@ const { email } = Astro.props;
     --shadow-base: oklch(0.259 0.094 27.557 / 0.56);
     position: absolute;
     z-index: 1;
-    inset-block-end: calc(100% + 0.25rem);
+    inset-block-end: calc(100% + 0.125rem);
     display: grid;
     place-items: center;
     inset-inline-start: 50%;
@@ -239,9 +242,9 @@ const { email } = Astro.props;
     .copy-email__tooltip {
       position: fixed;
       inset: auto;
-      position-anchor: --about-email;
+      position-anchor: var(--copy-email-anchor);
       position-area: top center;
-      margin-block-end: 0.25rem;
+      margin-block-end: 0.125rem;
       translate: 0 0.25rem;
     }
 
