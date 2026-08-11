@@ -205,7 +205,7 @@ nav {
 #hero {
 	display: grid;
 	grid-template-rows: 1fr auto auto auto 1fr;
-	min-height: calc(100dvh - 4rem);
+	min-height: calc(100svh - 4rem);
 }
 
 h1 {
