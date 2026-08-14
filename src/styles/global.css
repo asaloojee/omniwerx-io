@@ -680,6 +680,10 @@ h2 {
 	line-height: var(--leading-1);
 }
 
+#about .copy-email__label {
+	margin-top: 0.25rem;
+}
+
 @media (max-width: 768px) {
 	:root {
 		--text-lead: 1.125rem;

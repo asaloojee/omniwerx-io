@@ -1,5 +1,6 @@
 ---
 import wordmark from "../assets/images/brand/wordmark.svg";
+import ArrowUp from "./ArrowUp.astro";
 import { getGitCommitHash } from "../scripts/git-commit.js";
 
 const commitHash = getGitCommitHash();
@@ -11,26 +12,11 @@ const commitHash = getGitCommitHash();
       <span>&copy; 2026 omniwerx&trade;</span>
       <a href="#top">
         Back to top
-        <svg
-          class="site-footer__back-icon"
-          viewBox="0 0 16 16"
-          width="16"
-          height="16"
-          fill="none"
-          aria-hidden="true"
-        >
-          <path
-            d="M4 6 8 2l4 4M8 2v12"
-            stroke="currentColor"
-            stroke-width="1.75"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            vector-effect="non-scaling-stroke"></path>
-        </svg>
+        <ArrowUp class="site-footer__back-icon" />
       </a>
     </p>
     <p class="site-footer__meta-row">
-      <span>Independent Technical Studio</span>
+      <span>Technical Studio</span>
       <span>Build <code title="Git commit">{commitHash}</code></span>
     </p>
   </div>
@@ -50,7 +36,7 @@ const commitHash = getGitCommitHash();
 
   .site-footer__meta {
     width: min(calc(100% - (2 * var(--page-gutter))), 48rem);
-    padding: 1rem;
+    padding-block: 1rem;
     border-block-end: var(--rule--secondary);
     color: var(--white--tertiary);
     font-family: var(--font-mono);
@@ -84,7 +70,7 @@ const commitHash = getGitCommitHash();
     text-decoration: none;
   }
 
-  .site-footer__back-icon {
+  :global(.site-footer__back-icon) {
     width: 1rem;
     height: 1rem;
     flex: none;

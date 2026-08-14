@@ -12,11 +12,11 @@ export default defineConfig({
       directives: [
         "default-src 'self'",
         "base-uri 'none'",
-        "connect-src 'self'",
+        "connect-src 'self' blob:",
         "font-src 'self'",
         "form-action 'self'",
         "frame-src 'none'",
-        "img-src 'self'",
+        "img-src 'self' blob:",
         "object-src 'none'",
         "worker-src 'self' blob:",
       ],
