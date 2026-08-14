@@ -12,15 +12,14 @@ const { href } = Astro.props;
 
 <style>
   .inline-link {
-    color: var(--white--primary);
-    font-size: inherit;
-    line-height: inherit;
+    color: inherit;
+    font: inherit;
     letter-spacing: inherit;
-    font-weight: 400;
     text-decoration: none;
   }
 
   .inline-link__text {
+    font-weight: 400;
     display: inline-block;
     line-height: var(--leading-1);
     box-shadow: inset 0 -1px 0 var(--primary-red);

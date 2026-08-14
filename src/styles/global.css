@@ -253,12 +253,6 @@ h1 {
 	font-weight: 300;
 	letter-spacing: var(--tracking-wide);
 	line-height: var(--leading-1);
-	--copy-email-color: var(--white--primary);
-	--copy-email-font-family: var(--font-sans);
-	--copy-email-font-size: var(--text-lead);
-	--copy-email-font-weight: 400;
-	--copy-email-letter-spacing: var(--tracking-0);
-	--copy-email-line-height: var(--leading-1);
 }
 
 .accent-button.accent-button--primary,
@@ -658,8 +652,9 @@ h2 {
 }
 
 .about__identity {
+	gap: 0.5rem;
 	display: grid;
-	padding: 1rem 1rem 0;
+	padding: 1rem;
 	border-block-end: var(--rule--secondary);
 }
 
@@ -678,10 +673,6 @@ h2 {
 
 .about__email {
 	line-height: var(--leading-1);
-}
-
-#about .copy-email__label {
-	margin-top: 0.25rem;
 }
 
 @media (max-width: 768px) {
@@ -879,7 +870,6 @@ h2 {
 	.about__identity {
 		align-content: flex-start;
 		min-inline-size: 0;
-		gap: 0;
 		padding: var(--space-grid-cell);
 		border-block-end: none;
 	}

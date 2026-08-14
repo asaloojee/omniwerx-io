@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import "../styles/global.css";
 import BlenderLogo from "../components/BlenderLogo.astro";
-import CopyEmail from "../components/CopyEmail.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import Footer from "../components/Footer.astro";
 import InlineLink from "../components/InlineLink.astro";
@@ -85,7 +84,9 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           thoughtful customer journeys, and reliable infrastructure integration.
         </p>
         <p class="hero__contact">
-          Get in touch: <CopyEmail email="info@omniwerx.io" />
+          Get in touch: <InlineLink href="mailto:info@omniwerx.io"
+            >info@omniwerx.io</InlineLink
+          >
         </p>
         <a href="#services" class="accent-button accent-button--primary"
           >View services</a
@@ -423,7 +424,9 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             <figcaption class="about__identity">
               <p class="about__name">Abdurahmaan&nbsp;Saloojee</p>
               <p class="about__email">
-                <CopyEmail email="info@omniwerx.io" />
+                <InlineLink href="mailto:info@omniwerx.io"
+                  >info@omniwerx.io</InlineLink
+                >
               </p>
             </figcaption>
           </figure>
