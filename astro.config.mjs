@@ -7,6 +7,27 @@ export default defineConfig({
   image: {
     service: passthroughImageService(),
   },
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "base-uri 'none'",
+        "connect-src 'self'",
+        "font-src 'self'",
+        "form-action 'self'",
+        "frame-src 'none'",
+        "img-src 'self'",
+        "object-src 'none'",
+        "worker-src 'self' blob:",
+      ],
+      scriptDirective: {
+        resources: ["'self'", "'wasm-unsafe-eval'"],
+      },
+      styleDirective: {
+        resources: [{ resource: "'unsafe-inline'", kind: "attribute" }],
+      },
+    },
+  },
   vite: {
     assetsInclude: ["**/*.glb", "**/*.hdr"],
   },

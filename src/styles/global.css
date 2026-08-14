@@ -667,7 +667,6 @@ h2 {
 	color: var(--white--primary);
 	font-weight: 500;
 	line-height: var(--leading-short);
-	padding-block-end: 0.5rem;
 }
 
 .about__logo {
