@@ -7,18 +7,20 @@ const commitHash = getGitCommitHash();
 ---
 
 <footer class="site-footer">
-  <div class="site-footer__meta">
-    <p class="site-footer__meta-row">
-      <span>&copy; 2026 Omniwerx&reg;</span>
-      <a href="#top">
-        Back to top
-        <ArrowUp class="site-footer__back-icon" />
-      </a>
-    </p>
-    <p class="site-footer__meta-row">
-      <span>Technical Studio</span>
-      <span>Build <code title="Git commit">{commitHash}</code></span>
-    </p>
+  <div class="site-footer__meta-wrapper">
+    <div class="site-footer__meta">
+      <p class="site-footer__meta-row">
+        <span>&copy; 2026 Omniwerx&reg;</span>
+        <a href="#top">
+          Back to top
+          <ArrowUp class="site-footer__back-icon" />
+        </a>
+      </p>
+      <p class="site-footer__meta-row">
+        <span>Technical Studio</span>
+        <span>Build <code title="Git commit">{commitHash}</code></span>
+      </p>
+    </div>
   </div>
   <div
     class="site-footer__wordmark"
@@ -34,10 +36,16 @@ const commitHash = getGitCommitHash();
     justify-items: center;
   }
 
+  .site-footer__meta-wrapper {
+    display: grid;
+    justify-items: center;
+    width: 100%;
+    border-block-end: var(--rule--secondary);
+  }
+
   .site-footer__meta {
     width: min(100%, 48rem);
     padding: 1rem;
-    border-block-end: var(--rule--secondary);
     color: var(--white--tertiary);
     font-family: var(--font-mono);
     font-size: var(--text-meta);

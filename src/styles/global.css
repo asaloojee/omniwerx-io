@@ -97,6 +97,7 @@ header {
 	position: sticky;
 	inset-block-start: 0;
 	z-index: 1;
+	border-block-end: var(--rule--secondary);
 	background-color: var(--black--primary);
 }
 
@@ -130,7 +131,6 @@ nav {
 	flex-direction: row;
 	justify-content: space-between;
 	padding-block: 1rem;
-	border-block-end: var(--rule--secondary);
 }
 
 .nav__img-link {
@@ -483,6 +483,8 @@ h2 {
 }
 
 .services__grid {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
 	border-block: var(--rule--secondary);
 }
 
@@ -510,7 +512,6 @@ h2 {
 
 .services__grid__title {
 	padding: 1rem;
-	border-block-end: var(--rule--secondary);
 	color: var(--white--primary);
 	font-family: var(--font-sans);
 	font-size: var(--text-title);
@@ -521,8 +522,10 @@ h2 {
 
 .services__cards {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	border-block-end: var(--rule--secondary);
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	justify-self: center;
+	width: min(calc(100cqw - 2 * var(--page-gutter)), 64rem);
+	border-block: var(--rule--secondary);
 }
 
 .services__card {

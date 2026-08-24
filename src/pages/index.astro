@@ -15,9 +15,9 @@ import jcHealthPerformanceImage from "../assets/images/work/jc-health-performanc
 import preScriptImage from "../assets/images/work/pre-script.jpg";
 import spokenLiveImage from "../assets/images/work/spoken-live.jpg";
 
-const title = "omniwerx®";
+const title = "Omniwerx®";
 const description =
-  "Omniwerx® designs and builds custom websites and digital interfaces for startups and founder-led businesses.";
+  "Omniwerx® designs and builds websites and digital systems for startups and founder-led businesses.";
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
 const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
 ---
@@ -77,11 +77,9 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
       <section id="hero">
         <h1>Precision-engineered websites & interfaces.</h1>
         <p class="hero__lead">
-          <strong
-            >Omniwerx&reg; designs and builds custom websites for startups and
-            founder-led businesses.</strong
-          > We elevate your product and strengthen your brand through polished interfaces,
-          thoughtful customer journeys, and reliable infrastructure integration.
+          We design and build digital experiences that connect discovery to
+          purchase by creating clearer journeys, reducing friction, and
+          integrating the systems needed to make them work.
         </p>
         <p class="hero__contact">
           Get in touch: <InlineLink href="mailto:info@omniwerx.io"
@@ -96,10 +94,10 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
         <p class="label">Work</p>
         <h2>A selection of our projects.</h2>
         <p class="section-intro">
-          Every engagement starts with a real business need and ends with a
-          polished, durable solution. These selected engagements reflect the
-          breadth of the services we offer across design, development, and
-          brand.
+          Every engagement starts by understanding the business goal and the
+          customer's journey toward it. We then identify the design,
+          development, and infrastructure needed to reduce friction and
+          facilitate the desired outcome.
         </p>
         <div class="work__projects">
           <article class="work__project">
@@ -234,9 +232,11 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
         <p class="label">Services</p>
         <h2>What an engagement looks like.</h2>
         <p class="section-intro">
-          Bring a defined project or an evolving list of priorities. We can work
-          towards a fixed launch, or provide ongoing design and development
-          support as your business grows. Not sure what you need? <InlineLink
+          We use design and development to streamline the digital journey a
+          prospective customer goes through, from acquisition and nurturing
+          through purchase and the ongoing customer experience. Audit your
+          system, deliver a project, or work through an evolving list of
+          priorities. Not sure what you need? <InlineLink
             href="mailto:info@omniwerx.io">Book a call</InlineLink
           >, and we'll find out.
         </p>
@@ -249,6 +249,67 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           </div>
           <h3 class="services__grid__title">Choose an engagement model.</h3>
           <div class="services__cards">
+            <div class="services__card">
+              <h4 class="services__card__title">Audit</h4>
+              <div class="services__card__features">
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Delivered within 1 week</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Diagnostic review of key pages and customer flows</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Prioritized action plan</span
+                  >
+                </div>
+                <div class="services__card__feature">
+                  <span class="services__card__feature__icon">
+                    <img
+                      src={checkCutoutPwhite.src}
+                      alt=""
+                      class="services__card__feature__img"
+                    />
+                  </span>
+                  <span class="services__card__feature__text"
+                    >Implementation quoted separately</span
+                  >
+                </div>
+              </div>
+              <div class="services__card__price">
+                <p class="services__card__price__tagline">Starting at</p>
+                <p class="services__card__price__num">$1,000</p>
+              </div>
+              <a
+                href="mailto:info@omniwerx.io"
+                class="white-button white-button--primary">Discuss an audit</a
+              >
+            </div>
             <div class="services__card">
               <h4 class="services__card__title">Project</h4>
               <div class="services__card__features">
@@ -302,7 +363,7 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
                 </div>
               </div>
               <div class="services__card__price">
-                <p class="services__card__price__tagline">Projects start at</p>
+                <p class="services__card__price__tagline">Starting at</p>
                 <p class="services__card__price__num">$7,500</p>
               </div>
               <a
