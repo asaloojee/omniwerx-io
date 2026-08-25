@@ -1,5 +1,5 @@
 ---
-import wordmark from "../assets/images/brand/wordmark.svg";
+import wordmark from "../assets/images/brand/wordmark-ghost.png";
 import ArrowUp from "./ArrowUp.astro";
 import { getGitCommitHash } from "../scripts/git-commit.js";
 
@@ -95,10 +95,9 @@ const commitHash = getGitCommitHash();
 
   .site-footer__wordmark {
     width: 96cqw;
-    aspect-ratio: 1047 / 146;
+    aspect-ratio: 4580 / 592;
     margin-block-start: 1rem;
     margin-block-end: 0.5rem;
-    background-color: var(--white--tertiary);
-    mask: var(--wordmark) center / contain no-repeat;
+    background: var(--wordmark) center / contain no-repeat;
   }
 </style>
