@@ -26,3 +26,6 @@ pnpm-debug.log*
 
 # wrangler
 .wrangler/
+
+# Licensed fonts are stored in private R2
+/public/fonts/
