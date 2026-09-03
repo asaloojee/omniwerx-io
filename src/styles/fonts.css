@@ -1,6 +1,9 @@
+/* Prefer an installed licensed copy; otherwise use the same-origin Worker/R2 asset. */
 @font-face {
 	font-family: "Söhne";
-	src: url("/fonts/soehne-leicht.woff2") format("woff2");
+	src:
+		local("Söhne Leicht"),
+		url("/fonts/soehne-leicht.woff2") format("woff2");
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;
@@ -11,7 +14,9 @@
 
 @font-face {
 	font-family: "Söhne";
-	src: url("/fonts/soehne-buch.woff2") format("woff2");
+	src:
+		local("Söhne"),
+		url("/fonts/soehne-buch.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -22,7 +27,9 @@
 
 @font-face {
 	font-family: "Söhne";
-	src: url("/fonts/soehne-kraftig.woff2") format("woff2");
+	src:
+		local("Söhne Kräftig"),
+		url("/fonts/soehne-kraftig.woff2") format("woff2");
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -33,7 +40,9 @@
 
 @font-face {
 	font-family: "Söhne";
-	src: url("/fonts/soehne-dreiviertelfett.woff2") format("woff2");
+	src:
+		local("Söhne Bold"),
+		url("/fonts/soehne-dreiviertelfett.woff2") format("woff2");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
@@ -44,7 +53,9 @@
 
 @font-face {
 	font-family: "Söhne Mono";
-	src: url("/fonts/soehne-mono-buch.woff2") format("woff2");
+	src:
+		local("Söhne Mono"),
+		url("/fonts/soehne-mono-buch.woff2") format("woff2");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
@@ -55,7 +66,9 @@
 
 @font-face {
 	font-family: "Söhne Mono";
-	src: url("/fonts/soehne-mono-halbfett.woff2") format("woff2");
+	src:
+		local("Söhne Mono Halbfett"),
+		url("/fonts/soehne-mono-halbfett.woff2") format("woff2");
 	font-weight: 600;
 	font-style: normal;
 	font-display: swap;
@@ -66,7 +79,9 @@
 
 @font-face {
 	font-family: "Söhne Mono";
-	src: url("/fonts/soehne-mono-dreiviertelfett.woff2") format("woff2");
+	src:
+		local("Söhne Mono Bold"),
+		url("/fonts/soehne-mono-dreiviertelfett.woff2") format("woff2");
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;

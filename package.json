@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && vp run check:font-assets",
+    "check:font-assets": "node scripts/assert-no-font-assets.mjs",
     "preview": "astro preview",
     "astro": "astro",
     "verify": "vp check && vp exec prettier --check \"**/*.astro\" && vp test --run --passWithNoTests && vp run build",
@@ -19,6 +20,7 @@
     "three": "^0.185.1"
   },
   "devDependencies": {
+    "@types/node": "^26.4.0",
     "vite": "catalog:",
     "vite-plus": "catalog:",
     "wrangler": "^4.103.0"
