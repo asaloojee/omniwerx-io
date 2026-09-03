@@ -98,6 +98,12 @@ import modelUrl from "../assets/models/logo-v2.glb";
     transition: opacity 180ms var(--bezier);
   }
 
+  @media (hover: none) and (pointer: coarse) {
+    .model-viewer {
+      touch-action: none;
+    }
+  }
+
   .model-viewer[data-ready] .model-fallback {
     opacity: 0;
     visibility: hidden;

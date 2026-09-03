@@ -45,10 +45,17 @@ function initializeBlenderLogo(viewer) {
   scene.add(fillLight);
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)");
+  const coarsePointer = window.matchMedia("(hover: none) and (pointer: coarse)");
   const maxRotationX = THREE.MathUtils.degToRad(4);
   const maxRotationY = THREE.MathUtils.degToRad(8);
+  const maxTouchRotationX = THREE.MathUtils.degToRad(12);
+  const maxTouchRotationY = THREE.MathUtils.degToRad(24);
+  const touchRotationPerPixel = THREE.MathUtils.degToRad(0.08);
   let animationFrame = 0;
+  let activeTouchPointer;
   let disposed = false;
+  let previousTouchX = 0;
+  let previousTouchY = 0;
   let environment;
   let model;
   let modelRadius = 0;
@@ -60,16 +67,17 @@ function initializeBlenderLogo(viewer) {
     const delta = previousFrameTime ? Math.min((time - previousFrameTime) / 1000, 0.05) : 1 / 60;
     previousFrameTime = time;
     if (!reduceMotion.matches) {
+      const damping = coarsePointer.matches ? 2.25 : 4.25;
       interactionRoot.rotation.x = THREE.MathUtils.damp(
         interactionRoot.rotation.x,
         targetRotationX,
-        4.25,
+        damping,
         delta,
       );
       interactionRoot.rotation.y = THREE.MathUtils.damp(
         interactionRoot.rotation.y,
         targetRotationY,
-        4.25,
+        damping,
         delta,
       );
     }
@@ -129,10 +137,51 @@ function initializeBlenderLogo(viewer) {
     targetRotationY = pointerX * maxRotationY;
     requestRender();
   };
+  const beginTouchRotation = (event) => {
+    if (
+      !coarsePointer.matches ||
+      reduceMotion.matches ||
+      event.pointerType !== "touch" ||
+      !event.isPrimary
+    ) {
+      return;
+    }
+    activeTouchPointer = event.pointerId;
+    previousTouchX = event.clientX;
+    previousTouchY = event.clientY;
+    viewer.setPointerCapture(event.pointerId);
+  };
+  const updateTouchRotation = (event) => {
+    if (event.pointerId !== activeTouchPointer) return;
+    const deltaX = event.clientX - previousTouchX;
+    const deltaY = event.clientY - previousTouchY;
+    previousTouchX = event.clientX;
+    previousTouchY = event.clientY;
+    targetRotationX = THREE.MathUtils.clamp(
+      targetRotationX + deltaY * touchRotationPerPixel,
+      -maxTouchRotationX,
+      maxTouchRotationX,
+    );
+    targetRotationY = THREE.MathUtils.clamp(
+      targetRotationY + deltaX * touchRotationPerPixel,
+      -maxTouchRotationY,
+      maxTouchRotationY,
+    );
+    requestRender();
+  };
+  const endTouchRotation = (event) => {
+    if (event.pointerId !== activeTouchPointer) return;
+    activeTouchPointer = undefined;
+    if (viewer.hasPointerCapture(event.pointerId)) viewer.releasePointerCapture(event.pointerId);
+    requestRender();
+  };
   const resetPose = () => {
     targetRotationX = 0;
     targetRotationY = 0;
     requestRender();
+  };
+  const handlePointerLeave = () => {
+    if (finePointer.matches) resetPose();
   };
   const handleMotionPreference = () => {
     resetPose();
@@ -143,8 +192,12 @@ function initializeBlenderLogo(viewer) {
     if (!finePointer.matches) resetPose();
   };
   viewer.addEventListener("pointerenter", updatePointerTarget);
+  viewer.addEventListener("pointerdown", beginTouchRotation);
   viewer.addEventListener("pointermove", updatePointerTarget);
-  viewer.addEventListener("pointerleave", resetPose);
+  viewer.addEventListener("pointermove", updateTouchRotation);
+  viewer.addEventListener("pointerleave", handlePointerLeave);
+  viewer.addEventListener("pointerup", endTouchRotation);
+  viewer.addEventListener("pointercancel", endTouchRotation);
   reduceMotion.addEventListener("change", handleMotionPreference);
   finePointer.addEventListener("change", handlePointerCapability);
   new RGBELoader().load(
@@ -183,8 +236,12 @@ function initializeBlenderLogo(viewer) {
     cancelAnimationFrame(animationFrame);
     resizeObserver.disconnect();
     viewer.removeEventListener("pointerenter", updatePointerTarget);
+    viewer.removeEventListener("pointerdown", beginTouchRotation);
     viewer.removeEventListener("pointermove", updatePointerTarget);
-    viewer.removeEventListener("pointerleave", resetPose);
+    viewer.removeEventListener("pointermove", updateTouchRotation);
+    viewer.removeEventListener("pointerleave", handlePointerLeave);
+    viewer.removeEventListener("pointerup", endTouchRotation);
+    viewer.removeEventListener("pointercancel", endTouchRotation);
     reduceMotion.removeEventListener("change", handleMotionPreference);
     finePointer.removeEventListener("change", handlePointerCapability);
     environment?.dispose();
