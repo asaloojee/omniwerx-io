@@ -10,7 +10,7 @@
     "astro": "astro",
     "verify": "vp check && vp exec prettier --check \"**/*.astro\" && vp test --run --passWithNoTests && vp run build",
     "prepare": "vp config",
-    "deploy": "pnpm run build && wrangler deploy --env production",
+    "deploy": "wrangler deploy --env production",
     "deploy:preview": "pnpm run build && wrangler deploy --env preview"
   },
   "dependencies": {
