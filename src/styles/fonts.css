@@ -2,19 +2,6 @@
 @font-face {
 	font-family: "Söhne";
 	src:
-		local("Söhne Leicht"),
-		url("/fonts/soehne-leicht.woff2") format("woff2");
-	font-weight: 300;
-	font-style: normal;
-	font-display: swap;
-	font-feature-settings:
-		"zero" 1,
-		"tnum" 1;
-}
-
-@font-face {
-	font-family: "Söhne";
-	src:
 		local("Söhne"),
 		url("/fonts/soehne-buch.woff2") format("woff2");
 	font-weight: 400;
