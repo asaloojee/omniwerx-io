@@ -95,12 +95,14 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
       <section id="work">
         <p class="label">Work</p>
         <h2>A selection of our projects.</h2>
-        <p class="section-intro">
-          Every engagement starts by understanding the business goal and the
-          customer's journey toward it. We then identify the design,
-          development, and infrastructure needed to reduce friction and
-          facilitate the desired outcome.
-        </p>
+        <div class="section-intro">
+          <p>
+            Every engagement starts by understanding the business goal and the
+            customer's journey toward it. We then identify the design,
+            development, and infrastructure needed to reduce friction and
+            facilitate the desired outcome.
+          </p>
+        </div>
         <div class="work__projects">
           <article class="work__project">
             <div
@@ -233,79 +235,22 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
       <section id="services">
         <p class="label">Services</p>
         <h2>What an engagement looks like.</h2>
-        <p class="section-intro">
-          We use design and development to streamline the digital journey a
-          prospective customer goes through, from acquisition and nurturing
-          through purchase and the ongoing customer experience. Audit your
-          system, deliver a project, or work through an evolving list of
-          priorities. Not sure what you need? <InlineLink
-            href="mailto:info@omniwerx.io">Book a call</InlineLink
-          >, and we'll find out.
-        </p>
+        <div class="section-intro">
+          <p>
+            We use design and development to streamline the digital journey a
+            prospective customer goes through, from acquisition and nurturing
+            through purchase and the ongoing customer experience. Engage us to
+            deliver a project, or work through an evolving list of priorities.
+          </p>
+          <p>
+            Not sure what you need? <InlineLink href="mailto:info@omniwerx.io"
+              >Book a call</InlineLink
+            >, and we'll find out.
+          </p>
+        </div>
         <div class="services__grid">
           <h3 class="services__grid__title">Choose an engagement model.</h3>
           <div class="services__cards">
-            <div class="services__card">
-              <h4 class="services__card__title">Audit</h4>
-              <div class="services__card__features">
-                <div class="services__card__feature">
-                  <span class="services__card__feature__icon">
-                    <img
-                      src={checkCutoutPwhite.src}
-                      alt=""
-                      class="services__card__feature__img"
-                    />
-                  </span>
-                  <span class="services__card__feature__text"
-                    >Delivered within 1 week</span
-                  >
-                </div>
-                <div class="services__card__feature">
-                  <span class="services__card__feature__icon">
-                    <img
-                      src={checkCutoutPwhite.src}
-                      alt=""
-                      class="services__card__feature__img"
-                    />
-                  </span>
-                  <span class="services__card__feature__text"
-                    >Diagnostic review of key pages and customer flows</span
-                  >
-                </div>
-                <div class="services__card__feature">
-                  <span class="services__card__feature__icon">
-                    <img
-                      src={checkCutoutPwhite.src}
-                      alt=""
-                      class="services__card__feature__img"
-                    />
-                  </span>
-                  <span class="services__card__feature__text"
-                    >Prioritized action plan</span
-                  >
-                </div>
-                <div class="services__card__feature">
-                  <span class="services__card__feature__icon">
-                    <img
-                      src={checkCutoutPwhite.src}
-                      alt=""
-                      class="services__card__feature__img"
-                    />
-                  </span>
-                  <span class="services__card__feature__text"
-                    >Implementation quoted separately</span
-                  >
-                </div>
-              </div>
-              <div class="services__card__price">
-                <p class="services__card__price__tagline">Starting at</p>
-                <p class="services__card__price__num">$1,000</p>
-              </div>
-              <a
-                href="mailto:info@omniwerx.io"
-                class="white-button white-button--primary">Discuss an audit</a
-              >
-            </div>
             <div class="services__card">
               <h4 class="services__card__title">Project</h4>
               <div class="services__card__features">

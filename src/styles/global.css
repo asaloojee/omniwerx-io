@@ -79,8 +79,6 @@ body {
 	font-size: var(--text-body);
 	line-height: var(--leading-tall);
 	letter-spacing: var(--tracking-0);
-	-webkit-font-smoothing: antialiased;
-	text-rendering: optimizeLegibility;
 	font-weight: 400;
 	margin: 0;
 	container-type: inline-size;
@@ -89,7 +87,7 @@ body {
 header,
 main {
 	display: grid;
-	grid-template-columns: min(100%, 48rem);
+	grid-template-columns: min(100%, 44rem);
 	justify-content: center;
 }
 
@@ -310,6 +308,10 @@ h2 {
 	text-wrap: pretty;
 }
 
+.section-intro p:not(:last-child) {
+	margin-block-end: 1rem;
+}
+
 .work__projects {
 	display: grid;
 	grid-template-rows: auto auto auto;
@@ -500,9 +502,9 @@ h2 {
 
 .services__cards {
 	display: grid;
-	grid-template-columns: repeat(3, minmax(0, 1fr));
+	grid-template-columns: repeat(2, minmax(0, 1fr));
 	justify-self: center;
-	width: min(calc(100cqw - 2 * var(--page-gutter)), 64rem);
+	width: min(calc(100cqw - 2 * var(--page-gutter)), 56rem);
 	border-block: var(--rule--secondary);
 }
 
