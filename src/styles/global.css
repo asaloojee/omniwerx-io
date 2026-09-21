@@ -129,6 +129,7 @@ main {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	min-block-size: 0;
+	border-block-end: var(--rule-primary);
 }
 
 .hero__content__lead,
@@ -152,4 +153,30 @@ main {
 	font-size: 1.75rem;
 	line-height: var(--leading-short);
 	text-wrap: balance;
+}
+
+#details {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+#details > *:not(:last-child) {
+	border-inline-end: var(--rule-primary);
+}
+
+.details__title {
+	padding-inline: 1rem;
+	padding-block: 1.5rem 1rem;
+	font-family: var(--font-sans);
+	font-size: 1.5rem;
+	font-weight: 500;
+	color: var(--white--primary);
+	line-height: var(--leading-1);
+	letter-spacing: var(--tracking-tight);
+}
+
+.details__text {
+	padding-inline: 1rem;
+	padding-block-end: 0.75rem;
+	text-wrap: pretty;
 }
