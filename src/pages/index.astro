@@ -62,11 +62,10 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
     />
   </head>
   <body>
-    <header></header>
     <main>
       <section id="hero">
         <div class="hero__wordmark">
-          <div class="meta-row">fig_01: <em>omnx.wordmark</em></div>
+          <div class="meta-row">omnx_01::<em>wordmark</em></div>
           <div class="hero__wordmark__container">
             <Image
               src={wordmark_embossed}
@@ -78,16 +77,17 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
         <div class="hero__content">
           <div class="hero__content__lead">
             <div class="meta-row">
-              fig_02: <em>omnx.statement</em>
+              omnx_02::<em>statement</em>
             </div>
-            <p>
-              Omniwerx&reg; is a consultancy that specializes in web design,
-              software development, and digital systems for growing businesses.
-            </p>
+            <h1>
+              Omniwerx&reg; is the development and design consultancy of
+              Abdurahmaan Saloojee, specializing in websites, product
+              interfaces, and custom software for growing businesses.
+            </h1>
           </div>
           <div class="hero__content__model">
             <div class="meta-row">
-              fig_03: <em>omnx.model</em>
+              omnx_03::<em>model</em>
             </div>
             <BlenderLogo />
           </div>
@@ -96,47 +96,63 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
       <section id="details">
         <div class="details__about">
           <div class="meta-row">
-            fig_04: <em>omnx.about</em>
+            omnx_04::<em>capabilities</em>
           </div>
-          <div class="details__title">About the Founder</div>
+          <h2 class="details__title">Websites, Interfaces, & Software</h2>
           <p class="details__text">
-            Abdurahmaan Saloojee is a developer and designer focused on product
-            and user experience. He currently works as a software engineer at <InlineLink
-              href="https://www.pre-script.com">Pre-Script&reg;</InlineLink
-            >.
+            Omniwerx&reg; builds marketing websites, product interfaces, and
+            custom software for founder-led business and small teams.
           </p>
-          <p class="details__text">
-            Through Omniwerx&reg;, he works with founder-led businesses and
-            small teams to elevate product, refine user interfaces, and build
-            solutions.
-          </p>
+          <p class="details__text">Our specialties include:</p>
+          <ul>
+            <li>Website branding</li>
+            <li>Product landing pages</li>
+            <li>Email marketing infrastructure</li>
+          </ul>
         </div>
         <div class="details__services">
           <div class="meta-row">
-            fig_05: <em>omnx.services</em>
+            omnx_5::<em>principal</em>
           </div>
-          <div class="details__title">Our Services</div>
-          <div class="details__text">
-            We offer two types of engagements: Projects & Retainers.
-          </div>
-          <div class="details__text">
-            Projects are fixed-term, scoped engagements that begin with the
-            identification of a specific problem or task and conclude with the
-            handoff of a defined deliverable.
-          </div>
-          <div class="details__text">
-            Retainers are ongoing and suited to businesses that have a backlog
-            of work with evolving properties that they want to tackle with a
-            rolling queue.
-          </div>
+          <h2 class="details__title">Abdurahmaan Saloojee</h2>
+          <p class="details__text">
+            I'm a developer and designer from Ottawa, Canada, and I care deeply
+            about product and user experience. I currently work as a software
+            engineer at Pre-Script&reg;.
+          </p>
+          <p class="details__text">
+            Through Omniwerx&reg;, I help clients establish and refine their
+            digital presence through design and implementation.
+          </p>
+          <p class="details__text">
+            <InlineLink href="mailto:asaloojee@omniwerx.io" arrow
+              >asaloojee@omniwerx.io</InlineLink
+            >
+          </p>
         </div>
         <div class="details__contact">
           <div class="meta-row">
-            fig_06: <em>omnx.contact</em>
+            omnx_06::<em>engagements</em>
           </div>
-          <div class="details__title">Contact Us</div>
+          <h2 class="details__title">Projects & Retainers</h2>
+          <p class="details__text">
+            Projects are fixed-term, scoped engagements that begin with the
+            identification of a specific problem or task and conclude with the
+            handoff of a defined deliverable.
+          </p>
+          <p class="details__text">
+            Retainers are ongoing and suited to businesses that have a backlog
+            of work with evolving properties that they want to tackle with a
+            rolling queue.
+          </p>
+          <p class="details__text">
+            <InlineLink href="mailto:info@omniwerx.io" arrow
+              >Discuss an engagement</InlineLink
+            >
+          </p>
         </div>
       </section>
     </main>
+    <Footer />
   </body>
 </html>
