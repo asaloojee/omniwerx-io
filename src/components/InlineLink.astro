@@ -37,7 +37,7 @@ const { href, arrow = false } = Astro.props;
     line-height: var(--leading-1);
     letter-spacing: inherit;
     text-decoration: none;
-    box-shadow: 0 1px 0 var(--primary-red);
+    box-shadow: 0 1px 0 var(--inline-link-underline, var(--primary-red));
     transition: box-shadow 800ms var(--bezier);
   }
 

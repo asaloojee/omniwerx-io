@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import "../styles/global.css";
 import Footer from "../components/Footer.astro";
-import wordmark from "../assets/images/brand/wordmark.svg";
+import InlineLink from "../components/InlineLink.astro";
+import notFoundImage from "../assets/images/brand/404.png";
 ---
 
 <!doctype html>
@@ -17,66 +18,79 @@ import wordmark from "../assets/images/brand/wordmark.svg";
     <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   </head>
-  <body id="top">
-    <header>
-      <nav>
-        <a href="/" class="nav__img-link" aria-label="Omniwerx® home">
-          <Image src={wordmark} alt="" class="nav__img" />
-        </a>
-        <div class="nav__links">
-          <a href="/#work" class="nav__link">Work</a>
-          <a href="/#about" class="nav__link">About</a>
-          <a href="mailto:info@omniwerx.io" class="white-button">Book a call</a>
-        </div>
-      </nav>
-    </header>
+  <body>
     <main>
       <section class="not-found">
-        <p class="label">Error 404</p>
-        <h1>This page doesn’t exist.</h1>
-        <p class="not-found__message">
-          The address may be incorrect, or the page may have moved.
-        </p>
-        <nav class="not-found__links" aria-label="Helpful links">
-          <a href="/" class="accent-button accent-button--primary"
-            >Return home</a
-          >
-        </nav>
+        <div class="meta-row">omnx_404::<em>not_found</em></div>
+        <div class="not-found__content">
+          <div class="not-found__message">
+            <h1>This page does not exist.</h1>
+            <p class="not-found__link">
+              <InlineLink href="/">Return home</InlineLink>
+            </p>
+          </div>
+          <div class="not-found__image">
+            <Image src={notFoundImage} alt="" />
+          </div>
+        </div>
       </section>
     </main>
-    <Footer />
+    <Footer utilityOnly />
   </body>
 </html>
 
 <style>
-  main {
-    min-height: calc(100dvh - 9rem);
+  body {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-block-size: 100vh;
   }
 
   .not-found {
     display: grid;
-    align-content: center;
-    padding-block: 6rem;
+    grid-template-rows: auto minmax(0, 1fr);
+    border-block-end: var(--rule-primary);
   }
 
-  .not-found h1 {
-    grid-row: auto;
-    max-inline-size: 40rem;
-    text-wrap: balance;
+  .not-found__content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .not-found__message {
-    max-inline-size: 34rem;
-    margin-block: 2rem 2.5rem;
-    color: var(--white--secondary);
-    text-wrap: pretty;
+    display: grid;
+    align-content: center;
+    padding: 1rem;
+    border-inline-end: var(--rule-vertical);
+    box-shadow: var(--rule-vertical-shadow);
   }
 
-  .not-found__links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 1rem 2rem;
+  .not-found__image {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    padding: 4rem;
+  }
+
+  .not-found h1 {
+    height: auto;
     padding: 0;
+    font-size: var(--text-heading);
+    font-weight: 700;
+    line-height: var(--leading-1);
+    letter-spacing: var(--tracking-vtight);
+  }
+
+  .not-found__link {
+    --inline-link-underline: var(--white--primary);
+    margin-block-start: 1rem;
+    color: var(--white--primary);
+    font-size: var(--text-title);
+  }
+
+  .not-found__image :global(img) {
+    display: block;
+    max-inline-size: 100%;
+    block-size: auto;
   }
 </style>
