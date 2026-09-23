@@ -15,6 +15,8 @@
 	--black--primary: oklch(0.117 0.003 27.557);
 	--black--secondary: oklch(0.168 0.003 27.557);
 	--border-color: oklch(0.361 0.003 27.557);
+	--border-color--raised: oklch(0.475 0.003 27.557);
+	--border-color--shadow: oklch(0 0 0 / 0.6);
 	--card-bg: oklch(0.155 0.006 27.557);
 	--card-bg--accent: oklch(0.235 0.055 27.557);
 	--white-button--deep: oklch(0.882 0.004 27.557);
@@ -23,6 +25,8 @@
 	--font-mono: "Söhne Mono", "SFMono-Regular", "Menlo", monospace;
 
 	--rule-primary: 1px solid var(--border-color);
+	--rule-vertical: 1px solid var(--border-color--raised);
+	--rule-vertical-shadow: 1px 0 0 var(--border-color--shadow);
 
 	/* Type scale */
 	--text-small: 0.75rem;
@@ -80,7 +84,10 @@ main {
 	display: grid;
 	grid-template-columns: calc(100cqw - 2rem);
 	justify-self: center;
-	border-inline: var(--rule-primary);
+	border-inline: var(--rule-vertical);
+	box-shadow:
+		inset 1px 0 0 var(--border-color--shadow),
+		inset -1px 0 0 var(--border-color--shadow);
 }
 
 #hero {
@@ -142,7 +149,8 @@ main {
 }
 
 .hero__content__lead {
-	border-inline-end: var(--rule-primary);
+	border-inline-end: var(--rule-vertical);
+	box-shadow: var(--rule-vertical-shadow);
 }
 
 h1 {
@@ -165,7 +173,8 @@ h1 {
 }
 
 #details > *:not(:last-child) {
-	border-inline-end: var(--rule-primary);
+	border-inline-end: var(--rule-vertical);
+	box-shadow: var(--rule-vertical-shadow);
 }
 
 h2 {

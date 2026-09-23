@@ -47,7 +47,10 @@ const commitHash = getGitCommitHash();
     display: grid;
     grid-template-columns: calc(100cqw - 2rem);
     justify-self: center;
-    border-inline: var(--rule-primary);
+    border-inline: var(--rule-vertical);
+    box-shadow:
+      inset 1px 0 0 var(--border-color--shadow),
+      inset -1px 0 0 var(--border-color--shadow);
   }
 
   footer a {
@@ -64,7 +67,8 @@ const commitHash = getGitCommitHash();
 
   .footer__socials-heading,
   .footer__links {
-    border-inline-end: var(--rule-primary);
+    border-inline-end: var(--rule-vertical);
+    box-shadow: var(--rule-vertical-shadow);
   }
 
   .footer__links {
