@@ -8,6 +8,7 @@ import checkCutoutAccent from "../assets/icons/check--cutout-accent.svg";
 import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
 import wordmark from "../assets/images/brand/wordmark.svg";
 import wordmark_embossed from "../assets/images/brand/wordmark-embossed.png";
+import wordmarkEmbossedMobile from "../assets/images/brand/wordmark-embossed--mobile.png";
 import profileImage from "../assets/images/portraits/abdurahmaan-saloojee.jpg";
 import jordanShallowImage from "../assets/images/portraits/jordan-shallow.jpg";
 import socialImage from "../assets/images/social/og-image.png";
@@ -15,6 +16,13 @@ import jcHealthPerformanceImage from "../assets/images/work/jc-health-performanc
 import preScriptImage from "../assets/images/work/pre-script.jpg";
 import spokenLiveImage from "../assets/images/work/spoken-live.jpg";
 import Image from "astro/components/Image.astro";
+import { getImage } from "astro:assets";
+
+const mobileWordmark = await getImage({
+  src: wordmarkEmbossedMobile,
+  width: 1200,
+  format: "webp",
+});
 
 const title = "Omniwerx®";
 const description =
@@ -67,11 +75,20 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
         <div class="hero__wordmark">
           <div class="meta-row">omnx_01::<em>wordmark</em></div>
           <div class="hero__wordmark__container">
-            <Image
-              src={wordmark_embossed}
-              alt="Omniwerx®"
-              class="hero__wordmark__img"
-            />
+            <picture>
+              <source
+                media="(max-width: 991px)"
+                srcset={mobileWordmark.src}
+                type="image/webp"
+                width={mobileWordmark.attributes.width}
+                height={mobileWordmark.attributes.height}
+              />
+              <Image
+                src={wordmark_embossed}
+                alt="Omniwerx®"
+                class="hero__wordmark__img"
+              />
+            </picture>
           </div>
         </div>
         <div class="hero__content">
@@ -98,17 +115,37 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           <div class="meta-row">
             omnx_04::<em>capabilities</em>
           </div>
-          <h2 class="details__title">Websites, Interfaces, & Software</h2>
-          <p class="details__text">
-            Omniwerx&reg; builds marketing websites, product interfaces, and
-            custom software for founder-led business and small teams.
-          </p>
-          <p class="details__text">Our specialties include:</p>
-          <ul>
-            <li>Website branding</li>
-            <li>Product landing pages</li>
-            <li>Email marketing infrastructure</li>
-          </ul>
+          <h2 class="details__title">The work at a glance</h2>
+          <div class="details__list">
+            <article class="details__list-item">
+              <span class="list__index">01</span>
+              <h3>Branding</h3>
+              <p>
+                This is placeholder descriptive text for the specific capability
+              </p>
+            </article>
+            <article class="details__list-item">
+              <span class="list__index">02</span>
+              <h3>Website</h3>
+              <p>
+                This is placeholder descriptive text for the specific capability
+              </p>
+            </article>
+            <article class="details__list-item">
+              <span class="list__index">03</span>
+              <h3>Product</h3>
+              <p>
+                This is placeholder descriptive text for the specific capability
+              </p>
+            </article>
+            <article class="details__list-item">
+              <span class="list__index">04</span>
+              <h3>Marketing</h3>
+              <p>
+                This is placeholder descriptive text for the specific capability
+              </p>
+            </article>
+          </div>
         </div>
         <div class="details__services">
           <div class="meta-row">
