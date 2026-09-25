@@ -14,13 +14,10 @@ const commitHash = getGitCommitHash();
           omnx_07::<em>contact</em>
         </div>
         <div class="footer__contact">
-          <div class="footer__invitation">
-            <h2>Have a project in mind?</h2>
-            <p class="footer__invitation-link">
-              <InlineLink href="mailto:asaloojee@omniwerx.io" arrow>
-                Let’s talk.
-              </InlineLink>
-            </p>
+          <div class="footer__email">
+            <InlineLink href="mailto:info@omniwerx.io" arrow>
+              info@omniwerx.io
+            </InlineLink>
           </div>
           <nav class="footer__links" aria-label="Social links">
             <a
@@ -79,6 +76,7 @@ const commitHash = getGitCommitHash();
     display: grid;
     grid-template-columns: calc(100cqw - 2rem);
     justify-self: center;
+    border-block-end: var(--rule-emphasis);
     border-inline: var(--rule-vertical);
     box-shadow:
       inset 1px 0 0 var(--border-color--shadow),
@@ -91,57 +89,35 @@ const commitHash = getGitCommitHash();
   }
 
   .footer__contact {
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: 2.5rem;
     border-block-end: var(--rule-primary);
   }
 
-  .footer__invitation {
-    padding: 4rem 1rem 4rem;
-    border-inline-end: var(--rule-vertical);
-    box-shadow: var(--rule-vertical-shadow);
-  }
-
-  .footer__invitation h2 {
-    padding: 0;
-    font-size: var(--text-heading);
-    font-weight: 700;
-    line-height: var(--leading-1);
-    letter-spacing: var(--tracking-vtight);
-    text-wrap: balance;
-  }
-
-  .footer__invitation-link {
-    margin-block-start: 1rem;
-    color: var(--white--primary);
-    font-size: var(--text-title);
+  .footer__email {
+    display: flex;
+    align-items: center;
+    padding-inline-start: 1rem;
+    font-size: 1.25rem;
   }
 
   .footer__links {
-    display: grid;
-    grid-template-rows: repeat(4, minmax(2.5rem, 1fr));
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-inline-end: 1rem;
   }
 
   .footer__links a {
     display: grid;
     place-items: center;
+    min-inline-size: 2.5rem;
+    min-block-size: 2.5rem;
     color: var(--white--primary);
     font-family: var(--font-mono);
     line-height: var(--leading-1);
-  }
-
-  .footer__links a:not(:last-child) {
-    border-block-end: var(--rule-primary);
-  }
-
-  .footer__links span {
-    padding-block-end: 2px;
-    box-shadow: 0 1px 0 var(--white--primary);
-    transition: box-shadow 800ms var(--bezier);
-  }
-
-  .footer__links a:hover span {
-    box-shadow: 0 1px 0 transparent;
   }
 
   .footer__utility {
@@ -169,7 +145,6 @@ const commitHash = getGitCommitHash();
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .footer__links span,
     .footer__utility a {
       transition: none;
     }

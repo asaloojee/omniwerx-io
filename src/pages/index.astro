@@ -180,21 +180,32 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             omnx_06::<em>engagements</em>
           </div>
           <h2 class="details__title">Projects & Retainers</h2>
-          <p class="details__text">
-            Projects are fixed-term, scoped engagements that begin with the
-            identification of a specific problem or task and conclude with the
-            handoff of a defined deliverable.
-          </p>
-          <p class="details__text">
-            Retainers are ongoing and suited to businesses that have a backlog
-            of work with evolving properties that they want to tackle with a
-            rolling queue.
-          </p>
-          <p class="details__text">
-            <InlineLink href="mailto:info@omniwerx.io" arrow
-              >Discuss an engagement</InlineLink
-            >
-          </p>
+          <article class="details__engagement">
+            <h3>Project</h3>
+            <div class="details__engagement-price">
+              <span>Starting at</span>
+              <span>$5,000</span>
+            </div>
+            <p>A focused engagement to deliver a defined piece of work.</p>
+            <p>
+              <InlineLink href="mailto:info@omniwerx.io" arrow
+                >Discuss a project</InlineLink
+              >
+            </p>
+          </article>
+          <article class="details__engagement">
+            <h3>Retainer</h3>
+            <div class="details__engagement-price">
+              <span>Monthly from</span>
+              <span>$3,000</span>
+            </div>
+            <p>Ongoing support for work that evolves over time.</p>
+            <p>
+              <InlineLink href="mailto:info@omniwerx.io" arrow
+                >Discuss a retainer</InlineLink
+              >
+            </p>
+          </article>
         </div>
       </section>
     </main>
