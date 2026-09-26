@@ -74,14 +74,13 @@ const commitHash = getGitCommitHash();
 <style>
   footer {
     display: grid;
-    grid-template-columns: calc(100cqw - 2rem);
+    grid-template-columns: min(calc(100cqw - 2rem), 1600px);
     justify-self: center;
     border-block-end: var(--rule-emphasis);
     border-inline: var(--rule-vertical);
     box-shadow:
       inset 1px 0 0 var(--border-color--shadow),
       inset -1px 0 0 var(--border-color--shadow);
-    margin-block-end: 1rem;
   }
 
   footer a {
