@@ -119,37 +119,77 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           <div class="details__list">
             <article class="details__list-item">
               <span class="list__index">01</span>
-              <h3>Branding</h3>
+              <h3>Website</h3>
               <p>
-                This is placeholder descriptive text for the specific capability
+                Building and reinforcing your web presence through branding,
+                design, and implementation.
               </p>
             </article>
             <article class="details__list-item">
               <span class="list__index">02</span>
-              <h3>Website</h3>
+              <h3>Product</h3>
               <p>
-                This is placeholder descriptive text for the specific capability
+                Refining your product through compelling sales pages and
+                thoughtful customer journeys.
               </p>
             </article>
             <article class="details__list-item">
               <span class="list__index">03</span>
-              <h3>Product</h3>
-              <p>
-                This is placeholder descriptive text for the specific capability
-              </p>
-            </article>
-            <article class="details__list-item">
-              <span class="list__index">04</span>
               <h3>Marketing</h3>
               <p>
-                This is placeholder descriptive text for the specific capability
+                Giving your product more polish, creating digital assets, and
+                supporting email marketing operations.
               </p>
             </article>
           </div>
         </div>
         <div class="details__services">
           <div class="meta-row">
-            omnx_5::<em>founder</em>
+            omnx_5::<em>engagements</em>
+          </div>
+          <h2 class="details__title">How we work together</h2>
+          <article class="details__engagement details__engagement--project">
+            <div class="details__engagement-meta">
+              <em>project</em>::fixed
+            </div>
+            <div class="details__engagement-body">
+              <p>A focused engagement to deliver a defined piece of work.</p>
+              <div class="details__engagement-footer">
+                <div class="details__engagement-price">
+                  <span>Starting at</span>
+                  <span>$5,000</span>
+                </div>
+                <p class="details__engagement-action">
+                  <InlineLink href="mailto:info@omniwerx.io" arrow
+                    >Discuss a project</InlineLink
+                  >
+                </p>
+              </div>
+            </div>
+          </article>
+          <article class="details__engagement details__engagement--retainer">
+            <div class="details__engagement-meta">
+              <em>retainer</em>::ongoing
+            </div>
+            <div class="details__engagement-body">
+              <p>Ongoing support for work that evolves over time.</p>
+              <div class="details__engagement-footer">
+                <div class="details__engagement-price">
+                  <span>Monthly from</span>
+                  <span>$3,000</span>
+                </div>
+                <p class="details__engagement-action">
+                  <InlineLink href="mailto:info@omniwerx.io" arrow
+                    >Discuss a retainer</InlineLink
+                  >
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="details__contact">
+          <div class="meta-row">
+            omnx_06::<em>founder</em>
           </div>
           <h2 class="details__title">Abdurahmaan Saloojee</h2>
           <p class="details__text">
@@ -170,42 +210,10 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             solution.
           </p>
           <p class="details__text">
-            <InlineLink href="mailto:asaloojee@omniwerx.io" arrow
-              >asaloojee@omniwerx.io</InlineLink
+            <InlineLink href="mailto:info@omniwerx.io" arrow
+              >Let's talk</InlineLink
             >
           </p>
-        </div>
-        <div class="details__contact">
-          <div class="meta-row">
-            omnx_06::<em>engagements</em>
-          </div>
-          <h2 class="details__title">Projects & Retainers</h2>
-          <article class="details__engagement">
-            <h3>Project</h3>
-            <div class="details__engagement-price">
-              <span>Starting at</span>
-              <span>$5,000</span>
-            </div>
-            <p>A focused engagement to deliver a defined piece of work.</p>
-            <p>
-              <InlineLink href="mailto:info@omniwerx.io" arrow
-                >Discuss a project</InlineLink
-              >
-            </p>
-          </article>
-          <article class="details__engagement">
-            <h3>Retainer</h3>
-            <div class="details__engagement-price">
-              <span>Monthly from</span>
-              <span>$3,000</span>
-            </div>
-            <p>Ongoing support for work that evolves over time.</p>
-            <p>
-              <InlineLink href="mailto:info@omniwerx.io" arrow
-                >Discuss a retainer</InlineLink
-              >
-            </p>
-          </article>
         </div>
       </section>
     </main>

@@ -92,10 +92,11 @@ main {
 	box-shadow:
 		inset 1px 0 0 var(--border-color--shadow),
 		inset -1px 0 0 var(--border-color--shadow);
+	margin-block-start: 1rem;
 }
 
 #hero {
-	min-block-size: 100vh;
+	min-block-size: calc(100vh - 3.5rem);
 	display: grid;
 	grid-template-rows: repeat(2, minmax(auto, 1fr));
 }
@@ -258,29 +259,52 @@ h2 {
 }
 
 .details__engagement {
-	background-color: var(--black--secondary);
-	padding: 1.5rem 1rem;
+	--engagement-border-color: var(--border-color);
+
+	margin-inline: 1rem;
+	border: 1px solid var(--engagement-border-color);
+}
+
+.details__engagement--retainer {
+	--engagement-border-color: var(--border-color--raised);
 }
 
 .details__engagement + .details__engagement {
-	border-block-start: var(--rule-primary);
+	margin-block-start: 1rem;
 }
 
-.details__engagement h3 {
-	color: var(--white--primary);
-	font-size: 1.25rem;
-	font-weight: 500;
+.details__engagement-meta {
+	padding: 0.5rem 0.75rem;
+	color: var(--white--tertiary);
+	font-family: var(--font-mono);
+	font-size: var(--text-small);
 	line-height: var(--leading-1);
+	border-block-end: 1px dashed var(--engagement-border-color);
+}
+
+.details__engagement-meta em {
+	color: var(--white--primary);
+	font-style: normal;
+}
+
+.details__engagement-body {
+	padding: 1rem 0.75rem;
+}
+
+.details__engagement-footer {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
+	margin-block-start: 1rem;
 }
 
 .details__engagement-price {
 	display: flex;
-	justify-content: flex-start;
-	align-items: baseline;
-	gap: 1rem;
-	margin-block-start: 0.5rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.5rem;
 	font-family: var(--font-mono);
-	font-size: 1.5rem;
 	line-height: var(--leading-1);
 }
 
@@ -291,13 +315,19 @@ h2 {
 
 .details__engagement-price span:last-child {
 	color: var(--white--primary);
+	font-size: 2rem;
+	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
 }
 
 .details__engagement p {
-	margin-block-start: 1rem;
 	color: var(--white--secondary);
 	text-wrap: pretty;
+}
+
+.details__engagement .details__engagement-action {
+	margin-block-start: 0;
+	text-align: end;
 }
 
 #details > div {
