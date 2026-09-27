@@ -1,20 +1,12 @@
 ---
 import "../styles/global.css";
 import BlenderLogo from "../components/BlenderLogo.astro";
-import FaqAccordion from "../components/FaqAccordion.astro";
 import Footer from "../components/Footer.astro";
 import InlineLink from "../components/InlineLink.astro";
-import checkCutoutAccent from "../assets/icons/check--cutout-accent.svg";
-import checkCutoutPwhite from "../assets/icons/check--cutout-pwhite.svg";
-import wordmark from "../assets/images/brand/wordmark.svg";
 import wordmark_embossed from "../assets/images/brand/wordmark-embossed.png";
 import wordmarkEmbossedMobile from "../assets/images/brand/wordmark-embossed--mobile.png";
 import profileImage from "../assets/images/portraits/abdurahmaan-saloojee.jpg";
-import jordanShallowImage from "../assets/images/portraits/jordan-shallow.jpg";
 import socialImage from "../assets/images/social/og-image.png";
-import jcHealthPerformanceImage from "../assets/images/work/jc-health-performance.jpg";
-import preScriptImage from "../assets/images/work/pre-script.jpg";
-import spokenLiveImage from "../assets/images/work/spoken-live.jpg";
 import Image from "astro/components/Image.astro";
 import { getImage } from "astro:assets";
 
@@ -149,11 +141,9 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           </div>
           <h2 class="details__title">How we work together</h2>
           <article class="details__engagement details__engagement--project">
-            <div class="details__engagement-meta">
-              <em>project</em>::fixed
-            </div>
             <div class="details__engagement-body">
-              <p>A focused sprint to deliver a defined result.</p>
+              <h3>Project</h3>
+              <p>A focused, 2-4 week sprint to deliver a defined result.</p>
               <div class="details__engagement-footer">
                 <div class="details__engagement-price">
                   <span>Starting at</span>
@@ -168,11 +158,9 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             </div>
           </article>
           <article class="details__engagement details__engagement--retainer">
-            <div class="details__engagement-meta">
-              <em>retainer</em>::ongoing
-            </div>
             <div class="details__engagement-body">
-              <p>Steady support for evolving needs.</p>
+              <h3>Retainer</h3>
+              <p>Ongoing support for evolving needs.</p>
               <div class="details__engagement-footer">
                 <div class="details__engagement-price">
                   <span>Monthly from</span>
@@ -189,18 +177,18 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
         </div>
         <div class="details__contact">
           <div class="meta-row">
-            omnx_06::<em>founder</em>
+            omnx_06::<em>profile</em>
           </div>
-          <h2 class="details__title">Abdurahmaan Saloojee</h2>
+          <h2 class="details__title">About the founder</h2>
           <p class="details__text">
             <Image
               src={profileImage}
               alt="Portrait of Abdurahmaan Saloojee"
               class="details__founder-headshot"
             />
-            I'm a developer and designer from Ottawa, Canada, and I care deeply about
-            product and user experience. I currently build web products and support
-            marketing infrastructure at Pre-Script&reg;.
+            I'm Abdurahmaan Saloojee, a developer from Ottawa, Canada, and I care
+            deeply about product and user experience. I currently build web products
+            and support marketing infrastructure at Pre-Script&reg;.
           </p>
           <p class="details__text">
             Through Omniwerx&reg;, I help clients refine their digital presence

@@ -231,11 +231,15 @@ h2 {
 	margin-block-start: 1rem;
 }
 
-.details__list-item h3 {
+.details__list-item h3,
+.details__engagement h3 {
 	color: var(--white--primary);
 	font-size: 1.25rem;
 	font-weight: 500;
 	line-height: var(--leading-1);
+}
+
+.details__list-item h3 {
 	display: flex;
 	align-items: center;
 }
@@ -271,22 +275,12 @@ h2 {
 	margin-block-start: 1rem;
 }
 
-.details__engagement-meta {
-	padding: 0.75rem 1rem;
-	color: var(--white--tertiary);
-	font-family: var(--font-mono);
-	font-size: var(--text-small);
-	line-height: var(--leading-1);
-	border-block-end: 1px dashed var(--engagement-border-color);
-}
-
-.details__engagement-meta em {
-	color: var(--white--primary);
-	font-style: normal;
-}
-
 .details__engagement-body {
 	padding: 1rem;
+}
+
+.details__engagement-body > p {
+	margin-block-start: 0.5rem;
 }
 
 .details__engagement-footer {
