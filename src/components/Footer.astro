@@ -74,8 +74,9 @@ const commitHash = getGitCommitHash();
 <style>
   footer {
     display: grid;
-    grid-template-columns: min(calc(100cqw - 2rem), 1600px);
-    justify-self: center;
+    grid-template-columns: minmax(0, 1fr);
+    inline-size: min(calc(100% - 2rem), 1600px);
+    margin-inline: auto;
     border-block-end: var(--rule-emphasis);
     border-inline: var(--rule-vertical);
     box-shadow:
@@ -142,6 +143,43 @@ const commitHash = getGitCommitHash();
 
   .footer__utility a:hover {
     color: var(--white--primary);
+  }
+
+  @media (max-width: 991px) {
+    footer {
+      inline-size: calc(100% - 1rem);
+    }
+
+    .footer__contact {
+      display: grid;
+      padding-block: 0;
+      grid-template-columns: 1fr;
+    }
+
+    .footer__email {
+      padding: 2rem 1rem;
+    }
+
+    .footer__links {
+      display: grid;
+      gap: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-rows: repeat(2, 1fr);
+      padding: 0;
+      border-block-start: var(--rule-primary);
+    }
+
+    .footer__links a {
+      padding: 1rem;
+    }
+
+    .footer__links a:nth-child(-n + 2) {
+      border-block-end: var(--rule-primary);
+    }
+
+    .footer__links a:nth-child(odd) {
+      border-inline-end: var(--rule-vertical);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {

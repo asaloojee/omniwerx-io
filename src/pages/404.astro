@@ -11,7 +11,7 @@ import notFoundImage from "../assets/images/brand/404.png";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Page Not Found | Omniwerx®</title>
+    <title>404 | Omniwerx®</title>
     <meta name="robots" content="noindex, follow" />
     <meta name="theme-color" content="oklch(0.117 0.003 27.557)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -40,57 +40,73 @@ import notFoundImage from "../assets/images/brand/404.png";
 </html>
 
 <style>
-  body {
+  :global(body) {
     display: grid;
     grid-template-rows: minmax(0, 1fr) auto;
-    min-block-size: 100vh;
+    block-size: 100svh;
+  }
+
+  main {
+    grid-template-rows: minmax(0, 1fr);
+    min-block-size: 0;
   }
 
   .not-found {
     display: grid;
     grid-template-rows: auto minmax(0, 1fr);
+    min-block-size: 0;
     border-block-end: var(--rule-primary);
   }
 
   .not-found__content {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    min-block-size: 0;
   }
 
   .not-found__message {
     display: grid;
-    align-content: center;
-    padding: 1rem;
-    border-inline-end: var(--rule-vertical);
-    box-shadow: var(--rule-vertical-shadow);
+    align-content: start;
+    padding: 2rem 1rem;
   }
 
   .not-found__image {
     display: grid;
+    order: -1;
     align-content: center;
     justify-items: center;
+    min-block-size: 0;
     padding: 4rem;
+    border-block-end: var(--rule-primary);
   }
 
   .not-found h1 {
     height: auto;
+    min-block-size: 0;
     padding: 0;
-    font-size: var(--text-heading);
     font-weight: 700;
     line-height: var(--leading-1);
     letter-spacing: var(--tracking-vtight);
+    color: var(--white--primary);
   }
 
   .not-found__link {
-    --inline-link-underline: var(--white--primary);
     margin-block-start: 1rem;
     color: var(--white--primary);
-    font-size: var(--text-title);
+    font-size: var(--text-lead);
   }
 
   .not-found__image :global(img) {
     display: block;
-    max-inline-size: 100%;
+    inline-size: min(100%, 40rem);
+    max-block-size: 100%;
     block-size: auto;
+    object-fit: contain;
+  }
+
+  @media (max-width: 991px) {
+    .not-found__image {
+      padding: 2rem 1rem;
+    }
   }
 </style>

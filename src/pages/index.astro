@@ -180,15 +180,15 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             omnx_06::<em>profile</em>
           </div>
           <h2 class="details__title">About the founder</h2>
+          <Image
+            src={profileImage}
+            alt="Portrait of Abdurahmaan Saloojee"
+            class="details__founder-headshot"
+          />
           <p class="details__text">
-            <Image
-              src={profileImage}
-              alt="Portrait of Abdurahmaan Saloojee"
-              class="details__founder-headshot"
-            />
-            I'm Abdurahmaan Saloojee, a developer from Ottawa, Canada, and I care
-            deeply about product and user experience. I currently build web products
-            and support marketing infrastructure at Pre-Script&reg;.
+            I'm Abdurahmaan Saloojee, a developer from Ottawa, Canada, and I
+            care deeply about product and user experience. I currently build web
+            products and support marketing infrastructure at Pre-Script&reg;.
           </p>
           <p class="details__text">
             Through Omniwerx&reg;, I help clients refine their digital presence
