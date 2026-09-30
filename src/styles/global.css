@@ -72,6 +72,12 @@ html {
 	background-color: var(--black--primary);
 }
 
+@media (hover: hover) and (pointer: fine) {
+	html {
+		overscroll-behavior-y: none;
+	}
+}
+
 body {
 	font-family: var(--font-sans);
 	color: var(--white--secondary);
