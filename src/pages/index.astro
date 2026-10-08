@@ -3,19 +3,11 @@ import "../styles/global.css";
 import BlenderLogo from "../components/BlenderLogo.astro";
 import Footer from "../components/Footer.astro";
 import InlineLink from "../components/InlineLink.astro";
-import wordmark_embossed from "../assets/images/brand/wordmark-embossed.png";
-import wordmarkEmbossedMobile from "../assets/images/brand/wordmark-embossed--mobile.png";
+import wordmark from "../assets/images/brand/wordmark.svg";
+import wordmarkMobile from "../assets/images/brand/wordmark-mobile.svg";
 import profileImage from "../assets/images/portraits/abdurahmaan-saloojee.jpg";
 import socialImage from "../assets/images/social/og-image.png";
 import Image from "astro/components/Image.astro";
-import { getImage } from "astro:assets";
-
-const mobileWordmark = await getImage({
-  src: wordmarkEmbossedMobile,
-  width: 1200,
-  format: "webp",
-});
-
 const title = "Omniwerx®";
 const description = "Omniwerx®: Precision-engineered websites & interfaces.";
 const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url);
@@ -69,13 +61,13 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             <picture>
               <source
                 media="(max-width: 991px)"
-                srcset={mobileWordmark.src}
-                type="image/webp"
-                width={mobileWordmark.attributes.width}
-                height={mobileWordmark.attributes.height}
+                srcset={wordmarkMobile.src}
+                type="image/svg+xml"
+                width={wordmarkMobile.width}
+                height={wordmarkMobile.height}
               />
               <Image
-                src={wordmark_embossed}
+                src={wordmark}
                 alt="Omniwerx®"
                 class="hero__wordmark__img"
               />
@@ -90,7 +82,7 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             <h1>
               Omniwerx&reg; is the development and design consultancy of
               Abdurahmaan Saloojee, specializing in websites, product
-              interfaces, and custom software for growing businesses.
+              interfaces, and custom software for expert-led fitness businesses.
             </h1>
           </div>
           <div class="hero__content__model">
@@ -112,24 +104,24 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
               <span class="list__index">01</span>
               <h3>Website</h3>
               <p>
-                Building and reinforcing your web presence through branding,
-                design, and implementation.
+                Build a credible, polished digital presence that clearly
+                differentiates you from competitors.
               </p>
             </article>
             <article class="details__list-item">
               <span class="list__index">02</span>
               <h3>Product</h3>
               <p>
-                Refining your product through compelling sales pages and
-                thoughtful customer journeys.
+                Provide a streamlined customer experience across lead funnels,
+                sales flows, and other touchpoints.
               </p>
             </article>
             <article class="details__list-item">
               <span class="list__index">03</span>
               <h3>Marketing</h3>
               <p>
-                Giving your product more polish, creating digital assets, and
-                supporting email marketing operations.
+                Reinforce the technical systems and assets that support
+                campaigns, emails, and marketing growth.
               </p>
             </article>
           </div>
@@ -142,7 +134,11 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
           <article class="details__engagement details__engagement--project">
             <div class="details__engagement-body">
               <h3>Project</h3>
-              <p>A focused, 2-4 week sprint to deliver a defined result.</p>
+              <p>
+                A focused, 2-4 week sprint to deliver a defined result. Refresh
+                design language, implement a new page, or remove a technical
+                bottleneck.
+              </p>
               <div class="details__engagement-footer">
                 <div class="details__engagement-price">
                   <span>Starting at</span>
@@ -156,23 +152,15 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
               </div>
             </div>
           </article>
-          <article class="details__engagement details__engagement--retainer">
-            <div class="details__engagement-body">
-              <h3>Retainer</h3>
-              <p>Ongoing support for evolving needs.</p>
-              <div class="details__engagement-footer">
-                <div class="details__engagement-price">
-                  <span>Monthly from</span>
-                  <span>$3,000</span>
-                </div>
-                <p class="details__engagement-action">
-                  <InlineLink href="mailto:info@omniwerx.io" arrow
-                    >Discuss a retainer</InlineLink
-                  >
-                </p>
-              </div>
-            </div>
-          </article>
+          <p class="details__text details__partnership-copy">
+            We also offer embedded partnerships for businesses with a backlog of
+            development and design work.
+          </p>
+          <p class="details__text">
+            <InlineLink href="mailto:info@omniwerx.io" arrow
+              >Inquire about a partnership</InlineLink
+            >
+          </p>
         </div>
         <div class="details__contact">
           <div class="meta-row">
@@ -185,9 +173,9 @@ const socialImageUrl = new URL(socialImage.src, Astro.site ?? Astro.url);
             class="details__founder-headshot"
           />
           <p class="details__text">
-            I'm Abdurahmaan Saloojee, a developer & designer from Ottawa. I
-            currently build web products and support marketing infrastructure at
-            Pre-Script, a fitness education company.
+            I'm Abdurahmaan Saloojee, a developer & designer from Ottawa,
+            Canada. I currently build web products and support marketing
+            infrastructure at Pre-Script, a fitness education company.
           </p>
           <p class="details__text">
             Through Omniwerx&reg;, I help businesses build better websites,

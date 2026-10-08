@@ -36,7 +36,7 @@
 	--text-body: 1rem;
 	--text-lead: 1.25rem;
 	--text-title: 1.5rem;
-	--text-heading: 3rem;
+	--text-heading: 2rem;
 	--text-display: 4rem;
 
 	/* Line height */
@@ -178,7 +178,7 @@ h1 {
 	flex-direction: column;
 	justify-content: center;
 	font-family: var(--font-sans);
-	font-size: 2rem;
+	font-size: var(--text-heading);
 	line-height: var(--leading-short);
 	text-wrap: balance;
 	letter-spacing: var(--tracking-tight);
@@ -199,7 +199,7 @@ h2 {
 	padding-inline: 1rem;
 	padding-block: 2rem 1.5rem;
 	font-family: var(--font-sans);
-	font-size: 1.75rem;
+	font-size: var(--text-heading);
 	font-weight: 700;
 	color: var(--white--primary);
 	line-height: var(--leading-short);
@@ -245,7 +245,7 @@ h2 {
 .details__list-item h3,
 .details__engagement h3 {
 	color: var(--white--primary);
-	font-size: 1.25rem;
+	font-size: var(--text-title);
 	font-weight: 500;
 	line-height: var(--leading-1);
 }
@@ -264,7 +264,7 @@ h2 {
 .list__index {
 	color: var(--white--tertiary);
 	font-family: var(--font-mono);
-	font-size: var(--text-body);
+	font-size: var(--text-lead);
 	font-weight: 400;
 	line-height: var(--leading-1);
 	display: flex;
@@ -272,35 +272,29 @@ h2 {
 }
 
 .details__engagement {
-	--engagement-border-color: var(--border-color);
+	--engagement-border-color: var(--border-color--raised);
 
 	margin-inline: 1rem;
 	border: 1px solid var(--engagement-border-color);
 }
-
-.details__engagement--retainer {
-	--engagement-border-color: var(--border-color--raised);
+.details__engagement--project h3 {
+	font-size: var(--text-title);
 }
 
-.details__engagement + .details__engagement {
+.details__partnership-copy {
 	margin-block-start: 1rem;
 }
 
 .details__engagement-body {
-	padding: 1rem;
+	padding: 1.25rem;
 }
 
 .details__engagement-body > p {
-	margin-block-start: 0.5rem;
+	margin-block-start: 0.75rem;
 }
 
 .details__engagement-footer {
-	display: flex;
-	flex-direction: row;
-	align-items: self-end;
-	justify-content: space-between;
-	gap: 1rem;
-	margin-block-start: 1rem;
+	margin-block-start: 0.75rem;
 }
 
 .details__engagement-price {
@@ -319,8 +313,7 @@ h2 {
 
 .details__engagement-price span:last-child {
 	color: var(--white--primary);
-	font-size: 1.5rem;
-	letter-spacing: var(--tracking-vtight);
+	font-size: var(--text-heading);
 	font-variant-numeric: tabular-nums;
 	white-space: nowrap;
 }
@@ -331,8 +324,7 @@ h2 {
 }
 
 .details__engagement .details__engagement-action {
-	margin-block-start: 0;
-	text-align: end;
+	margin-block-start: 0.75rem;
 }
 
 #details > div {
@@ -351,7 +343,7 @@ h2 {
 
 	h1 {
 		padding-block: 2rem;
-		font-size: 1.5rem;
+		font-size: var(--text-title);
 	}
 
 	.hero__wordmark,
@@ -392,20 +384,11 @@ h2 {
 	}
 
 	#details h2 {
-		font-size: 1.5rem;
+		font-size: var(--text-heading);
 	}
 
 	.details__list-item p {
 		grid-column: 1 / -1;
-	}
-
-	.details__engagement-footer {
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.details__engagement .details__engagement-action {
-		align-self: flex-end;
 	}
 
 	.details__founder-headshot {
